@@ -428,6 +428,7 @@ fun ChatComposer(
                 }
             }
         }
+        }
     }
 }
 
