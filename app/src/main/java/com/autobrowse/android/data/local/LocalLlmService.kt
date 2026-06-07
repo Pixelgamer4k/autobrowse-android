@@ -12,33 +12,59 @@ import com.autobrowse.android.domain.model.ToolDefinition
 import com.llamatik.library.platform.GenStream
 import com.llamatik.library.platform.LlamaBridge
 import com.llamatik.library.platform.MultimodalBridge
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 import org.json.JSONArray
 import org.json.JSONObject
+import java.util.concurrent.atomic.AtomicBoolean
+
 class LocalLlmService(
     private val modelFileManager: ModelFileManager,
 ) {
     private val engineMutex = Mutex()
+    private val inferenceMutex = Mutex()
     private var cachedConfigKey: String? = null
+    private val generationCancelled = AtomicBoolean(false)
+
+    /**
+     * Abort in-flight native generation and reset KV state so the next prompt can run safely.
+     */
+    fun cancelActiveGeneration() {
+        generationCancelled.set(true)
+        runCatching { LlamaBridge.nativeCancelGenerate() }
+        runCatching { LlamaBridge.sessionReset() }
+        runCatching { MultimodalBridge.release() }
+    }
+
+    suspend fun warmUp(config: LlmConfig) = withContext(Dispatchers.IO) {
+        if (!config.localModelPath.isNotBlank() || !config.localMmprojPath.isNotBlank()) return@withContext
+        runCatching {
+            requireModelFiles(config)
+            ensureEngine(config)
+        }
+    }
 
     suspend fun testConnection(config: LlmConfig): String = withContext(Dispatchers.IO) {
         requireModelFiles(config)
-        ensureEngine(config)
-        val response = generateFromMessages(
-            config = config,
-            systemPrompt = "You are a helpful assistant.",
-            messages = listOf(ChatMessageDto(role = "user", content = "Reply with OK.")),
-            tools = emptyList(),
-            attachmentPayload = AttachmentPayload(),
-        )
-        val text = response.content.orEmpty()
-        if (text.isNotBlank()) {
-            "Connected on ${config.backend.name} — model replied: ${text.take(80)}"
-        } else {
-            "Connected on ${config.backend.name} — model responded successfully."
+        runInference {
+            ensureEngine(config)
+            val response = generateFromMessages(
+                config = config,
+                systemPrompt = "You are a helpful assistant.",
+                messages = listOf(ChatMessageDto(role = "user", content = "Reply with OK.")),
+                tools = emptyList(),
+                attachmentPayload = AttachmentPayload(),
+                compactTools = true,
+            )
+            val text = response.content.orEmpty()
+            if (text.isNotBlank()) {
+                "Connected on ${config.backend.name} — model replied: ${text.take(80)}"
+            } else {
+                "Connected on ${config.backend.name} — model responded successfully."
+            }
         }
     }
 
@@ -49,13 +75,24 @@ class LocalLlmService(
         tools: List<ToolDefinition> = emptyList(),
         attachmentPayload: AttachmentPayload = AttachmentPayload(),
         onTokenDelta: ((String) -> Unit)? = null,
+        compactTools: Boolean = false,
     ): LlmCompletion = withContext(Dispatchers.IO) {
         requireModelFiles(config)
         if (messages.isEmpty()) {
             throw IllegalStateException("No messages to send.")
         }
-        ensureEngine(config)
-        generateFromMessages(config, systemPrompt, messages, tools, attachmentPayload, onTokenDelta)
+        runInference {
+            ensureEngine(config)
+            generateFromMessages(
+                config,
+                systemPrompt,
+                messages,
+                tools,
+                attachmentPayload,
+                onTokenDelta,
+                compactTools,
+            )
+        }
     }
 
     suspend fun chat(
@@ -69,12 +106,25 @@ class LocalLlmService(
         systemPrompt = systemPrompt,
         messages = history + ChatMessageDto(role = "user", content = userPrompt),
         attachmentPayload = attachmentPayload,
+        compactTools = true,
     ).content ?: throw IllegalStateException("No completion returned from local model.")
 
     fun close() {
-        MultimodalBridge.release()
+        cancelActiveGeneration()
         LlamaBridge.shutdown()
         cachedConfigKey = null
+    }
+
+    private suspend fun <T> runInference(block: suspend () -> T): T = inferenceMutex.withLock {
+        generationCancelled.set(false)
+        try {
+            block()
+        } catch (e: CancellationException) {
+            cancelActiveGeneration()
+            throw e
+        } finally {
+            runCatching { LlamaBridge.sessionReset() }
+        }
     }
 
     private suspend fun generateFromMessages(
@@ -83,9 +133,12 @@ class LocalLlmService(
         messages: List<ChatMessageDto>,
         tools: List<ToolDefinition>,
         attachmentPayload: AttachmentPayload,
-        onTokenDelta: ((String) -> Unit)? = null,
+        onTokenDelta: ((String) -> Unit)?,
+        compactTools: Boolean,
     ): LlmCompletion {
-        val enrichedSystem = augmentSystemPrompt(systemPrompt, tools)
+        runCatching { LlamaBridge.sessionReset() }
+
+        val enrichedSystem = augmentSystemPrompt(systemPrompt, tools, compactTools)
         val visionContext = analyzeVisionContext(config, messages, attachmentPayload)
         val promptMessages = buildPromptMessages(messages, visionContext)
         val prompt = LlamaBridge.applyChatTemplate(
@@ -96,19 +149,26 @@ class LocalLlmService(
         val rawText = if (onTokenDelta != null) {
             generateStream(prompt, onTokenDelta)
         } else {
-            LlamaBridge.generate(prompt)
+            generateBlocking(prompt)
         }
         return parseCompletion(rawText, tools.map { it.name }.toSet())
+    }
+
+    private fun generateBlocking(prompt: String): String {
+        if (generationCancelled.get()) throw CancellationException("Generation cancelled")
+        return LlamaBridge.generate(prompt)
     }
 
     private fun generateStream(prompt: String, onTokenDelta: (String) -> Unit): String {
         val builder = StringBuilder()
         val latch = java.util.concurrent.CountDownLatch(1)
         var error: String? = null
+
         LlamaBridge.generateStream(
             prompt,
             object : GenStream {
                 override fun onDelta(text: String) {
+                    if (generationCancelled.get()) return
                     builder.append(text)
                     onTokenDelta(text)
                 }
@@ -123,7 +183,11 @@ class LocalLlmService(
                 }
             },
         )
+
         latch.await()
+        if (generationCancelled.get()) {
+            throw CancellationException("Generation cancelled")
+        }
         error?.let { throw IllegalStateException("Local model stream failed: $it") }
         return builder.toString()
     }
@@ -136,11 +200,11 @@ class LocalLlmService(
         val imageBytes = firstImageBytes(attachmentPayload) ?: return null
         val userPrompt = messages.lastOrNull { it.role == "user" }?.content.orEmpty()
         val analysisPrompt = buildString {
-            append("Describe this image for a browser automation agent. ")
-            append("Focus on UI elements, text, links, and actionable items.")
+            append("Describe this image briefly for a browser agent. ")
+            append("List UI elements, text, and links.")
             if (userPrompt.isNotBlank()) {
-                append("\nUser task context: ")
-                append(userPrompt)
+                append("\nTask: ")
+                append(userPrompt.take(200))
             }
         }
         return runBlockingVisionAnalysis(config, imageBytes, analysisPrompt)
@@ -163,6 +227,7 @@ class LocalLlmService(
             prompt = prompt,
             callback = object : GenStream {
                 override fun onDelta(text: String) {
+                    if (generationCancelled.get()) return
                     builder.append(text)
                 }
 
@@ -178,8 +243,9 @@ class LocalLlmService(
         )
         latch.await()
         MultimodalBridge.release()
+        if (generationCancelled.get()) return null
         error?.let { return null }
-        builder.toString().trim().ifBlank { null }
+        builder.toString().trim().ifBlank { null }?.take(1500)
     } catch (_: Exception) {
         MultimodalBridge.release()
         null
@@ -191,30 +257,31 @@ class LocalLlmService(
 
         LlamaBridge.shutdown()
 
-        val modelReady = LlamaBridge.initGenerateModel(config.localModelPath)
-        if (!modelReady) {
-            throw IllegalStateException("Failed to load GGUF model at ${config.localModelPath}")
-        }
-
         val gpuLayers = when (config.backend) {
             LlmBackend.CPU -> 0
             LlmBackend.GPU -> -1
             LlmBackend.NPU -> 0
         }
 
+        // Params must be set before init — contextLength/batch/gpuLayers apply at load time.
         LlamaBridge.updateGenerateParams(
             temperature = config.temperature,
-            maxTokens = config.maxTokens.coerceAtMost(2048),
+            maxTokens = config.maxTokens.coerceIn(256, 1024),
             topP = 0.9f,
             topK = 40,
             repeatPenalty = 1.1f,
-            contextLength = 16384,
-            numThreads = Runtime.getRuntime().availableProcessors().coerceAtMost(6),
+            contextLength = 4096,
+            numThreads = Runtime.getRuntime().availableProcessors().coerceIn(2, 4),
             useMmap = true,
             flashAttention = false,
-            batchSize = 512,
+            batchSize = 128,
             gpuLayers = gpuLayers,
         )
+
+        val modelReady = LlamaBridge.initGenerateModel(config.localModelPath)
+        if (!modelReady) {
+            throw IllegalStateException("Failed to load GGUF model at ${config.localModelPath}")
+        }
 
         cachedConfigKey = key
     }
@@ -235,31 +302,45 @@ class LocalLlmService(
     private fun engineCacheKey(config: LlmConfig): String =
         "${config.localModelPath}|${config.localMmprojPath}|${config.backend}"
 
-    private fun augmentSystemPrompt(base: String, tools: List<ToolDefinition>): String {
+    private fun augmentSystemPrompt(
+        base: String,
+        tools: List<ToolDefinition>,
+        compact: Boolean,
+    ): String {
         if (tools.isEmpty()) return base
-        val toolArray = JSONArray()
-        tools.forEach { tool ->
-            toolArray.put(
-                JSONObject()
-                    .put("type", "function")
-                    .put(
-                        "function",
-                        JSONObject()
-                            .put("name", tool.name)
-                            .put("description", tool.description)
-                            .put("parameters", JSONObject(tool.parametersJson)),
-                    ),
-            )
-        }
         return buildString {
             append(base.trim())
             append("\n\n# Tools\n")
-            append("You may call tools to complete browser automation tasks.\n")
-            append("Available tools (JSON schema):\n")
-            append(toolArray.toString(2))
+            append("Call tools using the model's native tool-call format.\n")
+            if (compact) {
+                append("Available tools:\n")
+                tools.forEach { tool ->
+                    append("- ")
+                    append(tool.name)
+                    append(": ")
+                    append(tool.description.take(120))
+                    append('\n')
+                }
+            } else {
+                val toolArray = JSONArray()
+                tools.forEach { tool ->
+                    toolArray.put(
+                        JSONObject()
+                            .put("type", "function")
+                            .put(
+                                "function",
+                                JSONObject()
+                                    .put("name", tool.name)
+                                    .put("description", tool.description)
+                                    .put("parameters", JSONObject(tool.parametersJson)),
+                            ),
+                    )
+                }
+                append(toolArray.toString(2))
+            }
             append(
-                "\n\nWhen you need a tool, respond with tool calls using the model's native format. " +
-                    "After tool results arrive, continue the task or give the final answer.",
+                "\nAfter tool results, continue or give the final answer. " +
+                    "Prefer browser_search for site searches.",
             )
         }
     }
@@ -273,7 +354,7 @@ class LocalLlmService(
                 "user" -> {
                     val content = buildString {
                         if (index == messages.lastIndex && !visionContext.isNullOrBlank()) {
-                            append("[Vision analysis]\n")
+                            append("[Vision]\n")
                             append(visionContext.trim())
                             append("\n\n")
                         }
@@ -309,7 +390,7 @@ class LocalLlmService(
         append("tool: ")
         append(dto.name ?: "unknown")
         append("\n")
-        append(dto.content.orEmpty())
+        append(dto.content.orEmpty().take(2000))
     }
 
     private fun fallbackPrompt(
@@ -317,12 +398,12 @@ class LocalLlmService(
         messages: List<Pair<String, String>>,
     ): String = buildString {
         append("System:\n")
-        append(systemPrompt)
+        append(systemPrompt.take(6000))
         append("\n\n")
         messages.forEach { (role, content) ->
             append(role.replaceFirstChar { it.uppercase() })
             append(":\n")
-            append(content)
+            append(content.take(3000))
             append("\n\n")
         }
         append("Assistant:\n")

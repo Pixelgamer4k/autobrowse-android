@@ -21,6 +21,7 @@ import com.autobrowse.android.domain.model.AutoBrowseRequest
 import com.autobrowse.android.domain.model.AutomationTask
 import com.autobrowse.android.domain.model.BrowserContext
 import com.autobrowse.android.domain.model.ChatMessage
+import com.autobrowse.android.domain.model.LlmProvider
 import com.autobrowse.android.domain.model.TaskStatus
 import com.autobrowse.android.domain.model.ToolCall
 import com.autobrowse.android.domain.model.ToolResult
@@ -55,6 +56,7 @@ class AgentLoop(
 
     fun requestCancel() {
         cancelRequested.set(true)
+        llmApi.cancelLocalGeneration()
         _progress.value = AgentProgress(
             phase = AgentPhase.IDLE,
             iteration = _progress.value.iteration,
@@ -108,6 +110,7 @@ class AgentLoop(
                 rawPrompt = rawPrompt,
             )
         } catch (e: CancellationException) {
+            llmApi.cancelLocalGeneration()
             repository.updateTask(
                 task.copy(status = TaskStatus.CANCELLED, progress = _progress.value.iteration.toFloat() / maxIterations),
                 request.sessionId,
@@ -142,6 +145,8 @@ class AgentLoop(
             _progress.value = AgentProgress(AgentPhase.THINKING, 0, maxIterations, message = "Planning…")
 
             val config = repository.getLlmConfig()
+            val allToolDefs = toolRegistry.definitions()
+            val isLocal = config.provider == LlmProvider.LOCAL
             val prefetched = memoryManager.prefetch(rawPrompt)
             val strategies = selfImprovementEngine.getRelevantStrategies(
                 rawPrompt,
@@ -151,7 +156,11 @@ class AgentLoop(
                 prefetchedMemory = prefetched,
                 strategies = strategies,
                 pageUrl = browserContext.pageUrl,
-                enabledToolNames = toolRegistry.definitions().map { it.name },
+                enabledToolNames = if (isLocal) {
+                    LocalToolSelector.select(rawPrompt, allToolDefs, iteration = 1).map { it.name }
+                } else {
+                    allToolDefs.map { it.name }
+                },
                 userPrompt = rawPrompt,
             )
 
@@ -200,14 +209,21 @@ class AgentLoop(
                     else -> AttachmentPayload()
                 }
 
+                val activeTools = if (isLocal) {
+                    LocalToolSelector.select(rawPrompt, allToolDefs, iteration)
+                } else {
+                    allToolDefs
+                }
+
                 val streamBuffer = StringBuilder()
                 var lastStreamUiUpdate = 0L
                 val completion = llmApi.complete(
                     config = config,
                     systemPrompt = systemPrompt,
                     messages = loopMessages,
-                    tools = toolRegistry.definitions(),
+                    tools = activeTools,
                     attachmentPayload = attachmentPayload,
+                    compactTools = isLocal,
                     onTokenDelta = { delta ->
                         streamBuffer.append(delta)
                         val now = System.currentTimeMillis()

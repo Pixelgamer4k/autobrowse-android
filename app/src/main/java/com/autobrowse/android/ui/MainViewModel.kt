@@ -120,6 +120,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             }
             activeSessionId.value = session.id
             refreshAgentSkills()
+            if (llmConfig.isConfigured()) {
+                llmApi.warmUpLocalModel(llmConfig)
+            }
         }
 
         viewModelScope.launch {
@@ -491,9 +494,16 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun stopAgent() {
+        agentLoop.requestCancel()
+        llmApi.cancelLocalGeneration()
         agentJob?.cancel()
         app.taskOrchestrator.cancelAll()
-        agentLoop.requestCancel()
+        _uiState.update {
+            it.copy(
+                isAgentThinking = false,
+                agentProgress = AgentProgress(AgentPhase.IDLE, 0, 20, message = "Stopped"),
+            )
+        }
     }
 
     private fun wireTabManager() {
@@ -573,6 +583,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         if ((prompt.isBlank() && attachments.isEmpty()) || _uiState.value.isAgentThinking) return
 
         agentJob?.cancel()
+        llmApi.cancelLocalGeneration()
         agentJob = viewModelScope.launch {
             val llmConfig = repository.getLlmConfig()
             if (!llmConfig.isConfigured()) {
@@ -608,7 +619,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 val pageText = browserController.getPageText()
                 val pageUrl = browserController.getCurrentUrl()
 
-                val result = agentLoop.runConversation(
+                val result = app.taskOrchestrator.runSingle(
                     request = AutoBrowseRequest(
                         prompt = prompt,
                         sessionId = id,
@@ -649,6 +660,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                     llmConnectionTest = LlmConnectionTestState(),
                     error = setupBannerMessage(config),
                 )
+            }
+            if (config.isConfigured()) {
+                llmApi.warmUpLocalModel(config)
             }
         }
     }

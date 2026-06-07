@@ -1,0 +1,86 @@
+package com.autobrowse.android.agent.core
+
+import com.autobrowse.android.domain.model.ToolDefinition
+
+/**
+ * Keeps on-device prompts small enough for fast first-token latency on mobile.
+ * Remote/cloud agents still receive the full tool catalog.
+ */
+object LocalToolSelector {
+    private const val MAX_TOOLS = 22
+
+    private val CORE_TOOLS = setOf(
+        "browser_search",
+        "browser_wait",
+        "browser_navigate",
+        "browser_snapshot",
+        "browser_click",
+        "browser_type",
+        "browser_scroll",
+        "browser_back",
+        "browser_accept_cookies",
+        "browser_dismiss_overlays",
+        "browser_get_links",
+        "browser_find_text",
+        "browser_readability",
+        "memory_remember",
+        "memory_recall",
+        "todo_write",
+        "clarify",
+    )
+
+    fun select(
+        userPrompt: String,
+        allTools: List<ToolDefinition>,
+        iteration: Int,
+    ): List<ToolDefinition> {
+        val byName = allTools.associateBy { it.name }
+        val selected = linkedSetOf<String>()
+
+        CORE_TOOLS.forEach { name -> selected += name }
+
+        val lower = userPrompt.lowercase()
+        when {
+            lower.contains("tab") -> selected += setOf(
+                "browser_tab_open",
+                "browser_tab_close",
+                "browser_tab_switch",
+                "browser_tab_list",
+            )
+            lower.contains("form") || lower.contains("fill") || lower.contains("login") ->
+                selected += setOf("browser_fill", "browser_select_option", "browser_checkbox_toggle")
+            lower.contains("pdf") -> selected += "pdf_generate"
+            lower.contains("chart") || lower.contains("plot") -> selected += "chart_generate"
+            lower.contains("skill") -> selected += setOf("skills_list", "skill_view")
+            lower.contains("extract") || lower.contains("scrape") -> selected += "extract_data"
+            lower.contains("summar") -> selected += "summarize"
+            lower.contains("parallel") || lower.contains("research") ->
+                selected += setOf("run_parallel_tasks", "delegate_task")
+            lower.contains("screenshot") || lower.contains("image") || lower.contains("see") ->
+                selected += setOf("browser_screenshot", "browser_vision")
+            lower.contains("wait") -> selected += setOf(
+                "browser_wait_for_text",
+                "browser_wait_for_url",
+                "browser_wait_for_element",
+            )
+            lower.contains("cookie") || lower.contains("popup") || lower.contains("modal") ->
+                selected += setOf("browser_close_modal", "browser_get_cookies_notice")
+            lower.contains("price") -> selected += "browser_extract_prices"
+            lower.contains("email") -> selected += "browser_extract_emails"
+        }
+
+        if (iteration > 1) {
+            selected += setOf(
+                "browser_reload",
+                "browser_stop",
+                "browser_element_visible",
+                "browser_compare_url",
+            )
+        }
+
+        return selected
+            .mapNotNull { byName[it] }
+            .take(MAX_TOOLS)
+            .ifEmpty { allTools.take(MAX_TOOLS) }
+    }
+}

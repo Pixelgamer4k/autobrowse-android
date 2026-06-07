@@ -20,6 +20,15 @@ import java.util.concurrent.TimeUnit
 class LlmApiService(
     private val localLlmService: LocalLlmService? = null,
 ) {
+    fun cancelLocalGeneration() {
+        localLlmService?.cancelActiveGeneration()
+    }
+
+    suspend fun warmUpLocalModel(config: LlmConfig) {
+        if (config.provider == LlmProvider.LOCAL) {
+            localLlmService?.warmUp(config)
+        }
+    }
     private val moshi = Moshi.Builder()
         .add(KotlinJsonAdapterFactory())
         .build()
@@ -117,6 +126,7 @@ class LlmApiService(
         tools: List<ToolDefinition> = emptyList(),
         attachmentPayload: AttachmentPayload = AttachmentPayload(),
         onTokenDelta: ((String) -> Unit)? = null,
+        compactTools: Boolean = false,
     ): LlmCompletion = withContext(Dispatchers.IO) {
         if (config.provider == LlmProvider.LOCAL) {
             return@withContext localLlmService?.complete(
@@ -126,6 +136,7 @@ class LlmApiService(
                 tools = tools,
                 attachmentPayload = attachmentPayload,
                 onTokenDelta = onTokenDelta,
+                compactTools = compactTools,
             ) ?: throw IllegalStateException("Local GGUF inference is not available.")
         }
         require(config.apiKey.isNotBlank()) { "API token is required. Configure it on the setup screen." }
