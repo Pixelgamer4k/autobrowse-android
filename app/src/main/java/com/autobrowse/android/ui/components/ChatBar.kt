@@ -106,7 +106,7 @@ fun ChatBar(
         AnimatedVisibility(
             visible = attachments.isNotEmpty(),
             enter = fadeIn(Motion.tweenMedium) + slideInVertically(Motion.springSmoothOffset) { -it / 3 },
-            exit = fadeOut(Motion.tweenQuick) + slideOutVertically(Motion.tweenQuick) { -it / 3 },
+            exit = fadeOut(Motion.tweenQuick) + slideOutVertically(Motion.springSmoothOffset) { -it / 3 },
         ) {
             LazyRow(
                 modifier = Modifier

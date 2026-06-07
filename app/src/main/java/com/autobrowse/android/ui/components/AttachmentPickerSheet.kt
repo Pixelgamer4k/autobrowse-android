@@ -48,7 +48,7 @@ fun AttachmentPickerSheet(
             initialOffsetY = { it / 2 },
         ),
         exit = fadeOut(Motion.tweenQuick) + slideOutVertically(
-            animationSpec = Motion.tweenQuick,
+            animationSpec = Motion.springSmoothOffset,
             targetOffsetY = { it / 2 },
         ),
         modifier = modifier,
