@@ -28,17 +28,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.StrokeCap
-import androidx.compose.ui.graphics.StrokeJoin
 import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.graphics.drawscope.Stroke
-import androidx.compose.ui.graphics.drawscope.clipPath
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.PointerEventPass
 import androidx.compose.ui.input.pointer.pointerInput
@@ -59,8 +54,9 @@ import kotlinx.coroutines.launch
 import kotlin.math.max
 
 private val WindowCornerRadius = 12.dp
-private val CornerGripExtent = 26.dp
-private val CornerGripTouchSize = 56.dp
+private val CornerGripOutset = 8.dp
+private val CornerGripExtent = 22.dp
+private val CornerGripTouchSize = 48.dp
 private val MenuPopupOffset = 22.dp
 private val DefaultDotColor = Color(0xFFF2F2F2)
 
@@ -386,6 +382,7 @@ fun ResizableBrowserWindow(
                 cornerRadiusPx = cornerRadiusPx,
                 modifier = Modifier
                     .align(Alignment.BottomEnd)
+                    .offset(x = CornerGripOutset, y = CornerGripOutset)
                     .size(CornerGripTouchSize)
                     .zIndex(8f),
                 onResizeStart = {
@@ -490,9 +487,9 @@ private fun FrameCornerResizeGrip(
     modifier: Modifier = Modifier,
 ) {
     val density = LocalDensity.current
+    val gripOutsetPx = with(density) { CornerGripOutset.toPx() }
     val gripExtentPx = with(density) { CornerGripExtent.toPx() }
-    val gripColor = Color.White.copy(alpha = 0.88f)
-    val gripHighlight = Color.White.copy(alpha = 0.45f)
+    val gripColor = Color.White.copy(alpha = 0.92f)
 
     Box(
         modifier = modifier.pointerInput(tabId) {
@@ -515,58 +512,36 @@ private fun FrameCornerResizeGrip(
                 onResizeEnd()
             }
         },
-        contentAlignment = Alignment.BottomEnd,
     ) {
         Canvas(modifier = Modifier.fillMaxSize()) {
             val width = size.width
             val height = size.height
-            val radius = cornerRadiusPx.coerceAtMost(minOf(width, height) * 0.45f)
-            val extent = gripExtentPx.coerceAtMost(minOf(width, height) * 0.9f)
+            val vertex = Offset(width - gripOutsetPx, height - gripOutsetPx)
+            val arm = gripExtentPx.coerceAtMost(minOf(width, height) * 0.72f)
+            val stroke = arm * 0.14f
+            val radius = cornerRadiusPx.coerceAtMost(arm * 0.85f)
 
-            val cornerPath = Path().apply {
-                moveTo(width - extent, height)
-                lineTo(width - radius, height)
-                arcTo(
-                    rect = Rect(
-                        offset = Offset(width - radius * 2f, height - radius * 2f),
-                        size = Size(radius * 2f, radius * 2f),
-                    ),
-                    startAngleDegrees = 90f,
-                    sweepAngleDegrees = -90f,
-                    forceMoveTo = false,
-                )
-                lineTo(width, height - extent)
-                lineTo(width - extent * 0.42f, height - extent * 0.42f)
-                close()
-            }
-
-            clipPath(cornerPath) {
-                drawRoundRect(
-                    color = gripHighlight,
-                    topLeft = Offset(width - extent, height - extent),
-                    size = Size(extent, extent),
-                    cornerRadius = CornerRadius(radius, radius),
-                )
-            }
-
-            drawPath(
-                path = cornerPath,
+            drawArc(
                 color = gripColor,
-                style = Stroke(width = 2.8f, cap = StrokeCap.Round, join = StrokeJoin.Round),
+                startAngle = 0f,
+                sweepAngle = 90f,
+                useCenter = false,
+                topLeft = Offset(vertex.x - radius * 2f, vertex.y - radius * 2f),
+                size = Size(radius * 2f, radius * 2f),
+                style = Stroke(width = stroke, cap = StrokeCap.Round),
             )
-
             drawLine(
                 color = gripColor,
-                start = Offset(width - extent, height - 1.5f),
-                end = Offset(width - radius, height - 1.5f),
-                strokeWidth = 3.2f,
+                start = Offset(vertex.x, vertex.y),
+                end = Offset(vertex.x + arm, vertex.y),
+                strokeWidth = stroke,
                 cap = StrokeCap.Round,
             )
             drawLine(
                 color = gripColor,
-                start = Offset(width - 1.5f, height - extent),
-                end = Offset(width - 1.5f, height - radius),
-                strokeWidth = 3.2f,
+                start = Offset(vertex.x, vertex.y),
+                end = Offset(vertex.x, vertex.y + arm),
+                strokeWidth = stroke,
                 cap = StrokeCap.Round,
             )
         }
