@@ -37,6 +37,56 @@ class LlmApiService {
         )
         .build()
 
+    private val testClient = OkHttpClient.Builder()
+        .connectTimeout(20, TimeUnit.SECONDS)
+        .readTimeout(30, TimeUnit.SECONDS)
+        .writeTimeout(20, TimeUnit.SECONDS)
+        .build()
+
+    suspend fun testConnection(config: LlmConfig): String = withContext(Dispatchers.IO) {
+        require(config.apiKey.isNotBlank()) { "API token is required." }
+        require(config.apiUrl.isNotBlank()) { "API URL is required." }
+        require(config.modelId.isNotBlank()) { "Model ID is required." }
+
+        val requestBody = requestAdapter.toJson(
+            ChatCompletionRequest(
+                model = config.modelId,
+                messages = listOf(
+                    ChatMessageDto(role = "user", content = "Reply with OK."),
+                ),
+                temperature = 0f,
+                maxTokens = 5,
+            ),
+        ).toRequestBody("application/json".toMediaType())
+
+        val baseUrl = config.apiUrl.trimEnd('/')
+        val request = Request.Builder()
+            .url("$baseUrl/chat/completions")
+            .addHeader("Authorization", "Bearer ${config.apiKey}")
+            .addHeader("Content-Type", "application/json")
+            .post(requestBody)
+            .build()
+
+        testClient.newCall(request).execute().use { response ->
+            val body = response.body?.string()
+                ?: throw IllegalStateException("Empty response from LLM API")
+
+            if (!response.isSuccessful) {
+                throw IllegalStateException("Connection failed (${response.code}): $body")
+            }
+
+            val parsed = responseAdapter.fromJson(body)
+                ?: throw IllegalStateException("Failed to parse LLM response")
+
+            val reply = parsed.choices.firstOrNull()?.message?.content?.trim()
+            if (!reply.isNullOrBlank()) {
+                "Connected — model replied: $reply"
+            } else {
+                "Connected — model responded successfully."
+            }
+        }
+    }
+
     suspend fun chat(
         config: LlmConfig,
         systemPrompt: String,
@@ -59,7 +109,7 @@ class LlmApiService {
         tools: List<ToolDefinition> = emptyList(),
         attachmentPayload: AttachmentPayload = AttachmentPayload(),
     ): LlmCompletion = withContext(Dispatchers.IO) {
-        require(config.apiKey.isNotBlank()) { "API key is required. Configure it in Settings." }
+        require(config.apiKey.isNotBlank()) { "API token is required. Configure it on the setup screen." }
 
         val apiMessages = buildList {
             add(ChatMessageDto(role = "system", content = systemPrompt))

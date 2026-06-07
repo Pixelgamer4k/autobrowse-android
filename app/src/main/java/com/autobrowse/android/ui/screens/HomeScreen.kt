@@ -1,11 +1,5 @@
 package com.autobrowse.android.ui.screens
 
-import androidx.compose.animation.AnimatedContent
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
-import androidx.compose.animation.slideInHorizontally
-import androidx.compose.animation.slideOutHorizontally
-import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -33,38 +27,34 @@ import com.autobrowse.android.ui.components.ChatComposer
 import com.autobrowse.android.ui.components.ChatPanel
 import com.autobrowse.android.ui.components.SessionsLauncherButton
 import com.autobrowse.android.ui.components.SessionsPanelOverlay
-import com.autobrowse.android.ui.theme.Motion
 import com.autobrowse.android.ui.theme.SectionSeparator
 
 @Composable
 fun HomeScreen(viewModel: MainViewModel) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
 
-    AnimatedContent(
-        targetState = state.showSettings,
-        transitionSpec = {
-            if (targetState) {
-                slideInHorizontally(Motion.springSmoothOffset) { it } + fadeIn(Motion.tweenMedium) togetherWith
-                    slideOutHorizontally(Motion.springSmoothOffset) { -it / 3 } + fadeOut(Motion.tweenQuick)
-            } else {
-                slideInHorizontally(Motion.springSmoothOffset) { -it } + fadeIn(Motion.tweenMedium) togetherWith
-                    slideOutHorizontally(Motion.springSmoothOffset) { it / 3 } + fadeOut(Motion.tweenQuick)
-            }
-        },
-        label = "settingsTransition",
-    ) { showSettings ->
-        if (showSettings) {
-            SettingsScreen(
+    when {
+        state.showLlmSetup -> {
+            LlmSetupScreen(
                 llmConfig = state.llmConfig,
+                connectionTest = state.llmConnectionTest,
+                onTestConnection = viewModel::testLlmConnection,
+                onSave = viewModel::saveLlmConfig,
+                onBack = if (state.llmSetupFromSettings) viewModel::closeLlmSetup else null,
+            )
+        }
+        state.showSettings -> {
+            SettingsScreen(
                 skillConfigs = state.skillConfigs,
                 enabledSkills = state.enabledSkills,
                 memory = state.memory,
                 strategies = state.strategies,
-                onSaveLlmConfig = viewModel::saveLlmConfig,
+                onOpenLlmSetup = { viewModel.openLlmSetup(fromSettings = true) },
                 onToggleSkill = viewModel::toggleSkill,
                 onBack = { viewModel.toggleSettings(false) },
             )
-        } else {
+        }
+        else -> {
             MainContent(viewModel = viewModel, state = state)
         }
     }

@@ -18,6 +18,7 @@ import com.autobrowse.android.domain.model.BrowserWindowLayout
 import com.autobrowse.android.domain.model.withFrame
 import com.autobrowse.android.domain.model.ChatMessage
 import com.autobrowse.android.domain.model.LearnedStrategy
+import com.autobrowse.android.data.remote.LlmApiService
 import com.autobrowse.android.domain.model.LlmConfig
 import com.autobrowse.android.domain.model.MemoryEntry
 import com.autobrowse.android.domain.model.PendingAttachment
@@ -37,6 +38,12 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import java.util.UUID
 
+data class LlmConnectionTestState(
+    val isTesting: Boolean = false,
+    val message: String? = null,
+    val isSuccess: Boolean? = null,
+)
+
 data class MainUiState(
     val session: Session? = null,
     val sessions: List<Session> = emptyList(),
@@ -55,6 +62,9 @@ data class MainUiState(
     val agentProgress: AgentProgress? = null,
     val strategies: List<LearnedStrategy> = emptyList(),
     val showSettings: Boolean = false,
+    val showLlmSetup: Boolean = false,
+    val llmSetupFromSettings: Boolean = false,
+    val llmConnectionTest: LlmConnectionTestState = LlmConnectionTestState(),
     val error: String? = null,
 )
 
@@ -64,6 +74,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val agentLoop = app.agentLoop
     private val attachmentStore = app.attachmentStore
     private val attachmentProcessor = app.attachmentProcessor
+    private val llmApi = LlmApiService()
     val browserController: BrowserController = app.browserController
 
     private val _uiState = MutableStateFlow(MainUiState())
@@ -84,8 +95,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                     llmConfig = llmConfig,
                     skillConfigs = app.skillRegistry.allSkillConfigs(),
                     enabledSkills = repository.getEnabledSkills(),
+                    showLlmSetup = llmConfig.apiKey.isBlank(),
                     error = if (llmConfig.apiKey.isBlank()) {
-                        "Add your API key in Settings (gear icon) to use the agent."
+                        "Add your API token on the setup screen to use the agent."
                     } else {
                         null
                     },
@@ -470,7 +482,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             val llmConfig = repository.getLlmConfig()
             if (llmConfig.apiKey.isBlank()) {
                 _uiState.update {
-                    it.copy(error = "Add your API key in Settings (gear icon) before sending messages.")
+                    it.copy(
+                        error = "Add your API token on the setup screen before sending messages.",
+                        showLlmSetup = true,
+                    )
                 }
                 return@launch
             }
@@ -517,15 +532,84 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     fun saveLlmConfig(config: LlmConfig) {
         viewModelScope.launch {
             repository.saveLlmConfig(config)
+            val fromSettings = _uiState.value.llmSetupFromSettings
             _uiState.update {
                 it.copy(
                     llmConfig = config,
+                    showLlmSetup = config.apiKey.isBlank(),
+                    showSettings = fromSettings && config.apiKey.isNotBlank(),
+                    llmSetupFromSettings = false,
+                    llmConnectionTest = LlmConnectionTestState(),
                     error = if (config.apiKey.isBlank()) {
-                        "Add your API key in Settings (gear icon) to use the agent."
+                        "Add your API token on the setup screen to use the agent."
                     } else {
                         null
                     },
                 )
+            }
+        }
+    }
+
+    fun openLlmSetup(fromSettings: Boolean = false) {
+        _uiState.update {
+            it.copy(
+                showLlmSetup = true,
+                showSettings = false,
+                llmSetupFromSettings = fromSettings,
+                llmConnectionTest = LlmConnectionTestState(),
+            )
+        }
+    }
+
+    fun closeLlmSetup() {
+        _uiState.update {
+            it.copy(
+                showLlmSetup = false,
+                showSettings = it.llmSetupFromSettings,
+                llmSetupFromSettings = false,
+                llmConnectionTest = LlmConnectionTestState(),
+            )
+        }
+    }
+
+    fun testLlmConnection(apiKey: String, apiUrl: String, modelId: String) {
+        viewModelScope.launch {
+            _uiState.update {
+                it.copy(
+                    llmConnectionTest = LlmConnectionTestState(
+                        isTesting = true,
+                        message = "Testing connection…",
+                        isSuccess = null,
+                    ),
+                )
+            }
+            try {
+                val message = llmApi.testConnection(
+                    _uiState.value.llmConfig.copy(
+                        apiKey = apiKey,
+                        apiUrl = apiUrl,
+                        modelId = modelId,
+                    ),
+                )
+                _uiState.update {
+                    it.copy(
+                        llmConnectionTest = LlmConnectionTestState(
+                            isTesting = false,
+                            message = message,
+                            isSuccess = true,
+                        ),
+                    )
+                }
+            } catch (e: Exception) {
+                _uiState.update {
+                    it.copy(
+                        llmConnectionTest = LlmConnectionTestState(
+                            isTesting = false,
+                            message = e.message ?: "Connection test failed.",
+                            isSuccess = false,
+                        ),
+                    )
+                }
             }
         }
     }

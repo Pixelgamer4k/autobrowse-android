@@ -10,27 +10,20 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import com.autobrowse.android.domain.model.LearnedStrategy
-import com.autobrowse.android.domain.model.LlmConfig
 import com.autobrowse.android.domain.model.MemoryEntry
 import com.autobrowse.android.domain.model.SkillConfig
 import com.autobrowse.android.domain.model.SkillType
@@ -38,19 +31,14 @@ import com.autobrowse.android.domain.model.SkillType
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SettingsScreen(
-    llmConfig: LlmConfig,
     skillConfigs: List<SkillConfig>,
     enabledSkills: Set<SkillType>,
     memory: List<MemoryEntry>,
     strategies: List<LearnedStrategy>,
-    onSaveLlmConfig: (LlmConfig) -> Unit,
+    onOpenLlmSetup: () -> Unit,
     onToggleSkill: (SkillType, Boolean) -> Unit,
     onBack: () -> Unit,
 ) {
-    var apiKey by remember(llmConfig) { mutableStateOf(llmConfig.apiKey) }
-    var apiUrl by remember(llmConfig) { mutableStateOf(llmConfig.apiUrl) }
-    var modelId by remember(llmConfig) { mutableStateOf(llmConfig.modelId) }
-
     Scaffold(
         topBar = {
             TopAppBar(
@@ -71,51 +59,17 @@ fun SettingsScreen(
                 .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
-            Text("LLM Integration", style = MaterialTheme.typography.titleMedium)
+            Text("API", style = MaterialTheme.typography.titleMedium)
             Text(
-                "OpenAI-compatible endpoint. API key is stored encrypted on device. Use vision-capable models (e.g. gpt-4o) for image, PDF, and video attachments.",
+                "Token, URL, and model are configured on the LLM setup screen.",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
             )
-
-            OutlinedTextField(
-                value = apiKey,
-                onValueChange = { apiKey = it },
-                label = { Text("API Key") },
-                modifier = Modifier.fillMaxWidth(),
-                visualTransformation = PasswordVisualTransformation(),
-                singleLine = true,
-            )
-            OutlinedTextField(
-                value = apiUrl,
-                onValueChange = { apiUrl = it },
-                label = { Text("API URL") },
-                modifier = Modifier.fillMaxWidth(),
-                singleLine = true,
-                placeholder = { Text("https://api.openai.com/v1/") },
-            )
-            OutlinedTextField(
-                value = modelId,
-                onValueChange = { modelId = it },
-                label = { Text("Model ID") },
-                modifier = Modifier.fillMaxWidth(),
-                singleLine = true,
-                placeholder = { Text("gpt-4o-mini") },
-            )
-
-            Button(
-                onClick = {
-                    onSaveLlmConfig(
-                        llmConfig.copy(
-                            apiKey = apiKey,
-                            apiUrl = apiUrl,
-                            modelId = modelId,
-                        ),
-                    )
-                },
+            OutlinedButton(
+                onClick = onOpenLlmSetup,
                 modifier = Modifier.fillMaxWidth(),
             ) {
-                Text("Save Configuration")
+                Text("Change API Configuration")
             }
 
             Text("Skills", style = MaterialTheme.typography.titleMedium)
