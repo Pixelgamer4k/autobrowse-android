@@ -3,6 +3,7 @@ package com.autobrowse.android.ui.screens
 import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -68,7 +69,7 @@ import com.autobrowse.android.domain.model.LocalLlmModel
 import com.autobrowse.android.ui.LlmConnectionTestState
 import com.autobrowse.android.ui.ModelDownloadState
 
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class, ExperimentalFoundationApi::class)
 @Composable
 fun LlmSetupScreen(
     llmConfig: LlmConfig,
@@ -265,7 +266,7 @@ fun LlmSetupScreen(
     }
 }
 
-@OptIn(ExperimentalLayoutApi::class)
+@OptIn(ExperimentalLayoutApi::class, ExperimentalFoundationApi::class)
 @Composable
 private fun RemoteLlmSection(
     apiKey: String,
