@@ -14,7 +14,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -96,7 +95,7 @@ private fun MainContent(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .weight(0.54f)
+                    .weight(0.55f)
                     .background(MaterialTheme.colorScheme.surfaceVariant),
             ) {
                 BrowserPanel(
@@ -133,9 +132,10 @@ private fun MainContent(
                 onSettings = { viewModel.toggleSettings(true) },
                 scrollOnInput = chatInputFocused,
                 composerBottomPadding = composerBottomPadding,
+                bannerMessage = state.error,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .weight(0.46f)
+                    .weight(0.45f)
                     .background(MaterialTheme.colorScheme.background),
             )
         }
@@ -146,15 +146,6 @@ private fun MainContent(
                 .fillMaxWidth()
                 .onSizeChanged { composerHeightPx = it.height },
         ) {
-            state.error?.let { error ->
-                Text(
-                    text = error,
-                    color = MaterialTheme.colorScheme.error,
-                    style = MaterialTheme.typography.bodySmall,
-                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp),
-                )
-            }
-
             ChatComposer(
                 value = state.chatInput,
                 onValueChange = viewModel::updateChatInput,

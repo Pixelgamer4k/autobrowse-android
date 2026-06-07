@@ -31,9 +31,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.autobrowse.android.ui.theme.SectionSeparator
 import com.autobrowse.android.domain.model.AgentPhase
 import com.autobrowse.android.domain.model.AgentProgress
 import com.autobrowse.android.domain.model.AgentRole
@@ -49,6 +51,7 @@ fun ChatPanel(
     onSettings: () -> Unit,
     scrollOnInput: Boolean,
     composerBottomPadding: Dp,
+    bannerMessage: String? = null,
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -57,6 +60,10 @@ fun ChatPanel(
             .background(MaterialTheme.colorScheme.background),
     ) {
         ChatPanelHeader(onSettings = onSettings)
+
+        bannerMessage?.let { message ->
+            ChatBanner(message = message)
+        }
 
         ChatConversation(
             messages = messages,
@@ -68,6 +75,22 @@ fun ChatPanel(
                 .weight(1f)
                 .fillMaxWidth(),
         )
+    }
+}
+
+@Composable
+private fun ChatBanner(message: String) {
+    Column(modifier = Modifier.fillMaxWidth()) {
+        Text(
+            text = message,
+            color = MaterialTheme.colorScheme.error,
+            style = MaterialTheme.typography.bodySmall,
+            textAlign = TextAlign.Start,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp, vertical = 8.dp),
+        )
+        SectionSeparator()
     }
 }
 
@@ -135,12 +158,18 @@ private fun ChatConversation(
     }
 
     if (messages.isEmpty() && !isAgentThinking) {
-        Box(modifier = modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+        Box(
+            modifier = modifier
+                .fillMaxSize()
+                .padding(bottom = contentBottomPadding),
+            contentAlignment = Alignment.TopCenter,
+        ) {
             Text(
                 text = "Ask me to browse, research, or automate anything.",
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f),
-                modifier = Modifier.padding(horizontal = 32.dp),
+                textAlign = TextAlign.Center,
+                modifier = Modifier.padding(horizontal = 32.dp, vertical = 24.dp),
             )
         }
         return

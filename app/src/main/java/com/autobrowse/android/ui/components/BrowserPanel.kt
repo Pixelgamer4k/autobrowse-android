@@ -236,26 +236,26 @@ private fun BrowserToolbar(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 10.dp, vertical = 4.dp),
+                .padding(horizontal = 10.dp, vertical = 6.dp),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(4.dp),
+            horizontalArrangement = Arrangement.spacedBy(6.dp),
         ) {
             TextField(
                 value = address,
                 onValueChange = { address = it },
                 modifier = Modifier
                     .weight(1f)
-                    .heightIn(min = 34.dp, max = 34.dp),
+                    .heightIn(min = 42.dp),
                 singleLine = true,
-                textStyle = MaterialTheme.typography.bodySmall,
+                textStyle = MaterialTheme.typography.bodyMedium,
                 placeholder = {
                     Text(
                         "Search or enter URL",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.42f),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.45f),
                     )
                 },
-                shape = RoundedCornerShape(10.dp),
+                shape = RoundedCornerShape(12.dp),
                 keyboardOptions = KeyboardOptions(imeAction = ImeAction.Go),
                 keyboardActions = KeyboardActions(onGo = { submitAddress() }),
                 colors = TextFieldDefaults.colors(
@@ -268,29 +268,29 @@ private fun BrowserToolbar(
                 trailingIcon = {
                     IconButton(
                         onClick = { submitAddress() },
-                        modifier = Modifier.size(28.dp),
+                        modifier = Modifier.size(32.dp),
                     ) {
                         Icon(
                             Icons.Default.ArrowForward,
                             contentDescription = "Go",
-                            modifier = Modifier.size(16.dp),
+                            modifier = Modifier.size(18.dp),
                             tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.85f),
                         )
                     }
                 },
             )
-            IconButton(onClick = onAddTab, modifier = Modifier.size(32.dp)) {
+            IconButton(onClick = onAddTab, modifier = Modifier.size(36.dp)) {
                 Icon(
                     Icons.Default.Add,
                     contentDescription = "New tab",
-                    modifier = Modifier.size(18.dp),
+                    modifier = Modifier.size(20.dp),
                     tint = Color.White,
                 )
             }
             Icon(
                 Icons.Default.DesktopWindows,
                 contentDescription = "Desktop mode",
-                modifier = Modifier.size(14.dp),
+                modifier = Modifier.size(16.dp),
                 tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.55f),
             )
         }
