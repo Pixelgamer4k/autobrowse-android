@@ -5,7 +5,11 @@ import com.autobrowse.android.data.local.entity.AutomationTaskEntity
 import com.autobrowse.android.data.local.entity.BrowserTabEntity
 import com.autobrowse.android.data.local.entity.ChatMessageEntity
 import com.autobrowse.android.data.local.entity.MemoryEntryEntity
+import com.autobrowse.android.data.local.entity.NoteEntity
 import com.autobrowse.android.data.local.entity.SessionEntity
+import com.autobrowse.android.domain.model.Note
+import com.autobrowse.android.domain.model.NoteListItem
+import com.autobrowse.android.notes.NoteJson
 import com.autobrowse.android.data.local.entity.StrategyEntity
 import com.autobrowse.android.attachments.AttachmentJson
 import com.autobrowse.android.data.settings.SecureSettingsStore
@@ -38,6 +42,7 @@ class AutobrowseRepository(
     private val tabDao = database.browserTabDao()
     private val strategyDao = database.strategyDao()
     private val trajectoryDao = database.trajectoryDao()
+    private val noteDao = database.noteDao()
 
     fun observeSessions(): Flow<List<Session>> =
         sessionDao.observeAll().map { list -> list.map { it.toDomain() } }
@@ -257,6 +262,41 @@ class AutobrowseRepository(
     suspend fun saveEnabledSkills(skills: Set<SkillType>) =
         settingsStore.saveEnabledSkills(skills.map { it.name }.toSet())
 
+    fun observeNotes(): Flow<List<NoteListItem>> =
+        noteDao.observeAll().map { notes -> notes.map { it.toListItem() } }
+
+    suspend fun getNote(id: String): Note? = noteDao.getById(id)?.toDomain()
+
+    suspend fun getRecentNotes(limit: Int = 20): List<Note> =
+        noteDao.getRecent(limit).map { it.toDomain() }
+
+    suspend fun saveNote(note: Note): Note {
+        val now = System.currentTimeMillis()
+        val entity = note.toEntity(now)
+        noteDao.upsert(entity)
+        return entity.toDomain()
+    }
+
+    suspend fun deleteNote(id: String) = noteDao.delete(id)
+
+    suspend fun searchNotes(query: String, limit: Int = 12): List<Note> {
+        val trimmed = query.trim()
+        if (trimmed.isBlank()) return getRecentNotes(limit)
+        val ftsQuery = trimmed.split(Regex("\\s+"))
+            .filter { it.length > 1 }
+            .joinToString(" OR ") { "$it*" }
+        val ftsResults = runCatching {
+            if (ftsQuery.isNotBlank()) noteDao.searchFts(ftsQuery, limit) else emptyList()
+        }.getOrDefault(emptyList())
+        val likeResults = trimmed.split(Regex("\\s+"))
+            .flatMap { term -> noteDao.searchLike(term, limit) }
+        return (ftsResults + likeResults)
+            .distinctBy { it.id }
+            .sortedByDescending { it.updatedAt }
+            .take(limit)
+            .map { it.toDomain() }
+    }
+
     private suspend fun seedDefaultTab(sessionId: String) {
         val layout = BrowserWindowLayout.defaultForIndex(0)
         val tab = BrowserTabEntity(
@@ -385,6 +425,41 @@ private fun MemoryEntryEntity.toDomain() = MemoryEntry(
     source = source,
     createdAt = createdAt,
     updatedAt = updatedAt,
+)
+
+private fun NoteEntity.toDomain() = Note(
+    id = id,
+    title = title,
+    blocks = NoteJson.deserializeBlocks(blocksJson),
+    sessionId = sessionId,
+    tags = NoteJson.deserializeTags(tags),
+    isPinned = isPinned,
+    folder = folder,
+    createdAt = createdAt,
+    updatedAt = updatedAt,
+)
+
+private fun NoteEntity.toListItem() = NoteListItem(
+    id = id,
+    title = title.ifBlank { "Untitled" },
+    preview = plainText.lineSequence().drop(1).firstOrNull()?.take(120) ?: "",
+    isPinned = isPinned,
+    folder = folder,
+    updatedAt = updatedAt,
+    tags = NoteJson.deserializeTags(tags),
+)
+
+private fun Note.toEntity(now: Long = System.currentTimeMillis()) = NoteEntity(
+    id = id,
+    title = title,
+    blocksJson = NoteJson.serializeBlocks(blocks),
+    plainText = NoteJson.noteToPlainText(this),
+    sessionId = sessionId,
+    tags = NoteJson.serializeTags(tags),
+    isPinned = isPinned,
+    folder = folder,
+    createdAt = createdAt.takeIf { it > 0 } ?: now,
+    updatedAt = now,
 )
 
 private fun StrategyEntity.toDomain() = LearnedStrategy(

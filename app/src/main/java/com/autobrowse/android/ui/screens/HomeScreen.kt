@@ -122,6 +122,7 @@ private fun MainContent(
                     onRefreshTab = viewModel::refreshTab,
                     onToggleMaximizeTab = viewModel::toggleMaximizeTab,
                     onCloseTab = viewModel::closeTab,
+                    viewModel = viewModel,
                     modifier = Modifier.fillMaxSize(),
                 )
 

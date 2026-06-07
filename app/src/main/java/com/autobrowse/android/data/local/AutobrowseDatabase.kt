@@ -8,6 +8,7 @@ import com.autobrowse.android.data.local.dao.AutomationTaskDao
 import com.autobrowse.android.data.local.dao.BrowserTabDao
 import com.autobrowse.android.data.local.dao.ChatMessageDao
 import com.autobrowse.android.data.local.dao.MemoryDao
+import com.autobrowse.android.data.local.dao.NoteDao
 import com.autobrowse.android.data.local.dao.SessionDao
 import com.autobrowse.android.data.local.dao.StrategyDao
 import com.autobrowse.android.data.local.dao.TrajectoryDao
@@ -16,6 +17,8 @@ import com.autobrowse.android.data.local.entity.BrowserTabEntity
 import com.autobrowse.android.data.local.entity.ChatMessageEntity
 import com.autobrowse.android.data.local.entity.MemoryEntryEntity
 import com.autobrowse.android.data.local.entity.MemoryFtsEntity
+import com.autobrowse.android.data.local.entity.NoteEntity
+import com.autobrowse.android.data.local.entity.NoteFtsEntity
 import com.autobrowse.android.data.local.entity.SessionEntity
 import com.autobrowse.android.data.local.entity.StrategyEntity
 import com.autobrowse.android.data.local.entity.TrajectoryEntity
@@ -30,14 +33,17 @@ import com.autobrowse.android.data.local.entity.TrajectoryEntity
         BrowserTabEntity::class,
         StrategyEntity::class,
         TrajectoryEntity::class,
+        NoteEntity::class,
+        NoteFtsEntity::class,
     ],
-    version = 5,
+    version = 6,
     exportSchema = false,
 )
 abstract class AutobrowseDatabase : RoomDatabase() {
     abstract fun sessionDao(): SessionDao
     abstract fun chatMessageDao(): ChatMessageDao
     abstract fun memoryDao(): MemoryDao
+    abstract fun noteDao(): NoteDao
     abstract fun automationTaskDao(): AutomationTaskDao
     abstract fun browserTabDao(): BrowserTabDao
     abstract fun strategyDao(): StrategyDao
