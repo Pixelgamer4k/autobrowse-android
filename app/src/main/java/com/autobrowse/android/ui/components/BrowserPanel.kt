@@ -72,13 +72,14 @@ fun BrowserPanel(
             activeTabId = activeTabId,
             onSelectTab = onSelectTab,
             onAddTab = onAddTab,
+            modifier = Modifier.padding(start = 52.dp),
         )
 
         BoxWithConstraints(
             modifier = Modifier
                 .weight(1f)
                 .fillMaxWidth()
-                .padding(8.dp)
+                .padding(horizontal = 8.dp, vertical = 4.dp)
                 .clip(RoundedCornerShape(14.dp))
                 .background(MaterialTheme.colorScheme.background.copy(alpha = 0.65f)),
         ) {
@@ -139,9 +140,10 @@ private fun TabStrip(
     activeTabId: String?,
     onSelectTab: (String) -> Unit,
     onAddTab: () -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     Row(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .padding(horizontal = 8.dp, vertical = 4.dp),
         horizontalArrangement = Arrangement.spacedBy(6.dp),
@@ -225,29 +227,29 @@ private fun BrowserToolbar(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 12.dp, vertical = 8.dp),
+            .padding(horizontal = 10.dp, vertical = 6.dp),
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        horizontalArrangement = Arrangement.spacedBy(6.dp),
     ) {
         OutlinedTextField(
             value = address,
             onValueChange = { address = it },
             modifier = Modifier.weight(1f),
             singleLine = true,
-            label = { Text("Address") },
+            placeholder = { Text("Address", style = MaterialTheme.typography.bodySmall) },
             trailingIcon = {
-                IconButton(onClick = { onNavigate(address) }, modifier = Modifier.size(40.dp)) {
-                    Icon(Icons.Default.Language, contentDescription = "Go")
+                IconButton(onClick = { onNavigate(address) }, modifier = Modifier.size(36.dp)) {
+                    Icon(Icons.Default.Language, contentDescription = "Go", modifier = Modifier.size(18.dp))
                 }
             },
         )
-        IconButton(onClick = onAddTab, modifier = Modifier.size(44.dp)) {
-            Icon(Icons.Default.Add, contentDescription = "New tab")
+        IconButton(onClick = onAddTab, modifier = Modifier.size(36.dp)) {
+            Icon(Icons.Default.Add, contentDescription = "New tab", modifier = Modifier.size(18.dp))
         }
         Icon(
             Icons.Default.DesktopWindows,
             contentDescription = "Desktop mode",
-            modifier = Modifier.size(18.dp),
+            modifier = Modifier.size(16.dp),
             tint = MaterialTheme.colorScheme.primary,
         )
     }

@@ -63,18 +63,35 @@ class AutobrowseRepository(
             }
             return existing.toDomain()
         }
+        return createNewSession()
+    }
 
+    suspend fun createNewSession(): Session {
         sessionDao.deactivateAll()
+        val index = sessionDao.count() + 1
+        val now = System.currentTimeMillis()
         val session = SessionEntity(
             id = UUID.randomUUID().toString(),
-            title = "Session ${System.currentTimeMillis()}",
-            createdAt = System.currentTimeMillis(),
-            lastActiveAt = System.currentTimeMillis(),
+            title = "Session $index",
+            createdAt = now,
+            lastActiveAt = now,
             isActive = true,
         )
         sessionDao.upsert(session)
         seedDefaultTab(session.id)
         return session.toDomain()
+    }
+
+    suspend fun activateSession(sessionId: String): Session? {
+        val target = sessionDao.getById(sessionId) ?: return null
+        sessionDao.deactivateAll()
+        val now = System.currentTimeMillis()
+        val active = target.copy(isActive = true, lastActiveAt = now)
+        sessionDao.upsert(active)
+        if (tabDao.countBySession(sessionId) == 0) {
+            seedDefaultTab(sessionId)
+        }
+        return active.toDomain()
     }
 
     suspend fun touchSession(sessionId: String) {

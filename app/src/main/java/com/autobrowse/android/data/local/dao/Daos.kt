@@ -22,6 +22,12 @@ interface SessionDao {
     @Query("SELECT * FROM sessions WHERE isActive = 1 LIMIT 1")
     suspend fun getActive(): SessionEntity?
 
+    @Query("SELECT * FROM sessions WHERE id = :id LIMIT 1")
+    suspend fun getById(id: String): SessionEntity?
+
+    @Query("SELECT COUNT(*) FROM sessions")
+    suspend fun count(): Int
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsert(session: SessionEntity)
 

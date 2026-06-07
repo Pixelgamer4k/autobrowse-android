@@ -9,7 +9,6 @@ import com.autobrowse.android.browser.FloatingWindowEngine
 import com.autobrowse.android.domain.model.AgentPhase
 import com.autobrowse.android.domain.model.AgentProgress
 import com.autobrowse.android.domain.model.AutoBrowseRequest
-import com.autobrowse.android.domain.model.AutomationTask
 import com.autobrowse.android.domain.model.BrowserContext
 import com.autobrowse.android.domain.model.BrowserTab
 import com.autobrowse.android.domain.model.BrowserTabStatus
@@ -25,23 +24,23 @@ import com.autobrowse.android.domain.model.Session
 import com.autobrowse.android.domain.model.SkillConfig
 import com.autobrowse.android.domain.model.SkillType
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import java.util.UUID
 
 data class MainUiState(
     val session: Session? = null,
+    val sessions: List<Session> = emptyList(),
+    val showSessionsPanel: Boolean = false,
     val tabs: List<BrowserTab> = emptyList(),
     val windowFrames: Map<String, BrowserWindowFrame> = emptyMap(),
     val activeTabId: String? = null,
-    val tasks: List<AutomationTask> = emptyList(),
     val messages: List<ChatMessage> = emptyList(),
     val memory: List<MemoryEntry> = emptyList(),
     val llmConfig: LlmConfig = LlmConfig(),
@@ -53,7 +52,6 @@ data class MainUiState(
     val agentProgress: AgentProgress? = null,
     val strategies: List<LearnedStrategy> = emptyList(),
     val showSettings: Boolean = false,
-    val browserPanelWeight: Float = 0.52f,
     val error: String? = null,
 )
 
@@ -69,13 +67,12 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     val uiState: StateFlow<MainUiState> = _uiState.asStateFlow()
 
     private var sessionId: String? = null
-    private var flowsBound = false
+    private val activeSessionId = MutableStateFlow<String?>(null)
     private val persistJobs = mutableMapOf<String, Job>()
 
     init {
         viewModelScope.launch {
             val session = repository.getOrCreateActiveSession()
-            sessionId = session.id
             val llmConfig = repository.getLlmConfig()
             _uiState.update {
                 it.copy(
@@ -90,45 +87,47 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                     },
                 )
             }
-            bindSessionFlows(session.id)
+            activeSessionId.value = session.id
         }
-    }
 
-    val tasks: StateFlow<List<AutomationTask>> = _uiState
-        .map { it.tasks }
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
-
-    private fun bindSessionFlows(id: String) {
-        if (flowsBound) return
-        flowsBound = true
         viewModelScope.launch {
-            repository.observeTabs(id).collect { dbTabs ->
-                _uiState.update { state ->
-                    val merged = FloatingWindowEngine.mergeDbTabs(
-                        dbTabs = dbTabs,
-                        currentTabs = state.tabs,
-                        currentFrames = state.windowFrames,
-                    )
-                    state.copy(
-                        tabs = merged.tabs,
-                        windowFrames = merged.frames,
-                        activeTabId = state.activeTabId?.takeIf { id ->
-                            merged.tabs.any { it.id == id }
-                        } ?: merged.tabs.maxByOrNull { it.zIndex }?.id,
-                    )
+            repository.observeSessions().collect { sessions ->
+                _uiState.update { it.copy(sessions = sessions) }
+            }
+        }
+
+        viewModelScope.launch {
+            activeSessionId.filterNotNull().collectLatest { id ->
+                sessionId = id
+                resetSessionUi()
+                coroutineScope {
+                    launch {
+                        repository.observeTabs(id).collect { dbTabs ->
+                            _uiState.update { state ->
+                                val merged = FloatingWindowEngine.mergeDbTabs(
+                                    dbTabs = dbTabs,
+                                    currentTabs = state.tabs,
+                                    currentFrames = state.windowFrames,
+                                )
+                                state.copy(
+                                    tabs = merged.tabs,
+                                    windowFrames = merged.frames,
+                                    activeTabId = state.activeTabId?.takeIf { tabId ->
+                                        merged.tabs.any { it.id == tabId }
+                                    } ?: merged.tabs.maxByOrNull { it.zIndex }?.id,
+                                )
+                            }
+                        }
+                    }
+                    launch {
+                        repository.observeChat(id).collect { messages ->
+                            _uiState.update { it.copy(messages = messages) }
+                        }
+                    }
                 }
             }
         }
-        viewModelScope.launch {
-            repository.observeTasks(id).collect { tasks ->
-                _uiState.update { it.copy(tasks = tasks) }
-            }
-        }
-        viewModelScope.launch {
-            repository.observeChat(id).collect { messages ->
-                _uiState.update { it.copy(messages = messages) }
-            }
-        }
+
         viewModelScope.launch {
             repository.observeMemory().collect { memory ->
                 _uiState.update { it.copy(memory = memory) }
@@ -148,6 +147,47 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                     )
                 }
             }
+        }
+    }
+
+    private fun resetSessionUi() {
+        _uiState.update { state ->
+            state.copy(
+                tabs = emptyList(),
+                windowFrames = emptyMap(),
+                activeTabId = null,
+                messages = emptyList(),
+                chatInput = "",
+                pendingAttachments = emptyList(),
+            )
+        }
+    }
+
+    fun toggleSessionsPanel() {
+        _uiState.update { it.copy(showSessionsPanel = !it.showSessionsPanel) }
+    }
+
+    fun closeSessionsPanel() {
+        _uiState.update { it.copy(showSessionsPanel = false) }
+    }
+
+    fun createNewSession() {
+        viewModelScope.launch {
+            val session = repository.createNewSession()
+            _uiState.update { it.copy(session = session, showSessionsPanel = false) }
+            activeSessionId.value = session.id
+        }
+    }
+
+    fun switchSession(targetSessionId: String) {
+        if (targetSessionId == _uiState.value.session?.id) {
+            closeSessionsPanel()
+            return
+        }
+        viewModelScope.launch {
+            val session = repository.activateSession(targetSessionId) ?: return@launch
+            _uiState.update { it.copy(session = session, showSessionsPanel = false) }
+            activeSessionId.value = session.id
         }
     }
 
@@ -318,10 +358,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
         browserController.setActiveTab(tabId)
         persistWindowNow(tabId)
-    }
-
-    fun setBrowserPanelWeight(weight: Float) {
-        _uiState.update { it.copy(browserPanelWeight = weight.coerceIn(0.25f, 0.75f)) }
     }
 
     fun addTab(url: String = "https://www.google.com") {
