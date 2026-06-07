@@ -15,10 +15,10 @@ object DesktopBrowserConfig {
             databaseEnabled = true
             userAgentString = DESKTOP_USER_AGENT
             useWideViewPort = true
-            loadWithOverviewMode = true
-            builtInZoomControls = true
+            loadWithOverviewMode = false
+            builtInZoomControls = false
             displayZoomControls = false
-            setSupportZoom(true)
+            setSupportZoom(false)
             textZoom = 100
             mixedContentMode = WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE
             cacheMode = WebSettings.LOAD_DEFAULT
@@ -26,21 +26,20 @@ object DesktopBrowserConfig {
             layoutAlgorithm = WebSettings.LayoutAlgorithm.NORMAL
         }
         @Suppress("DEPRECATION")
-        webView.setInitialScale(0)
+        webView.setInitialScale(100)
     }
 
-    fun clearViewportOverrides(webView: WebView) {
+    fun applyVirtualViewport(webView: WebView) {
         val script = """
             (function() {
+                var width = ${VirtualDisplayConfig.WIDTH};
                 var meta = document.querySelector('meta[name="viewport"]');
-                if (!meta) return;
-                var content = meta.getAttribute('content') || '';
-                if (
-                    content.indexOf('width=') >= 0 &&
-                    content.indexOf('device-width') < 0
-                ) {
-                    meta.setAttribute('content', 'width=device-width, initial-scale=1.0');
+                if (!meta) {
+                    meta = document.createElement('meta');
+                    meta.setAttribute('name', 'viewport');
+                    document.head.appendChild(meta);
                 }
+                meta.setAttribute('content', 'width=' + width + ', initial-scale=1.0');
                 if (document.documentElement) {
                     document.documentElement.style.zoom = '';
                     document.documentElement.style.transform = '';

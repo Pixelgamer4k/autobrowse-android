@@ -86,13 +86,35 @@ fun ResizableBrowserWindow(
     var resizeAccum by remember(tab.id) { mutableStateOf(Offset.Zero) }
 
     val effectiveLayout = frame.effectiveLayout()
-    val widthPx = effectiveLayout.widthFraction * canvasWidthPx
-    val heightPx = when (frame.windowState) {
+    val baseWidthPx = effectiveLayout.widthFraction * canvasWidthPx
+    val baseHeightPx = when (frame.windowState) {
         BrowserWindowState.MINIMIZED -> minimizedHeightPx
         else -> effectiveLayout.heightFraction * canvasHeightPx
     }
-    val xPx = (effectiveLayout.offsetX * canvasWidthPx).coerceIn(0f, (canvasWidthPx - widthPx).coerceAtLeast(0f))
-    val yPx = (effectiveLayout.offsetY * canvasHeightPx).coerceIn(0f, (canvasHeightPx - heightPx).coerceAtLeast(0f))
+    val isResizing = isManipulating && resizeAnchor != null
+    val widthPx = if (isResizing) {
+        (resizeAnchor!!.widthFraction * canvasWidthPx + resizeAccum.x)
+            .coerceIn(
+                BrowserWindowLayout.MIN_FRACTION * canvasWidthPx,
+                canvasWidthPx,
+            )
+    } else {
+        baseWidthPx
+    }
+    val heightPx = if (isResizing) {
+        (resizeAnchor!!.heightFraction * canvasHeightPx + resizeAccum.y)
+            .coerceIn(
+                BrowserWindowLayout.MIN_FRACTION * canvasHeightPx,
+                canvasHeightPx,
+            )
+    } else {
+        baseHeightPx
+    }
+    val isDragging = isManipulating && dragAnchor != null
+    val baseXPx = (effectiveLayout.offsetX * canvasWidthPx).coerceIn(0f, (canvasWidthPx - baseWidthPx).coerceAtLeast(0f))
+    val baseYPx = (effectiveLayout.offsetY * canvasHeightPx).coerceIn(0f, (canvasHeightPx - baseHeightPx).coerceAtLeast(0f))
+    val xPx = if (isDragging) baseXPx + dragAccum.x else baseXPx
+    val yPx = if (isDragging) baseYPx + dragAccum.y else baseYPx
 
     val canResize = frame.windowState == BrowserWindowState.NORMAL && canvasWidthPx > 0f
 
@@ -156,16 +178,21 @@ fun ResizableBrowserWindow(
                 },
                 onDrag = { delta ->
                     if (frame.windowState == BrowserWindowState.MAXIMIZED) return@WindowTitleBar
-                    val start = dragAnchor ?: frame.layout
                     dragAccum += delta
-                    onMoveWindow(
-                        start.copy(
-                            offsetX = start.offsetX + dragAccum.x / canvasWidthPx,
-                            offsetY = start.offsetY + dragAccum.y / canvasHeightPx,
-                        ).clamped(),
-                    )
                 },
-                onDragEnd = { finishManipulation() },
+                onDragEnd = {
+                    val start = dragAnchor
+                    if (start != null) {
+                        onMoveWindow(
+                            start.copy(
+                                offsetX = start.offsetX + dragAccum.x / canvasWidthPx,
+                                offsetY = start.offsetY + dragAccum.y / canvasHeightPx,
+                            ).clamped(),
+                        )
+                    }
+                    finishManipulation()
+                },
+                isManipulating = isManipulating,
             )
 
             if (frame.windowState != BrowserWindowState.MINIMIZED) {
@@ -175,9 +202,7 @@ fun ResizableBrowserWindow(
                         controller = controller,
                         onTabUpdate = onTabUpdate,
                         interactionEnabled = !isManipulating,
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(end = ResizeGutter, bottom = ResizeGutter),
+                        modifier = Modifier.fillMaxSize(),
                     )
 
                     if (canResize) {
@@ -189,16 +214,20 @@ fun ResizableBrowserWindow(
                                 onSelect()
                             },
                             onResize = { dx, dy ->
-                                val start = resizeAnchor ?: frame.layout
                                 resizeAccum += Offset(dx, dy)
-                                onResizeWindow(
-                                    start.copy(
-                                        widthFraction = start.widthFraction + resizeAccum.x / canvasWidthPx,
-                                        heightFraction = start.heightFraction + resizeAccum.y / canvasHeightPx,
-                                    ).clamped(),
-                                )
                             },
-                            onResizeEnd = { finishManipulation() },
+                            onResizeEnd = {
+                                val start = resizeAnchor
+                                if (start != null) {
+                                    onResizeWindow(
+                                        start.copy(
+                                            widthFraction = start.widthFraction + resizeAccum.x / canvasWidthPx,
+                                            heightFraction = start.heightFraction + resizeAccum.y / canvasHeightPx,
+                                        ).clamped(),
+                                    )
+                                }
+                                finishManipulation()
+                            },
                         )
                     }
                 }
@@ -256,6 +285,7 @@ private fun WindowTitleBar(
     onDragStart: () -> Unit,
     onDrag: (Offset) -> Unit,
     onDragEnd: () -> Unit,
+    isManipulating: Boolean,
 ) {
     val maxMinIcon = when (frame.windowState) {
         BrowserWindowState.MAXIMIZED -> Icons.Default.FullscreenExit
@@ -264,11 +294,11 @@ private fun WindowTitleBar(
     }
 
     Surface(
-        color = if (frame.isManipulating) MaterialTheme.colorScheme.primaryContainer
+        color = if (isManipulating) MaterialTheme.colorScheme.primaryContainer
         else MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.65f),
         modifier = Modifier
             .fillMaxWidth()
-            .pointerInput(tab.id, frame.windowState, frame.layout) {
+            .pointerInput(tab.id, frame.windowState) {
                 detectDragGestures(
                     onDragStart = { onDragStart() },
                     onDragEnd = { onDragEnd() },
