@@ -57,6 +57,7 @@ fun ChatPanel(
     onSend: () -> Unit,
     onSettings: () -> Unit,
     onChatInputFocusChange: (Boolean) -> Unit = {},
+    chatKeyboardActive: Boolean = false,
     error: String?,
     modifier: Modifier = Modifier,
 ) {
@@ -73,7 +74,7 @@ fun ChatPanel(
             messages = messages,
             isAgentThinking = isAgentThinking,
             agentProgress = agentProgress,
-            scrollOnInput = inputFocused,
+            scrollOnInput = chatKeyboardActive,
             modifier = Modifier
                 .weight(1f)
                 .fillMaxWidth(),
@@ -96,6 +97,7 @@ fun ChatPanel(
             onRemoveAttachment = onRemoveAttachment,
             onSend = onSend,
             isSending = isAgentThinking,
+            keyboardActive = chatKeyboardActive,
             onFocusChange = {
                 inputFocused = it
                 onChatInputFocusChange(it)

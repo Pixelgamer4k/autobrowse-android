@@ -7,13 +7,19 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.animation.togetherWith
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.isImeVisible
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -21,6 +27,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clipToBounds
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -65,34 +73,41 @@ fun HomeScreen(viewModel: MainViewModel) {
     }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun MainContent(
     viewModel: MainViewModel,
     state: com.autobrowse.android.ui.MainUiState,
 ) {
     var chatInputFocused by remember { mutableStateOf(false) }
-    val browserWeight by animateFloatAsState(
-        targetValue = if (chatInputFocused) 0f else 0.56f,
-        animationSpec = Motion.springSmooth,
-        label = "browserWeight",
+    val keyboardVisible = WindowInsets.isImeVisible
+    val chatKeyboardActive = chatInputFocused && keyboardVisible
+
+    val browserFraction by animateFloatAsState(
+        targetValue = if (chatKeyboardActive) 0f else 0.56f,
+        animationSpec = Motion.springIos,
+        label = "browserFraction",
     )
-    val chatWeight by animateFloatAsState(
-        targetValue = if (chatInputFocused) 1f else 0.44f,
-        animationSpec = Motion.springSmooth,
-        label = "chatWeight",
+    val browserAlpha by animateFloatAsState(
+        targetValue = if (chatKeyboardActive) 0f else 1f,
+        animationSpec = Motion.springIos,
+        label = "browserAlpha",
     )
 
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .background(MaterialTheme.colorScheme.background)
             .statusBarsPadding(),
     ) {
-        if (browserWeight > 0.01f) {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .weight(browserWeight),
-            ) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .fillMaxHeight(browserFraction)
+                .clipToBounds()
+                .graphicsLayer { alpha = browserAlpha },
+        ) {
+            if (browserFraction > 0.04f) {
                 BrowserPanel(
                     tabs = state.tabs,
                     windowFrames = state.windowFrames,
@@ -141,11 +156,12 @@ private fun MainContent(
             onSend = viewModel::sendMessage,
             onSettings = { viewModel.toggleSettings(true) },
             onChatInputFocusChange = { chatInputFocused = it },
+            chatKeyboardActive = chatKeyboardActive,
             error = state.error,
             modifier = Modifier
                 .fillMaxWidth()
-                .weight(chatWeight)
-                .then(if (chatInputFocused) Modifier.imePadding() else Modifier),
+                .weight(1f)
+                .then(if (chatKeyboardActive) Modifier.imePadding() else Modifier),
         )
     }
 }

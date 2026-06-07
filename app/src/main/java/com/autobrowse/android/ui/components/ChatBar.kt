@@ -112,6 +112,7 @@ fun ChatComposer(
     onSend: () -> Unit,
     isSending: Boolean,
     modifier: Modifier = Modifier,
+    keyboardActive: Boolean = false,
     onFocusChange: (Boolean) -> Unit = {},
 ) {
     val context = LocalContext.current
@@ -183,7 +184,7 @@ fun ChatComposer(
         modifier = modifier
             .fillMaxWidth()
             .background(MaterialTheme.colorScheme.background)
-            .then(if (!isFocused) Modifier.navigationBarsPadding() else Modifier)
+            .then(if (!keyboardActive) Modifier.navigationBarsPadding() else Modifier)
             .padding(horizontal = 16.dp, vertical = 10.dp),
     ) {
         AttachmentPickerSheet(

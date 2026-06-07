@@ -17,6 +17,12 @@ object Motion {
         stiffness = 280f,
     )
 
+    /** iOS-like keyboard and sheet settle — soft, slightly underdamped. */
+    val springIos = spring<Float>(
+        dampingRatio = 0.86f,
+        stiffness = 310f,
+    )
+
     val springBouncy = spring<Float>(
         dampingRatio = Spring.DampingRatioMediumBouncy,
         stiffness = 340f,
