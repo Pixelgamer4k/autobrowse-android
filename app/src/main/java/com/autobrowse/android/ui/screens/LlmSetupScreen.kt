@@ -1,26 +1,44 @@
 package com.autobrowse.android.ui.screens
 
+import android.net.Uri
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Download
+import androidx.compose.material.icons.filled.FolderOpen
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.Button
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SingleChoiceSegmentedButtonRow
+import androidx.compose.material3.SegmentedButton
+import androidx.compose.material3.SegmentedButtonDefaults
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -29,25 +47,60 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
+import com.autobrowse.android.domain.model.LocalLlmCatalog
+import com.autobrowse.android.domain.model.LlmBackend
 import com.autobrowse.android.domain.model.LlmConfig
+import com.autobrowse.android.domain.model.LlmProvider
+import com.autobrowse.android.domain.model.LocalLlmModel
 import com.autobrowse.android.ui.LlmConnectionTestState
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
 fun LlmSetupScreen(
     llmConfig: LlmConfig,
     connectionTest: LlmConnectionTestState,
-    onTestConnection: (apiKey: String, apiUrl: String, modelId: String) -> Unit,
+    onTestConnection: (LlmConfig) -> Unit,
     onSave: (LlmConfig) -> Unit,
+    onImportModel: (Uri, LocalLlmModel) -> Unit,
+    onOpenUrl: (String) -> Unit,
     onBack: (() -> Unit)? = null,
 ) {
+    var provider by remember(llmConfig) { mutableStateOf(llmConfig.provider) }
     var apiKey by remember(llmConfig) { mutableStateOf(llmConfig.apiKey) }
     var apiUrl by remember(llmConfig) { mutableStateOf(llmConfig.apiUrl) }
     var modelId by remember(llmConfig) { mutableStateOf(llmConfig.modelId) }
+    var localModel by remember(llmConfig) { mutableStateOf(llmConfig.localModel) }
+    var backend by remember(llmConfig) { mutableStateOf(llmConfig.backend) }
+    var localModelPath by remember(llmConfig) { mutableStateOf(llmConfig.localModelPath) }
 
-    val canSubmit = apiKey.isNotBlank() && apiUrl.isNotBlank() && modelId.isNotBlank()
+    val importLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.OpenDocument(),
+    ) { uri ->
+        if (uri != null) {
+            onImportModel(uri, localModel)
+        }
+    }
+
+    fun currentConfig() = llmConfig.copy(
+        provider = provider,
+        apiKey = apiKey.trim(),
+        apiUrl = apiUrl.trim(),
+        modelId = modelId.trim(),
+        localModel = localModel,
+        backend = backend,
+        localModelPath = localModelPath,
+    )
+
+    val canSubmit = when (provider) {
+        LlmProvider.REMOTE ->
+            apiKey.isNotBlank() && apiUrl.isNotBlank() && modelId.isNotBlank()
+        LlmProvider.LOCAL ->
+            localModelPath.isNotBlank()
+    }
 
     Scaffold(
         topBar = {
@@ -72,63 +125,49 @@ fun LlmSetupScreen(
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
             Text(
-                "Connect an OpenAI-compatible API to power the browsing agent. Credentials are stored encrypted on device.",
+                "Choose a cloud API or run Gemma 4 locally with LiteRT-LM.",
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.75f),
             )
 
-            OutlinedTextField(
-                value = apiKey,
-                onValueChange = { apiKey = it },
-                label = { Text("API Token") },
-                modifier = Modifier.fillMaxWidth(),
-                visualTransformation = PasswordVisualTransformation(),
-                singleLine = true,
-            )
-
-            OutlinedTextField(
-                value = apiUrl,
-                onValueChange = { apiUrl = it },
-                label = { Text("API URL") },
-                modifier = Modifier.fillMaxWidth(),
-                singleLine = true,
-                placeholder = { Text("https://api.openai.com/v1/") },
-            )
-
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                OutlinedTextField(
-                    value = modelId,
-                    onValueChange = { modelId = it },
-                    label = { Text("Model ID") },
-                    modifier = Modifier.weight(1f),
-                    singleLine = true,
-                    placeholder = { Text("gpt-4o-mini") },
-                )
-                IconButton(
-                    onClick = {
-                        if (canSubmit) {
-                            onTestConnection(apiKey.trim(), apiUrl.trim(), modelId.trim())
-                        }
-                    },
-                    enabled = canSubmit && !connectionTest.isTesting,
-                    modifier = Modifier.size(48.dp),
+            SingleChoiceSegmentedButtonRow(modifier = Modifier.fillMaxWidth()) {
+                SegmentedButton(
+                    selected = provider == LlmProvider.REMOTE,
+                    onClick = { provider = LlmProvider.REMOTE },
+                    shape = SegmentedButtonDefaults.itemShape(index = 0, count = 2),
                 ) {
-                    if (connectionTest.isTesting) {
-                        CircularProgressIndicator(
-                            modifier = Modifier.size(24.dp),
-                            strokeWidth = 2.dp,
-                        )
-                    } else {
-                        Icon(
-                            Icons.Default.Refresh,
-                            contentDescription = "Test connection",
-                        )
-                    }
+                    Text("Cloud API")
                 }
+                SegmentedButton(
+                    selected = provider == LlmProvider.LOCAL,
+                    onClick = { provider = LlmProvider.LOCAL },
+                    shape = SegmentedButtonDefaults.itemShape(index = 1, count = 2),
+                ) {
+                    Text("Local")
+                }
+            }
+
+            when (provider) {
+                LlmProvider.REMOTE -> RemoteLlmSection(
+                    apiKey = apiKey,
+                    apiUrl = apiUrl,
+                    modelId = modelId,
+                    connectionTest = connectionTest,
+                    canSubmit = canSubmit,
+                    onApiKeyChange = { apiKey = it },
+                    onApiUrlChange = { apiUrl = it },
+                    onModelIdChange = { modelId = it },
+                    onTest = { onTestConnection(currentConfig()) },
+                )
+                LlmProvider.LOCAL -> LocalLlmSection(
+                    localModel = localModel,
+                    backend = backend,
+                    localModelPath = localModelPath,
+                    onLocalModelChange = { localModel = it },
+                    onBackendChange = { backend = it },
+                    onImport = { importLauncher.launch(arrayOf("*/*")) },
+                    onOpenUrl = onOpenUrl,
+                )
             }
 
             connectionTest.message?.let { message ->
@@ -143,20 +182,227 @@ fun LlmSetupScreen(
                 )
             }
 
-            Button(
-                onClick = {
-                    onSave(
-                        llmConfig.copy(
-                            apiKey = apiKey.trim(),
-                            apiUrl = apiUrl.trim(),
-                            modelId = modelId.trim(),
-                        ),
-                    )
-                },
-                enabled = canSubmit,
+            Row(
                 modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
             ) {
-                Text(if (onBack == null) "Continue" else "Save")
+                OutlinedButton(
+                    onClick = { onTestConnection(currentConfig()) },
+                    enabled = canSubmit && !connectionTest.isTesting,
+                    modifier = Modifier.weight(1f),
+                ) {
+                    if (connectionTest.isTesting) {
+                        CircularProgressIndicator(
+                            modifier = Modifier.size(18.dp),
+                            strokeWidth = 2.dp,
+                        )
+                    } else {
+                        Icon(Icons.Default.Refresh, contentDescription = null, modifier = Modifier.size(18.dp))
+                    }
+                    Text("Test", modifier = Modifier.padding(start = 8.dp))
+                }
+                Button(
+                    onClick = { onSave(currentConfig()) },
+                    enabled = canSubmit,
+                    modifier = Modifier.weight(1f),
+                ) {
+                    Text(if (onBack == null) "Continue" else "Save")
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun RemoteLlmSection(
+    apiKey: String,
+    apiUrl: String,
+    modelId: String,
+    connectionTest: LlmConnectionTestState,
+    canSubmit: Boolean,
+    onApiKeyChange: (String) -> Unit,
+    onApiUrlChange: (String) -> Unit,
+    onModelIdChange: (String) -> Unit,
+    onTest: () -> Unit,
+) {
+    Text(
+        "OpenAI-compatible endpoint. Credentials are stored encrypted on device.",
+        style = MaterialTheme.typography.bodySmall,
+        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+    )
+    OutlinedTextField(
+        value = apiKey,
+        onValueChange = onApiKeyChange,
+        label = { Text("API Token") },
+        modifier = Modifier.fillMaxWidth(),
+        visualTransformation = PasswordVisualTransformation(),
+        singleLine = true,
+    )
+    OutlinedTextField(
+        value = apiUrl,
+        onValueChange = onApiUrlChange,
+        label = { Text("API URL") },
+        modifier = Modifier.fillMaxWidth(),
+        singleLine = true,
+        placeholder = { Text("https://api.openai.com/v1/") },
+    )
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        OutlinedTextField(
+            value = modelId,
+            onValueChange = onModelIdChange,
+            label = { Text("Model ID") },
+            modifier = Modifier.weight(1f),
+            singleLine = true,
+            placeholder = { Text("gpt-4o-mini") },
+        )
+        IconButton(
+            onClick = onTest,
+            enabled = canSubmit && !connectionTest.isTesting,
+            modifier = Modifier.size(48.dp),
+        ) {
+            Icon(Icons.Default.Refresh, contentDescription = "Test connection")
+        }
+    }
+}
+
+@OptIn(ExperimentalLayoutApi::class)
+@Composable
+private fun LocalLlmSection(
+    localModel: LocalLlmModel,
+    backend: LlmBackend,
+    localModelPath: String,
+    onLocalModelChange: (LocalLlmModel) -> Unit,
+    onBackendChange: (LlmBackend) -> Unit,
+    onImport: () -> Unit,
+    onOpenUrl: (String) -> Unit,
+) {
+    Text(
+        "Local models (Safe but slow and high power consumption)",
+        style = MaterialTheme.typography.titleMedium,
+    )
+    Text(
+        "Runs fully on-device via LiteRT-LM. Download a .litertlm file, import it, then pick CPU, GPU, or NPU.",
+        style = MaterialTheme.typography.bodySmall,
+        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+    )
+
+    LocalLlmCatalog.models.forEach { info ->
+        LocalModelCard(
+            info = info,
+            selected = localModel == info.model,
+            onSelect = { onLocalModelChange(info.model) },
+            onDownload = { onOpenUrl(info.downloadUrl) },
+            onOpenPage = { onOpenUrl(info.pageUrl) },
+        )
+    }
+
+    Text("Inference backend", style = MaterialTheme.typography.titleSmall)
+    FlowRow(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        LlmBackend.entries.forEach { option ->
+            FilterChip(
+                selected = backend == option,
+                onClick = { onBackendChange(option) },
+                label = { Text(option.name) },
+            )
+        }
+    }
+    Text(
+        when (backend) {
+            LlmBackend.CPU -> "CPU: widest compatibility, slowest."
+            LlmBackend.GPU -> "GPU: faster decode via OpenCL when available."
+            LlmBackend.NPU -> "NPU: hardware accelerator on supported chipsets."
+        },
+        style = MaterialTheme.typography.bodySmall,
+        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.65f),
+    )
+
+    OutlinedButton(
+        onClick = onImport,
+        modifier = Modifier.fillMaxWidth(),
+    ) {
+        Icon(Icons.Default.FolderOpen, contentDescription = null)
+        Text("Import .litertlm file", modifier = Modifier.padding(start = 8.dp))
+    }
+
+    if (localModelPath.isNotBlank()) {
+        Text(
+            text = "Imported: ${localModelPath.substringAfterLast('/')}",
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.primary,
+        )
+    } else {
+        Text(
+            text = "No model imported yet.",
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
+        )
+    }
+}
+
+@Composable
+private fun LocalModelCard(
+    info: com.autobrowse.android.domain.model.LocalLlmModelInfo,
+    selected: Boolean,
+    onSelect: () -> Unit,
+    onDownload: () -> Unit,
+    onOpenPage: () -> Unit,
+) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .selectable(
+                selected = selected,
+                onClick = onSelect,
+                role = Role.RadioButton,
+            ),
+        colors = CardDefaults.cardColors(
+            containerColor = if (selected) {
+                MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.35f)
+            } else {
+                MaterialTheme.colorScheme.surfaceVariant
+            },
+        ),
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(12.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            RadioButton(selected = selected, onClick = null)
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(start = 8.dp),
+                verticalArrangement = Arrangement.spacedBy(4.dp),
+            ) {
+                Text(info.displayName, style = MaterialTheme.typography.titleSmall)
+                Text(info.description, style = MaterialTheme.typography.bodySmall)
+                Text("Size: ${info.sizeLabel}", style = MaterialTheme.typography.bodySmall)
+                Text(
+                    text = info.defaultFileName,
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
+                )
+            }
+            Column(horizontalAlignment = Alignment.End) {
+                TextButton(onClick = onDownload) {
+                    Icon(Icons.Default.Download, contentDescription = null, modifier = Modifier.size(16.dp))
+                    Text("Download", modifier = Modifier.padding(start = 4.dp))
+                }
+                Text(
+                    text = "HuggingFace",
+                    style = MaterialTheme.typography.labelSmall.copy(textDecoration = TextDecoration.Underline),
+                    color = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.clickable(onClick = onOpenPage),
+                )
             }
         }
     }

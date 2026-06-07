@@ -40,6 +40,8 @@ fun HomeScreen(viewModel: MainViewModel) {
                 connectionTest = state.llmConnectionTest,
                 onTestConnection = viewModel::testLlmConnection,
                 onSave = viewModel::saveLlmConfig,
+                onImportModel = viewModel::importLocalModel,
+                onOpenUrl = viewModel::openUrl,
                 onBack = if (state.llmSetupFromSettings) viewModel::closeLlmSetup else null,
             )
         }

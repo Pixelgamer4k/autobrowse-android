@@ -1,7 +1,9 @@
 package com.autobrowse.android.data.remote
 
+import com.autobrowse.android.data.local.LocalLlmService
 import com.autobrowse.android.domain.model.AttachmentPayload
 import com.autobrowse.android.domain.model.LlmConfig
+import com.autobrowse.android.domain.model.LlmProvider
 import com.autobrowse.android.domain.model.ToolDefinition
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
@@ -15,7 +17,9 @@ import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.logging.HttpLoggingInterceptor
 import java.util.concurrent.TimeUnit
 
-class LlmApiService {
+class LlmApiService(
+    private val localLlmService: LocalLlmService? = null,
+) {
     private val moshi = Moshi.Builder()
         .add(KotlinJsonAdapterFactory())
         .build()
@@ -44,6 +48,10 @@ class LlmApiService {
         .build()
 
     suspend fun testConnection(config: LlmConfig): String = withContext(Dispatchers.IO) {
+        if (config.provider == LlmProvider.LOCAL) {
+            return@withContext localLlmService?.testConnection(config)
+                ?: throw IllegalStateException("Local LiteRT-LM is not available.")
+        }
         require(config.apiKey.isNotBlank()) { "API token is required." }
         require(config.apiUrl.isNotBlank()) { "API URL is required." }
         require(config.modelId.isNotBlank()) { "Model ID is required." }
@@ -109,6 +117,15 @@ class LlmApiService {
         tools: List<ToolDefinition> = emptyList(),
         attachmentPayload: AttachmentPayload = AttachmentPayload(),
     ): LlmCompletion = withContext(Dispatchers.IO) {
+        if (config.provider == LlmProvider.LOCAL) {
+            return@withContext localLlmService?.complete(
+                config = config,
+                systemPrompt = systemPrompt,
+                messages = messages,
+                tools = tools,
+                attachmentPayload = attachmentPayload,
+            ) ?: throw IllegalStateException("Local LiteRT-LM is not available.")
+        }
         require(config.apiKey.isNotBlank()) { "API token is required. Configure it on the setup screen." }
 
         val apiMessages = buildList {

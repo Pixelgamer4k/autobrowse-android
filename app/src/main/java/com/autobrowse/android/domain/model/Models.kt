@@ -87,13 +87,40 @@ data class MemoryEntry(
     val updatedAt: Long = System.currentTimeMillis(),
 )
 
+enum class LlmProvider {
+    REMOTE,
+    LOCAL,
+}
+
+enum class LocalLlmModel {
+    GEMMA_4_E2B,
+    GEMMA_4_E4B,
+}
+
+enum class LlmBackend {
+    CPU,
+    GPU,
+    NPU,
+}
+
 data class LlmConfig(
+    val provider: LlmProvider = LlmProvider.REMOTE,
     val apiKey: String = "",
     val apiUrl: String = "https://api.openai.com/v1/",
     val modelId: String = "gpt-4o-mini",
+    val localModel: LocalLlmModel = LocalLlmModel.GEMMA_4_E2B,
+    val backend: LlmBackend = LlmBackend.CPU,
+    val localModelPath: String = "",
     val temperature: Float = 0.7f,
     val maxTokens: Int = 4096,
-)
+) {
+    fun isConfigured(): Boolean = when (provider) {
+        LlmProvider.REMOTE ->
+            apiKey.isNotBlank() && apiUrl.isNotBlank() && modelId.isNotBlank()
+        LlmProvider.LOCAL ->
+            localModelPath.isNotBlank() && java.io.File(localModelPath).isFile
+    }
+}
 
 data class SkillConfig(
     val type: SkillType,

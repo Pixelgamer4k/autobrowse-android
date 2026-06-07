@@ -25,6 +25,8 @@ import com.autobrowse.android.agent.trajectory.SelfImprovementEngine
 import com.autobrowse.android.agent.trajectory.TrajectoryStore
 import com.autobrowse.android.browser.BrowserController
 import com.autobrowse.android.data.local.AutobrowseDatabase
+import com.autobrowse.android.data.local.LocalLlmService
+import com.autobrowse.android.data.local.ModelFileManager
 import com.autobrowse.android.data.remote.LlmApiService
 import com.autobrowse.android.data.repository.AutobrowseRepository
 import com.autobrowse.android.data.settings.SecureSettingsStore
@@ -55,11 +57,19 @@ class AutobrowseApplication : Application(), Configuration.Provider {
     lateinit var attachmentProcessor: AttachmentProcessor
         private set
 
+    lateinit var llmApi: LlmApiService
+        private set
+
+    lateinit var modelFileManager: ModelFileManager
+        private set
+
     override fun onCreate() {
         super.onCreate()
         val database = AutobrowseDatabase.get(this)
         val settingsStore = SecureSettingsStore(this)
-        val llmApi = LlmApiService()
+        modelFileManager = ModelFileManager(this)
+        val localLlmService = LocalLlmService(this, modelFileManager)
+        llmApi = LlmApiService(localLlmService)
 
         repository = AutobrowseRepository(database, settingsStore)
         skillRegistry = SkillRegistry(this, repository, llmApi)

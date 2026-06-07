@@ -61,7 +61,7 @@ fun SettingsScreen(
         ) {
             Text("API", style = MaterialTheme.typography.titleMedium)
             Text(
-                "Token, URL, and model are configured on the LLM setup screen.",
+                "Cloud API or local LiteRT-LM models are configured on the LLM setup screen.",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
             )

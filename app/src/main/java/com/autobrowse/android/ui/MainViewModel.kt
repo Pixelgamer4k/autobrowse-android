@@ -1,6 +1,8 @@
 package com.autobrowse.android.ui
 
 import android.app.Application
+import android.content.Intent
+import android.net.Uri
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.autobrowse.android.AutobrowseApplication
@@ -18,8 +20,9 @@ import com.autobrowse.android.domain.model.BrowserWindowLayout
 import com.autobrowse.android.domain.model.withFrame
 import com.autobrowse.android.domain.model.ChatMessage
 import com.autobrowse.android.domain.model.LearnedStrategy
-import com.autobrowse.android.data.remote.LlmApiService
 import com.autobrowse.android.domain.model.LlmConfig
+import com.autobrowse.android.domain.model.LlmProvider
+import com.autobrowse.android.domain.model.LocalLlmModel
 import com.autobrowse.android.domain.model.MemoryEntry
 import com.autobrowse.android.domain.model.PendingAttachment
 import com.autobrowse.android.domain.model.Session
@@ -74,7 +77,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val agentLoop = app.agentLoop
     private val attachmentStore = app.attachmentStore
     private val attachmentProcessor = app.attachmentProcessor
-    private val llmApi = LlmApiService()
+    private val llmApi = app.llmApi
     val browserController: BrowserController = app.browserController
 
     private val _uiState = MutableStateFlow(MainUiState())
@@ -95,12 +98,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                     llmConfig = llmConfig,
                     skillConfigs = app.skillRegistry.allSkillConfigs(),
                     enabledSkills = repository.getEnabledSkills(),
-                    showLlmSetup = llmConfig.apiKey.isBlank(),
-                    error = if (llmConfig.apiKey.isBlank()) {
-                        "Add your API token on the setup screen to use the agent."
-                    } else {
-                        null
-                    },
+                    showLlmSetup = !llmConfig.isConfigured(),
+                    error = setupBannerMessage(llmConfig),
                 )
             }
             activeSessionId.value = session.id
@@ -480,10 +479,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         agentJob?.cancel()
         agentJob = viewModelScope.launch {
             val llmConfig = repository.getLlmConfig()
-            if (llmConfig.apiKey.isBlank()) {
+            if (!llmConfig.isConfigured()) {
                 _uiState.update {
                     it.copy(
-                        error = "Add your API token on the setup screen before sending messages.",
+                        error = setupBannerMessage(llmConfig),
                         showLlmSetup = true,
                     )
                 }
@@ -536,18 +535,59 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             _uiState.update {
                 it.copy(
                     llmConfig = config,
-                    showLlmSetup = config.apiKey.isBlank(),
-                    showSettings = fromSettings && config.apiKey.isNotBlank(),
+                    showLlmSetup = !config.isConfigured(),
+                    showSettings = fromSettings && config.isConfigured(),
                     llmSetupFromSettings = false,
                     llmConnectionTest = LlmConnectionTestState(),
-                    error = if (config.apiKey.isBlank()) {
-                        "Add your API token on the setup screen to use the agent."
-                    } else {
-                        null
-                    },
+                    error = setupBannerMessage(config),
                 )
             }
         }
+    }
+
+    fun importLocalModel(uri: Uri, model: LocalLlmModel) {
+        viewModelScope.launch {
+            try {
+                val path = app.modelFileManager.importModel(uri, model)
+                _uiState.update {
+                    it.copy(
+                        llmConfig = it.llmConfig.copy(
+                            provider = LlmProvider.LOCAL,
+                            localModel = model,
+                            localModelPath = path,
+                        ),
+                        llmConnectionTest = LlmConnectionTestState(
+                            message = "Imported ${path.substringAfterLast('/')}",
+                            isSuccess = true,
+                        ),
+                    )
+                }
+            } catch (e: Exception) {
+                _uiState.update {
+                    it.copy(
+                        llmConnectionTest = LlmConnectionTestState(
+                            isTesting = false,
+                            message = e.message ?: "Import failed.",
+                            isSuccess = false,
+                        ),
+                    )
+                }
+            }
+        }
+    }
+
+    fun openUrl(url: String) {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url)).apply {
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        }
+        getApplication<Application>().startActivity(intent)
+    }
+
+    private fun setupBannerMessage(config: LlmConfig): String? = when {
+        config.isConfigured() -> null
+        config.provider == LlmProvider.LOCAL ->
+            "Import a local LiteRT-LM model on the setup screen to use the agent."
+        else -> "Add your API token on the setup screen to use the agent."
     }
 
     fun openLlmSetup(fromSettings: Boolean = false) {
@@ -572,25 +612,24 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun testLlmConnection(apiKey: String, apiUrl: String, modelId: String) {
+    fun testLlmConnection(config: LlmConfig) {
         viewModelScope.launch {
+            val testingMessage = if (config.provider == LlmProvider.LOCAL) {
+                "Loading model and testing ${config.backend.name} backend…"
+            } else {
+                "Testing connection…"
+            }
             _uiState.update {
                 it.copy(
                     llmConnectionTest = LlmConnectionTestState(
                         isTesting = true,
-                        message = "Testing connection…",
+                        message = testingMessage,
                         isSuccess = null,
                     ),
                 )
             }
             try {
-                val message = llmApi.testConnection(
-                    _uiState.value.llmConfig.copy(
-                        apiKey = apiKey,
-                        apiUrl = apiUrl,
-                        modelId = modelId,
-                    ),
-                )
+                val message = llmApi.testConnection(config)
                 _uiState.update {
                     it.copy(
                         llmConnectionTest = LlmConnectionTestState(
