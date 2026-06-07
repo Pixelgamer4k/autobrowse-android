@@ -12,19 +12,23 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.DesktopWindows
-import androidx.compose.material.icons.filled.Language
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -36,8 +40,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.autobrowse.android.ui.theme.SectionSeparator
 import androidx.compose.ui.zIndex
 import com.autobrowse.android.browser.BrowserController
 import com.autobrowse.android.browser.FloatingWindowEngine
@@ -218,38 +224,74 @@ private fun BrowserToolbar(
     var address by remember { mutableStateOf(url) }
     LaunchedEffect(url) { address = url }
 
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 10.dp, vertical = 6.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(6.dp),
-    ) {
-        OutlinedTextField(
-            value = address,
-            onValueChange = { address = it },
-            modifier = Modifier.weight(1f),
-            singleLine = true,
-            placeholder = { Text("Address", style = MaterialTheme.typography.bodySmall) },
-            trailingIcon = {
-                IconButton(onClick = { onNavigate(address) }, modifier = Modifier.size(36.dp)) {
-                    Icon(Icons.Default.Language, contentDescription = "Go", modifier = Modifier.size(18.dp))
-                }
-            },
-        )
-        IconButton(onClick = onAddTab, modifier = Modifier.size(36.dp)) {
+    fun submitAddress() {
+        if (address.isNotBlank()) {
+            onNavigate(address)
+        }
+    }
+
+    Column(modifier = Modifier.fillMaxWidth()) {
+        SectionSeparator()
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 10.dp, vertical = 4.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(4.dp),
+        ) {
+            TextField(
+                value = address,
+                onValueChange = { address = it },
+                modifier = Modifier
+                    .weight(1f)
+                    .heightIn(min = 34.dp, max = 34.dp),
+                singleLine = true,
+                textStyle = MaterialTheme.typography.bodySmall,
+                placeholder = {
+                    Text(
+                        "Search or enter URL",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.42f),
+                    )
+                },
+                shape = RoundedCornerShape(10.dp),
+                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Go),
+                keyboardActions = KeyboardActions(onGo = { submitAddress() }),
+                colors = TextFieldDefaults.colors(
+                    focusedContainerColor = MaterialTheme.colorScheme.surfaceVariant,
+                    unfocusedContainerColor = MaterialTheme.colorScheme.surfaceVariant,
+                    focusedIndicatorColor = Color.Transparent,
+                    unfocusedIndicatorColor = Color.Transparent,
+                    cursorColor = MaterialTheme.colorScheme.onSurface,
+                ),
+                trailingIcon = {
+                    IconButton(
+                        onClick = { submitAddress() },
+                        modifier = Modifier.size(28.dp),
+                    ) {
+                        Icon(
+                            Icons.Default.ArrowForward,
+                            contentDescription = "Go",
+                            modifier = Modifier.size(16.dp),
+                            tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.85f),
+                        )
+                    }
+                },
+            )
+            IconButton(onClick = onAddTab, modifier = Modifier.size(32.dp)) {
+                Icon(
+                    Icons.Default.Add,
+                    contentDescription = "New tab",
+                    modifier = Modifier.size(18.dp),
+                    tint = Color.White,
+                )
+            }
             Icon(
-                Icons.Default.Add,
-                contentDescription = "New tab",
-                modifier = Modifier.size(18.dp),
-                tint = Color.White,
+                Icons.Default.DesktopWindows,
+                contentDescription = "Desktop mode",
+                modifier = Modifier.size(14.dp),
+                tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.55f),
             )
         }
-        Icon(
-            Icons.Default.DesktopWindows,
-            contentDescription = "Desktop mode",
-            modifier = Modifier.size(16.dp),
-            tint = MaterialTheme.colorScheme.primary,
-        )
     }
 }

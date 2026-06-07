@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.autobrowse.android.AutobrowseApplication
+import com.autobrowse.android.browser.AddressBarNavigation
 import com.autobrowse.android.browser.BrowserController
 import com.autobrowse.android.browser.FloatingWindowEngine
 import com.autobrowse.android.domain.model.AgentPhase
@@ -519,13 +520,11 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun navigateActiveTab(url: String) {
-        val trimmed = url.trim()
-        if (trimmed.isBlank()) return
+        val resolved = AddressBarNavigation.resolve(url) ?: return
         val tabId = _uiState.value.activeTabId ?: return
-        val tab = _uiState.value.tabs.find { it.id == tabId } ?: return
-        val normalized = if (trimmed.startsWith("http")) trimmed else "https://$trimmed"
-        browserController.loadUrl(normalized, tabId)
-        updateTabMetadata(tabId, url = normalized, status = BrowserTabStatus.LOADING)
+        if (_uiState.value.tabs.none { it.id == tabId }) return
+        updateTabMetadata(tabId, url = resolved, status = BrowserTabStatus.LOADING)
+        browserController.loadUrl(resolved, tabId)
     }
 
     fun toggleSkill(skillType: SkillType, enabled: Boolean) {

@@ -22,6 +22,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.viewinterop.AndroidView
+import com.autobrowse.android.browser.AddressBarNavigation
 import com.autobrowse.android.browser.BrowserController
 import com.autobrowse.android.browser.ContentColorSampler
 import com.autobrowse.android.browser.DesktopBrowserConfig
@@ -126,6 +127,13 @@ fun BrowserWebView(
         val viewportHeightPx = maxHeight.value * density.density
         val displayScale = VirtualDisplayConfig.scaleForViewport(viewportWidthPx, viewportHeightPx)
 
+        LaunchedEffect(tab.id, tab.url) {
+            if (tab.url.isBlank()) return@LaunchedEffect
+            if (!AddressBarNavigation.urlsMatch(webView.url, tab.url)) {
+                webView.loadUrl(tab.url)
+            }
+        }
+
         AndroidView(
             modifier = Modifier
                 .graphicsLayer {
@@ -149,9 +157,6 @@ fun BrowserWebView(
                 if (view.isEnabled != interactionEnabled) {
                     view.isEnabled = interactionEnabled
                     view.isClickable = interactionEnabled
-                }
-                if (view.url != tab.url) {
-                    view.loadUrl(tab.url)
                 }
             },
         )

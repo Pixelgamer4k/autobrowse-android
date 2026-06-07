@@ -96,7 +96,7 @@ private fun MainContent(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .weight(0.56f)
+                    .weight(0.54f)
                     .background(MaterialTheme.colorScheme.surfaceVariant),
             ) {
                 BrowserPanel(
@@ -135,7 +135,7 @@ private fun MainContent(
                 composerBottomPadding = composerBottomPadding,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .weight(0.44f)
+                    .weight(0.46f)
                     .background(MaterialTheme.colorScheme.background),
             )
         }

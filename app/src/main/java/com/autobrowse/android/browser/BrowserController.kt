@@ -31,7 +31,7 @@ class BrowserController {
     private fun activeWebView(): WebView? = activeTabId?.let { webViews[it] }
 
     fun loadUrl(url: String, tabId: String? = null) {
-        val normalized = if (url.startsWith("http")) url else "https://$url"
+        val normalized = AddressBarNavigation.resolve(url) ?: return
         val target = tabId?.let { webViews[it] } ?: activeWebView()
         target?.loadUrl(normalized)
     }
