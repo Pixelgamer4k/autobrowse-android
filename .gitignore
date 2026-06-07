@@ -20,3 +20,5 @@ release/
 google-services.json
 *.keystore
 !debug.keystore
+keystore.properties
+release/
