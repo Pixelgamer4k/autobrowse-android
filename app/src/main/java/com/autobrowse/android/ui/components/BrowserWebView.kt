@@ -53,6 +53,46 @@ fun BrowserWebView(
         onDispose { controller.detach(tab.id) }
     }
 
+    DisposableEffect(tab.id, onTabUpdate) {
+        webView.webViewClient = object : WebViewClient() {
+            override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
+                onTabUpdate(
+                    tab.copy(
+                        url = url ?: tab.url,
+                        status = BrowserTabStatus.LOADING,
+                    ),
+                )
+            }
+
+            override fun onPageFinished(view: WebView?, url: String?) {
+                view?.post { DesktopBrowserConfig.applyVirtualViewport(view) }
+                onTabUpdate(
+                    tab.copy(
+                        url = url ?: tab.url,
+                        title = view?.title ?: tab.title,
+                        status = if (tab.isAgentControlled) {
+                            BrowserTabStatus.AGENT_CONTROLLED
+                        } else {
+                            BrowserTabStatus.ACTIVE
+                        },
+                    ),
+                )
+            }
+
+            @Deprecated("Deprecated in Java")
+            override fun onReceivedError(
+                view: WebView?,
+                errorCode: Int,
+                description: String?,
+                failingUrl: String?,
+            ) {
+                onTabUpdate(tab.copy(status = BrowserTabStatus.ERROR))
+            }
+        }
+        webView.webChromeClient = WebChromeClient()
+        onDispose { }
+    }
+
     BoxWithConstraints(
         modifier = modifier.clipToBounds(),
     ) {
@@ -80,49 +120,10 @@ fun BrowserWebView(
                 },
             factory = { webView },
             update = { view ->
-                view.isEnabled = interactionEnabled
-                view.isClickable = interactionEnabled
-                view.layoutParams = ViewGroup.LayoutParams(
-                    VirtualDisplayConfig.WIDTH,
-                    VirtualDisplayConfig.HEIGHT,
-                )
-                DesktopBrowserConfig.apply(view)
-                view.webViewClient = object : WebViewClient() {
-                    override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
-                        onTabUpdate(
-                            tab.copy(
-                                url = url ?: tab.url,
-                                status = BrowserTabStatus.LOADING,
-                            ),
-                        )
-                    }
-
-                    override fun onPageFinished(view: WebView?, url: String?) {
-                        view?.post { DesktopBrowserConfig.applyVirtualViewport(view) }
-                        onTabUpdate(
-                            tab.copy(
-                                url = url ?: tab.url,
-                                title = view?.title ?: tab.title,
-                                status = if (tab.isAgentControlled) {
-                                    BrowserTabStatus.AGENT_CONTROLLED
-                                } else {
-                                    BrowserTabStatus.ACTIVE
-                                },
-                            ),
-                        )
-                    }
-
-                    @Deprecated("Deprecated in Java")
-                    override fun onReceivedError(
-                        view: WebView?,
-                        errorCode: Int,
-                        description: String?,
-                        failingUrl: String?,
-                    ) {
-                        onTabUpdate(tab.copy(status = BrowserTabStatus.ERROR))
-                    }
+                if (view.isEnabled != interactionEnabled) {
+                    view.isEnabled = interactionEnabled
+                    view.isClickable = interactionEnabled
                 }
-                view.webChromeClient = WebChromeClient()
                 if (view.url != tab.url) {
                     view.loadUrl(tab.url)
                 }

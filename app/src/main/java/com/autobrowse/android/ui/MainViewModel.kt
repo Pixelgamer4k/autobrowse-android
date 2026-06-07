@@ -192,7 +192,13 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     fun commitWindowGeometry(tabId: String, layout: BrowserWindowLayout, persist: Boolean = true) {
         _uiState.update { state ->
-            val frames = FloatingWindowEngine.commitLayout(state.windowFrames, tabId, layout)
+            val fallbackTab = state.tabs.find { it.id == tabId }
+            val frames = FloatingWindowEngine.commitLayout(
+                frames = state.windowFrames,
+                tabId = tabId,
+                layout = layout,
+                fallbackTab = fallbackTab,
+            )
             state.copy(
                 windowFrames = frames,
                 tabs = applyFramesToTabs(state.tabs, frames),

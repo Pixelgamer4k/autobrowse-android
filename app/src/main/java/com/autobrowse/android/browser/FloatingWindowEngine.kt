@@ -46,8 +46,12 @@ object FloatingWindowEngine {
         frames: Map<String, BrowserWindowFrame>,
         tabId: String,
         layout: BrowserWindowLayout,
-    ): Map<String, BrowserWindowFrame> = updateFrame(frames, tabId) { frame ->
-        frame.copy(layout = layout, isManipulating = false)
+        fallbackTab: BrowserTab? = null,
+    ): Map<String, BrowserWindowFrame> {
+        val current = frames[tabId]
+            ?: fallbackTab?.let { BrowserWindowFrame.fromTab(it) }
+            ?: return frames
+        return frames + (tabId to current.copy(layout = layout, isManipulating = false))
     }
 
     fun toggleMaximize(

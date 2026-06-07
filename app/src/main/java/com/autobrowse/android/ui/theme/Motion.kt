@@ -22,6 +22,17 @@ object Motion {
         stiffness = 340f,
     )
 
+    /** iOS-like window move/resize settle — slight overshoot, responsive. */
+    val springWindow = spring<Float>(
+        dampingRatio = 0.78f,
+        stiffness = 380f,
+    )
+
+    val springWindowSettle = spring<Float>(
+        dampingRatio = Spring.DampingRatioMediumBouncy,
+        stiffness = 420f,
+    )
+
     val springSmoothOffset = spring<IntOffset>(
         dampingRatio = 0.88f,
         stiffness = StiffnessMediumLow,
