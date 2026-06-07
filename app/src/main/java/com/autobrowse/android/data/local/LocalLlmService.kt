@@ -189,8 +189,11 @@ class LocalLlmService(
                     arguments = parseToolArgs(call.function.arguments),
                 )
             }
-            val contents = dto.content?.takeIf { it.isNotBlank() }?.let { Contents.of(it) } ?: Contents.empty()
-            Message.model(contents = contents, toolCalls = toolCalls)
+            if (dto.content.isNullOrBlank()) {
+                Message.model(toolCalls = toolCalls)
+            } else {
+                Message.model(contents = Contents.of(dto.content), toolCalls = toolCalls)
+            }
         }
         "tool" -> Message.tool(
             Contents.of(
