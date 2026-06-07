@@ -39,11 +39,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.graphics.StrokeJoin
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.graphics.drawscope.clipPath
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalDensity
@@ -58,8 +63,9 @@ import com.autobrowse.android.domain.model.BrowserWindowState
 import com.autobrowse.android.ui.theme.Motion
 import kotlin.math.max
 
-private val ResizeHandleTouchSize = 52.dp
-private val ResizeHandleVisualSize = 28.dp
+private val WindowCornerRadius = 12.dp
+private val CornerGripExtent = 26.dp
+private val CornerGripTouchSize = 56.dp
 
 @Composable
 fun ResizableBrowserWindow(
@@ -83,12 +89,18 @@ fun ResizableBrowserWindow(
     val density = LocalDensity.current
     val titleBarHeightPx = with(density) { BrowserWindowLayout.TITLE_BAR_HEIGHT_DP.dp.toPx() }
     val minimizedHeightPx = titleBarHeightPx.coerceAtLeast(1f)
+    val cornerRadiusPx = with(density) { WindowCornerRadius.toPx() }
 
     var isManipulating by remember(tab.id) { mutableStateOf(false) }
     var dragAnchor by remember(tab.id) { mutableStateOf<BrowserWindowLayout?>(null) }
     var dragAccum by remember(tab.id) { mutableStateOf(Offset.Zero) }
     var resizeAnchor by remember(tab.id) { mutableStateOf<BrowserWindowLayout?>(null) }
     var resizeAccum by remember(tab.id) { mutableStateOf(Offset.Zero) }
+
+    fun normalizedLayout(source: BrowserWindowLayout): BrowserWindowLayout = when (frame.windowState) {
+        BrowserWindowState.NORMAL -> source.normalized(canvasWidthPx, canvasHeightPx, titleBarHeightPx)
+        else -> source
+    }
 
     fun widthPxFromFraction(fraction: Float): Float = fraction * canvasWidthPx
 
@@ -98,13 +110,20 @@ fun ResizableBrowserWindow(
         else -> BrowserWindowLayout.totalHeightPx(widthPx, titleBarHeightPx)
     }
 
-    val effectiveLayout = frame.effectiveLayout()
-    val baseWidthPx = widthPxFromFraction(effectiveLayout.widthFraction)
+    val storedLayout = frame.effectiveLayout()
+    val baseLayout = if (frame.windowState == BrowserWindowState.NORMAL) {
+        normalizedLayout(storedLayout)
+    } else {
+        storedLayout
+    }
+
+    val baseWidthPx = widthPxFromFraction(baseLayout.widthFraction)
     val baseHeightPx = heightPxForWidth(baseWidthPx, frame.windowState == BrowserWindowState.MINIMIZED)
 
     val isResizing = isManipulating && resizeAnchor != null && frame.windowState == BrowserWindowState.NORMAL
     val resizedWidthPx = if (isResizing) {
-        val startWidthPx = widthPxFromFraction(resizeAnchor!!.widthFraction)
+        val anchorLayout = normalizedLayout(resizeAnchor!!)
+        val startWidthPx = widthPxFromFraction(anchorLayout.widthFraction)
         val delta = max(resizeAccum.x, resizeAccum.y * BrowserWindowLayout.CONTENT_ASPECT_RATIO)
         (startWidthPx + delta).coerceIn(
             BrowserWindowLayout.MIN_FRACTION * canvasWidthPx,
@@ -121,8 +140,8 @@ fun ResizableBrowserWindow(
     }
 
     val isDragging = isManipulating && dragAnchor != null && resizeAnchor == null
-    val baseXPx = effectiveLayout.offsetX * canvasWidthPx
-    val baseYPx = effectiveLayout.offsetY * canvasHeightPx
+    val baseXPx = baseLayout.offsetX * canvasWidthPx
+    val baseYPx = baseLayout.offsetY * canvasHeightPx
     val xPx = if (isDragging) {
         (baseXPx + dragAccum.x).coerceIn(0f, (canvasWidthPx - widthPx).coerceAtLeast(0f))
     } else {
@@ -166,93 +185,91 @@ fun ResizableBrowserWindow(
                 translationY = yPx
             }
             .width(with(density) { widthPx.toDp() })
-            .height(with(density) { heightPx.toDp() })
-            .shadow(elevation.dp, RoundedCornerShape(12.dp))
-            .clip(RoundedCornerShape(12.dp))
-            .border(
-                width = if (isActive) 2.dp else 1.dp,
-                color = if (isActive) MaterialTheme.colorScheme.primary.copy(alpha = 0.75f)
-                else MaterialTheme.colorScheme.outline.copy(alpha = 0.4f),
-                shape = RoundedCornerShape(12.dp),
-            )
-            .background(MaterialTheme.colorScheme.surface),
+            .height(with(density) { heightPx.toDp() }),
     ) {
-        Column(modifier = Modifier.fillMaxSize()) {
-            WindowTitleBar(
-                tab = tab,
-                frame = frame,
-                onRefresh = onRefresh,
-                onToggleMaximize = onToggleMaximize,
-                onMinimize = onMinimize,
-                onClose = onClose,
-                onSelect = onSelect,
-                onDragStart = {
-                    if (frame.windowState != BrowserWindowState.MAXIMIZED) {
-                        isManipulating = true
-                        resizeAnchor = null
-                        resizeAccum = Offset.Zero
-                        dragAnchor = frame.layout
-                        dragAccum = Offset.Zero
-                        onSelect()
-                    }
-                },
-                onDrag = { delta ->
-                    if (frame.windowState == BrowserWindowState.MAXIMIZED) return@WindowTitleBar
-                    dragAccum += delta
-                },
-                onDragEnd = {
-                    val start = dragAnchor
-                    if (start != null && dragAccum != Offset.Zero) {
-                        onMoveWindow(
-                            start.copy(
-                                offsetX = start.offsetX + dragAccum.x / canvasWidthPx,
-                                offsetY = start.offsetY + dragAccum.y / canvasHeightPx,
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .shadow(elevation.dp, RoundedCornerShape(WindowCornerRadius))
+                .clip(RoundedCornerShape(WindowCornerRadius))
+                .border(
+                    width = if (isActive) 2.dp else 1.dp,
+                    color = if (isActive) MaterialTheme.colorScheme.primary.copy(alpha = 0.75f)
+                    else MaterialTheme.colorScheme.outline.copy(alpha = 0.4f),
+                    shape = RoundedCornerShape(WindowCornerRadius),
+                )
+                .background(MaterialTheme.colorScheme.surface),
+        ) {
+            Column(modifier = Modifier.fillMaxSize()) {
+                WindowTitleBar(
+                    tab = tab,
+                    frame = frame,
+                    onRefresh = onRefresh,
+                    onToggleMaximize = onToggleMaximize,
+                    onMinimize = onMinimize,
+                    onClose = onClose,
+                    onSelect = onSelect,
+                    onDragStart = {
+                        if (frame.windowState != BrowserWindowState.MAXIMIZED) {
+                            isManipulating = true
+                            resizeAnchor = null
+                            resizeAccum = Offset.Zero
+                            dragAnchor = baseLayout
+                            dragAccum = Offset.Zero
+                            onSelect()
+                        }
+                    },
+                    onDrag = { delta ->
+                        if (frame.windowState == BrowserWindowState.MAXIMIZED) return@WindowTitleBar
+                        dragAccum += delta
+                    },
+                    onDragEnd = {
+                        val start = dragAnchor
+                        if (start != null && dragAccum != Offset.Zero) {
+                            onMoveWindow(
+                                start.copy(
+                                    offsetX = start.offsetX + dragAccum.x / canvasWidthPx,
+                                    offsetY = start.offsetY + dragAccum.y / canvasHeightPx,
+                                ).clampedOffsetOnly(canvasWidthPx, canvasHeightPx, titleBarHeightPx),
                             )
-                                .withAspectRatio(canvasWidthPx, canvasHeightPx, titleBarHeightPx)
-                                .clamped(canvasWidthPx, canvasHeightPx, titleBarHeightPx),
-                        )
-                    } else {
+                        }
                         finishManipulation()
-                        return@WindowTitleBar
-                    }
-                    finishManipulation()
-                },
-                isManipulating = isManipulating,
-            )
+                    },
+                    isManipulating = isManipulating,
+                )
 
-            if (frame.windowState != BrowserWindowState.MINIMIZED) {
-                val contentModifier = if (frame.windowState == BrowserWindowState.MAXIMIZED) {
-                    Modifier
-                        .weight(1f)
-                        .fillMaxWidth()
-                } else {
-                    Modifier
-                        .fillMaxWidth()
-                        .aspectRatio(BrowserWindowLayout.CONTENT_ASPECT_RATIO)
-                }
-                Box(modifier = contentModifier) {
-                    BrowserWebView(
-                        tab = tab,
-                        controller = controller,
-                        onTabUpdate = onTabUpdate,
-                        interactionEnabled = !isManipulating,
-                        modifier = Modifier.fillMaxSize(),
-                    )
+                if (frame.windowState != BrowserWindowState.MINIMIZED) {
+                    val contentModifier = if (frame.windowState == BrowserWindowState.MAXIMIZED) {
+                        Modifier.weight(1f).fillMaxWidth()
+                    } else {
+                        Modifier.fillMaxWidth().aspectRatio(BrowserWindowLayout.CONTENT_ASPECT_RATIO)
+                    }
+                    Box(modifier = contentModifier) {
+                        BrowserWebView(
+                            tab = tab,
+                            controller = controller,
+                            onTabUpdate = onTabUpdate,
+                            interactionEnabled = !isManipulating,
+                            modifier = Modifier.fillMaxSize(),
+                        )
+                    }
                 }
             }
         }
 
         if (canResize) {
-            CornerResizeHandle(
+            FrameCornerResizeGrip(
                 tabId = tab.id,
+                cornerRadiusPx = cornerRadiusPx,
                 modifier = Modifier
                     .align(Alignment.BottomEnd)
-                    .zIndex(6f),
+                    .size(CornerGripTouchSize)
+                    .zIndex(8f),
                 onResizeStart = {
                     isManipulating = true
                     dragAnchor = null
                     dragAccum = Offset.Zero
-                    resizeAnchor = frame.layout
+                    resizeAnchor = baseLayout
                     resizeAccum = Offset.Zero
                     onSelect()
                 },
@@ -261,13 +278,12 @@ fun ResizableBrowserWindow(
                 },
                 onResizeEnd = {
                     val start = resizeAnchor
-                    if (start != null) {
+                    if (start != null && resizeAccum != Offset.Zero) {
                         val startWidthPx = widthPxFromFraction(start.widthFraction)
                         val delta = max(resizeAccum.x, resizeAccum.y * BrowserWindowLayout.CONTENT_ASPECT_RATIO)
                         val newWidthFraction = (startWidthPx + delta) / canvasWidthPx
                         onResizeWindow(
                             start.copy(widthFraction = newWidthFraction)
-                                .withAspectRatio(canvasWidthPx, canvasHeightPx, titleBarHeightPx)
                                 .clamped(canvasWidthPx, canvasHeightPx, titleBarHeightPx),
                         )
                     }
@@ -386,75 +402,83 @@ private fun WindowControlButton(
 }
 
 @Composable
-private fun CornerResizeHandle(
+private fun FrameCornerResizeGrip(
     tabId: String,
+    cornerRadiusPx: Float,
     onResizeStart: () -> Unit,
     onResize: (Float, Float) -> Unit,
     onResizeEnd: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val gripColor = Color.White.copy(alpha = 0.92f)
+    val density = LocalDensity.current
+    val gripExtentPx = with(density) { CornerGripExtent.toPx() }
+    val gripColor = Color.White.copy(alpha = 0.88f)
+    val gripHighlight = Color.White.copy(alpha = 0.45f)
 
     Box(
-        modifier = modifier
-            .size(ResizeHandleTouchSize)
-            .pointerInput(tabId) {
-                detectDragGestures(
-                    onDragStart = { onResizeStart() },
-                    onDragEnd = { onResizeEnd() },
-                    onDragCancel = { onResizeEnd() },
-                    onDrag = { change, dragAmount ->
-                        change.consume()
-                        onResize(dragAmount.x, dragAmount.y)
-                    },
-                )
-            },
+        modifier = modifier.pointerInput(tabId) {
+            detectDragGestures(
+                onDragStart = { onResizeStart() },
+                onDragEnd = { onResizeEnd() },
+                onDragCancel = { onResizeEnd() },
+                onDrag = { change, dragAmount ->
+                    change.consume()
+                    onResize(dragAmount.x, dragAmount.y)
+                },
+            )
+        },
         contentAlignment = Alignment.BottomEnd,
     ) {
-        Canvas(modifier = Modifier.size(ResizeHandleVisualSize)) {
-            val arm = size.minDimension * 0.78f
-            val stroke = size.minDimension * 0.13f
-            val corner = Offset(size.width, size.height)
+        Canvas(modifier = Modifier.fillMaxSize()) {
+            val width = size.width
+            val height = size.height
+            val radius = cornerRadiusPx.coerceAtMost(minOf(width, height) * 0.45f)
+            val extent = gripExtentPx.coerceAtMost(minOf(width, height) * 0.9f)
+
+            val cornerPath = Path().apply {
+                moveTo(width - extent, height)
+                lineTo(width - radius, height)
+                arcTo(
+                    rect = Rect(
+                        offset = Offset(width - radius * 2f, height - radius * 2f),
+                        size = Size(radius * 2f, radius * 2f),
+                    ),
+                    startAngleDegrees = 90f,
+                    sweepAngleDegrees = -90f,
+                    forceMoveTo = false,
+                )
+                lineTo(width, height - extent)
+                lineTo(width - extent * 0.42f, height - extent * 0.42f)
+                close()
+            }
+
+            clipPath(cornerPath) {
+                drawRoundRect(
+                    color = gripHighlight,
+                    topLeft = Offset(width - extent, height - extent),
+                    size = Size(extent, extent),
+                    cornerRadius = CornerRadius(radius, radius),
+                )
+            }
+
+            drawPath(
+                path = cornerPath,
+                color = gripColor,
+                style = Stroke(width = 2.8f, cap = StrokeCap.Round, join = StrokeJoin.Round),
+            )
 
             drawLine(
                 color = gripColor,
-                start = Offset(size.width - arm, size.height),
-                end = corner,
-                strokeWidth = stroke,
+                start = Offset(width - extent, height - 1.5f),
+                end = Offset(width - radius, height - 1.5f),
+                strokeWidth = 3.2f,
                 cap = StrokeCap.Round,
             )
             drawLine(
                 color = gripColor,
-                start = Offset(size.width, size.height - arm),
-                end = corner,
-                strokeWidth = stroke,
-                cap = StrokeCap.Round,
-            )
-            drawArc(
-                color = gripColor,
-                startAngle = 90f,
-                sweepAngle = -90f,
-                useCenter = false,
-                topLeft = Offset(size.width - arm * 0.42f, size.height - arm * 0.42f),
-                size = Size(arm * 0.84f, arm * 0.84f),
-                style = Stroke(width = stroke, cap = StrokeCap.Round),
-            )
-
-            val inset = stroke * 2f
-            val innerArm = arm * 0.62f
-            val innerCorner = Offset(size.width - inset, size.height - inset)
-            drawLine(
-                color = gripColor.copy(alpha = 0.5f),
-                start = Offset(innerCorner.x - innerArm, innerCorner.y),
-                end = innerCorner,
-                strokeWidth = stroke * 0.65f,
-                cap = StrokeCap.Round,
-            )
-            drawLine(
-                color = gripColor.copy(alpha = 0.5f),
-                start = Offset(innerCorner.x, innerCorner.y - innerArm),
-                end = innerCorner,
-                strokeWidth = stroke * 0.65f,
+                start = Offset(width - 1.5f, height - extent),
+                end = Offset(width - 1.5f, height - radius),
+                strokeWidth = 3.2f,
                 cap = StrokeCap.Round,
             )
         }

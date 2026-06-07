@@ -13,7 +13,7 @@ data class BrowserWindowLayout(
     val heightFraction: Float = 0.58f,
 ) {
     companion object {
-        const val MIN_FRACTION = 0.22f
+        const val MIN_FRACTION = 0.10f
         const val MAX_FRACTION = 1f
         const val TITLE_BAR_HEIGHT_DP = 44f
         const val CONTENT_ASPECT_RATIO = 4f / 3f
@@ -60,21 +60,42 @@ data class BrowserWindowLayout(
         heightFraction = heightFractionForWidth(widthFraction, canvasWidthPx, canvasHeightPx, titleBarHeightPx),
     )
 
+    fun normalized(
+        canvasWidthPx: Float,
+        canvasHeightPx: Float,
+        titleBarHeightPx: Float,
+    ): BrowserWindowLayout = copy(
+        widthFraction = widthFraction.coerceIn(MIN_FRACTION, MAX_FRACTION),
+    ).withAspectRatio(canvasWidthPx, canvasHeightPx, titleBarHeightPx)
+
     fun clamped(
         canvasWidthPx: Float = 0f,
         canvasHeightPx: Float = 0f,
         titleBarHeightPx: Float = 0f,
     ): BrowserWindowLayout {
-        val widthClamped = widthFraction.coerceIn(MIN_FRACTION, MAX_FRACTION)
         val layout = if (canvasWidthPx > 0f && canvasHeightPx > 0f) {
-            copy(widthFraction = widthClamped).withAspectRatio(canvasWidthPx, canvasHeightPx, titleBarHeightPx)
+            normalized(canvasWidthPx, canvasHeightPx, titleBarHeightPx)
         } else {
             copy(
-                widthFraction = widthClamped,
+                widthFraction = widthFraction.coerceIn(MIN_FRACTION, MAX_FRACTION),
                 heightFraction = heightFraction.coerceIn(MIN_FRACTION, MAX_FRACTION),
             )
         }
         return layout.copy(
+            offsetX = offsetX.coerceIn(0f, (1f - layout.widthFraction).coerceAtLeast(0f)),
+            offsetY = offsetY.coerceIn(0f, (1f - layout.heightFraction).coerceAtLeast(0f)),
+        )
+    }
+
+    fun clampedOffsetOnly(
+        canvasWidthPx: Float,
+        canvasHeightPx: Float,
+        titleBarHeightPx: Float,
+    ): BrowserWindowLayout {
+        val layout = normalized(canvasWidthPx, canvasHeightPx, titleBarHeightPx)
+        return copy(
+            widthFraction = layout.widthFraction,
+            heightFraction = layout.heightFraction,
             offsetX = offsetX.coerceIn(0f, (1f - layout.widthFraction).coerceAtLeast(0f)),
             offsetY = offsetY.coerceIn(0f, (1f - layout.heightFraction).coerceAtLeast(0f)),
         )

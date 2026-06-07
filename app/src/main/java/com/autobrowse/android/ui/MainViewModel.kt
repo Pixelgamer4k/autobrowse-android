@@ -102,19 +102,30 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         viewModelScope.launch {
             repository.observeTabs(id).collect { dbTabs ->
                 _uiState.update { state ->
-                    val merged = FloatingWindowEngine.mergeDbTabs(dbTabs, state.windowFrames)
+                    val tabsById = state.tabs.associateBy { it.id }
                     val frames = state.windowFrames.toMutableMap()
-                    merged.frames.forEach { (tabId, frame) ->
-                        if (tabId !in frames) frames[tabId] = frame
+                    val liveIds = dbTabs.map { it.id }.toSet()
+                    frames.keys.retainAll(liveIds)
+
+                    val tabs = dbTabs.map { dbTab ->
+                        val existing = tabsById[dbTab.id]
+                        val frame = frames[dbTab.id] ?: BrowserWindowFrame.fromTab(dbTab).also {
+                            frames[dbTab.id] = it
+                        }
+                        BrowserTab(
+                            id = dbTab.id,
+                            url = dbTab.url,
+                            title = dbTab.title,
+                            status = dbTab.status,
+                            isAgentControlled = dbTab.isAgentControlled,
+                            zIndex = existing?.zIndex ?: dbTab.zIndex,
+                            desktopMode = dbTab.desktopMode,
+                        ).withFrame(frame)
                     }
-                    val tabs = merged.tabs.map { tab ->
-                        frames[tab.id]?.let { tab.withFrame(it) } ?: tab
-                    }
-                    val active = state.activeTabId ?: tabs.firstOrNull()?.id
                     state.copy(
                         tabs = tabs,
                         windowFrames = frames,
-                        activeTabId = active,
+                        activeTabId = state.activeTabId ?: tabs.firstOrNull()?.id,
                     )
                 }
                 _uiState.value.activeTabId?.let { browserController.setActiveTab(it) }
@@ -345,7 +356,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             )
         }
         viewModelScope.launch {
-            val tab = _uiState.value.tabs.find { it.id == tabId } ?: return@launch
+            val tab = tabForPersist(tabId) ?: return@launch
             repository.saveTab(tab, id)
         }
     }
