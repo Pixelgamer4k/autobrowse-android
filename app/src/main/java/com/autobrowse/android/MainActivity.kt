@@ -1,0 +1,27 @@
+package com.autobrowse.android
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Surface
+import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.autobrowse.android.ui.screens.HomeScreen
+import com.autobrowse.android.ui.theme.AutobrowseTheme
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContent {
+            AutobrowseTheme {
+                Surface(modifier = Modifier.fillMaxSize()) {
+                    val vm: com.autobrowse.android.ui.MainViewModel = viewModel()
+                    HomeScreen(viewModel = vm)
+                }
+            }
+        }
+    }
+}

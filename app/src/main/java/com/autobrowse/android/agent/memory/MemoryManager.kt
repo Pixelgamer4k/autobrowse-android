@@ -1,0 +1,139 @@
+package com.autobrowse.android.agent.memory
+
+import com.autobrowse.android.data.local.dao.MemoryDao
+import com.autobrowse.android.data.local.dao.TrajectoryDao
+import com.autobrowse.android.data.local.entity.MemoryEntryEntity
+import com.autobrowse.android.data.remote.LlmApiService
+import com.autobrowse.android.data.repository.AutobrowseRepository
+import com.autobrowse.android.domain.model.MemoryEntry
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import java.util.UUID
+
+class MemoryManager(
+    private val memoryDao: MemoryDao,
+    private val trajectoryDao: TrajectoryDao,
+    private val repository: AutobrowseRepository,
+    private val llmApi: LlmApiService,
+    private val extractor: MemoryExtractor = MemoryExtractor(llmApi),
+) {
+    suspend fun prefetch(query: String): String = withContext(Dispatchers.IO) {
+        val memories = search(query, limit = 6)
+        if (memories.isEmpty()) return@withContext ""
+        memories.joinToString("\n") { "- [${it.category}] ${it.key}: ${it.value}" }
+    }
+
+    suspend fun search(query: String, limit: Int = 10): List<MemoryEntry> = withContext(Dispatchers.IO) {
+        val ftsQuery = query.split(Regex("\\s+"))
+            .filter { it.length > 2 }
+            .joinToString(" OR ") { "$it*" }
+
+        val ftsResults = runCatching {
+            if (ftsQuery.isNotBlank()) memoryDao.searchFts(ftsQuery, limit) else emptyList()
+        }.getOrDefault(emptyList())
+
+        val likeResults = query.split(Regex("\\s+"))
+            .flatMap { term -> memoryDao.searchLike(term, limit) }
+
+        (ftsResults + likeResults)
+            .distinctBy { it.id }
+            .sortedByDescending { it.importance }
+            .take(limit)
+            .map { it.toDomain() }
+    }
+
+    suspend fun remember(
+        key: String,
+        value: String,
+        category: String = "MEMORY",
+        importance: Int = 5,
+        tags: String = "",
+        source: String = "agent",
+    ) = withContext(Dispatchers.IO) {
+        val existing = memoryDao.getByKey(key)
+        val now = System.currentTimeMillis()
+        memoryDao.upsert(
+            MemoryEntryEntity(
+                id = existing?.id ?: UUID.randomUUID().toString(),
+                key = key,
+                value = value,
+                category = category,
+                importance = importance.coerceIn(1, 10),
+                tags = tags,
+                source = source,
+                createdAt = existing?.createdAt ?: now,
+                updatedAt = now,
+            ),
+        )
+    }
+
+    suspend fun getUserProfileBlock(): String = withContext(Dispatchers.IO) {
+        val user = memoryDao.getByCategory("USER")
+        val prefs = memoryDao.getByCategory("PREFERENCE")
+        buildString {
+            if (user.isNotEmpty()) {
+                appendLine("## User Profile")
+                user.forEach { appendLine("- ${it.key}: ${it.value}") }
+            }
+            if (prefs.isNotEmpty()) {
+                appendLine("## Preferences")
+                prefs.forEach { appendLine("- ${it.key}: ${it.value}") }
+            }
+        }.trim()
+    }
+
+    suspend fun getMemoryBlock(): String = withContext(Dispatchers.IO) {
+        val memories = memoryDao.getByCategory("MEMORY").take(12)
+        if (memories.isEmpty()) return@withContext ""
+        buildString {
+            appendLine("## Long-term Memory")
+            memories.forEach { appendLine("- ${it.key}: ${it.value}") }
+        }.trim()
+    }
+
+    suspend fun syncTurn(
+        sessionId: String,
+        userMessage: String,
+        assistantMessage: String,
+    ): Int = withContext(Dispatchers.IO) {
+        val config = repository.getLlmConfig()
+        val extracted = extractor.extractFromTurn(config, userMessage, assistantMessage)
+        extracted.forEach { item ->
+            remember(
+                key = item.key,
+                value = item.value,
+                category = item.category,
+                importance = item.importance,
+                source = "extraction",
+            )
+        }
+        remember(
+            key = "session_note_${System.currentTimeMillis()}",
+            value = "User: ${userMessage.take(120)} → Agent: ${assistantMessage.take(200)}",
+            category = "SESSION",
+            importance = 3,
+            source = "sync_turn",
+        )
+        extracted.size
+    }
+
+    suspend fun searchSessions(query: String, sessionId: String, limit: Int): List<String> =
+        withContext(Dispatchers.IO) {
+            memoryDao.getByCategory("SESSION")
+                .filter { it.value.contains(query, ignoreCase = true) || it.key.contains(query, ignoreCase = true) }
+                .take(limit)
+                .map { it.value }
+        }
+
+    private fun MemoryEntryEntity.toDomain() = MemoryEntry(
+        id = id,
+        key = key,
+        value = value,
+        category = category,
+        importance = importance,
+        tags = tags,
+        source = source,
+        createdAt = createdAt,
+        updatedAt = updatedAt,
+    )
+}
