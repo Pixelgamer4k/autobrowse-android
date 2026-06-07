@@ -9,9 +9,11 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -19,6 +21,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -42,6 +45,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import com.autobrowse.android.browser.BrowserController
+import com.autobrowse.android.browser.WindowGeometry
 import com.autobrowse.android.domain.model.BrowserTab
 import com.autobrowse.android.domain.model.BrowserWindowFrame
 import com.autobrowse.android.domain.model.BrowserWindowLayout
@@ -53,6 +57,12 @@ private val WindowCornerRadius = 12.dp
 private val CornerGripExtent = 26.dp
 private val CornerGripTouchSize = 56.dp
 
+private data class GestureSnapshot(
+    val offsetX: Float,
+    val offsetY: Float,
+    val widthPx: Float,
+)
+
 @Composable
 fun ResizableBrowserWindow(
     tab: BrowserTab,
@@ -63,9 +73,7 @@ fun ResizableBrowserWindow(
     controller: BrowserController,
     onSelect: () -> Unit,
     onTabUpdate: (BrowserTab) -> Unit,
-    onMoveWindow: (BrowserWindowLayout) -> Unit,
-    onResizeWindow: (BrowserWindowLayout) -> Unit,
-    onEndManipulation: () -> Unit,
+    onCommitGeometry: (BrowserWindowLayout) -> Unit,
     onRefresh: () -> Unit,
     onToggleMaximize: () -> Unit,
     onMinimize: () -> Unit,
@@ -74,86 +82,66 @@ fun ResizableBrowserWindow(
 ) {
     val density = LocalDensity.current
     val titleBarHeightPx = with(density) { BrowserWindowLayout.TITLE_BAR_HEIGHT_DP.dp.toPx() }
-    val minimizedHeightPx = titleBarHeightPx.coerceAtLeast(1f)
     val cornerRadiusPx = with(density) { WindowCornerRadius.toPx() }
+    val canvas = remember(canvasWidthPx, canvasHeightPx, titleBarHeightPx) {
+        WindowGeometry.Canvas(canvasWidthPx, canvasHeightPx, titleBarHeightPx)
+    }
 
-    var isManipulating by remember(tab.id) { mutableStateOf(false) }
-    var dragAnchor by remember(tab.id) { mutableStateOf<BrowserWindowLayout?>(null) }
-    var dragAccum by remember(tab.id) { mutableStateOf(Offset.Zero) }
-    var resizeAnchor by remember(tab.id) { mutableStateOf<BrowserWindowLayout?>(null) }
-    var resizeAccum by remember(tab.id) { mutableStateOf(Offset.Zero) }
+    val resolved = remember(frame, canvas) { WindowGeometry.resolve(frame, canvas) }
+
     var menuExpanded by remember(tab.id) { mutableStateOf(false) }
+    var gestureActive by remember(tab.id) { mutableStateOf(false) }
+    var gestureMode by remember(tab.id) { mutableStateOf<String?>(null) }
+    var dragDx by remember(tab.id) { mutableFloatStateOf(0f) }
+    var dragDy by remember(tab.id) { mutableFloatStateOf(0f) }
+    var gestureAnchor by remember(tab.id) { mutableStateOf<GestureSnapshot?>(null) }
 
     LaunchedEffect(isActive) {
         if (!isActive) menuExpanded = false
     }
 
-    fun normalizedLayout(source: BrowserWindowLayout): BrowserWindowLayout = when (frame.windowState) {
-        BrowserWindowState.NORMAL -> source.normalized(canvasWidthPx, canvasHeightPx, titleBarHeightPx)
-        else -> source
+    fun resetGesture() {
+        gestureActive = false
+        gestureMode = null
+        dragDx = 0f
+        dragDy = 0f
+        gestureAnchor = null
     }
 
-    fun widthPxFromFraction(fraction: Float): Float = fraction * canvasWidthPx
+    val anchor = gestureAnchor
+    val isDragging = gestureActive && gestureMode == "move" && anchor != null
+    val isResizing = gestureActive && gestureMode == "resize" && anchor != null
 
-    fun heightPxForWidth(widthPx: Float, minimized: Boolean): Float = when {
-        minimized -> minimizedHeightPx
-        frame.windowState == BrowserWindowState.MAXIMIZED -> frame.effectiveLayout().heightFraction * canvasHeightPx
-        else -> BrowserWindowLayout.totalHeightPx(widthPx, titleBarHeightPx)
+    val widthPx = when {
+        isResizing && anchor != null -> {
+            val delta = max(dragDx, dragDy * BrowserWindowLayout.CONTENT_ASPECT_RATIO)
+            (anchor.widthPx + delta).coerceIn(0f, canvas.widthPx)
+        }
+        else -> resolved.widthPx
+    }
+    val heightPx = when (frame.windowState) {
+        BrowserWindowState.MINIMIZED -> canvas.titleBarPx.coerceAtLeast(1f)
+        BrowserWindowState.MAXIMIZED -> resolved.heightPx
+        BrowserWindowState.NORMAL -> BrowserWindowLayout.totalHeightPx(widthPx, canvas.titleBarPx)
     }
 
-    val storedLayout = frame.effectiveLayout()
-    val baseLayout = if (frame.windowState == BrowserWindowState.NORMAL) {
-        normalizedLayout(storedLayout)
-    } else {
-        storedLayout
+    val xPx = when {
+        isDragging && anchor != null -> {
+            (anchor.offsetX * canvas.widthPx + dragDx)
+                .coerceIn(0f, (canvas.widthPx - widthPx).coerceAtLeast(0f))
+        }
+        else -> resolved.xPx
+    }
+    val yPx = when {
+        isDragging && anchor != null -> {
+            (anchor.offsetY * canvas.heightPx + dragDy)
+                .coerceIn(0f, (canvas.heightPx - heightPx).coerceAtLeast(0f))
+        }
+        else -> resolved.yPx
     }
 
-    val baseWidthPx = widthPxFromFraction(baseLayout.widthFraction)
-    val baseHeightPx = heightPxForWidth(baseWidthPx, frame.windowState == BrowserWindowState.MINIMIZED)
-
-    val isResizing = isManipulating && resizeAnchor != null && frame.windowState == BrowserWindowState.NORMAL
-    val resizedWidthPx = if (isResizing) {
-        val anchorLayout = normalizedLayout(resizeAnchor!!)
-        val startWidthPx = widthPxFromFraction(anchorLayout.widthFraction)
-        val delta = max(resizeAccum.x, resizeAccum.y * BrowserWindowLayout.CONTENT_ASPECT_RATIO)
-        (startWidthPx + delta).coerceIn(
-            BrowserWindowLayout.MIN_FRACTION * canvasWidthPx,
-            canvasWidthPx,
-        )
-    } else {
-        baseWidthPx
-    }
-    val widthPx = if (isResizing) resizedWidthPx else baseWidthPx
-    val heightPx = if (isResizing) {
-        heightPxForWidth(resizedWidthPx, minimized = false)
-    } else {
-        baseHeightPx
-    }
-
-    val isDragging = isManipulating && dragAnchor != null && resizeAnchor == null
-    val baseXPx = baseLayout.offsetX * canvasWidthPx
-    val baseYPx = baseLayout.offsetY * canvasHeightPx
-    val xPx = if (isDragging) {
-        (baseXPx + dragAccum.x).coerceIn(0f, (canvasWidthPx - widthPx).coerceAtLeast(0f))
-    } else {
-        baseXPx.coerceIn(0f, (canvasWidthPx - widthPx).coerceAtLeast(0f))
-    }
-    val yPx = if (isDragging) {
-        (baseYPx + dragAccum.y).coerceIn(0f, (canvasHeightPx - heightPx).coerceAtLeast(0f))
-    } else {
-        baseYPx.coerceIn(0f, (canvasHeightPx - heightPx).coerceAtLeast(0f))
-    }
-
-    val canResize = frame.windowState == BrowserWindowState.NORMAL && canvasWidthPx > 0f
-
-    fun finishManipulation() {
-        isManipulating = false
-        dragAnchor = null
-        dragAccum = Offset.Zero
-        resizeAnchor = null
-        resizeAccum = Offset.Zero
-        onEndManipulation()
-    }
+    val canResize = frame.windowState == BrowserWindowState.NORMAL && canvas.widthPx > 0f
+    val webInteractionEnabled = !gestureActive && !menuExpanded
 
     val elevation by animateFloatAsState(
         targetValue = if (isActive) 14f else 5f,
@@ -194,63 +182,47 @@ fun ResizableBrowserWindow(
             Column(modifier = Modifier.fillMaxSize()) {
                 WindowTitleBar(
                     tabId = tab.id,
-                    frame = frame,
-                    menuExpanded = menuExpanded,
-                    isManipulating = isManipulating,
-                    onToggleMenu = {
-                        menuExpanded = !menuExpanded
-                        onSelect()
-                    },
-                    onDismissMenu = { menuExpanded = false },
-                    onRefresh = {
-                        menuExpanded = false
-                        onSelect()
-                        onRefresh()
-                    },
-                    onToggleMaximize = {
-                        menuExpanded = false
-                        onSelect()
-                        onToggleMaximize()
-                    },
-                    onMinimize = {
-                        menuExpanded = false
-                        onSelect()
-                        onMinimize()
-                    },
-                    onClose = {
-                        menuExpanded = false
-                        onClose()
-                    },
+                    windowState = frame.windowState,
+                    isGesturing = gestureActive,
                     onDragStart = {
                         if (frame.windowState != BrowserWindowState.MAXIMIZED) {
                             menuExpanded = false
-                            isManipulating = true
-                            resizeAnchor = null
-                            resizeAccum = Offset.Zero
-                            dragAnchor = baseLayout
-                            dragAccum = Offset.Zero
+                            gestureActive = true
+                            gestureMode = "move"
+                            gestureAnchor = GestureSnapshot(
+                                offsetX = resolved.layout.offsetX,
+                                offsetY = resolved.layout.offsetY,
+                                widthPx = resolved.widthPx,
+                            )
+                            dragDx = 0f
+                            dragDy = 0f
                             onSelect()
                         }
                     },
-                    onDrag = { delta ->
-                        if (frame.windowState == BrowserWindowState.MAXIMIZED) return@WindowTitleBar
-                        dragAccum += delta
+                    onDrag = { dx, dy ->
+                        if (gestureMode == "move") {
+                            dragDx += dx
+                            dragDy += dy
+                        }
                     },
                     onDragEnd = {
-                        val start = dragAnchor
-                        if (start != null && dragAccum != Offset.Zero) {
-                            onMoveWindow(
-                                BrowserWindowLayout.fromDisplayedSize(
+                        val snap = gestureAnchor
+                        if (gestureMode == "move" && snap != null && (dragDx != 0f || dragDy != 0f)) {
+                            onCommitGeometry(
+                                WindowGeometry.moved(
+                                    base = resolved.layout,
                                     widthPx = widthPx,
-                                    offsetX = start.offsetX + dragAccum.x / canvasWidthPx,
-                                    offsetY = start.offsetY + dragAccum.y / canvasHeightPx,
-                                    canvasWidthPx = canvasWidthPx,
-                                    canvasHeightPx = canvasHeightPx,
-                                    titleBarHeightPx = titleBarHeightPx,
+                                    offsetX = snap.offsetX + dragDx / canvas.widthPx,
+                                    offsetY = snap.offsetY + dragDy / canvas.heightPx,
+                                    canvas = canvas,
                                 ),
                             )
                         }
-                        finishManipulation()
+                        resetGesture()
+                    },
+                    onToggleMenu = {
+                        menuExpanded = !menuExpanded
+                        onSelect()
                     },
                 )
 
@@ -265,7 +237,7 @@ fun ResizableBrowserWindow(
                             tab = tab,
                             controller = controller,
                             onTabUpdate = onTabUpdate,
-                            interactionEnabled = !isManipulating,
+                            interactionEnabled = webInteractionEnabled,
                             modifier = Modifier.fillMaxSize(),
                         )
                     }
@@ -273,11 +245,39 @@ fun ResizableBrowserWindow(
             }
         }
 
-        WindowMenuScrim(
-            visible = menuExpanded,
-            onDismiss = { menuExpanded = false },
-            modifier = Modifier.matchParentSize(),
-        )
+        if (menuExpanded) {
+            WindowMenuScrim(
+                visible = true,
+                onDismiss = { menuExpanded = false },
+                modifier = Modifier.matchParentSize().zIndex(14f),
+            )
+            WindowOptionsPopup(
+                windowState = frame.windowState,
+                modifier = Modifier
+                    .align(Alignment.TopCenter)
+                    .padding(top = 34.dp)
+                    .zIndex(20f),
+                onRefresh = {
+                    menuExpanded = false
+                    onSelect()
+                    onRefresh()
+                },
+                onToggleMaximize = {
+                    menuExpanded = false
+                    onSelect()
+                    onToggleMaximize()
+                },
+                onMinimize = {
+                    menuExpanded = false
+                    onSelect()
+                    onMinimize()
+                },
+                onClose = {
+                    menuExpanded = false
+                    onClose()
+                },
+            )
+        }
 
         if (canResize) {
             FrameCornerResizeGrip(
@@ -289,34 +289,35 @@ fun ResizableBrowserWindow(
                     .zIndex(8f),
                 onResizeStart = {
                     menuExpanded = false
-                    isManipulating = true
-                    dragAnchor = null
-                    dragAccum = Offset.Zero
-                    resizeAnchor = baseLayout
-                    resizeAccum = Offset.Zero
+                    gestureActive = true
+                    gestureMode = "resize"
+                    gestureAnchor = GestureSnapshot(
+                        offsetX = resolved.layout.offsetX,
+                        offsetY = resolved.layout.offsetY,
+                        widthPx = resolved.widthPx,
+                    )
+                    dragDx = 0f
+                    dragDy = 0f
                     onSelect()
                 },
                 onResize = { dx, dy ->
-                    resizeAccum += Offset(dx, dy)
+                    if (gestureMode == "resize") {
+                        dragDx += dx
+                        dragDy += dy
+                    }
                 },
                 onResizeEnd = {
-                    val start = resizeAnchor
-                    if (start != null && resizeAccum != Offset.Zero) {
-                        val startWidthPx = widthPxFromFraction(start.widthFraction)
-                        val delta = max(resizeAccum.x, resizeAccum.y * BrowserWindowLayout.CONTENT_ASPECT_RATIO)
-                        val newWidthFraction = (startWidthPx + delta) / canvasWidthPx
-                        onResizeWindow(
-                            BrowserWindowLayout.fromDisplayedSize(
+                    val snap = gestureAnchor
+                    if (gestureMode == "resize" && snap != null && (dragDx != 0f || dragDy != 0f)) {
+                        onCommitGeometry(
+                            WindowGeometry.resized(
+                                base = resolved.layout,
                                 widthPx = widthPx,
-                                offsetX = start.offsetX,
-                                offsetY = start.offsetY,
-                                canvasWidthPx = canvasWidthPx,
-                                canvasHeightPx = canvasHeightPx,
-                                titleBarHeightPx = titleBarHeightPx,
+                                canvas = canvas,
                             ),
                         )
                     }
-                    finishManipulation()
+                    resetGesture()
                 },
             )
         }
@@ -326,29 +327,26 @@ fun ResizableBrowserWindow(
 @Composable
 private fun WindowTitleBar(
     tabId: String,
-    frame: BrowserWindowFrame,
-    menuExpanded: Boolean,
-    isManipulating: Boolean,
-    onToggleMenu: () -> Unit,
-    onDismissMenu: () -> Unit,
-    onRefresh: () -> Unit,
-    onToggleMaximize: () -> Unit,
-    onMinimize: () -> Unit,
-    onClose: () -> Unit,
+    windowState: BrowserWindowState,
+    isGesturing: Boolean,
     onDragStart: () -> Unit,
-    onDrag: (Offset) -> Unit,
+    onDrag: (Float, Float) -> Unit,
     onDragEnd: () -> Unit,
+    onToggleMenu: () -> Unit,
 ) {
-    val dragModifier = Modifier.pointerInput(tabId, frame.windowState) {
-        detectDragGestures(
-            onDragStart = { onDragStart() },
-            onDragEnd = { onDragEnd() },
-            onDragCancel = { onDragEnd() },
-            onDrag = { change, dragAmount ->
-                change.consume()
-                onDrag(dragAmount)
-            },
-        )
+    fun dragHandle(side: String): Modifier {
+        if (windowState == BrowserWindowState.MAXIMIZED) return Modifier
+        return Modifier.pointerInput(tabId, side) {
+            detectDragGestures(
+                onDragStart = { onDragStart() },
+                onDragEnd = { onDragEnd() },
+                onDragCancel = { onDragEnd() },
+                onDrag = { change, amount ->
+                    change.consume()
+                    onDrag(amount.x, amount.y)
+                },
+            )
+        }
     }
 
     Row(
@@ -357,19 +355,12 @@ private fun WindowTitleBar(
             .height(BrowserWindowLayout.TITLE_BAR_HEIGHT_DP.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Box(modifier = Modifier.weight(1f).then(dragModifier))
-        WindowChromeWithMenu(
-            windowState = frame.windowState,
-            menuExpanded = menuExpanded,
-            isManipulating = isManipulating,
-            onToggleMenu = onToggleMenu,
-            onDismissMenu = onDismissMenu,
-            onRefresh = onRefresh,
-            onToggleMaximize = onToggleMaximize,
-            onMinimize = onMinimize,
-            onClose = onClose,
+        Box(modifier = Modifier.weight(1f).fillMaxHeight().then(dragHandle("left")))
+        ThreeDotMenuButton(
+            onClick = onToggleMenu,
+            isGesturing = isGesturing,
         )
-        Box(modifier = Modifier.weight(1f).then(dragModifier))
+        Box(modifier = Modifier.weight(1f).fillMaxHeight().then(dragHandle("right")))
     }
 }
 

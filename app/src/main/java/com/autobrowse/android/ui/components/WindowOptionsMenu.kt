@@ -42,17 +42,41 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.zIndex
 import com.autobrowse.android.domain.model.BrowserWindowState
 import com.autobrowse.android.ui.theme.Motion
 
 @Composable
-fun WindowChromeWithMenu(
+fun ThreeDotMenuButton(
+    onClick: () -> Unit,
+    isGesturing: Boolean,
+    modifier: Modifier = Modifier,
+) {
+    Row(
+        modifier = modifier
+            .clickable(
+                interactionSource = remember { MutableInteractionSource() },
+                indication = null,
+                onClick = onClick,
+            )
+            .height(28.dp)
+            .padding(horizontal = 16.dp),
+        horizontalArrangement = Arrangement.spacedBy(5.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        val dotAlpha = if (isGesturing) 0.55f else 0.92f
+        repeat(3) {
+            Box(
+                modifier = Modifier
+                    .size(5.dp)
+                    .background(Color.White.copy(alpha = dotAlpha), CircleShape),
+            )
+        }
+    }
+}
+
+@Composable
+fun WindowOptionsPopup(
     windowState: BrowserWindowState,
-    menuExpanded: Boolean,
-    isManipulating: Boolean,
-    onToggleMenu: () -> Unit,
-    onDismissMenu: () -> Unit,
     onRefresh: () -> Unit,
     onToggleMaximize: () -> Unit,
     onMinimize: () -> Unit,
@@ -70,87 +94,32 @@ fun WindowChromeWithMenu(
         BrowserWindowState.NORMAL -> Icons.Default.Fullscreen
     }
 
-    Box(modifier = modifier.fillMaxWidth()) {
+    AnimatedVisibility(
+        visible = true,
+        enter = fadeIn(Motion.tweenQuick) + scaleIn(
+            animationSpec = Motion.springSnappy,
+            initialScale = 0.82f,
+            transformOrigin = TransformOrigin(0.5f, 0f),
+        ),
+        exit = fadeOut(Motion.tweenQuick) + scaleOut(
+            animationSpec = Motion.tweenQuick,
+            targetScale = 0.9f,
+            transformOrigin = TransformOrigin(0.5f, 0f),
+        ),
+        modifier = modifier,
+    ) {
         Surface(
-            color = if (isManipulating) {
-                MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.95f)
-            } else {
-                MaterialTheme.colorScheme.surface.copy(alpha = 0.92f)
-            },
-            modifier = Modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(14.dp),
+            color = Color(0xFF1B1B1F),
+            shadowElevation = 12.dp,
+            tonalElevation = 6.dp,
+            modifier = Modifier.width(176.dp),
         ) {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(28.dp),
-                contentAlignment = Alignment.Center,
-            ) {
-                ThreeDotMenuButton(onClick = onToggleMenu)
-            }
-        }
-
-        AnimatedVisibility(
-            visible = menuExpanded,
-            enter = fadeIn(Motion.tweenQuick) + scaleIn(
-                animationSpec = Motion.springSnappy,
-                initialScale = 0.82f,
-                transformOrigin = TransformOrigin(0.5f, 0f),
-            ),
-            exit = fadeOut(Motion.tweenQuick) + scaleOut(
-                animationSpec = Motion.tweenQuick,
-                targetScale = 0.9f,
-                transformOrigin = TransformOrigin(0.5f, 0f),
-            ),
-            modifier = Modifier
-                .align(Alignment.TopCenter)
-                .padding(top = 30.dp)
-                .zIndex(12f),
-        ) {
-            Surface(
-                shape = RoundedCornerShape(14.dp),
-                color = Color(0xFF1B1B1F),
-                shadowElevation = 10.dp,
-                tonalElevation = 6.dp,
-                modifier = Modifier.width(168.dp),
-            ) {
-                Column(modifier = Modifier.padding(vertical = 6.dp)) {
-                    WindowMenuItem(
-                        label = "Refresh",
-                        icon = Icons.Default.Refresh,
-                        tint = Color(0xFF4A90D9),
-                        onClick = {
-                            onDismissMenu()
-                            onRefresh()
-                        },
-                    )
-                    WindowMenuItem(
-                        label = maxMinLabel,
-                        icon = maxMinIcon,
-                        tint = Color(0xFF34A853),
-                        onClick = {
-                            onDismissMenu()
-                            onToggleMaximize()
-                        },
-                    )
-                    WindowMenuItem(
-                        label = "Minimize",
-                        icon = Icons.Default.UnfoldMore,
-                        tint = Color(0xFFFFB74D),
-                        onClick = {
-                            onDismissMenu()
-                            onMinimize()
-                        },
-                    )
-                    WindowMenuItem(
-                        label = "Close",
-                        icon = Icons.Default.Close,
-                        tint = Color(0xFFE8453C),
-                        onClick = {
-                            onDismissMenu()
-                            onClose()
-                        },
-                    )
-                }
+            Column(modifier = Modifier.padding(vertical = 6.dp)) {
+                WindowMenuItem("Refresh", Icons.Default.Refresh, Color(0xFF4A90D9), onRefresh)
+                WindowMenuItem(maxMinLabel, maxMinIcon, Color(0xFF34A853), onToggleMaximize)
+                WindowMenuItem("Minimize", Icons.Default.UnfoldMore, Color(0xFFFFB74D), onMinimize)
+                WindowMenuItem("Close", Icons.Default.Close, Color(0xFFE8453C), onClose)
             }
         }
     }
@@ -166,7 +135,7 @@ fun WindowMenuScrim(
     LaunchedEffect(visible) { transition.targetState = visible }
 
     val alpha by animateFloatAsState(
-        targetValue = if (transition.targetState) 0.18f else 0f,
+        targetValue = if (transition.targetState) 0.22f else 0f,
         animationSpec = Motion.tweenQuick,
         label = "menuScrimAlpha",
     )
@@ -181,35 +150,8 @@ fun WindowMenuScrim(
                     interactionSource = remember { MutableInteractionSource() },
                     indication = null,
                     onClick = onDismiss,
-                )
-                .zIndex(10f),
+                ),
         )
-    }
-}
-
-@Composable
-private fun ThreeDotMenuButton(
-    onClick: () -> Unit,
-    modifier: Modifier = Modifier,
-) {
-    Row(
-        modifier = modifier
-            .clickable(
-                interactionSource = remember { MutableInteractionSource() },
-                indication = null,
-                onClick = onClick,
-            )
-            .padding(horizontal = 16.dp, vertical = 8.dp),
-        horizontalArrangement = Arrangement.spacedBy(5.dp),
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        repeat(3) {
-            Box(
-                modifier = Modifier
-                    .size(5.dp)
-                    .background(Color.White.copy(alpha = 0.92f), CircleShape),
-            )
-        }
     }
 }
 
@@ -224,7 +166,7 @@ private fun WindowMenuItem(
         modifier = Modifier
             .fillMaxWidth()
             .clickable(onClick = onClick)
-            .padding(horizontal = 14.dp, vertical = 10.dp),
+            .padding(horizontal = 14.dp, vertical = 11.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(12.dp),
     ) {
@@ -237,7 +179,7 @@ private fun WindowMenuItem(
         Text(
             text = label,
             style = MaterialTheme.typography.bodyMedium,
-            color = Color.White.copy(alpha = 0.92f),
+            color = Color.White.copy(alpha = 0.94f),
         )
     }
 }

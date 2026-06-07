@@ -15,7 +15,6 @@ import com.autobrowse.android.domain.model.BrowserTab
 import com.autobrowse.android.domain.model.BrowserTabStatus
 import com.autobrowse.android.domain.model.BrowserWindowFrame
 import com.autobrowse.android.domain.model.BrowserWindowLayout
-import com.autobrowse.android.domain.model.BrowserWindowState
 import com.autobrowse.android.domain.model.withFrame
 import com.autobrowse.android.domain.model.ChatMessage
 import com.autobrowse.android.domain.model.LearnedStrategy
@@ -25,6 +24,8 @@ import com.autobrowse.android.domain.model.PendingAttachment
 import com.autobrowse.android.domain.model.Session
 import com.autobrowse.android.domain.model.SkillConfig
 import com.autobrowse.android.domain.model.SkillType
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -69,6 +70,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     private var sessionId: String? = null
     private var flowsBound = false
+    private var persistJob: Job? = null
 
     init {
         viewModelScope.launch {
@@ -109,18 +111,12 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
                     val tabs = dbTabs.map { dbTab ->
                         val existing = tabsById[dbTab.id]
-                        val frame = frames[dbTab.id] ?: BrowserWindowFrame.fromTab(dbTab).also {
-                            frames[dbTab.id] = it
-                        }
-                        BrowserTab(
-                            id = dbTab.id,
-                            url = dbTab.url,
-                            title = dbTab.title,
-                            status = dbTab.status,
-                            isAgentControlled = dbTab.isAgentControlled,
-                            zIndex = existing?.zIndex ?: dbTab.zIndex,
-                            desktopMode = dbTab.desktopMode,
-                        ).withFrame(frame)
+                        val frame = FloatingWindowEngine.hydrateFrame(
+                            tabId = dbTab.id,
+                            dbTab = dbTab,
+                            existing = frames[dbTab.id],
+                        ).also { frames[dbTab.id] = it }
+                        FloatingWindowEngine.syncTabMetadata(dbTab, existing, frame)
                     }
                     state.copy(
                         tabs = tabs,
@@ -128,7 +124,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                         activeTabId = state.activeTabId ?: tabs.firstOrNull()?.id,
                     )
                 }
-                _uiState.value.activeTabId?.let { browserController.setActiveTab(it) }
             }
         }
         viewModelScope.launch {
@@ -195,29 +190,23 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun moveWindow(tabId: String, layout: BrowserWindowLayout) {
+    fun commitWindowGeometry(tabId: String, layout: BrowserWindowLayout, persist: Boolean = true) {
         _uiState.update { state ->
-            val frames = FloatingWindowEngine.moveFrame(state.windowFrames, tabId, layout)
+            val frames = FloatingWindowEngine.commitLayout(state.windowFrames, tabId, layout)
             state.copy(
                 windowFrames = frames,
                 tabs = applyFramesToTabs(state.tabs, frames),
             )
         }
+        if (persist) schedulePersist(tabId)
+    }
+
+    fun moveWindow(tabId: String, layout: BrowserWindowLayout) {
+        commitWindowGeometry(tabId, layout)
     }
 
     fun resizeWindow(tabId: String, layout: BrowserWindowLayout) {
-        moveWindow(tabId, layout)
-    }
-
-    fun endWindowManipulation(tabId: String) {
-        _uiState.update { state ->
-            val frames = FloatingWindowEngine.endManipulation(state.windowFrames, tabId)
-            state.copy(
-                windowFrames = frames,
-                tabs = applyFramesToTabs(state.tabs, frames),
-            )
-        }
-        persistWindow(tabId)
+        commitWindowGeometry(tabId, layout)
     }
 
     fun refreshTab(tabId: String) {
@@ -252,7 +241,15 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         return tab.withFrame(frame)
     }
 
-    private fun persistWindow(tabId: String) {
+    private fun schedulePersist(tabId: String) {
+        persistJob?.cancel()
+        persistJob = viewModelScope.launch {
+            delay(400)
+            persistWindowNow(tabId)
+        }
+    }
+
+    private fun persistWindowNow(tabId: String) {
         val session = sessionId ?: return
         val tab = tabForPersist(tabId) ?: return
         viewModelScope.launch {
@@ -288,7 +285,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             )
         }
         browserController.setActiveTab(tabId)
-        persistWindow(tabId)
+        persistWindowNow(tabId)
     }
 
     fun minimizeTab(tabId: String) {
@@ -301,7 +298,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             )
         }
         browserController.setActiveTab(tabId)
-        persistWindow(tabId)
+        persistWindowNow(tabId)
     }
 
     fun setBrowserPanelWeight(weight: Float) {
@@ -356,8 +353,17 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             )
         }
         viewModelScope.launch {
-            val tab = tabForPersist(tabId) ?: return@launch
-            repository.saveTab(tab, id)
+            val tab = _uiState.value.tabs.find { it.id == tabId } ?: return@launch
+            val frame = _uiState.value.windowFrames[tabId]
+            val toSave = frame?.let { tab.withFrame(it) } ?: tab
+            repository.saveTab(
+                toSave.copy(
+                    url = url ?: toSave.url,
+                    title = title ?: toSave.title,
+                    status = status ?: toSave.status,
+                ),
+                id,
+            )
         }
     }
 
