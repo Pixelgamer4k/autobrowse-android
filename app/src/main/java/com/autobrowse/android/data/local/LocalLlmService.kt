@@ -32,7 +32,7 @@ class LocalLlmService(
         requireModelFile(config)
         withConversation(config) { conversation ->
             val response = conversation.sendMessage("Reply with OK.")
-            val text = messageText(response)
+            val text = messageText(response).orEmpty()
             if (text.isNotBlank()) {
                 "Connected on ${config.backend.name} — model replied: ${text.take(80)}"
             } else {
