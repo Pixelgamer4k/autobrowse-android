@@ -535,7 +535,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     private fun listTabsForAgent(): List<TabInfo> {
         val active = _uiState.value.activeTabId
-        return _uiState.value.tabs.map { tabToInfo(it, isActive = tab.id == active) }
+        return _uiState.value.tabs.map { tabToInfo(it, isActive = it.id == active) }
     }
 
     private fun tabToInfo(tab: BrowserTab, isActive: Boolean) = TabInfo(
