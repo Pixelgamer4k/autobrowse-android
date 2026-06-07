@@ -4,11 +4,10 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.imeNestedScroll
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
@@ -29,14 +28,18 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.onSizeChanged
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.autobrowse.android.domain.model.AgentPhase
 import com.autobrowse.android.domain.model.AgentProgress
@@ -62,44 +65,57 @@ fun ChatPanel(
     modifier: Modifier = Modifier,
 ) {
     var inputFocused by remember { mutableStateOf(false) }
+    var composerHeightPx by remember { mutableIntStateOf(0) }
+    val density = LocalDensity.current
+    val composerClearance = with(density) { composerHeightPx.toDp() }
 
-    Column(
+    Box(
         modifier = modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background),
     ) {
-        ChatPanelHeader(onSettings = onSettings)
+        Column(modifier = Modifier.fillMaxSize()) {
+            ChatPanelHeader(onSettings = onSettings)
 
-        ChatConversation(
-            messages = messages,
-            isAgentThinking = isAgentThinking,
-            agentProgress = agentProgress,
-            scrollOnInput = inputFocused,
-            modifier = Modifier
-                .weight(1f)
-                .fillMaxWidth(),
-        )
-
-        error?.let { message ->
-            Text(
-                text = message,
-                color = MaterialTheme.colorScheme.error,
-                style = MaterialTheme.typography.bodySmall,
-                modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp),
+            ChatConversation(
+                messages = messages,
+                isAgentThinking = isAgentThinking,
+                agentProgress = agentProgress,
+                scrollOnInput = inputFocused,
+                contentBottomPadding = composerClearance,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxWidth(),
             )
         }
 
-        ChatComposer(
-            value = value,
-            onValueChange = onValueChange,
-            attachments = attachments,
-            onAddAttachment = onAddAttachment,
-            onRemoveAttachment = onRemoveAttachment,
-            onSend = onSend,
-            isSending = isAgentThinking,
-            onFocusChange = { inputFocused = it },
-            modifier = Modifier.fillMaxWidth(),
-        )
+        Column(
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .fillMaxWidth()
+                .onSizeChanged { composerHeightPx = it.height },
+        ) {
+            error?.let { message ->
+                Text(
+                    text = message,
+                    color = MaterialTheme.colorScheme.error,
+                    style = MaterialTheme.typography.bodySmall,
+                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp),
+                )
+            }
+
+            ChatComposer(
+                value = value,
+                onValueChange = onValueChange,
+                attachments = attachments,
+                onAddAttachment = onAddAttachment,
+                onRemoveAttachment = onRemoveAttachment,
+                onSend = onSend,
+                isSending = isAgentThinking,
+                onFocusChange = { inputFocused = it },
+                modifier = Modifier.fillMaxWidth(),
+            )
+        }
     }
 }
 
@@ -140,13 +156,13 @@ private fun ChatPanelHeader(onSettings: () -> Unit) {
     }
 }
 
-@OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun ChatConversation(
     messages: List<ChatMessage>,
     isAgentThinking: Boolean,
     agentProgress: AgentProgress?,
     scrollOnInput: Boolean,
+    contentBottomPadding: Dp,
     modifier: Modifier = Modifier,
 ) {
     val listState = rememberLazyListState()
@@ -179,10 +195,9 @@ private fun ChatConversation(
     }
 
     LazyColumn(
-        modifier = modifier
-            .imeNestedScroll()
-            .padding(horizontal = 16.dp, vertical = 8.dp),
+        modifier = modifier.padding(horizontal = 16.dp, vertical = 8.dp),
         state = listState,
+        contentPadding = PaddingValues(bottom = contentBottomPadding + 8.dp),
         verticalArrangement = Arrangement.spacedBy(14.dp),
     ) {
         items(messages, key = { it.id }) { message ->

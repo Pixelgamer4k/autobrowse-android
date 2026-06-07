@@ -27,10 +27,16 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.WindowInsetsSides
 import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.imePadding
-import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.navigationBars
+import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.ime
+import androidx.compose.foundation.layout.isImeVisible
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
@@ -65,6 +71,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -103,6 +110,7 @@ fun ChatBar(
     )
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun ChatComposer(
     value: String,
@@ -116,9 +124,13 @@ fun ChatComposer(
     onFocusChange: (Boolean) -> Unit = {},
 ) {
     val context = LocalContext.current
+    val density = LocalDensity.current
     var showPicker by remember { mutableStateOf(false) }
     val interactionSource = remember { MutableInteractionSource() }
     val isFocused by interactionSource.collectIsFocusedAsState()
+    val imeVisible = WindowInsets.isImeVisible
+    val imeBottom = WindowInsets.ime.getBottom(density)
+    val liftForKeyboard = isFocused && (imeVisible || imeBottom > 0)
 
     androidx.compose.runtime.LaunchedEffect(isFocused) {
         onFocusChange(isFocused)
@@ -185,10 +197,14 @@ fun ChatComposer(
             .fillMaxWidth()
             .background(MaterialTheme.colorScheme.background)
             .then(
-                if (isFocused) {
-                    Modifier.imePadding()
+                if (liftForKeyboard) {
+                    Modifier.windowInsetsPadding(
+                        WindowInsets.ime.only(WindowInsetsSides.Bottom),
+                    )
                 } else {
-                    Modifier.navigationBarsPadding()
+                    Modifier.windowInsetsPadding(
+                        WindowInsets.navigationBars.only(WindowInsetsSides.Bottom),
+                    )
                 },
             )
             .padding(horizontal = 16.dp, vertical = 10.dp),
