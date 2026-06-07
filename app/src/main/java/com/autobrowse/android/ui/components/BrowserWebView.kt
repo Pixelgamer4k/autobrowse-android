@@ -7,10 +7,10 @@ import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.graphics.TransformOrigin
@@ -55,12 +55,10 @@ fun BrowserWebView(
 
     BoxWithConstraints(
         modifier = modifier.clipToBounds(),
-        contentAlignment = Alignment.TopStart,
     ) {
         val viewportWidthPx = maxWidth.value * density.density
-        val displayScale = VirtualDisplayConfig.scaleForViewport(viewportWidthPx)
-        val scaledWidthPx = (VirtualDisplayConfig.WIDTH * displayScale).roundToInt()
-        val scaledHeightPx = (VirtualDisplayConfig.HEIGHT * displayScale).roundToInt()
+        val viewportHeightPx = maxHeight.value * density.density
+        val displayScale = VirtualDisplayConfig.scaleForViewport(viewportWidthPx, viewportHeightPx)
 
         AndroidView(
             modifier = Modifier
@@ -76,7 +74,7 @@ fun BrowserWebView(
                             VirtualDisplayConfig.HEIGHT,
                         ),
                     )
-                    layout(scaledWidthPx, scaledHeightPx) {
+                    layout(viewportWidthPx.roundToInt(), viewportHeightPx.roundToInt()) {
                         placeable.place(0, 0)
                     }
                 },

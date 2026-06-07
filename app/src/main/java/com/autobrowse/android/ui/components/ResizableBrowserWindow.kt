@@ -1,6 +1,7 @@
 package com.autobrowse.android.ui.components
 
 import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -9,16 +10,14 @@ import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
@@ -41,6 +40,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalDensity
@@ -53,8 +53,10 @@ import com.autobrowse.android.domain.model.BrowserWindowFrame
 import com.autobrowse.android.domain.model.BrowserWindowLayout
 import com.autobrowse.android.domain.model.BrowserWindowState
 import com.autobrowse.android.ui.theme.Motion
+import kotlin.math.max
 
-private val ResizeGutter = 36.dp
+private val ResizeHandleTouchSize = 48.dp
+private val ResizeHandleVisualSize = 22.dp
 
 @Composable
 fun ResizableBrowserWindow(
@@ -85,31 +87,36 @@ fun ResizableBrowserWindow(
     var resizeAnchor by remember(tab.id) { mutableStateOf<BrowserWindowLayout?>(null) }
     var resizeAccum by remember(tab.id) { mutableStateOf(Offset.Zero) }
 
-    val effectiveLayout = frame.effectiveLayout()
-    val baseWidthPx = effectiveLayout.widthFraction * canvasWidthPx
-    val baseHeightPx = when (frame.windowState) {
-        BrowserWindowState.MINIMIZED -> minimizedHeightPx
-        else -> effectiveLayout.heightFraction * canvasHeightPx
+    fun widthPxFromFraction(fraction: Float): Float = fraction * canvasWidthPx
+
+    fun heightPxForWidth(widthPx: Float, minimized: Boolean): Float = when {
+        minimized -> minimizedHeightPx
+        frame.windowState == BrowserWindowState.MAXIMIZED -> frame.effectiveLayout().heightFraction * canvasHeightPx
+        else -> BrowserWindowLayout.totalHeightPx(widthPx, titleBarHeightPx)
     }
-    val isResizing = isManipulating && resizeAnchor != null
-    val widthPx = if (isResizing) {
-        (resizeAnchor!!.widthFraction * canvasWidthPx + resizeAccum.x)
-            .coerceIn(
-                BrowserWindowLayout.MIN_FRACTION * canvasWidthPx,
-                canvasWidthPx,
-            )
+
+    val effectiveLayout = frame.effectiveLayout()
+    val baseWidthPx = widthPxFromFraction(effectiveLayout.widthFraction)
+    val baseHeightPx = heightPxForWidth(baseWidthPx, frame.windowState == BrowserWindowState.MINIMIZED)
+
+    val isResizing = isManipulating && resizeAnchor != null && frame.windowState == BrowserWindowState.NORMAL
+    val resizedWidthPx = if (isResizing) {
+        val startWidthPx = widthPxFromFraction(resizeAnchor!!.widthFraction)
+        val delta = max(resizeAccum.x, resizeAccum.y * BrowserWindowLayout.CONTENT_ASPECT_RATIO)
+        (startWidthPx + delta).coerceIn(
+            BrowserWindowLayout.MIN_FRACTION * canvasWidthPx,
+            canvasWidthPx,
+        )
     } else {
         baseWidthPx
     }
+    val widthPx = if (isResizing) resizedWidthPx else baseWidthPx
     val heightPx = if (isResizing) {
-        (resizeAnchor!!.heightFraction * canvasHeightPx + resizeAccum.y)
-            .coerceIn(
-                BrowserWindowLayout.MIN_FRACTION * canvasHeightPx,
-                canvasHeightPx,
-            )
+        heightPxForWidth(resizedWidthPx, minimized = false)
     } else {
         baseHeightPx
     }
+
     val isDragging = isManipulating && dragAnchor != null
     val baseXPx = (effectiveLayout.offsetX * canvasWidthPx).coerceIn(0f, (canvasWidthPx - baseWidthPx).coerceAtLeast(0f))
     val baseYPx = (effectiveLayout.offsetY * canvasHeightPx).coerceIn(0f, (canvasHeightPx - baseHeightPx).coerceAtLeast(0f))
@@ -187,7 +194,7 @@ fun ResizableBrowserWindow(
                             start.copy(
                                 offsetX = start.offsetX + dragAccum.x / canvasWidthPx,
                                 offsetY = start.offsetY + dragAccum.y / canvasHeightPx,
-                            ).clamped(),
+                            ).clamped(canvasWidthPx, canvasHeightPx, titleBarHeightPx),
                         )
                     }
                     finishManipulation()
@@ -196,7 +203,16 @@ fun ResizableBrowserWindow(
             )
 
             if (frame.windowState != BrowserWindowState.MINIMIZED) {
-                Box(modifier = Modifier.weight(1f).fillMaxWidth()) {
+                val contentModifier = if (frame.windowState == BrowserWindowState.MAXIMIZED) {
+                    Modifier
+                        .weight(1f)
+                        .fillMaxWidth()
+                } else {
+                    Modifier
+                        .fillMaxWidth()
+                        .aspectRatio(BrowserWindowLayout.CONTENT_ASPECT_RATIO)
+                }
+                Box(modifier = contentModifier) {
                     BrowserWebView(
                         tab = tab,
                         controller = controller,
@@ -204,72 +220,42 @@ fun ResizableBrowserWindow(
                         interactionEnabled = !isManipulating,
                         modifier = Modifier.fillMaxSize(),
                     )
-
-                    if (canResize) {
-                        WindowResizeChrome(
-                            onResizeStart = {
-                                isManipulating = true
-                                resizeAnchor = frame.layout
-                                resizeAccum = Offset.Zero
-                                onSelect()
-                            },
-                            onResize = { dx, dy ->
-                                resizeAccum += Offset(dx, dy)
-                            },
-                            onResizeEnd = {
-                                val start = resizeAnchor
-                                if (start != null) {
-                                    onResizeWindow(
-                                        start.copy(
-                                            widthFraction = start.widthFraction + resizeAccum.x / canvasWidthPx,
-                                            heightFraction = start.heightFraction + resizeAccum.y / canvasHeightPx,
-                                        ).clamped(),
-                                    )
-                                }
-                                finishManipulation()
-                            },
-                        )
-                    }
                 }
             }
         }
-    }
-}
 
-@Composable
-private fun BoxScope.WindowResizeChrome(
-    onResizeStart: () -> Unit,
-    onResize: (Float, Float) -> Unit,
-    onResizeEnd: () -> Unit,
-) {
-    ResizeEdge(
-        modifier = Modifier
-            .align(Alignment.CenterEnd)
-            .fillMaxHeight()
-            .width(ResizeGutter)
-            .zIndex(4f),
-        onResizeStart = onResizeStart,
-        onResize = { dx, _ -> onResize(dx, 0f) },
-        onResizeEnd = onResizeEnd,
-    )
-    ResizeEdge(
-        modifier = Modifier
-            .align(Alignment.BottomCenter)
-            .fillMaxWidth()
-            .height(ResizeGutter)
-            .zIndex(4f),
-        onResizeStart = onResizeStart,
-        onResize = { _, dy -> onResize(0f, dy) },
-        onResizeEnd = onResizeEnd,
-    )
-    ResizeHandle(
-        modifier = Modifier
-            .align(Alignment.BottomEnd)
-            .zIndex(5f),
-        onResizeStart = onResizeStart,
-        onResize = onResize,
-        onResizeEnd = onResizeEnd,
-    )
+        if (canResize) {
+            CornerResizeHandle(
+                modifier = Modifier
+                    .align(Alignment.BottomEnd)
+                    .padding(end = 4.dp, bottom = 4.dp)
+                    .zIndex(6f),
+                onResizeStart = {
+                    isManipulating = true
+                    resizeAnchor = frame.layout
+                    resizeAccum = Offset.Zero
+                    onSelect()
+                },
+                onResize = { dx, dy ->
+                    resizeAccum += Offset(dx, dy)
+                },
+                onResizeEnd = {
+                    val start = resizeAnchor
+                    if (start != null) {
+                        val startWidthPx = widthPxFromFraction(start.widthFraction)
+                        val delta = max(resizeAccum.x, resizeAccum.y * BrowserWindowLayout.CONTENT_ASPECT_RATIO)
+                        val newWidthFraction = (startWidthPx + delta) / canvasWidthPx
+                        onResizeWindow(
+                            start.copy(widthFraction = newWidthFraction)
+                                .withAspectRatio(canvasWidthPx, canvasHeightPx, titleBarHeightPx)
+                                .clamped(canvasWidthPx, canvasHeightPx, titleBarHeightPx),
+                        )
+                    }
+                    finishManipulation()
+                },
+            )
+        }
+    }
 }
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -380,15 +366,17 @@ private fun WindowControlButton(
 }
 
 @Composable
-private fun ResizeHandle(
+private fun CornerResizeHandle(
     onResizeStart: () -> Unit,
     onResize: (Float, Float) -> Unit,
     onResizeEnd: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val gripColor = Color.White.copy(alpha = 0.85f)
+
     Box(
         modifier = modifier
-            .size(56.dp)
+            .size(ResizeHandleTouchSize)
             .pointerInput(Unit) {
                 detectDragGestures(
                     onDragStart = { onResizeStart() },
@@ -400,35 +388,22 @@ private fun ResizeHandle(
                     },
                 )
             },
-        contentAlignment = Alignment.Center,
+        contentAlignment = Alignment.BottomEnd,
     ) {
-        Box(
-            modifier = Modifier
-                .size(24.dp)
-                .clip(RoundedCornerShape(4.dp))
-                .background(MaterialTheme.colorScheme.primary.copy(alpha = 0.6f)),
-        )
+        Canvas(modifier = Modifier.size(ResizeHandleVisualSize)) {
+            val lineCount = 3
+            val spacing = size.minDimension / 5f
+            val strokeWidth = size.minDimension / 10f
+            for (i in 0 until lineCount) {
+                val offset = spacing * (i + 1.2f)
+                drawLine(
+                    color = gripColor,
+                    start = Offset(size.width - offset, size.height),
+                    end = Offset(size.width, size.height - offset),
+                    strokeWidth = strokeWidth,
+                    cap = StrokeCap.Round,
+                )
+            }
+        }
     }
-}
-
-@Composable
-private fun ResizeEdge(
-    onResizeStart: () -> Unit,
-    onResize: (Float, Float) -> Unit,
-    onResizeEnd: () -> Unit,
-    modifier: Modifier = Modifier,
-) {
-    Box(
-        modifier = modifier.pointerInput(Unit) {
-            detectDragGestures(
-                onDragStart = { onResizeStart() },
-                onDragEnd = { onResizeEnd() },
-                onDragCancel = { onResizeEnd() },
-                onDrag = { change, dragAmount ->
-                    change.consume()
-                    onResize(dragAmount.x, dragAmount.y)
-                },
-            )
-        },
-    )
 }
