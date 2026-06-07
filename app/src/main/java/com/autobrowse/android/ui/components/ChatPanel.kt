@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.imeNestedScroll
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
@@ -56,8 +57,6 @@ fun ChatPanel(
     onRemoveAttachment: (String) -> Unit,
     onSend: () -> Unit,
     onSettings: () -> Unit,
-    onChatInputFocusChange: (Boolean) -> Unit = {},
-    chatKeyboardActive: Boolean = false,
     error: String?,
     modifier: Modifier = Modifier,
 ) {
@@ -74,7 +73,7 @@ fun ChatPanel(
             messages = messages,
             isAgentThinking = isAgentThinking,
             agentProgress = agentProgress,
-            scrollOnInput = chatKeyboardActive,
+            scrollOnInput = inputFocused,
             modifier = Modifier
                 .weight(1f)
                 .fillMaxWidth(),
@@ -97,11 +96,7 @@ fun ChatPanel(
             onRemoveAttachment = onRemoveAttachment,
             onSend = onSend,
             isSending = isAgentThinking,
-            keyboardActive = chatKeyboardActive,
-            onFocusChange = {
-                inputFocused = it
-                onChatInputFocusChange(it)
-            },
+            onFocusChange = { inputFocused = it },
             modifier = Modifier.fillMaxWidth(),
         )
     }
@@ -154,7 +149,15 @@ private fun ChatConversation(
 ) {
     val listState = rememberLazyListState()
 
-    LaunchedEffect(messages.size, isAgentThinking, scrollOnInput) {
+    LaunchedEffect(messages.size, isAgentThinking) {
+        val lastIndex = messages.size + if (isAgentThinking) 1 else 0
+        if (lastIndex > 0) {
+            listState.animateScrollToItem(lastIndex - 1)
+        }
+    }
+
+    LaunchedEffect(scrollOnInput) {
+        if (!scrollOnInput) return@LaunchedEffect
         val lastIndex = messages.size + if (isAgentThinking) 1 else 0
         if (lastIndex > 0) {
             listState.animateScrollToItem(lastIndex - 1)
@@ -174,7 +177,9 @@ private fun ChatConversation(
     }
 
     LazyColumn(
-        modifier = modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+        modifier = modifier
+            .imeNestedScroll()
+            .padding(horizontal = 16.dp, vertical = 8.dp),
         state = listState,
         verticalArrangement = Arrangement.spacedBy(14.dp),
     ) {
