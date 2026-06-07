@@ -55,7 +55,7 @@ import kotlin.math.max
 
 private val WindowCornerRadius = 12.dp
 private val CornerGripOutset = 8.dp
-private val CornerGripExtent = 22.dp
+private val CornerGripStroke = 2.8.dp
 private val CornerGripTouchSize = 48.dp
 private val MenuPopupOffset = 22.dp
 private val DefaultDotColor = Color(0xFFF2F2F2)
@@ -488,7 +488,7 @@ private fun FrameCornerResizeGrip(
 ) {
     val density = LocalDensity.current
     val gripOutsetPx = with(density) { CornerGripOutset.toPx() }
-    val gripExtentPx = with(density) { CornerGripExtent.toPx() }
+    val strokePx = with(density) { CornerGripStroke.toPx() }
     val gripColor = Color.White.copy(alpha = 0.92f)
 
     Box(
@@ -516,33 +516,17 @@ private fun FrameCornerResizeGrip(
         Canvas(modifier = Modifier.fillMaxSize()) {
             val width = size.width
             val height = size.height
-            val vertex = Offset(width - gripOutsetPx, height - gripOutsetPx)
-            val arm = gripExtentPx.coerceAtMost(minOf(width, height) * 0.72f)
-            val stroke = arm * 0.14f
-            val radius = cornerRadiusPx.coerceAtMost(arm * 0.85f)
+            val corner = Offset(width - gripOutsetPx, height - gripOutsetPx)
+            val radius = cornerRadiusPx.coerceAtMost(minOf(width, height) * 0.45f)
 
             drawArc(
                 color = gripColor,
                 startAngle = 0f,
                 sweepAngle = 90f,
                 useCenter = false,
-                topLeft = Offset(vertex.x - radius * 2f, vertex.y - radius * 2f),
+                topLeft = Offset(corner.x - radius * 2f, corner.y - radius * 2f),
                 size = Size(radius * 2f, radius * 2f),
-                style = Stroke(width = stroke, cap = StrokeCap.Round),
-            )
-            drawLine(
-                color = gripColor,
-                start = Offset(vertex.x, vertex.y),
-                end = Offset(vertex.x + arm, vertex.y),
-                strokeWidth = stroke,
-                cap = StrokeCap.Round,
-            )
-            drawLine(
-                color = gripColor,
-                start = Offset(vertex.x, vertex.y),
-                end = Offset(vertex.x, vertex.y + arm),
-                strokeWidth = stroke,
-                cap = StrokeCap.Round,
+                style = Stroke(width = strokePx, cap = StrokeCap.Round),
             )
         }
     }
