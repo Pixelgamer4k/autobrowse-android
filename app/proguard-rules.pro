@@ -1,2 +1,3 @@
 -keepclassmembers class com.autobrowse.android.data.remote.** { *; }
 -keep class com.autobrowse.android.data.remote.** { *; }
+-keep class com.llamatik.library.platform.** { *; }

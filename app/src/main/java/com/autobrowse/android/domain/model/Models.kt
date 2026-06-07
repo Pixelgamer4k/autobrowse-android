@@ -93,6 +93,9 @@ enum class LlmProvider {
 }
 
 enum class LocalLlmModel {
+    QWEN3_5_0_8B,
+    QWEN3_5_2B,
+    QWEN3_5_4B,
     GEMMA_4_E2B,
     GEMMA_4_E4B,
 }
@@ -108,9 +111,10 @@ data class LlmConfig(
     val apiKey: String = "",
     val apiUrl: String = "https://api.openai.com/v1/",
     val modelId: String = "gpt-4o-mini",
-    val localModel: LocalLlmModel = LocalLlmModel.GEMMA_4_E2B,
+    val localModel: LocalLlmModel = LocalLlmModel.QWEN3_5_2B,
     val backend: LlmBackend = LlmBackend.CPU,
     val localModelPath: String = "",
+    val localMmprojPath: String = "",
     val temperature: Float = 0.7f,
     val maxTokens: Int = 4096,
 ) {
@@ -118,7 +122,10 @@ data class LlmConfig(
         LlmProvider.REMOTE ->
             apiKey.isNotBlank() && apiUrl.isNotBlank() && modelId.isNotBlank()
         LlmProvider.LOCAL ->
-            localModelPath.isNotBlank() && java.io.File(localModelPath).isFile
+            localModelPath.isNotBlank() &&
+                localMmprojPath.isNotBlank() &&
+                java.io.File(localModelPath).isFile &&
+                java.io.File(localMmprojPath).isFile
     }
 }
 

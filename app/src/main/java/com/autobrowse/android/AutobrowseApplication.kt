@@ -125,7 +125,7 @@ class AutobrowseApplication : Application(), Configuration.Provider {
         val database = AutobrowseDatabase.get(this)
         val settingsStore = SecureSettingsStore(this)
         modelFileManager = ModelFileManager(this)
-        val localLlmService = LocalLlmService(this, modelFileManager)
+        val localLlmService = LocalLlmService(modelFileManager)
         llmApi = LlmApiService(localLlmService)
 
         repository = AutobrowseRepository(database, settingsStore)

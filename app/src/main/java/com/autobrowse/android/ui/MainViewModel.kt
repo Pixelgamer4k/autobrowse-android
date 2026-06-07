@@ -655,7 +655,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 )
             }
             try {
-                val path = app.modelFileManager.downloadModel(model) { progress ->
+                val paths = app.modelFileManager.downloadModel(model) { progress ->
                     _uiState.update { state ->
                         state.copy(
                             modelDownload = state.modelDownload.copy(
@@ -669,7 +669,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 val updatedConfig = _uiState.value.llmConfig.copy(
                     provider = LlmProvider.LOCAL,
                     localModel = model,
-                    localModelPath = path,
+                    localModelPath = paths.modelPath,
+                    localMmprojPath = paths.mmprojPath,
                 )
                 repository.saveLlmConfig(updatedConfig)
                 _uiState.update {
@@ -684,7 +685,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                             ),
                         ),
                         llmConnectionTest = LlmConnectionTestState(
-                            message = "Downloaded ${path.substringAfterLast('/')}",
+                            message = "Downloaded ${paths.modelPath.substringAfterLast('/')}",
                             isSuccess = true,
                         ),
                         error = null,
@@ -717,16 +718,17 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     fun importLocalModel(uri: Uri, model: LocalLlmModel) {
         viewModelScope.launch {
             try {
-                val path = app.modelFileManager.importModel(uri, model)
+                val paths = app.modelFileManager.importModel(uri, model)
                 _uiState.update {
                     it.copy(
                         llmConfig = it.llmConfig.copy(
                             provider = LlmProvider.LOCAL,
                             localModel = model,
-                            localModelPath = path,
+                            localModelPath = paths.modelPath,
+                            localMmprojPath = paths.mmprojPath,
                         ),
                         llmConnectionTest = LlmConnectionTestState(
-                            message = "Imported ${path.substringAfterLast('/')}",
+                            message = "Imported ${paths.modelPath.substringAfterLast('/')}",
                             isSuccess = true,
                         ),
                     )
@@ -755,7 +757,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private fun setupBannerMessage(config: LlmConfig): String? = when {
         config.isConfigured() -> null
         config.provider == LlmProvider.LOCAL ->
-            "Import a local LiteRT-LM model on the setup screen to use the agent."
+            "Download a local Q4 GGUF vision model on the setup screen to use the agent."
         else -> "Add your API token on the setup screen to use the agent."
     }
 

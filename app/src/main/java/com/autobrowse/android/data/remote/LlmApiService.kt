@@ -50,7 +50,7 @@ class LlmApiService(
     suspend fun testConnection(config: LlmConfig): String = withContext(Dispatchers.IO) {
         if (config.provider == LlmProvider.LOCAL) {
             return@withContext localLlmService?.testConnection(config)
-                ?: throw IllegalStateException("Local LiteRT-LM is not available.")
+                ?: throw IllegalStateException("Local GGUF inference is not available.")
         }
         require(config.apiKey.isNotBlank()) { "API token is required." }
         require(config.apiUrl.isNotBlank()) { "API URL is required." }
@@ -124,7 +124,7 @@ class LlmApiService(
                 messages = messages,
                 tools = tools,
                 attachmentPayload = attachmentPayload,
-            ) ?: throw IllegalStateException("Local LiteRT-LM is not available.")
+            ) ?: throw IllegalStateException("Local GGUF inference is not available.")
         }
         require(config.apiKey.isNotBlank()) { "API token is required. Configure it on the setup screen." }
 

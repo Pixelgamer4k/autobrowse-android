@@ -30,14 +30,17 @@ class SecureSettingsStore(context: Context) {
             apiKey = prefs.getString(KEY_API_KEY, "") ?: "",
             apiUrl = prefs.getString(KEY_API_URL, DEFAULT_API_URL) ?: DEFAULT_API_URL,
             modelId = prefs.getString(KEY_MODEL_ID, DEFAULT_MODEL) ?: DEFAULT_MODEL,
-            localModel = LocalLlmModel.valueOf(
-                prefs.getString(KEY_LOCAL_MODEL, LocalLlmModel.GEMMA_4_E2B.name)
-                    ?: LocalLlmModel.GEMMA_4_E2B.name,
-            ),
+            localModel = runCatching {
+                LocalLlmModel.valueOf(
+                    prefs.getString(KEY_LOCAL_MODEL, LocalLlmModel.QWEN3_5_2B.name)
+                        ?: LocalLlmModel.QWEN3_5_2B.name,
+                )
+            }.getOrDefault(LocalLlmModel.QWEN3_5_2B),
             backend = LlmBackend.valueOf(
                 prefs.getString(KEY_BACKEND, LlmBackend.CPU.name) ?: LlmBackend.CPU.name,
             ),
             localModelPath = prefs.getString(KEY_LOCAL_MODEL_PATH, "") ?: "",
+            localMmprojPath = prefs.getString(KEY_LOCAL_MMPROJ_PATH, "") ?: "",
             temperature = prefs.getFloat(KEY_TEMPERATURE, 0.7f),
             maxTokens = prefs.getInt(KEY_MAX_TOKENS, 4096),
         )
@@ -52,6 +55,7 @@ class SecureSettingsStore(context: Context) {
             .putString(KEY_LOCAL_MODEL, config.localModel.name)
             .putString(KEY_BACKEND, config.backend.name)
             .putString(KEY_LOCAL_MODEL_PATH, config.localModelPath)
+            .putString(KEY_LOCAL_MMPROJ_PATH, config.localMmprojPath)
             .putFloat(KEY_TEMPERATURE, config.temperature)
             .putInt(KEY_MAX_TOKENS, config.maxTokens)
             .apply()
@@ -73,6 +77,7 @@ class SecureSettingsStore(context: Context) {
         private const val KEY_LOCAL_MODEL = "llm_local_model"
         private const val KEY_BACKEND = "llm_backend"
         private const val KEY_LOCAL_MODEL_PATH = "llm_local_model_path"
+        private const val KEY_LOCAL_MMPROJ_PATH = "llm_local_mmproj_path"
         private const val KEY_TEMPERATURE = "llm_temperature"
         private const val KEY_MAX_TOKENS = "llm_max_tokens"
         private const val KEY_ENABLED_SKILLS = "enabled_skills"
