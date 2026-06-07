@@ -6,6 +6,7 @@ import android.util.Base64
 import android.webkit.WebView
 import com.autobrowse.android.domain.model.AgentAction
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withContext
 import org.json.JSONObject
@@ -93,6 +94,30 @@ class BrowserController {
 
     suspend fun pressKey(key: String, tabId: String? = null): String? =
         evaluateJs(BrowserSnapshotScript.pressKeyScript(key), tabId)
+
+    suspend fun waitForPageReady(tabId: String? = null, extraDelayMs: Long = 2000L): String {
+        if (webViewFor(tabId) == null) return "no_webview"
+        var ready = false
+        for (i in 0 until 24) {
+            val state = evaluateJs("document.readyState", tabId)
+            if (state == "complete") {
+                ready = true
+                break
+            }
+            delay(200)
+        }
+        delay(extraDelayMs.coerceIn(300, 5000))
+        return evaluateJs(
+            """
+            (function() {
+                if (document.readyState !== 'complete') return 'loading';
+                var body = document.body ? document.body.innerText.length : 0;
+                return body > 20 ? 'ready' : 'ready_sparse';
+            })();
+            """.trimIndent(),
+            tabId,
+        ) ?: if (ready) "ready" else "timeout"
+    }
 
     suspend fun captureScreenshotBase64(tabId: String? = null): String? = withContext(Dispatchers.Main) {
         val webView = webViewFor(tabId) ?: return@withContext null

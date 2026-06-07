@@ -1,39 +1,30 @@
 ---
 name: autobrowse
-description: Self-improving browser automation for Android. Use for multi-step web tasks, form filling, research, and data extraction.
-version: 1.0.0
+description: Core browser automation playbook. Search tasks use browser_search, not typing.
+version: 2.0.0
 ---
 
 # Autobrowse Skill
 
-Hermes-inspired browser automation optimized for the Android hybrid browser.
+## Priority order for actions
 
-## When to use
+1. **Search** → `browser_search` (never type in search boxes)
+2. **Navigate** → `browser_navigate` then `browser_wait`
+3. **Interact** → `browser_snapshot` first, then `browser_click` with @eN refs
+4. **Verify** → `browser_snapshot` again
+5. **Stop** when goal achieved — do not over-loop
 
-- Multi-step browsing tasks (search, navigate, extract, summarize)
-- Form filling and interactive pages
-- Research across multiple tabs
-- Tasks that benefit from snapshot refs (`@e0`, `@e1`, …)
+## Search tasks (most common failure)
 
-## Workflow
+Load `skill_view` for `youtube-search` or `site-search`.
+Pattern: search → wait → snapshot → done (3-5 tools max).
 
-1. **Plan** — Use `todo_write` for tasks with 3+ steps.
-2. **Snapshot** — Call `browser_snapshot` with `interactive=true` to get refs before clicking.
-3. **Act** — Prefer ref-based `browser_click` / `browser_type`; use `browser_click_xy` for canvas/custom UIs.
-4. **Verify** — Re-snapshot after navigation or form submit.
-5. **Vision** — Use `browser_vision` when page layout is unclear or CAPTCHA-like.
-6. **Tabs** — Use `browser_tab_open` / `browser_tab_switch` for parallel research; `delegate_task` for independent subtasks.
-7. **Learn** — Call `reflect` after difficult tasks; use `skill_manage` to save reusable workflows.
+## Multi-step tasks
+
+`todo_write` first. Max 8-12 tools for medium tasks.
 
 ## Pitfalls
 
-- CSS selectors break on SPAs — always prefer snapshot refs.
-- Scroll before clicking off-screen elements.
-- Call `browser_snapshot` before `extract_data` when page context is stale.
-- Local models: use `browser_vision` text output; cloud models get screenshot images.
-
-## Verification
-
-- URL changed as expected
-- Target text/data visible in next snapshot
-- No error dialogs (`browser_console` to check)
+- YouTube/Google search boxes break with browser_type — use browser_search
+- Snapshot before page loads = empty results — always browser_wait after navigate
+- 15 iterations on a 3-step task = wrong approach, rethink strategy

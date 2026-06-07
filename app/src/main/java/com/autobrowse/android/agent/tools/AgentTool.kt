@@ -5,9 +5,9 @@ import com.autobrowse.android.domain.model.ToolDefinition
 
 data class ToolExecutionContext(
     val sessionId: String,
-    val pageUrl: String?,
-    val pageHtml: String?,
-    val pageText: String?,
+    var pageUrl: String?,
+    var pageHtml: String?,
+    var pageText: String?,
     val activeTabId: String? = null,
     val tabManager: TabManager? = null,
     val browserActions: MutableList<com.autobrowse.android.domain.model.AgentAction> = mutableListOf(),

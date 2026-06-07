@@ -9,6 +9,9 @@ import com.autobrowse.android.agent.core.PromptBuilder
 import com.autobrowse.android.agent.memory.MemoryManager
 import com.autobrowse.android.agent.orchestration.TaskOrchestrator
 import com.autobrowse.android.agent.tools.BrowserBackTool
+import com.autobrowse.android.agent.tools.BrowserSearchTool
+import com.autobrowse.android.agent.tools.BrowserWaitTool
+import com.autobrowse.android.agent.training.TrainingDataSeeder
 import com.autobrowse.android.agent.tools.BrowserClickTool
 import com.autobrowse.android.agent.tools.BrowserClickXYTool
 import com.autobrowse.android.agent.tools.BrowserConsoleTool
@@ -128,7 +131,10 @@ class AutobrowseApplication : Application(), Configuration.Provider {
         attachmentProcessor = AttachmentProcessor(this)
         documentGenerator = DocumentGenerator(this)
 
-        appScope.launch { skillStore.ensureBundledSkills() }
+        appScope.launch {
+            skillStore.ensureBundledSkills()
+            TrainingDataSeeder(database.strategyDao()).seedIfEmpty()
+        }
 
         memoryManager = MemoryManager(
             memoryDao = database.memoryDao(),
@@ -146,6 +152,8 @@ class AutobrowseApplication : Application(), Configuration.Provider {
 
         toolRegistry = ToolRegistry(
             tools = listOf(
+                BrowserSearchTool(browserController),
+                BrowserWaitTool(browserController),
                 BrowserNavigateTool(browserController),
                 BrowserInteractiveSnapshotTool(browserController),
                 BrowserClickTool(browserController),
@@ -181,6 +189,7 @@ class AutobrowseApplication : Application(), Configuration.Provider {
                 SkillManageTool(skillStore),
                 SkillCreatorTool(skillStore, llmApi, repository),
             ),
+            browserController = browserController,
         )
 
         agentLoop = AgentLoop(

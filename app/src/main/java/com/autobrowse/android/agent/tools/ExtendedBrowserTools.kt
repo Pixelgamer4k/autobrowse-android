@@ -27,11 +27,18 @@ class BrowserInteractiveSnapshotTool(
                 val refLines = buildString {
                     for (i in 0 until refs.length()) {
                         val ref = refs.getJSONObject(i)
-                        appendLine("${ref.optString("ref")} <${ref.optString("tag")}> ${ref.optString("text")}")
+                        val label = ref.optString("label")
+                        val role = ref.optString("role")
+                        appendLine(
+                            "${ref.optString("ref")} <${ref.optString("tag")}${if (role.isNotBlank()) "/$role" else ""}> " +
+                                "${ref.optString("text").ifBlank { label }}",
+                        )
                     }
                 }
+                val ready = snapshot.optString("readyState", "")
                 return ToolExecutionResult(
-                    "URL: $url\nTitle: ${snapshot.optString("title")}\n\nInteractive refs:\n$refLines\n\nVisible text:\n${text.take(4000)}",
+                    "URL: $url\nTitle: ${snapshot.optString("title")}\nReady: $ready\n\n" +
+                        "Interactive refs:\n$refLines\n\nVisible text:\n${text.take(5000)}",
                 )
             }
         }

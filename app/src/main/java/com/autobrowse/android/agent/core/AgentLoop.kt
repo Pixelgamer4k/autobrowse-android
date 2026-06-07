@@ -45,7 +45,7 @@ class AgentLoop(
     private val trajectoryStore: TrajectoryStore,
     private val selfImprovementEngine: SelfImprovementEngine,
     private val tabManager: TabManager? = null,
-    private val maxIterations: Int = 12,
+    private val maxIterations: Int = 20,
 ) {
     private val _progress = MutableStateFlow(AgentProgress(AgentPhase.IDLE, 0, maxIterations))
     val progress: StateFlow<AgentProgress> = _progress.asStateFlow()
@@ -82,10 +82,11 @@ class AgentLoop(
         )
         repository.saveTask(task, request.sessionId)
 
-        val displayPrompt = request.prompt.ifBlank {
+        val rawPrompt = request.prompt.ifBlank {
             if (request.attachmentPayload.attachments.isNotEmpty()) "Analyze the attached file(s)"
             else request.prompt
         }
+        val displayPrompt = TaskPreprocessor.augmentPrompt(rawPrompt)
         val userMessage = ChatMessage(
             id = UUID.randomUUID().toString(),
             sessionId = request.sessionId,
@@ -104,6 +105,7 @@ class AgentLoop(
                 task = task,
                 taskId = taskId,
                 displayPrompt = displayPrompt,
+                rawPrompt = rawPrompt,
             )
         } catch (e: CancellationException) {
             repository.updateTask(
@@ -135,14 +137,15 @@ class AgentLoop(
         task: AutomationTask,
         taskId: String,
         displayPrompt: String,
+        rawPrompt: String,
     ): AgentConversationResult = runCatching {
             ensureNotCancelled()
             _progress.value = AgentProgress(AgentPhase.THINKING, 0, maxIterations, message = "Planning…")
 
             val config = repository.getLlmConfig()
-            val prefetched = memoryManager.prefetch(request.prompt)
+            val prefetched = memoryManager.prefetch(rawPrompt)
             val strategies = selfImprovementEngine.getRelevantStrategies(
-                request.prompt,
+                rawPrompt,
                 browserContext.pageUrl,
             )
             val systemPrompt = promptBuilder.build(
@@ -150,6 +153,7 @@ class AgentLoop(
                 strategies = strategies,
                 pageUrl = browserContext.pageUrl,
                 enabledToolNames = toolRegistry.definitions().map { it.name },
+                userPrompt = rawPrompt,
             )
 
             var history = repository.getRecentChatHistory(request.sessionId, 30)

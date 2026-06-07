@@ -126,6 +126,8 @@ class SelfImprovementEngine(
     private fun inferDomain(prompt: String, pageUrl: String?): String {
         val lower = (prompt + " " + (pageUrl ?: "")).lowercase()
         return when {
+            lower.contains("youtube") || lower.contains("youtu.be") -> "youtube.com"
+            lower.contains("search") || lower.contains("find") || lower.contains("look for") -> "search"
             lower.contains("form") || lower.contains("fill") -> "form_fill"
             lower.contains("extract") || lower.contains("scrape") -> "extraction"
             lower.contains("summar") || lower.contains("research") -> "research"

@@ -7,7 +7,7 @@ import com.autobrowse.android.skills.SkillStore
 
 /**
  * Hermes-inspired tiered prompt assembly:
- * stable (identity + tools) → context (memory + strategies) → volatile (page + prefetch)
+ * stable (identity + tools) → context (memory + strategies) → skills → volatile (page)
  */
 class PromptBuilder(
     private val repository: AutobrowseRepository,
@@ -19,43 +19,70 @@ class PromptBuilder(
         strategies: List<LearnedStrategy>,
         pageUrl: String?,
         enabledToolNames: List<String>,
+        userPrompt: String = "",
     ): String {
         val stable = buildStableTier(enabledToolNames)
+        val searchPlaybook = buildSearchPlaybook()
         val context = buildContextTier(prefetchedMemory, strategies)
-        val skills = buildSkillsTier()
+        val skills = buildSkillsTier(userPrompt)
         val volatile = buildVolatileTier(pageUrl)
-        return listOf(stable, context, skills, volatile).filter { it.isNotBlank() }.joinToString("\n\n")
+        return listOf(stable, searchPlaybook, context, skills, volatile).filter { it.isNotBlank() }.joinToString("\n\n")
     }
 
     private fun buildStableTier(toolNames: List<String>): String = """
         # Autobrowse Agent
-        You are Autobrowse — a Hermes-inspired, self-improving browser automation agent on Android.
-        You browse, research, extract data, fill forms, run parallel tasks, generate PDFs/charts, and learn from every task.
+        You are Autobrowse — an expert browser automation agent on Android. Complete tasks in MINIMAL steps.
 
-        ## Operating Rules
-        - Use tools to act; do not hallucinate page content or URLs.
-        - Call browser_snapshot (interactive refs) before clicking; prefer @eN refs over CSS selectors.
-        - Use browser_vision when layout is unclear; browser_click_xy for canvas/custom UIs.
-        - Use browser_tab_open/switch/close for multi-tab workflows; run_parallel_tasks for independent prompts.
-        - Use todo_write for 3+ step tasks; skill_view('autobrowse') for the core browsing playbook.
-        - Use skill_creator / skill_manage to save successful workflows as reusable skills.
-        - Use python_execute / execute_code for charts (matplotlib) and PDF generation.
-        - Use memory_remember for durable facts; reflect after difficult tasks.
-        - Be concise, secure, and never expose API keys.
-        - Stop when the user's goal is achieved and respond with a clear summary.
-        - Vision: user attachments and browser_vision screenshots are provided as images to cloud models.
+        ## Critical Rules (violations cause failure)
+        1. **SEARCH = browser_search** — NEVER browser_type into search boxes on YouTube, Google, Bing, etc.
+        2. **WAIT after navigate** — browser_wait(2000) or rely on auto-wait, then browser_snapshot
+        3. **VERIFY then STOP** — if snapshot shows results, summarize and finish. Do NOT loop 10+ times.
+        4. **Simple search = 3-5 tool calls max**: browser_search → browser_wait → browser_snapshot → respond
+        5. Snapshot BEFORE click — use @eN refs from browser_snapshot, not guessed CSS selectors
+
+        ## Tool Priority
+        - Search: browser_search (site + query)
+        - Navigate: browser_navigate + browser_wait
+        - Click/type: browser_snapshot first → browser_click(browser_type) with refs
+        - Stuck: browser_vision (cloud) or browser_search with direct URL
 
         ## Available Tools
         ${toolNames.joinToString(", ")}
     """.trimIndent()
 
-    private suspend fun buildSkillsTier(): String {
+    private fun buildSearchPlaybook(): String = """
+        ## Search Playbook (MEMORIZE)
+        | Task | Correct approach |
+        |------|------------------|
+        | "search X on youtube" | browser_search(site="youtube", query="X") |
+        | "open youtube and search X" | browser_search(site="youtube", query="X") |
+        | "google X" | browser_search(site="google", query="X") |
+        | Any search | browser_search → browser_wait(2000) → browser_snapshot → DONE if results show |
+
+        WRONG: navigate to homepage → find search box → type → press Enter (fails on YouTube/React sites)
+    """.trimIndent()
+
+    private suspend fun buildSkillsTier(userPrompt: String): String {
         val store = skillStore ?: return ""
-        val skills = store.listSkills().take(12)
-        if (skills.isEmpty()) return ""
+        val matched = TaskPreprocessor.matchedSkillNames(userPrompt)
         return buildString {
-            appendLine("## Available Skills (use skill_view to load)")
-            skills.forEach { appendLine("- ${it.name}: ${it.description}") }
+            if (matched.isNotEmpty()) {
+                appendLine("## Active Skills (matched to this task — FOLLOW THESE)")
+                for (name in matched) {
+                    runCatching {
+                        val body = store.readSkill(name)
+                        appendLine("### Skill: $name")
+                        appendLine(body.take(2500))
+                        appendLine()
+                    }
+                }
+            } else {
+                val all = store.listSkills().take(8)
+                if (all.isNotEmpty()) {
+                    appendLine("## Available Skills (use skill_view to load)")
+                    all.forEach { appendLine("- ${it.name}: ${it.description}") }
+                }
+            }
         }.trim()
     }
 
@@ -79,8 +106,8 @@ class PromptBuilder(
             appendLine()
         }
         if (strategies.isNotEmpty()) {
-            appendLine("## Learned Strategies (self-improved)")
-            strategies.forEach { appendLine("- [${it.domain}] ${it.heuristic} (confidence ${"%.0f".format(it.confidence * 100)}%)") }
+            appendLine("## Learned Strategies (proven heuristics — follow these)")
+            strategies.forEach { appendLine("- [${it.domain}] ${it.heuristic}") }
         }
     }.trim()
 
