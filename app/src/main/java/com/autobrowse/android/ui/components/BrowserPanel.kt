@@ -23,6 +23,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -34,19 +35,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
-import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.zIndex
 import com.autobrowse.android.browser.BrowserController
 import com.autobrowse.android.browser.FloatingWindowEngine
 import com.autobrowse.android.domain.model.BrowserTab
 import com.autobrowse.android.domain.model.BrowserTabStatus
 import com.autobrowse.android.domain.model.BrowserWindowFrame
 import com.autobrowse.android.domain.model.BrowserWindowLayout
-import com.autobrowse.android.ui.theme.AppGradients
 import com.autobrowse.android.ui.theme.Motion
-import com.autobrowse.android.ui.theme.SectionSeparator
 
 @Composable
 fun BrowserPanel(
@@ -80,18 +78,9 @@ fun BrowserPanel(
             modifier = Modifier
                 .weight(1f)
                 .fillMaxWidth()
-                .padding(horizontal = 10.dp, vertical = 6.dp)
-                .clip(RoundedCornerShape(16.dp))
-                .background(AppGradients.browserCanvas)
-                .border(
-                    width = 1.dp,
-                    brush = Brush.linearGradient(
-                        0f to Color.White.copy(alpha = 0.06f),
-                        0.5f to Color.White.copy(alpha = 0.14f),
-                        1f to Color.White.copy(alpha = 0.06f),
-                    ),
-                    shape = RoundedCornerShape(16.dp),
-                ),
+                .padding(horizontal = 8.dp, vertical = 4.dp)
+                .clip(RoundedCornerShape(14.dp))
+                .background(MaterialTheme.colorScheme.background.copy(alpha = 0.65f)),
         ) {
             val canvasWidth = constraints.maxWidth.toFloat()
             val canvasHeight = constraints.maxHeight.toFloat()
@@ -155,19 +144,7 @@ private fun TabStrip(
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .padding(horizontal = 8.dp, vertical = 4.dp)
-            .clip(RoundedCornerShape(12.dp))
-            .background(AppGradients.tabStrip)
-            .border(
-                width = 1.dp,
-                brush = Brush.horizontalGradient(
-                    0f to Color.Transparent,
-                    0.5f to Color.White.copy(alpha = 0.08f),
-                    1f to Color.Transparent,
-                ),
-                shape = RoundedCornerShape(12.dp),
-            )
-            .padding(horizontal = 6.dp, vertical = 4.dp),
+            .padding(horizontal = 8.dp, vertical = 4.dp),
         horizontalArrangement = Arrangement.spacedBy(6.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -178,31 +155,25 @@ private fun TabStrip(
                 animationSpec = Motion.springSnappy,
                 label = "tabScale",
             )
+            val tabBg = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = if (selected) 0.55f else 0.35f)
             val tabBorder = if (selected) {
-                Brush.linearGradient(
-                    0f to MaterialTheme.colorScheme.tertiary.copy(alpha = 0.5f),
-                    1f to Color.White.copy(alpha = 0.22f),
-                )
+                MaterialTheme.colorScheme.onSurface.copy(alpha = 0.42f)
             } else {
-                Brush.linearGradient(
-                    0f to Color.White.copy(alpha = 0.06f),
-                    1f to Color.White.copy(alpha = 0.12f),
-                )
+                MaterialTheme.colorScheme.outline.copy(alpha = 0.18f)
             }
-            Box(
+            Surface(
                 modifier = Modifier
                     .weight(1f, fill = false)
                     .height(32.dp)
                     .scale(scale)
-                    .clip(RoundedCornerShape(8.dp))
-                    .background(if (selected) AppGradients.tabSelected else AppGradients.tabIdle)
                     .border(1.dp, tabBorder, RoundedCornerShape(8.dp))
                     .clickable { onSelectTab(tab.id) },
+                shape = RoundedCornerShape(8.dp),
+                color = tabBg,
+                tonalElevation = 0.dp,
             ) {
                 Row(
-                    modifier = Modifier
-                        .padding(horizontal = 8.dp)
-                        .fillMaxSize(),
+                    modifier = Modifier.padding(horizontal = 8.dp),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(5.dp),
                 ) {
@@ -210,11 +181,9 @@ private fun TabStrip(
                         imageVector = Icons.Default.Language,
                         contentDescription = null,
                         modifier = Modifier.size(13.dp),
-                        tint = if (selected) {
-                            MaterialTheme.colorScheme.tertiary.copy(alpha = 0.95f)
-                        } else {
-                            MaterialTheme.colorScheme.onSurface.copy(alpha = 0.55f)
-                        },
+                        tint = MaterialTheme.colorScheme.onSurface.copy(
+                            alpha = if (selected) 0.9f else 0.55f,
+                        ),
                     )
                     Text(
                         text = tab.title.take(12),
@@ -222,7 +191,7 @@ private fun TabStrip(
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis,
                         color = MaterialTheme.colorScheme.onSurface.copy(
-                            alpha = if (selected) 0.95f else 0.55f,
+                            alpha = if (selected) 0.92f else 0.55f,
                         ),
                     )
                 }
@@ -243,51 +212,25 @@ private fun BrowserToolbar(
     var address by remember { mutableStateOf(url) }
     LaunchedEffect(url) { address = url }
 
-    Column(modifier = Modifier.fillMaxWidth()) {
-        SectionSeparator()
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(AppGradients.toolbar)
-                .padding(horizontal = 10.dp, vertical = 8.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(6.dp),
-        ) {
-        Box(
-            modifier = Modifier
-                .weight(1f)
-                .clip(RoundedCornerShape(12.dp))
-                .background(AppGradients.urlField)
-                .border(
-                    width = 1.dp,
-                    color = Color.White.copy(alpha = 0.1f),
-                    shape = RoundedCornerShape(12.dp),
-                ),
-        ) {
-            OutlinedTextField(
-                value = address,
-                onValueChange = { address = it },
-                modifier = Modifier.fillMaxWidth(),
-                singleLine = true,
-                placeholder = {
-                    Text(
-                        "Address",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.4f),
-                    )
-                },
-                trailingIcon = {
-                    IconButton(onClick = { onNavigate(address) }, modifier = Modifier.size(36.dp)) {
-                        Icon(
-                            Icons.Default.Language,
-                            contentDescription = "Go",
-                            modifier = Modifier.size(18.dp),
-                            tint = MaterialTheme.colorScheme.tertiary,
-                        )
-                    }
-                },
-            )
-        }
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 10.dp, vertical = 6.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(6.dp),
+    ) {
+        OutlinedTextField(
+            value = address,
+            onValueChange = { address = it },
+            modifier = Modifier.weight(1f),
+            singleLine = true,
+            placeholder = { Text("Address", style = MaterialTheme.typography.bodySmall) },
+            trailingIcon = {
+                IconButton(onClick = { onNavigate(address) }, modifier = Modifier.size(36.dp)) {
+                    Icon(Icons.Default.Language, contentDescription = "Go", modifier = Modifier.size(18.dp))
+                }
+            },
+        )
         IconButton(onClick = onAddTab, modifier = Modifier.size(36.dp)) {
             Icon(Icons.Default.Add, contentDescription = "New tab", modifier = Modifier.size(18.dp))
         }
@@ -295,8 +238,7 @@ private fun BrowserToolbar(
             Icons.Default.DesktopWindows,
             contentDescription = "Desktop mode",
             modifier = Modifier.size(16.dp),
-            tint = MaterialTheme.colorScheme.tertiary.copy(alpha = 0.9f),
+            tint = MaterialTheme.colorScheme.primary,
         )
-        }
     }
 }

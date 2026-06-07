@@ -34,8 +34,6 @@ import com.autobrowse.android.ui.components.ChatComposer
 import com.autobrowse.android.ui.components.ChatPanel
 import com.autobrowse.android.ui.components.SessionsLauncherButton
 import com.autobrowse.android.ui.components.SessionsPanelOverlay
-import com.autobrowse.android.ui.theme.AppGradients
-import com.autobrowse.android.ui.theme.ComposerTopFade
 import com.autobrowse.android.ui.theme.Motion
 import com.autobrowse.android.ui.theme.SectionSeparator
 
@@ -95,7 +93,7 @@ private fun MainContent(
                 modifier = Modifier
                     .fillMaxWidth()
                     .weight(0.56f)
-                    .background(AppGradients.browserSection),
+                    .background(MaterialTheme.colorScheme.surfaceVariant),
             ) {
                 BrowserPanel(
                     tabs = state.tabs,
@@ -144,7 +142,7 @@ private fun MainContent(
                 modifier = Modifier
                     .fillMaxWidth()
                     .weight(0.44f)
-                    .background(AppGradients.chatSection),
+                    .background(MaterialTheme.colorScheme.background),
             )
         }
 
@@ -154,8 +152,6 @@ private fun MainContent(
                 .fillMaxWidth()
                 .onSizeChanged { composerHeightPx = it.height },
         ) {
-            ComposerTopFade()
-
             state.error?.let { error ->
                 Text(
                     text = error,
