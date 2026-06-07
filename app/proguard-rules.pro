@@ -4,3 +4,6 @@
 -keep class io.noties.markwon.** { *; }
 -keep class ru.noties.jlatexmath.** { *; }
 -dontwarn org.scilab.forge.jlatexmath.**
+-dontwarn com.caverock.androidsvg.**
+-dontwarn pl.droidsonroids.gif.**
+-dontwarn com.google.errorprone.annotations.**
