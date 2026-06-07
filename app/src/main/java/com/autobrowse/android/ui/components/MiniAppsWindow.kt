@@ -8,8 +8,10 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Apps
@@ -18,7 +20,6 @@ import androidx.compose.material.icons.filled.Note
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -27,7 +28,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.zIndex
 import com.autobrowse.android.domain.model.MiniAppId
 import com.autobrowse.android.domain.model.NoteListItem
 import com.autobrowse.android.ui.miniapps.NotesEditorState
@@ -66,47 +66,43 @@ fun MiniAppsWindowOverlay(
     Box(
         modifier = modifier
             .fillMaxSize()
-            .zIndex(40f),
-        contentAlignment = Alignment.Center,
+            .background(MaterialTheme.colorScheme.surface),
     ) {
-        Surface(
-            modifier = Modifier
-                .fillMaxWidth(0.94f)
-                .fillMaxSize(0.92f),
-            shape = RoundedCornerShape(18.dp),
-            color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.98f),
-            tonalElevation = 6.dp,
-            shadowElevation = 8.dp,
-        ) {
-            when (activeMiniApp) {
-                MiniAppId.NOTES -> NotesMiniApp(
-                    notes = notes,
-                    editor = notesEditor,
-                    onBack = onBackToLauncher,
-                    onSearchChange = onNotesSearchChange,
-                    onSelectNote = onSelectNote,
-                    onNewNote = onNewNote,
-                    onDeleteNote = onDeleteNote,
-                    onTitleChange = onNoteTitleChange,
-                    onBodyChange = onNoteBodyChange,
-                    onTogglePin = onToggleNotePin,
-                    onTogglePreview = onToggleNotePreview,
-                    onWrapSelection = onWrapNoteSelection,
-                    onInsertLinePrefix = onInsertNoteLinePrefix,
-                    onInsertBlock = onInsertNoteBlock,
-                    onAttachImage = onAttachNoteImage,
-                    onSaveDrawing = onSaveNoteDrawing,
-                    onExportText = onExportNoteText,
-                    onExportMarkdown = onExportNoteMarkdown,
-                    onExportPdf = onExportNotePdf,
-                    onExportImage = onExportNoteImage,
-                    modifier = Modifier.fillMaxSize(),
-                )
-                null -> MiniAppsLauncherGrid(
-                    onClose = onClose,
-                    onLaunchApp = onLaunchApp,
-                )
-            }
+        when (activeMiniApp) {
+            MiniAppId.NOTES -> NotesMiniApp(
+                notes = notes,
+                editor = notesEditor,
+                onBack = onBackToLauncher,
+                onSearchChange = onNotesSearchChange,
+                onSelectNote = onSelectNote,
+                onNewNote = onNewNote,
+                onDeleteNote = onDeleteNote,
+                onTitleChange = onNoteTitleChange,
+                onBodyChange = onNoteBodyChange,
+                onTogglePin = onToggleNotePin,
+                onTogglePreview = onToggleNotePreview,
+                onWrapSelection = onWrapNoteSelection,
+                onInsertLinePrefix = onInsertNoteLinePrefix,
+                onInsertBlock = onInsertNoteBlock,
+                onAttachImage = onAttachNoteImage,
+                onSaveDrawing = onSaveNoteDrawing,
+                onExportText = onExportNoteText,
+                onExportMarkdown = onExportNoteMarkdown,
+                onExportPdf = onExportNotePdf,
+                onExportImage = onExportNoteImage,
+                modifier = Modifier
+                    .fillMaxSize()
+                    .statusBarsPadding()
+                    .navigationBarsPadding(),
+            )
+            null -> MiniAppsLauncherGrid(
+                onClose = onClose,
+                onLaunchApp = onLaunchApp,
+                modifier = Modifier
+                    .fillMaxSize()
+                    .statusBarsPadding()
+                    .navigationBarsPadding(),
+            )
         }
     }
 }
@@ -115,8 +111,11 @@ fun MiniAppsWindowOverlay(
 private fun MiniAppsLauncherGrid(
     onClose: () -> Unit,
     onLaunchApp: (MiniAppId) -> Unit,
+    modifier: Modifier = Modifier,
 ) {
-    Column(modifier = Modifier.padding(horizontal = 16.dp, vertical = 14.dp)) {
+    Column(
+        modifier = modifier.padding(horizontal = 20.dp, vertical = 12.dp),
+    ) {
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
@@ -129,32 +128,32 @@ private fun MiniAppsLauncherGrid(
                 Icon(
                     imageVector = Icons.Default.Apps,
                     contentDescription = null,
-                    modifier = Modifier.size(18.dp),
+                    modifier = Modifier.size(22.dp),
                     tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.85f),
                 )
                 Text(
                     text = "Mini Apps",
-                    style = MaterialTheme.typography.titleSmall,
+                    style = MaterialTheme.typography.titleLarge,
                     fontWeight = FontWeight.SemiBold,
                     color = MaterialTheme.colorScheme.onSurface,
                 )
             }
-            IconButton(onClick = onClose, modifier = Modifier.size(32.dp)) {
+            IconButton(onClick = onClose, modifier = Modifier.size(40.dp)) {
                 Icon(
                     imageVector = Icons.Default.Close,
                     contentDescription = "Close mini apps",
-                    modifier = Modifier.size(18.dp),
+                    modifier = Modifier.size(22.dp),
                     tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.75f),
                 )
             }
         }
         Text(
             text = "Launch tools alongside your browser.",
-            style = MaterialTheme.typography.bodySmall,
+            style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.55f),
-            modifier = Modifier.padding(top = 8.dp, bottom = 16.dp),
+            modifier = Modifier.padding(top = 8.dp, bottom = 24.dp),
         )
-        Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+        Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
             MiniAppTile(
                 label = "Notes",
                 tint = Color(0xFFFFB800),
@@ -174,27 +173,27 @@ private fun MiniAppTile(
 ) {
     Column(
         modifier = Modifier
-            .size(88.dp)
-            .clip(RoundedCornerShape(16.dp))
-            .background(MaterialTheme.colorScheme.surface)
+            .size(104.dp)
+            .clip(RoundedCornerShape(18.dp))
+            .background(MaterialTheme.colorScheme.surfaceVariant)
             .clickable(onClick = onClick)
-            .padding(10.dp),
+            .padding(12.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
         Box(
             modifier = Modifier
-                .size(40.dp)
-                .clip(RoundedCornerShape(10.dp))
+                .size(48.dp)
+                .clip(RoundedCornerShape(12.dp))
                 .background(tint.copy(alpha = 0.2f)),
             contentAlignment = Alignment.Center,
         ) {
-            Icon(icon, contentDescription = label, tint = tint, modifier = Modifier.size(22.dp))
+            Icon(icon, contentDescription = label, tint = tint, modifier = Modifier.size(26.dp))
         }
         Text(
             text = label,
-            style = MaterialTheme.typography.labelMedium,
-            modifier = Modifier.padding(top = 8.dp),
+            style = MaterialTheme.typography.labelLarge,
+            modifier = Modifier.padding(top = 10.dp),
         )
     }
 }

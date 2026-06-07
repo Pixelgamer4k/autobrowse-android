@@ -33,6 +33,7 @@ import com.autobrowse.android.ui.MainViewModel
 import com.autobrowse.android.ui.components.BrowserPanel
 import com.autobrowse.android.ui.components.ChatComposer
 import com.autobrowse.android.ui.components.ChatPanel
+import com.autobrowse.android.ui.components.MiniAppsWindowOverlay
 import com.autobrowse.android.ui.components.SessionsLauncherButton
 import com.autobrowse.android.ui.components.SessionsPanelOverlay
 
@@ -189,6 +190,34 @@ private fun MainContent(
             onSearchSessions = viewModel::searchSessions,
             onOpenSettings = { viewModel.toggleSettings(true) },
             modifier = Modifier.zIndex(50f),
+        )
+
+        MiniAppsWindowOverlay(
+            visible = state.showMiniApps,
+            activeMiniApp = state.activeMiniApp,
+            notes = state.notes,
+            notesEditor = state.notesEditor,
+            onClose = viewModel::closeMiniApps,
+            onLaunchApp = viewModel::launchMiniApp,
+            onBackToLauncher = viewModel::backToMiniAppLauncher,
+            onNotesSearchChange = viewModel::updateNotesSearch,
+            onSelectNote = viewModel::selectNote,
+            onNewNote = viewModel::createNewNote,
+            onDeleteNote = viewModel::deleteNote,
+            onNoteTitleChange = viewModel::updateNoteTitle,
+            onNoteBodyChange = viewModel::updateNoteBody,
+            onToggleNotePin = viewModel::toggleNotePin,
+            onToggleNotePreview = viewModel::toggleNotePreview,
+            onWrapNoteSelection = viewModel::wrapNoteSelection,
+            onInsertNoteLinePrefix = viewModel::insertNoteLinePrefix,
+            onInsertNoteBlock = viewModel::insertNoteBlock,
+            onAttachNoteImage = viewModel::attachNoteImage,
+            onSaveNoteDrawing = viewModel::saveNoteDrawing,
+            onExportNoteText = viewModel::shareExportedNoteText,
+            onExportNoteMarkdown = viewModel::shareExportedNoteMarkdown,
+            onExportNotePdf = viewModel::shareExportedNotePdf,
+            onExportNoteImage = viewModel::shareExportedNoteImage,
+            modifier = Modifier.zIndex(60f),
         )
     }
 }

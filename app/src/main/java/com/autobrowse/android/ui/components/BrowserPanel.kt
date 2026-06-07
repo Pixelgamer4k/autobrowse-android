@@ -60,7 +60,6 @@ import com.autobrowse.android.domain.model.BrowserWindowFrame
 import com.autobrowse.android.domain.model.BrowserWindowLayout
 import com.autobrowse.android.ui.MainViewModel
 import com.autobrowse.android.ui.theme.Motion
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 @Composable
 fun BrowserPanel(
@@ -79,7 +78,6 @@ fun BrowserPanel(
     viewModel: MainViewModel,
     modifier: Modifier = Modifier,
 ) {
-    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     val activeTab = tabs.find { it.id == activeTabId } ?: tabs.firstOrNull()
     val sortedTabs = tabs.sortedBy { it.zIndex }
 
@@ -141,33 +139,6 @@ fun BrowserPanel(
                     )
                 }
                 }
-
-                MiniAppsWindowOverlay(
-                    visible = uiState.showMiniApps,
-                    activeMiniApp = uiState.activeMiniApp,
-                    notes = uiState.notes,
-                    notesEditor = uiState.notesEditor,
-                    onClose = viewModel::closeMiniApps,
-                    onLaunchApp = viewModel::launchMiniApp,
-                    onBackToLauncher = viewModel::backToMiniAppLauncher,
-                    onNotesSearchChange = viewModel::updateNotesSearch,
-                    onSelectNote = viewModel::selectNote,
-                    onNewNote = viewModel::createNewNote,
-                    onDeleteNote = viewModel::deleteNote,
-                    onNoteTitleChange = viewModel::updateNoteTitle,
-                    onNoteBodyChange = viewModel::updateNoteBody,
-                    onToggleNotePin = viewModel::toggleNotePin,
-                    onToggleNotePreview = viewModel::toggleNotePreview,
-                    onWrapNoteSelection = viewModel::wrapNoteSelection,
-                    onInsertNoteLinePrefix = viewModel::insertNoteLinePrefix,
-                    onInsertNoteBlock = viewModel::insertNoteBlock,
-                    onAttachNoteImage = viewModel::attachNoteImage,
-                    onSaveNoteDrawing = viewModel::saveNoteDrawing,
-                    onExportNoteText = viewModel::shareExportedNoteText,
-                    onExportNoteMarkdown = viewModel::shareExportedNoteMarkdown,
-                    onExportNotePdf = viewModel::shareExportedNotePdf,
-                    onExportNoteImage = viewModel::shareExportedNoteImage,
-                )
             }
         }
 
