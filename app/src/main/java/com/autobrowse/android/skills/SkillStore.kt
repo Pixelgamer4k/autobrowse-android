@@ -11,6 +11,8 @@ data class SkillMetadata(
     val path: String,
     val category: String = "user",
     val version: String = "1.0.0",
+    val triggers: List<String> = emptyList(),
+    val learnedRuns: Int = 0,
 )
 
 class SkillStore(private val context: Context) {
@@ -72,6 +74,103 @@ class SkillStore(private val context: Context) {
         dir.deleteRecursively()
     }
 
+    suspend fun findMatchingSkills(prompt: String, limit: Int = 5): List<SkillMetadata> =
+        withContext(Dispatchers.IO) {
+            listSkills()
+                .map { it to com.autobrowse.android.agent.core.TaskPreprocessor.scoreSkillMatch(it, prompt) }
+                .filter { (_, score) -> score >= 2 }
+                .sortedByDescending { (_, score) -> score }
+                .take(limit)
+                .map { (skill, _) -> skill }
+        }
+
+    suspend fun upsertLearnedFromTask(
+        name: String,
+        description: String,
+        triggers: List<String>,
+        playbookBody: String,
+        prompt: String,
+        toolSequence: List<String>,
+    ): String = withContext(Dispatchers.IO) {
+        val existing = findSkillDir(name)
+        if (existing != null) {
+            val file = existing.resolve("SKILL.md")
+            val text = file.readText()
+            val runBlock = formatLearnedRun(prompt, toolSequence)
+            val updated = if (text.contains("## Learned runs")) {
+                text.replace(
+                    "## Learned runs",
+                    "## Learned runs\n$runBlock",
+                )
+            } else {
+                text.trimEnd() + "\n\n## Learned runs\n$runBlock\n"
+            }
+            val withCount = bumpLearnedRuns(updated)
+            file.writeText(withCount)
+            file.absolutePath
+        } else {
+            val body = buildString {
+                appendLine(playbookBody.trim())
+                appendLine()
+                appendLine("## Triggers")
+                triggers.forEach { appendLine("- $it") }
+                appendLine()
+                appendLine("## Learned runs")
+                appendLine(formatLearnedRun(prompt, toolSequence))
+            }
+            createLearnedSkill(name, description, body, triggers)
+        }
+    }
+
+    private fun createLearnedSkill(
+        name: String,
+        description: String,
+        body: String,
+        triggers: List<String>,
+    ): String {
+        val dir = File(skillsRoot, "learned/$name").also { it.mkdirs() }
+        dir.resolve("references").mkdirs()
+        val triggerLine = if (triggers.isEmpty()) "" else "triggers: ${triggers.joinToString(", ")}\n"
+        val content = """
+            ---
+            name: $name
+            description: $description
+            version: 1.0.0
+            category: learned
+            learned_runs: 1
+            $triggerLine---
+            
+            $body
+        """.trimIndent()
+        val file = File(dir, "SKILL.md")
+        file.writeText(content)
+        return file.absolutePath
+    }
+
+    private fun formatLearnedRun(prompt: String, toolSequence: List<String>): String {
+        val tools = toolSequence.joinToString(" → ")
+        return "- **${prompt.take(72)}** — `$tools`"
+    }
+
+    private fun bumpLearnedRuns(text: String): String {
+        val current = extractFrontmatter(text, "learned_runs")?.toIntOrNull() ?: 0
+        return if (text.startsWith("---")) {
+            val end = text.indexOf("---", 3)
+            if (end < 0) text
+            else {
+                val block = text.substring(3, end)
+                val updatedBlock = if (block.contains("learned_runs:")) {
+                    block.replace(Regex("""learned_runs:\s*\d+"""), "learned_runs: ${current + 1}")
+                } else {
+                    block.trimEnd() + "\nlearned_runs: ${current + 1}\n"
+                }
+                "---$updatedBlock---" + text.substring(end + 3)
+            }
+        } else {
+            text
+        }
+    }
+
     private fun findSkillDir(name: String): File? =
         skillsRoot.walkTopDown()
             .firstOrNull { it.isDirectory && it.name == name && File(it, "SKILL.md").exists() }
@@ -89,13 +188,26 @@ class SkillStore(private val context: Context) {
         val name = extractFrontmatter(text, "name") ?: file.parentFile?.name ?: return null
         val description = extractFrontmatter(text, "description") ?: "No description"
         val version = extractFrontmatter(text, "version") ?: "1.0.0"
-        val category = file.parentFile?.parentFile?.name ?: "user"
+        val category = extractFrontmatter(text, "category")
+            ?: when (file.parentFile?.parentFile?.name) {
+                "learned" -> "learned"
+                "user" -> "user"
+                else -> "bundled"
+            }
+        val triggers = extractFrontmatter(text, "triggers")
+            ?.split(",")
+            ?.map { it.trim() }
+            ?.filter { it.isNotEmpty() }
+            ?: emptyList()
+        val learnedRuns = extractFrontmatter(text, "learned_runs")?.toIntOrNull() ?: 0
         return SkillMetadata(
             name = name,
             description = description,
             path = file.parentFile?.absolutePath.orEmpty(),
             category = category,
             version = version,
+            triggers = triggers,
+            learnedRuns = learnedRuns,
         )
     }
 

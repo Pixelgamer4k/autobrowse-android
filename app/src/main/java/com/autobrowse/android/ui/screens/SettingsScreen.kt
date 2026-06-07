@@ -27,12 +27,14 @@ import com.autobrowse.android.domain.model.LearnedStrategy
 import com.autobrowse.android.domain.model.MemoryEntry
 import com.autobrowse.android.domain.model.SkillConfig
 import com.autobrowse.android.domain.model.SkillType
+import com.autobrowse.android.skills.SkillMetadata
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SettingsScreen(
     skillConfigs: List<SkillConfig>,
     enabledSkills: Set<SkillType>,
+    agentSkills: List<SkillMetadata>,
     memory: List<MemoryEntry>,
     strategies: List<LearnedStrategy>,
     onOpenLlmSetup: () -> Unit,
@@ -72,13 +74,42 @@ fun SettingsScreen(
                 Text("Change API Configuration")
             }
 
-            Text("Skills", style = MaterialTheme.typography.titleMedium)
+            Text("Tool Skills", style = MaterialTheme.typography.titleMedium)
+            Text(
+                "Built-in agent capabilities (summarize, extract, web fetch, etc.).",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+            )
             skillConfigs.forEach { skill ->
                 SkillToggleRow(
                     skill = skill,
                     enabled = skill.type in enabledSkills,
                     onToggle = { onToggleSkill(skill.type, it) },
                 )
+            }
+
+            Text("Agent Skills", style = MaterialTheme.typography.titleMedium)
+            Text(
+                "Bundled playbooks plus skills auto-created after each automation run. Matched tasks load these into the agent prompt.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+            )
+            if (agentSkills.isEmpty()) {
+                Text(
+                    "No skills loaded yet. Run a browsing task to seed bundled skills and start learning.",
+                    style = MaterialTheme.typography.bodySmall,
+                )
+            } else {
+                val learned = agentSkills.filter { it.category == "learned" }
+                val bundled = agentSkills.filter { it.category != "learned" }
+                if (learned.isNotEmpty()) {
+                    Text("Learned (${learned.size})", style = MaterialTheme.typography.labelLarge)
+                    learned.forEach { skill -> AgentSkillRow(skill) }
+                }
+                if (bundled.isNotEmpty()) {
+                    Text("Bundled (${bundled.size})", style = MaterialTheme.typography.labelLarge)
+                    bundled.forEach { skill -> AgentSkillRow(skill) }
+                }
             }
 
             Text("Long-term Memory", style = MaterialTheme.typography.titleMedium)
@@ -122,6 +153,29 @@ fun SettingsScreen(
                     )
                 }
             }
+        }
+    }
+}
+
+@Composable
+private fun AgentSkillRow(skill: SkillMetadata) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 4.dp),
+    ) {
+        Text(skill.name, style = MaterialTheme.typography.bodyMedium)
+        Text(
+            skill.description,
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
+        )
+        if (skill.category == "learned" && skill.learnedRuns > 0) {
+            Text(
+                "Runs learned: ${skill.learnedRuns}",
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.primary,
+            )
         }
     }
 }

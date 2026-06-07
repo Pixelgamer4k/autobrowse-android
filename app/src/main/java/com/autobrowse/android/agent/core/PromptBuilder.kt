@@ -23,10 +23,13 @@ class PromptBuilder(
     ): String {
         val stable = buildStableTier(enabledToolNames)
         val searchPlaybook = buildSearchPlaybook()
+        val hints = buildInternalHintsTier(userPrompt)
         val context = buildContextTier(prefetchedMemory, strategies)
         val skills = buildSkillsTier(userPrompt)
         val volatile = buildVolatileTier(pageUrl)
-        return listOf(stable, searchPlaybook, context, skills, volatile).filter { it.isNotBlank() }.joinToString("\n\n")
+        return listOf(stable, searchPlaybook, hints, context, skills, volatile)
+            .filter { it.isNotBlank() }
+            .joinToString("\n\n")
     }
 
     private fun buildStableTier(toolNames: List<String>): String = """
@@ -62,25 +65,39 @@ class PromptBuilder(
         WRONG: navigate to homepage → find search box → type → press Enter (fails on YouTube/React sites)
     """.trimIndent()
 
+    private fun buildInternalHintsTier(userPrompt: String): String {
+        val hints = TaskPreprocessor.hintsForPrompt(userPrompt)
+        if (hints.isEmpty()) return ""
+        return buildString {
+            appendLine("## Task Hints (internal — do not repeat to user)")
+            hints.forEach { appendLine("- $it") }
+        }.trim()
+    }
+
     private suspend fun buildSkillsTier(userPrompt: String): String {
         val store = skillStore ?: return ""
-        val matched = TaskPreprocessor.matchedSkillNames(userPrompt)
+        val allSkills = store.listSkills()
+        val matched = TaskPreprocessor.matchedSkillNames(userPrompt, allSkills)
         return buildString {
             if (matched.isNotEmpty()) {
                 appendLine("## Active Skills (matched to this task — FOLLOW THESE)")
                 for (name in matched) {
                     runCatching {
                         val body = store.readSkill(name)
-                        appendLine("### Skill: $name")
-                        appendLine(body.take(2500))
+                        val meta = allSkills.find { it.name == name }
+                        val tag = meta?.category?.let { "[$it]" }.orEmpty()
+                        appendLine("### Skill: $name $tag")
+                        appendLine(body.take(2800))
                         appendLine()
                     }
                 }
             } else {
-                val all = store.listSkills().take(8)
-                if (all.isNotEmpty()) {
+                val learned = allSkills.filter { it.category == "learned" }.take(4)
+                val bundled = allSkills.filter { it.category == "bundled" }.take(6)
+                if (learned.isNotEmpty() || bundled.isNotEmpty()) {
                     appendLine("## Available Skills (use skill_view to load)")
-                    all.forEach { appendLine("- ${it.name}: ${it.description}") }
+                    learned.forEach { appendLine("- [learned] ${it.name}: ${it.description}") }
+                    bundled.forEach { appendLine("- ${it.name}: ${it.description}") }
                 }
             }
         }.trim()

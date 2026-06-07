@@ -11,6 +11,7 @@ import com.autobrowse.android.agent.orchestration.TaskOrchestrator
 import com.autobrowse.android.agent.tools.BrowserBackTool
 import com.autobrowse.android.agent.tools.BrowserSearchTool
 import com.autobrowse.android.agent.tools.BrowserWaitTool
+import com.autobrowse.android.agent.training.PostTaskSkillLearner
 import com.autobrowse.android.agent.training.TrainingDataSeeder
 import com.autobrowse.android.agent.tools.BrowserClickTool
 import com.autobrowse.android.agent.tools.BrowserClickXYTool
@@ -150,6 +151,12 @@ class AutobrowseApplication : Application(), Configuration.Provider {
             memoryManager = memoryManager,
         )
 
+        val postTaskSkillLearner = PostTaskSkillLearner(
+            skillStore = skillStore,
+            repository = repository,
+            llmApi = llmApi,
+        )
+
         toolRegistry = ToolRegistry(
             tools = listOf(
                 BrowserSearchTool(browserController),
@@ -201,6 +208,7 @@ class AutobrowseApplication : Application(), Configuration.Provider {
             contextCompressor = ContextCompressor(llmApi),
             trajectoryStore = TrajectoryStore(database.trajectoryDao()),
             selfImprovementEngine = selfImprovementEngine,
+            postTaskSkillLearner = postTaskSkillLearner,
             tabManager = tabManager,
         )
 

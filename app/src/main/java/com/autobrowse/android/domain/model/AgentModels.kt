@@ -52,6 +52,7 @@ data class AgentConversationResult(
     val iterationsUsed: Int = 0,
     val memoriesLearned: Int = 0,
     val strategiesUpdated: Int = 0,
+    val skillsLearned: Int = 0,
     val error: String? = null,
 )
 

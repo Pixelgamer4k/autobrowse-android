@@ -6,6 +6,7 @@ import com.autobrowse.android.agent.tools.ToolRegistry
 import com.autobrowse.android.agent.tools.parseToolArgs
 import com.autobrowse.android.browser.TabManager
 import com.autobrowse.android.domain.model.AttachmentPayload
+import com.autobrowse.android.agent.training.PostTaskSkillLearner
 import com.autobrowse.android.agent.trajectory.SelfImprovementEngine
 import com.autobrowse.android.agent.trajectory.TrajectoryStore
 import com.autobrowse.android.data.remote.ChatMessageDto
@@ -44,6 +45,7 @@ class AgentLoop(
     private val contextCompressor: ContextCompressor,
     private val trajectoryStore: TrajectoryStore,
     private val selfImprovementEngine: SelfImprovementEngine,
+    private val postTaskSkillLearner: PostTaskSkillLearner? = null,
     private val tabManager: TabManager? = null,
     private val maxIterations: Int = 20,
 ) {
@@ -86,12 +88,11 @@ class AgentLoop(
             if (request.attachmentPayload.attachments.isNotEmpty()) "Analyze the attached file(s)"
             else request.prompt
         }
-        val displayPrompt = TaskPreprocessor.augmentPrompt(rawPrompt)
         val userMessage = ChatMessage(
             id = UUID.randomUUID().toString(),
             sessionId = request.sessionId,
             role = AgentRole.USER,
-            content = displayPrompt,
+            content = rawPrompt,
             attachments = request.attachmentPayload.attachments.map { it.attachment },
         )
         repository.saveChatMessage(userMessage)
@@ -104,7 +105,6 @@ class AgentLoop(
                 browserContext = browserContext,
                 task = task,
                 taskId = taskId,
-                displayPrompt = displayPrompt,
                 rawPrompt = rawPrompt,
             )
         } catch (e: CancellationException) {
@@ -136,7 +136,6 @@ class AgentLoop(
         browserContext: BrowserContext,
         task: AutomationTask,
         taskId: String,
-        displayPrompt: String,
         rawPrompt: String,
     ): AgentConversationResult = runCatching {
             ensureNotCancelled()
@@ -165,7 +164,7 @@ class AgentLoop(
 
             val budget = IterationBudget(maxIterations)
             val loopMessages = contextCompressor.toApiHistory(history.dropLast(1)).toMutableList().apply {
-                add(ChatMessageDto(role = "user", content = displayPrompt))
+                add(ChatMessageDto(role = "user", content = rawPrompt))
             }
             val turns = mutableListOf<AgentTurn>()
             val toolContext = ToolExecutionContext(
@@ -281,13 +280,20 @@ class AgentLoop(
             repository.saveChatMessage(agentMessage)
 
             _progress.value = AgentProgress(AgentPhase.REFLECTING, budget.used(), maxIterations, message = "Learning…")
+            val taskSuccess = turns.none { turn -> turn.toolResults.any { !it.success } }
             val memoriesLearned = memoryManager.syncTurn(request.sessionId, request.prompt, finalResponse)
             val strategiesUpdated = selfImprovementEngine.reflectAndImprove(
                 prompt = request.prompt,
-                success = turns.none { turn -> turn.toolResults.any { !it.success } },
+                success = taskSuccess,
                 turns = turns,
                 pageUrl = browserContext.pageUrl,
             )
+            val skillsLearned = postTaskSkillLearner?.learnFromTask(
+                prompt = rawPrompt,
+                success = taskSuccess,
+                turns = turns,
+                pageUrl = browserContext.pageUrl,
+            ) ?: 0
             trajectoryStore.save(
                 sessionId = request.sessionId,
                 taskId = taskId,
@@ -311,6 +317,7 @@ class AgentLoop(
                 iterationsUsed = budget.used(),
                 memoriesLearned = memoriesLearned,
                 strategiesUpdated = strategiesUpdated,
+                skillsLearned = skillsLearned,
             )
         }.getOrElse { error ->
             trajectoryStore.save(

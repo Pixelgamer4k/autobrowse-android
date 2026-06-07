@@ -23,6 +23,18 @@ Pattern: search → wait → snapshot → done (3-5 tools max).
 
 `todo_write` first. Max 8-12 tools for medium tasks.
 
+## Research tasks
+
+1. `browser_search` or `web_fetch` for discovery
+2. `run_parallel_tasks` when comparing multiple sources
+3. `summarize` / `extract_data` on fetched content
+4. Check Settings → Agent Skills for learned playbooks from past runs
+
+## Self-improvement
+
+After each task the agent saves learned skills under `learned/` and updates strategies.
+Similar prompts auto-load matching learned skills — prefer those over trial-and-error.
+
 ## Pitfalls
 
 - YouTube/Google search boxes break with browser_type — use browser_search

@@ -49,6 +49,7 @@ fun HomeScreen(viewModel: MainViewModel) {
             SettingsScreen(
                 skillConfigs = state.skillConfigs,
                 enabledSkills = state.enabledSkills,
+                agentSkills = state.agentSkills,
                 memory = state.memory,
                 strategies = state.strategies,
                 onOpenLlmSetup = { viewModel.openLlmSetup(fromSettings = true) },

@@ -1,18 +1,9 @@
 package com.autobrowse.android.agent.core
 
 object TaskPreprocessor {
-    fun augmentPrompt(prompt: String): String {
-        val hints = buildHints(prompt)
-        if (hints.isEmpty()) return prompt
-        return buildString {
-            appendLine("[Autobrowse task hints — follow these for reliability]")
-            hints.forEach { appendLine("- $it") }
-            appendLine()
-            append("User task: $prompt")
-        }
-    }
+    fun hintsForPrompt(prompt: String): List<String> = buildHints(prompt)
 
-    fun matchedSkillNames(prompt: String): List<String> {
+    fun matchedBuiltinSkillNames(prompt: String): List<String> {
         val lower = prompt.lowercase()
         val skills = linkedSetOf<String>()
         if (lower.contains("youtube") || lower.contains("youtu.be")) skills.add("youtube-search")
@@ -21,8 +12,41 @@ object TaskPreprocessor {
             skills.add("site-search")
         }
         if (lower.contains("form") || lower.contains("fill") || lower.contains("login")) skills.add("form-filling")
+        if (lower.contains("research") || lower.contains("summar") || lower.contains("compare")) {
+            skills.add("parallel-research")
+            skills.add("news-research")
+        }
+        if (lower.contains("scrape") || lower.contains("extract")) skills.add("data-extraction")
+        if (lower.contains("pdf")) skills.add("pdf-generation")
+        if (lower.contains("chart") || lower.contains("plot")) skills.add("matplotlib-charts")
         skills.add("autobrowse")
         return skills.toList()
+    }
+
+    fun matchedSkillNames(prompt: String, allSkills: List<com.autobrowse.android.skills.SkillMetadata> = emptyList()): List<String> {
+        val builtin = matchedBuiltinSkillNames(prompt)
+        val learned = allSkills
+            .filter { it.category == "learned" }
+            .filter { scoreSkillMatch(it, prompt) >= 2 }
+            .sortedByDescending { scoreSkillMatch(it, prompt) }
+            .take(3)
+            .map { it.name }
+        return (learned + builtin).distinct()
+    }
+
+    fun scoreSkillMatch(skill: com.autobrowse.android.skills.SkillMetadata, prompt: String): Int {
+        val lower = prompt.lowercase()
+        val tokens = lower.split(Regex("""\W+""")).filter { it.length >= 3 }.toSet()
+        var score = 0
+        val nameTokens = skill.name.lowercase().split("-")
+        nameTokens.forEach { if (it in tokens || it in lower) score += 2 }
+        skill.description.lowercase().split(Regex("""\W+"""))
+            .filter { it.length >= 4 }
+            .forEach { if (it in tokens) score += 1 }
+        skill.triggers.forEach { trigger ->
+            if (lower.contains(trigger.lowercase())) score += 3
+        }
+        return score
     }
 
     private fun buildHints(prompt: String): List<String> {
@@ -46,6 +70,11 @@ object TaskPreprocessor {
 
         if (lower.contains("youtube")) {
             hints += "YouTube uses contenteditable search — typing often fails. Always use browser_search(site=\"youtube\", query=...)."
+        }
+
+        if (lower.contains("research") || lower.contains("summar") || lower.contains("compare")) {
+            hints += "Research: use web_fetch for articles, browser_search for discovery, run_parallel_tasks for multi-source compare."
+            hints += "Load parallel-research skill via skill_view if stuck."
         }
 
         if (hints.isNotEmpty()) {

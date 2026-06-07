@@ -29,6 +29,7 @@ import com.autobrowse.android.domain.model.PendingAttachment
 import com.autobrowse.android.domain.model.Session
 import com.autobrowse.android.domain.model.SkillConfig
 import com.autobrowse.android.domain.model.SkillType
+import com.autobrowse.android.skills.SkillMetadata
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -67,6 +68,7 @@ data class MainUiState(
     val isAgentThinking: Boolean = false,
     val agentProgress: AgentProgress? = null,
     val strategies: List<LearnedStrategy> = emptyList(),
+    val agentSkills: List<SkillMetadata> = emptyList(),
     val showSettings: Boolean = false,
     val showLlmSetup: Boolean = false,
     val llmSetupFromSettings: Boolean = false,
@@ -107,6 +109,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 )
             }
             activeSessionId.value = session.id
+            refreshAgentSkills()
         }
 
         viewModelScope.launch {
@@ -254,7 +257,15 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun toggleSettings(show: Boolean) {
+        if (show) refreshAgentSkills()
         _uiState.update { it.copy(showSettings = show) }
+    }
+
+    private fun refreshAgentSkills() {
+        viewModelScope.launch {
+            val skills = app.skillStore.listSkills()
+            _uiState.update { it.copy(agentSkills = skills) }
+        }
     }
 
     fun selectTab(tabId: String) {
@@ -599,6 +610,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             } finally {
                 agentJob = null
                 _uiState.update { it.copy(isAgentThinking = false) }
+                refreshAgentSkills()
             }
         }
     }
