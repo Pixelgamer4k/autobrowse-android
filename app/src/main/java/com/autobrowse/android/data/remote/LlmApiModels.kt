@@ -73,3 +73,34 @@ data class LlmCompletion(
     val toolCalls: List<ToolCallDto>,
     val finishReason: String?,
 )
+
+@JsonClass(generateAdapter = true)
+data class StreamChunkResponse(
+    val choices: List<StreamChoiceDto> = emptyList(),
+)
+
+@JsonClass(generateAdapter = true)
+data class StreamChoiceDto(
+    val delta: StreamDeltaDto? = null,
+    @Json(name = "finish_reason") val finishReason: String? = null,
+)
+
+@JsonClass(generateAdapter = true)
+data class StreamDeltaDto(
+    val content: String? = null,
+    @Json(name = "tool_calls") val toolCalls: List<StreamToolCallDeltaDto>? = null,
+)
+
+@JsonClass(generateAdapter = true)
+data class StreamToolCallDeltaDto(
+    val index: Int? = null,
+    val id: String? = null,
+    val type: String? = null,
+    val function: StreamToolFunctionDeltaDto? = null,
+)
+
+@JsonClass(generateAdapter = true)
+data class StreamToolFunctionDeltaDto(
+    val name: String? = null,
+    val arguments: String? = null,
+)

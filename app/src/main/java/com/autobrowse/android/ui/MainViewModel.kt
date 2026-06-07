@@ -3,6 +3,7 @@ package com.autobrowse.android.ui
 import android.app.Application
 import android.content.Intent
 import android.net.Uri
+import androidx.core.content.FileProvider
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.autobrowse.android.AutobrowseApplication
@@ -60,6 +61,11 @@ data class ModelDownloadState(
     val error: String? = null,
 )
 
+data class SkillTransferState(
+    val message: String? = null,
+    val isSuccess: Boolean? = null,
+)
+
 data class MainUiState(
     val session: Session? = null,
     val sessions: List<Session> = emptyList(),
@@ -83,6 +89,7 @@ data class MainUiState(
     val llmSetupFromSettings: Boolean = false,
     val llmConnectionTest: LlmConnectionTestState = LlmConnectionTestState(),
     val modelDownload: ModelDownloadState = ModelDownloadState(),
+    val skillTransfer: SkillTransferState = SkillTransferState(),
     val error: String? = null,
 )
 
@@ -748,6 +755,122 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         modelDownloadJob = null
         _uiState.update {
             it.copy(modelDownload = ModelDownloadState(model = it.modelDownload.model))
+        }
+    }
+
+    fun clearSkillTransferMessage() {
+        _uiState.update { it.copy(skillTransfer = SkillTransferState()) }
+    }
+
+    fun showSkillTransfer(message: String, isSuccess: Boolean) {
+        _uiState.update {
+            it.copy(skillTransfer = SkillTransferState(message = message, isSuccess = isSuccess))
+        }
+    }
+
+    suspend fun buildLearnedSkillsExport(): Pair<String, Int> = withContext(Dispatchers.IO) {
+        val bundle = app.skillStore.exportLearnedSkillsBundle()
+        val json = com.autobrowse.android.skills.LearnedSkillsSerializer.toJson(bundle)
+        json to bundle.skills.size
+    }
+
+    fun learnedSkillsExportFileName(): String {
+        val stamp = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US)
+            .format(java.util.Date())
+        return "autobrowse-learned-skills-$stamp.json"
+    }
+
+    suspend fun createLearnedSkillsShareUri(json: String): Uri = withContext(Dispatchers.IO) {
+        val context = getApplication<Application>()
+        val exportDir = java.io.File(context.cacheDir, "exports").also { it.mkdirs() }
+        val file = java.io.File(exportDir, learnedSkillsExportFileName())
+        file.writeText(json)
+        FileProvider.getUriForFile(context, "${context.packageName}.fileprovider", file)
+    }
+
+    fun buildLearnedSkillsShareIntent(uri: Uri): Intent =
+        Intent(Intent.ACTION_SEND).apply {
+            type = "application/json"
+            putExtra(Intent.EXTRA_STREAM, uri)
+            putExtra(Intent.EXTRA_SUBJECT, "Autobrowse learned skills")
+            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+        }
+
+    fun saveLearnedSkillsExport(uri: Uri) {
+        viewModelScope.launch {
+            try {
+                val json = app.skillStore.exportLearnedSkillsJson()
+                val count = com.autobrowse.android.skills.LearnedSkillsSerializer
+                    .fromJson(json).skills.size
+                if (count == 0) {
+                    _uiState.update {
+                        it.copy(
+                            skillTransfer = SkillTransferState(
+                                message = "No learned skills to export yet. Run browsing tasks first.",
+                                isSuccess = false,
+                            ),
+                        )
+                    }
+                    return@launch
+                }
+                withContext(Dispatchers.IO) {
+                    getApplication<Application>().contentResolver.openOutputStream(uri)?.use { stream ->
+                        stream.write(json.toByteArray(Charsets.UTF_8))
+                    } ?: throw IllegalStateException("Could not write export file.")
+                }
+                _uiState.update {
+                    it.copy(
+                        skillTransfer = SkillTransferState(
+                            message = "Exported $count learned skill${if (count == 1) "" else "s"}.",
+                            isSuccess = true,
+                        ),
+                    )
+                }
+            } catch (e: Exception) {
+                _uiState.update {
+                    it.copy(
+                        skillTransfer = SkillTransferState(
+                            message = e.message ?: "Export failed.",
+                            isSuccess = false,
+                        ),
+                    )
+                }
+            }
+        }
+    }
+
+    fun importLearnedSkills(uri: Uri) {
+        viewModelScope.launch {
+            try {
+                val json = withContext(Dispatchers.IO) {
+                    getApplication<Application>().contentResolver.openInputStream(uri)?.use { stream ->
+                        stream.bufferedReader().readText()
+                    } ?: throw IllegalStateException("Could not read import file.")
+                }
+                val imported = app.skillStore.importLearnedSkillsJson(json, merge = true)
+                refreshAgentSkills()
+                _uiState.update {
+                    it.copy(
+                        skillTransfer = SkillTransferState(
+                            message = if (imported == 0) {
+                                "No new skills imported."
+                            } else {
+                                "Imported $imported learned skill${if (imported == 1) "" else "s"}."
+                            },
+                            isSuccess = imported > 0,
+                        ),
+                    )
+                }
+            } catch (e: Exception) {
+                _uiState.update {
+                    it.copy(
+                        skillTransfer = SkillTransferState(
+                            message = e.message ?: "Import failed.",
+                            isSuccess = false,
+                        ),
+                    )
+                }
+            }
         }
     }
 

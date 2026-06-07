@@ -55,8 +55,17 @@ fun HomeScreen(viewModel: MainViewModel) {
                 agentSkills = state.agentSkills,
                 memory = state.memory,
                 strategies = state.strategies,
+                skillTransfer = state.skillTransfer,
                 onOpenLlmSetup = { viewModel.openLlmSetup(fromSettings = true) },
                 onToggleSkill = viewModel::toggleSkill,
+                onBuildLearnedSkillsExport = viewModel::buildLearnedSkillsExport,
+                onCreateLearnedSkillsShareUri = viewModel::createLearnedSkillsShareUri,
+                onBuildLearnedSkillsShareIntent = viewModel::buildLearnedSkillsShareIntent,
+                onSaveLearnedSkillsExport = viewModel::saveLearnedSkillsExport,
+                onImportLearnedSkills = viewModel::importLearnedSkills,
+                onClearSkillTransferMessage = viewModel::clearSkillTransferMessage,
+                onShowSkillTransfer = viewModel::showSkillTransfer,
+                exportFileName = viewModel.learnedSkillsExportFileName(),
                 onBack = { viewModel.toggleSettings(false) },
             )
         }

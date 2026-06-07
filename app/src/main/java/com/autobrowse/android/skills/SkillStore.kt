@@ -74,6 +74,63 @@ class SkillStore(private val context: Context) {
         dir.deleteRecursively()
     }
 
+    suspend fun exportLearnedSkillsBundle(): LearnedSkillsBundle = withContext(Dispatchers.IO) {
+        val learned = listSkills().filter { it.category == "learned" }
+        val entries = learned.mapNotNull { metadata ->
+            val dir = findSkillDir(metadata.name) ?: return@mapNotNull null
+            val skillMd = dir.resolve("SKILL.md").readText()
+            val extraFiles = collectRelativeTextFiles(dir).filterKeys { it != "SKILL.md" }
+            ExportedLearnedSkill(
+                name = metadata.name,
+                description = metadata.description,
+                version = metadata.version,
+                triggers = metadata.triggers,
+                learnedRuns = metadata.learnedRuns,
+                skillMd = skillMd,
+                files = extraFiles,
+            )
+        }
+        LearnedSkillsBundle(skills = entries)
+    }
+
+    suspend fun exportLearnedSkillsJson(): String = withContext(Dispatchers.IO) {
+        LearnedSkillsSerializer.toJson(exportLearnedSkillsBundle())
+    }
+
+    suspend fun importLearnedSkillsJson(json: String, merge: Boolean = true): Int = withContext(Dispatchers.IO) {
+        val bundle = LearnedSkillsSerializer.fromJson(json)
+        var imported = 0
+        for (skill in bundle.skills) {
+            require(skill.name.isNotBlank()) { "Skill export contains an entry with no name." }
+            require(skill.skillMd.isNotBlank()) { "Skill '${skill.name}' is missing SKILL.md content." }
+            val targetDir = File(skillsRoot, "learned/${skill.name}")
+            if (targetDir.exists() && !merge) continue
+            targetDir.mkdirs()
+            targetDir.resolve("references").mkdirs()
+            targetDir.resolve("scripts").mkdirs()
+            targetDir.resolve("assets").mkdirs()
+            targetDir.resolve("SKILL.md").writeText(skill.skillMd)
+            skill.files.forEach { (relativePath, content) ->
+                val file = File(targetDir, relativePath)
+                file.parentFile?.mkdirs()
+                file.writeText(content)
+            }
+            imported++
+        }
+        imported
+    }
+
+    private fun collectRelativeTextFiles(skillDir: File): Map<String, String> {
+        val result = linkedMapOf<String, String>()
+        skillDir.walkTopDown()
+            .filter { it.isFile }
+            .forEach { file ->
+                val relative = file.relativeTo(skillDir).path.replace('\\', '/')
+                result[relative] = file.readText()
+            }
+        return result
+    }
+
     suspend fun findMatchingSkills(prompt: String, limit: Int = 5): List<SkillMetadata> =
         withContext(Dispatchers.IO) {
             listSkills()

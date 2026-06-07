@@ -15,6 +15,7 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.logging.HttpLoggingInterceptor
+import org.json.JSONObject
 import java.util.concurrent.TimeUnit
 
 class LlmApiService(
@@ -41,6 +42,7 @@ class LlmApiService(
 
     private val requestAdapter = moshi.adapter(ChatCompletionRequest::class.java)
     private val responseAdapter = moshi.adapter(ChatCompletionResponse::class.java)
+    private val streamChunkAdapter = moshi.adapter(StreamChunkResponse::class.java)
     private val mapAdapter = moshi.adapter<Map<String, Any?>>(
         Types.newParameterizedType(Map::class.java, String::class.java, Any::class.java),
     )
@@ -167,15 +169,16 @@ class LlmApiService(
                 model = config.modelId,
                 messages = apiMessages,
                 temperature = config.temperature,
-                maxTokens = config.maxTokens,
+                maxTokens = config.maxTokens.coerceIn(512, 4096),
                 tools = toolSchemas,
                 toolChoice = if (toolSchemas != null) "auto" else null,
+                stream = onTokenDelta != null,
             ),
         )
 
         val multimodalIndex = apiMessages.lastIndex
         val lastMessage = apiMessages.lastOrNull()
-        val requestBody = if (
+        val requestJson = if (
             attachmentPayload.attachments.isNotEmpty() &&
             lastMessage?.role == "user" &&
             lastMessage.content != null
@@ -191,24 +194,38 @@ class LlmApiService(
             )
         } else {
             baseRequest
-        }.toRequestBody("application/json".toMediaType())
+        }
+
+        val finalJson = if (onTokenDelta != null) {
+            JSONObject(requestJson).put("stream", true).toString()
+        } else {
+            requestJson
+        }
 
         val baseUrl = config.apiUrl.trimEnd('/')
         val request = Request.Builder()
             .url("$baseUrl/chat/completions")
             .addHeader("Authorization", "Bearer ${config.apiKey}")
             .addHeader("Content-Type", "application/json")
-            .post(requestBody)
+            .post(finalJson.toRequestBody("application/json".toMediaType()))
             .build()
 
         client.newCall(request).execute().use { response ->
-            val body = response.body?.string()
-                ?: throw IllegalStateException("Empty response from LLM API")
-
             if (!response.isSuccessful) {
-                throw IllegalStateException("LLM API error (${response.code}): $body")
+                val errorBody = response.body?.string().orEmpty()
+                throw IllegalStateException("LLM API error (${response.code}): $errorBody")
             }
 
+            val responseBody = response.body
+                ?: throw IllegalStateException("Empty response from LLM API")
+
+            if (onTokenDelta != null) {
+                return@withContext responseBody.source().use { source ->
+                    CloudStreamParser.parseStream(source, moshi, onTokenDelta)
+                }
+            }
+
+            val body = responseBody.string()
             val parsed = responseAdapter.fromJson(body)
                 ?: throw IllegalStateException("Failed to parse LLM response")
 

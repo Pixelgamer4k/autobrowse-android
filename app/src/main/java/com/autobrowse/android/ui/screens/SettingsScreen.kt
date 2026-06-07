@@ -1,5 +1,8 @@
 package com.autobrowse.android.ui.screens
 
+import android.content.Intent
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -20,14 +23,18 @@ import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.autobrowse.android.domain.model.LearnedStrategy
 import com.autobrowse.android.domain.model.MemoryEntry
 import com.autobrowse.android.domain.model.SkillConfig
 import com.autobrowse.android.domain.model.SkillType
 import com.autobrowse.android.skills.SkillMetadata
+import com.autobrowse.android.ui.SkillTransferState
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -37,10 +44,37 @@ fun SettingsScreen(
     agentSkills: List<SkillMetadata>,
     memory: List<MemoryEntry>,
     strategies: List<LearnedStrategy>,
+    skillTransfer: SkillTransferState,
     onOpenLlmSetup: () -> Unit,
     onToggleSkill: (SkillType, Boolean) -> Unit,
+    onBuildLearnedSkillsExport: suspend () -> Pair<String, Int>,
+    onCreateLearnedSkillsShareUri: suspend (String) -> android.net.Uri,
+    onBuildLearnedSkillsShareIntent: (android.net.Uri) -> Intent,
+    onSaveLearnedSkillsExport: (android.net.Uri) -> Unit,
+    onImportLearnedSkills: (android.net.Uri) -> Unit,
+    onClearSkillTransferMessage: () -> Unit,
+    onShowSkillTransfer: (String, Boolean) -> Unit,
+    exportFileName: String,
     onBack: () -> Unit,
 ) {
+    val context = LocalContext.current
+    val scope = rememberCoroutineScope()
+
+    val saveExportLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.CreateDocument("application/json"),
+    ) { uri ->
+        if (uri != null) {
+            onSaveLearnedSkillsExport(uri)
+        }
+    }
+
+    val importLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.OpenDocument(),
+    ) { uri ->
+        if (uri != null) {
+            onImportLearnedSkills(uri)
+        }
+    }
     Scaffold(
         topBar = {
             TopAppBar(
@@ -94,6 +128,66 @@ fun SettingsScreen(
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
             )
+            Text(
+                "Train skills by running tasks, then export and share the JSON file to bundle them into a future app release.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+            )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+            ) {
+                OutlinedButton(
+                    onClick = {
+                        scope.launch {
+                            onClearSkillTransferMessage()
+                            val (json, count) = onBuildLearnedSkillsExport()
+                            if (count == 0) {
+                                onShowSkillTransfer(
+                                    "No learned skills to export yet. Run browsing tasks first.",
+                                    false,
+                                )
+                                return@launch
+                            }
+                            val uri = onCreateLearnedSkillsShareUri(json)
+                            val intent = onBuildLearnedSkillsShareIntent(uri)
+                            context.startActivity(Intent.createChooser(intent, "Share learned skills"))
+                        }
+                    },
+                    modifier = Modifier.weight(1f),
+                ) {
+                    Text("Share export")
+                }
+                OutlinedButton(
+                    onClick = {
+                        onClearSkillTransferMessage()
+                        saveExportLauncher.launch(exportFileName)
+                    },
+                    modifier = Modifier.weight(1f),
+                ) {
+                    Text("Save export")
+                }
+            }
+            OutlinedButton(
+                onClick = {
+                    onClearSkillTransferMessage()
+                    importLauncher.launch(arrayOf("application/json", "text/plain", "*/*"))
+                },
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                Text("Import learned skills")
+            }
+            skillTransfer.message?.let { message ->
+                Text(
+                    text = message,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = if (skillTransfer.isSuccess == true) {
+                        MaterialTheme.colorScheme.primary
+                    } else {
+                        MaterialTheme.colorScheme.error
+                    },
+                )
+            }
             if (agentSkills.isEmpty()) {
                 Text(
                     "No skills loaded yet. Run a browsing task to seed bundled skills and start learning.",
