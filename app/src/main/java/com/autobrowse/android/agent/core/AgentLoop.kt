@@ -21,10 +21,14 @@ import com.autobrowse.android.domain.model.ChatMessage
 import com.autobrowse.android.domain.model.TaskStatus
 import com.autobrowse.android.domain.model.ToolCall
 import com.autobrowse.android.domain.model.ToolResult
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.coroutineContext
+import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import java.util.UUID
+import java.util.concurrent.atomic.AtomicBoolean
 
 class AgentLoop(
     private val repository: AutobrowseRepository,
@@ -39,6 +43,24 @@ class AgentLoop(
 ) {
     private val _progress = MutableStateFlow(AgentProgress(AgentPhase.IDLE, 0, maxIterations))
     val progress: StateFlow<AgentProgress> = _progress.asStateFlow()
+    private val cancelRequested = AtomicBoolean(false)
+
+    fun requestCancel() {
+        cancelRequested.set(true)
+        _progress.value = AgentProgress(
+            phase = AgentPhase.IDLE,
+            iteration = _progress.value.iteration,
+            maxIterations = maxIterations,
+            message = "Stopping…",
+        )
+    }
+
+    private fun ensureNotCancelled() {
+        coroutineContext.ensureActive()
+        if (cancelRequested.get()) {
+            throw CancellationException("Stopped by user")
+        }
+    }
 
     suspend fun runConversation(
         request: AutoBrowseRequest,
@@ -67,7 +89,48 @@ class AgentLoop(
         )
         repository.saveChatMessage(userMessage)
 
-        return runCatching {
+        cancelRequested.set(false)
+
+        return try {
+            runConversationLoop(
+                request = request,
+                browserContext = browserContext,
+                task = task,
+                taskId = taskId,
+                displayPrompt = displayPrompt,
+            )
+        } catch (e: CancellationException) {
+            repository.updateTask(
+                task.copy(status = TaskStatus.CANCELLED, progress = _progress.value.iteration.toFloat() / maxIterations),
+                request.sessionId,
+            )
+            repository.saveChatMessage(
+                ChatMessage(
+                    id = UUID.randomUUID().toString(),
+                    sessionId = request.sessionId,
+                    role = AgentRole.AGENT,
+                    content = "Stopped.",
+                ),
+            )
+            _progress.value = AgentProgress(AgentPhase.IDLE, 0, maxIterations)
+            cancelRequested.set(false)
+            AgentConversationResult(
+                success = false,
+                finalResponse = "",
+                turns = emptyList(),
+                error = "Stopped by user",
+            )
+        }
+    }
+
+    private suspend fun runConversationLoop(
+        request: AutoBrowseRequest,
+        browserContext: BrowserContext,
+        task: AutomationTask,
+        taskId: String,
+        displayPrompt: String,
+    ): AgentConversationResult = runCatching {
+            ensureNotCancelled()
             _progress.value = AgentProgress(AgentPhase.THINKING, 0, maxIterations, message = "Planning…")
 
             val config = repository.getLlmConfig()
@@ -105,6 +168,7 @@ class AgentLoop(
             var finalResponse: String? = null
 
             while (budget.consume()) {
+                ensureNotCancelled()
                 val iteration = budget.used()
                 _progress.value = AgentProgress(
                     phase = AgentPhase.THINKING,
@@ -124,6 +188,7 @@ class AgentLoop(
                     tools = toolRegistry.definitions(),
                     attachmentPayload = if (iteration == 1) request.attachmentPayload else com.autobrowse.android.domain.model.AttachmentPayload(),
                 )
+                ensureNotCancelled()
 
                 if (completion.toolCalls.isEmpty()) {
                     finalResponse = completion.content?.trim().orEmpty()
@@ -146,6 +211,7 @@ class AgentLoop(
 
                 val toolResults = mutableListOf<ToolResult>()
                 for (call in toolCalls) {
+                    ensureNotCancelled()
                     _progress.value = AgentProgress(
                         phase = AgentPhase.EXECUTING_TOOL,
                         iteration = iteration,

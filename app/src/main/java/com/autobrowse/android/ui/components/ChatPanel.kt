@@ -19,6 +19,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AttachFile
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.SmartToy
+import androidx.compose.material.icons.filled.Stop
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -49,6 +50,7 @@ fun ChatPanel(
     isAgentThinking: Boolean,
     agentProgress: AgentProgress?,
     onSettings: () -> Unit,
+    onStop: () -> Unit,
     scrollOnInput: Boolean,
     composerBottomPadding: Dp,
     bannerMessage: String? = null,
@@ -59,7 +61,11 @@ fun ChatPanel(
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background),
     ) {
-        ChatPanelHeader(onSettings = onSettings)
+        ChatPanelHeader(
+            isAgentThinking = isAgentThinking,
+            onSettings = onSettings,
+            onStop = onStop,
+        )
 
         bannerMessage?.let { message ->
             ChatBanner(message = message)
@@ -95,7 +101,11 @@ private fun ChatBanner(message: String) {
 }
 
 @Composable
-private fun ChatPanelHeader(onSettings: () -> Unit) {
+private fun ChatPanelHeader(
+    isAgentThinking: Boolean,
+    onSettings: () -> Unit,
+    onStop: () -> Unit,
+) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -120,13 +130,44 @@ private fun ChatPanelHeader(onSettings: () -> Unit) {
                 color = MaterialTheme.colorScheme.onSurface,
             )
         }
-        IconButton(onClick = onSettings, modifier = Modifier.size(36.dp)) {
-            Icon(
-                Icons.Default.Settings,
-                contentDescription = "Settings",
-                modifier = Modifier.size(20.dp),
-                tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.75f),
-            )
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(4.dp),
+        ) {
+            if (isAgentThinking) {
+                Surface(
+                    onClick = onStop,
+                    shape = RoundedCornerShape(16.dp),
+                    color = MaterialTheme.colorScheme.error.copy(alpha = 0.18f),
+                ) {
+                    Row(
+                        modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(6.dp),
+                    ) {
+                        Icon(
+                            Icons.Default.Stop,
+                            contentDescription = "Stop",
+                            modifier = Modifier.size(16.dp),
+                            tint = MaterialTheme.colorScheme.error,
+                        )
+                        Text(
+                            text = "Stop",
+                            style = MaterialTheme.typography.labelMedium,
+                            fontWeight = FontWeight.SemiBold,
+                            color = MaterialTheme.colorScheme.error,
+                        )
+                    }
+                }
+            }
+            IconButton(onClick = onSettings, modifier = Modifier.size(36.dp)) {
+                Icon(
+                    Icons.Default.Settings,
+                    contentDescription = "Settings",
+                    modifier = Modifier.size(20.dp),
+                    tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.75f),
+                )
+            }
         }
     }
 }

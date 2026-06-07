@@ -24,6 +24,7 @@ import com.autobrowse.android.domain.model.PendingAttachment
 import com.autobrowse.android.domain.model.Session
 import com.autobrowse.android.domain.model.SkillConfig
 import com.autobrowse.android.domain.model.SkillType
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
@@ -71,6 +72,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private var sessionId: String? = null
     private val activeSessionId = MutableStateFlow<String?>(null)
     private val persistJobs = mutableMapOf<String, Job>()
+    private var agentJob: Job? = null
 
     init {
         viewModelScope.launch {
@@ -452,13 +454,19 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    fun stopAgent() {
+        agentJob?.cancel()
+        agentLoop.requestCancel()
+    }
+
     fun sendMessage() {
         val prompt = _uiState.value.chatInput.trim()
         val attachments = _uiState.value.pendingAttachments
         val id = sessionId ?: return
         if ((prompt.isBlank() && attachments.isEmpty()) || _uiState.value.isAgentThinking) return
 
-        viewModelScope.launch {
+        agentJob?.cancel()
+        agentJob = viewModelScope.launch {
             val llmConfig = repository.getLlmConfig()
             if (llmConfig.apiKey.isBlank()) {
                 _uiState.update {
@@ -495,9 +503,12 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 if (result.actions.isNotEmpty()) {
                     browserController.executeActions(result.actions)
                 }
+            } catch (e: CancellationException) {
+                // AgentLoop records the stopped state and message.
             } catch (e: Exception) {
                 _uiState.update { it.copy(error = e.message) }
             } finally {
+                agentJob = null
                 _uiState.update { it.copy(isAgentThinking = false) }
             }
         }

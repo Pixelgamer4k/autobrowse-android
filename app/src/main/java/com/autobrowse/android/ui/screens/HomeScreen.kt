@@ -95,7 +95,7 @@ private fun MainContent(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .weight(0.55f)
+                    .weight(0.52f)
                     .background(MaterialTheme.colorScheme.surfaceVariant),
             ) {
                 BrowserPanel(
@@ -130,12 +130,13 @@ private fun MainContent(
                 isAgentThinking = state.isAgentThinking,
                 agentProgress = state.agentProgress,
                 onSettings = { viewModel.toggleSettings(true) },
+                onStop = viewModel::stopAgent,
                 scrollOnInput = chatInputFocused,
                 composerBottomPadding = composerBottomPadding,
                 bannerMessage = state.error,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .weight(0.45f)
+                    .weight(0.48f)
                     .background(MaterialTheme.colorScheme.background),
             )
         }
@@ -153,6 +154,7 @@ private fun MainContent(
                 onAddAttachment = viewModel::addAttachment,
                 onRemoveAttachment = viewModel::removeAttachment,
                 onSend = viewModel::sendMessage,
+                onStop = viewModel::stopAgent,
                 isSending = state.isAgentThinking,
                 keyboardLiftActive = keyboardLiftActive,
                 onFocusChange = { chatInputFocused = it },

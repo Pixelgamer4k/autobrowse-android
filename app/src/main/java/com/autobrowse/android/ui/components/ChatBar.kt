@@ -50,6 +50,7 @@ import androidx.compose.material.icons.filled.GraphicEq
 import androidx.compose.material.icons.filled.Image
 import androidx.compose.material.icons.filled.Mic
 import androidx.compose.material.icons.filled.PictureAsPdf
+import androidx.compose.material.icons.filled.Stop
 import androidx.compose.material.icons.filled.Videocam
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -95,6 +96,7 @@ fun ChatBar(
     onAddAttachment: (PendingAttachment) -> Unit,
     onRemoveAttachment: (String) -> Unit,
     onSend: () -> Unit,
+    onStop: () -> Unit = {},
     isSending: Boolean,
     modifier: Modifier = Modifier,
 ) {
@@ -105,6 +107,7 @@ fun ChatBar(
         onAddAttachment = onAddAttachment,
         onRemoveAttachment = onRemoveAttachment,
         onSend = onSend,
+        onStop = onStop,
         isSending = isSending,
         modifier = modifier,
     )
@@ -119,6 +122,7 @@ fun ChatComposer(
     onAddAttachment: (PendingAttachment) -> Unit,
     onRemoveAttachment: (String) -> Unit,
     onSend: () -> Unit,
+    onStop: () -> Unit = {},
     isSending: Boolean,
     modifier: Modifier = Modifier,
     keyboardLiftActive: Boolean = false,
@@ -322,80 +326,105 @@ fun ChatComposer(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(6.dp),
             ) {
-                if (!showSend) {
-                    IconButton(
-                        onClick = { onMicClick() },
-                        enabled = !isSending,
-                        modifier = Modifier.size(40.dp),
+                if (isSending) {
+                    Surface(
+                        onClick = onStop,
+                        shape = RoundedCornerShape(20.dp),
+                        color = MaterialTheme.colorScheme.error.copy(alpha = 0.2f),
                     ) {
-                        Icon(
-                            Icons.Default.Mic,
-                            contentDescription = "Voice input",
-                            tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.82f),
-                            modifier = Modifier.size(22.dp),
-                        )
-                    }
-                }
-
-                AnimatedContent(
-                    targetState = showSend,
-                    transitionSpec = {
-                        fadeIn(Motion.tweenQuick) + scaleIn(Motion.springBouncy) togetherWith
-                            fadeOut(Motion.tweenQuick) + scaleOut(Motion.tweenQuick)
-                    },
-                    label = "micSendToggle",
-                ) { sending ->
-                    if (sending) {
-                        Surface(
-                            onClick = onSend,
-                            enabled = canSend,
-                            shape = CircleShape,
-                            color = if (canSend) {
-                                MaterialTheme.colorScheme.primary
-                            } else {
-                                ComposerButtonBg
-                            },
-                            modifier = Modifier
-                                .size(40.dp)
-                                .scale(sendScale),
+                        Row(
+                            modifier = Modifier.padding(horizontal = 16.dp, vertical = 10.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(6.dp),
                         ) {
-                            Box(contentAlignment = Alignment.Center) {
-                                Icon(
-                                    Icons.Default.ArrowUpward,
-                                    contentDescription = "Send",
-                                    tint = if (canSend) {
-                                        MaterialTheme.colorScheme.onPrimary
-                                    } else {
-                                        MaterialTheme.colorScheme.onSurface.copy(alpha = 0.35f)
-                                    },
-                                    modifier = Modifier.size(20.dp),
-                                )
-                            }
+                            Icon(
+                                Icons.Default.Stop,
+                                contentDescription = "Stop",
+                                tint = MaterialTheme.colorScheme.error,
+                                modifier = Modifier.size(18.dp),
+                            )
+                            Text(
+                                text = "Stop",
+                                style = MaterialTheme.typography.labelMedium,
+                                fontWeight = FontWeight.SemiBold,
+                                color = MaterialTheme.colorScheme.error,
+                            )
                         }
-                    } else {
-                        Surface(
+                    }
+                } else {
+                    if (!showSend) {
+                        IconButton(
                             onClick = { onMicClick() },
-                            enabled = !isSending,
-                            shape = RoundedCornerShape(20.dp),
-                            color = MaterialTheme.colorScheme.primary,
+                            modifier = Modifier.size(40.dp),
                         ) {
-                            Row(
-                                modifier = Modifier.padding(horizontal = 16.dp, vertical = 10.dp),
-                                verticalAlignment = Alignment.CenterVertically,
-                                horizontalArrangement = Arrangement.spacedBy(6.dp),
+                            Icon(
+                                Icons.Default.Mic,
+                                contentDescription = "Voice input",
+                                tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.82f),
+                                modifier = Modifier.size(22.dp),
+                            )
+                        }
+                    }
+
+                    AnimatedContent(
+                        targetState = showSend,
+                        transitionSpec = {
+                            fadeIn(Motion.tweenQuick) + scaleIn(Motion.springBouncy) togetherWith
+                                fadeOut(Motion.tweenQuick) + scaleOut(Motion.tweenQuick)
+                        },
+                        label = "micSendToggle",
+                    ) { sending ->
+                        if (sending) {
+                            Surface(
+                                onClick = onSend,
+                                enabled = canSend,
+                                shape = CircleShape,
+                                color = if (canSend) {
+                                    MaterialTheme.colorScheme.primary
+                                } else {
+                                    ComposerButtonBg
+                                },
+                                modifier = Modifier
+                                    .size(40.dp)
+                                    .scale(sendScale),
                             ) {
-                                Icon(
-                                    Icons.Default.GraphicEq,
-                                    contentDescription = null,
-                                    tint = MaterialTheme.colorScheme.onPrimary,
-                                    modifier = Modifier.size(18.dp),
-                                )
-                                Text(
-                                    text = "Speak",
-                                    style = MaterialTheme.typography.labelMedium,
-                                    fontWeight = FontWeight.SemiBold,
-                                    color = MaterialTheme.colorScheme.onPrimary,
-                                )
+                                Box(contentAlignment = Alignment.Center) {
+                                    Icon(
+                                        Icons.Default.ArrowUpward,
+                                        contentDescription = "Send",
+                                        tint = if (canSend) {
+                                            MaterialTheme.colorScheme.onPrimary
+                                        } else {
+                                            MaterialTheme.colorScheme.onSurface.copy(alpha = 0.35f)
+                                        },
+                                        modifier = Modifier.size(20.dp),
+                                    )
+                                }
+                            }
+                        } else {
+                            Surface(
+                                onClick = { onMicClick() },
+                                shape = RoundedCornerShape(20.dp),
+                                color = MaterialTheme.colorScheme.primary,
+                            ) {
+                                Row(
+                                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 10.dp),
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.spacedBy(6.dp),
+                                ) {
+                                    Icon(
+                                        Icons.Default.GraphicEq,
+                                        contentDescription = null,
+                                        tint = MaterialTheme.colorScheme.onPrimary,
+                                        modifier = Modifier.size(18.dp),
+                                    )
+                                    Text(
+                                        text = "Speak",
+                                        style = MaterialTheme.typography.labelMedium,
+                                        fontWeight = FontWeight.SemiBold,
+                                        color = MaterialTheme.colorScheme.onPrimary,
+                                    )
+                                }
                             }
                         }
                     }
