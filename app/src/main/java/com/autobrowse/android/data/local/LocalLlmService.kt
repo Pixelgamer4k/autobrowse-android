@@ -133,8 +133,8 @@ class LocalLlmService(
         messages: List<ChatMessageDto>,
         tools: List<ToolDefinition>,
         attachmentPayload: AttachmentPayload,
-        onTokenDelta: ((String) -> Unit)?,
-        compactTools: Boolean,
+        onTokenDelta: ((String) -> Unit)? = null,
+        compactTools: Boolean = false,
     ): LlmCompletion {
         runCatching { LlamaBridge.sessionReset() }
 
