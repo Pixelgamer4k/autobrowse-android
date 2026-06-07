@@ -1,5 +1,9 @@
 <div align="center">
 
+<img src="docs/icon.png" alt="Multiwindow Autobrowser app icon" width="128"/>
+
+<br/><br/>
+
 # Multiwindow Autobrowser
 
 **Floating browser windows. AI agent automation. Real mobile multitasking.**
