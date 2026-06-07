@@ -26,7 +26,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.ArrowForward
-import androidx.compose.material.icons.filled.DesktopWindows
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Language
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -78,6 +78,7 @@ fun BrowserPanel(
 ) {
     val activeTab = tabs.find { it.id == activeTabId } ?: tabs.firstOrNull()
     val sortedTabs = tabs.sortedBy { it.zIndex }
+    var showMiniApps by remember { mutableStateOf(false) }
 
     Column(modifier = modifier.fillMaxSize()) {
         TabStrip(
@@ -85,6 +86,7 @@ fun BrowserPanel(
             activeTabId = activeTabId,
             onSelectTab = onSelectTab,
             onAddTab = onAddTab,
+            onCloseTab = onCloseTab,
             modifier = Modifier.padding(start = 52.dp),
         )
 
@@ -136,6 +138,11 @@ fun BrowserPanel(
                     )
                 }
                 }
+
+                MiniAppsWindowOverlay(
+                    visible = showMiniApps,
+                    onClose = { showMiniApps = false },
+                )
             }
         }
 
@@ -143,6 +150,7 @@ fun BrowserPanel(
             url = activeTab?.url.orEmpty(),
             onNavigate = onNavigate,
             onAddTab = onAddTab,
+            onOpenMiniApps = { showMiniApps = true },
         )
     }
 }
@@ -153,6 +161,7 @@ private fun TabStrip(
     activeTabId: String?,
     onSelectTab: (String) -> Unit,
     onAddTab: () -> Unit,
+    onCloseTab: (String) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val listState = rememberLazyListState()
@@ -188,37 +197,56 @@ private fun TabStrip(
             }
             Surface(
                 modifier = Modifier
-                    .widthIn(min = 96.dp, max = 180.dp)
-                    .height(32.dp)
+                    .widthIn(min = 108.dp, max = 196.dp)
+                    .height(30.dp)
                     .scale(scale)
-                    .border(1.dp, tabBorder, RoundedCornerShape(8.dp))
-                    .clickable { onSelectTab(tab.id) },
+                    .border(1.dp, tabBorder, RoundedCornerShape(8.dp)),
                 shape = RoundedCornerShape(8.dp),
                 color = tabBg,
                 tonalElevation = 0.dp,
             ) {
                 Row(
-                    modifier = Modifier.padding(horizontal = 10.dp),
+                    modifier = Modifier.padding(start = 8.dp, end = 2.dp),
                     verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(5.dp),
                 ) {
-                    Icon(
-                        imageVector = Icons.Default.Language,
-                        contentDescription = null,
-                        modifier = Modifier.size(13.dp),
-                        tint = MaterialTheme.colorScheme.onSurface.copy(
-                            alpha = if (selected) 0.9f else 0.55f,
-                        ),
-                    )
-                    Text(
-                        text = tab.title.ifBlank { "New Tab" },
-                        style = MaterialTheme.typography.labelSmall,
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
-                        color = MaterialTheme.colorScheme.onSurface.copy(
-                            alpha = if (selected) 0.92f else 0.55f,
-                        ),
-                    )
+                    Row(
+                        modifier = Modifier
+                            .weight(1f)
+                            .clickable { onSelectTab(tab.id) },
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(4.dp),
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Language,
+                            contentDescription = null,
+                            modifier = Modifier.size(12.dp),
+                            tint = MaterialTheme.colorScheme.onSurface.copy(
+                                alpha = if (selected) 0.9f else 0.55f,
+                            ),
+                        )
+                        Text(
+                            text = tab.title.ifBlank { "New Tab" },
+                            style = MaterialTheme.typography.labelSmall,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                            color = MaterialTheme.colorScheme.onSurface.copy(
+                                alpha = if (selected) 0.92f else 0.55f,
+                            ),
+                        )
+                    }
+                    IconButton(
+                        onClick = { onCloseTab(tab.id) },
+                        modifier = Modifier.size(22.dp),
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Close,
+                            contentDescription = "Close tab",
+                            modifier = Modifier.size(11.dp),
+                            tint = MaterialTheme.colorScheme.onSurface.copy(
+                                alpha = if (selected) 0.75f else 0.45f,
+                            ),
+                        )
+                    }
                 }
             }
         }
@@ -240,6 +268,7 @@ private fun BrowserToolbar(
     url: String,
     onNavigate: (String) -> Unit,
     onAddTab: () -> Unit,
+    onOpenMiniApps: () -> Unit,
 ) {
     var address by remember { mutableStateOf(url) }
     LaunchedEffect(url) { address = url }
@@ -298,20 +327,15 @@ private fun BrowserToolbar(
                     }
                 },
             )
-            IconButton(onClick = onAddTab, modifier = Modifier.size(36.dp)) {
+            IconButton(onClick = onAddTab, modifier = Modifier.size(34.dp)) {
                 Icon(
                     Icons.Default.Add,
                     contentDescription = "New tab",
-                    modifier = Modifier.size(20.dp),
+                    modifier = Modifier.size(18.dp),
                     tint = Color.White,
                 )
             }
-            Icon(
-                Icons.Default.DesktopWindows,
-                contentDescription = "Desktop mode",
-                modifier = Modifier.size(16.dp),
-                tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.55f),
-            )
+            MiniAppsLauncherIcon(onClick = onOpenMiniApps)
         }
     }
 }

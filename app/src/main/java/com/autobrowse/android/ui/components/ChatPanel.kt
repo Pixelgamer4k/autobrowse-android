@@ -20,12 +20,9 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AttachFile
-import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material.icons.filled.SmartToy
 import androidx.compose.material.icons.filled.Stop
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -52,7 +49,6 @@ fun ChatPanel(
     messages: List<ChatMessage>,
     isAgentThinking: Boolean,
     agentProgress: AgentProgress?,
-    onSettings: () -> Unit,
     onStop: () -> Unit,
     scrollOnInput: Boolean,
     composerBottomPadding: Dp,
@@ -64,11 +60,9 @@ fun ChatPanel(
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background),
     ) {
-        ChatPanelHeader(
-            isAgentThinking = isAgentThinking,
-            onSettings = onSettings,
-            onStop = onStop,
-        )
+        if (isAgentThinking) {
+            ChatStopBar(onStop = onStop)
+        }
 
         bannerMessage?.let { message ->
             ChatBanner(message = message)
@@ -104,71 +98,35 @@ private fun ChatBanner(message: String) {
 }
 
 @Composable
-private fun ChatPanelHeader(
-    isAgentThinking: Boolean,
-    onSettings: () -> Unit,
-    onStop: () -> Unit,
-) {
+private fun ChatStopBar(onStop: () -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 10.dp),
+            .padding(horizontal = 12.dp, vertical = 6.dp),
+        horizontalArrangement = Arrangement.End,
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween,
     ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
+        Surface(
+            onClick = onStop,
+            shape = RoundedCornerShape(14.dp),
+            color = MaterialTheme.colorScheme.error.copy(alpha = 0.18f),
         ) {
-            Icon(
-                imageVector = Icons.Default.SmartToy,
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.9f),
-                modifier = Modifier.size(20.dp),
-            )
-            Text(
-                text = "Agent",
-                style = MaterialTheme.typography.titleSmall,
-                fontWeight = FontWeight.SemiBold,
-                color = MaterialTheme.colorScheme.onSurface,
-            )
-        }
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(4.dp),
-        ) {
-            if (isAgentThinking) {
-                Surface(
-                    onClick = onStop,
-                    shape = RoundedCornerShape(16.dp),
-                    color = MaterialTheme.colorScheme.error.copy(alpha = 0.18f),
-                ) {
-                    Row(
-                        modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp),
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(6.dp),
-                    ) {
-                        Icon(
-                            Icons.Default.Stop,
-                            contentDescription = "Stop",
-                            modifier = Modifier.size(16.dp),
-                            tint = MaterialTheme.colorScheme.error,
-                        )
-                        Text(
-                            text = "Stop",
-                            style = MaterialTheme.typography.labelMedium,
-                            fontWeight = FontWeight.SemiBold,
-                            color = MaterialTheme.colorScheme.error,
-                        )
-                    }
-                }
-            }
-            IconButton(onClick = onSettings, modifier = Modifier.size(36.dp)) {
+            Row(
+                modifier = Modifier.padding(horizontal = 10.dp, vertical = 5.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(5.dp),
+            ) {
                 Icon(
-                    Icons.Default.Settings,
-                    contentDescription = "Settings",
-                    modifier = Modifier.size(20.dp),
-                    tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.75f),
+                    Icons.Default.Stop,
+                    contentDescription = "Stop",
+                    modifier = Modifier.size(14.dp),
+                    tint = MaterialTheme.colorScheme.error,
+                )
+                Text(
+                    text = "Stop",
+                    style = MaterialTheme.typography.labelSmall,
+                    fontWeight = FontWeight.SemiBold,
+                    color = MaterialTheme.colorScheme.error,
                 )
             }
         }
@@ -213,17 +171,17 @@ private fun ChatConversation(
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f),
                 textAlign = TextAlign.Center,
-                modifier = Modifier.padding(horizontal = 32.dp, vertical = 24.dp),
+                modifier = Modifier.padding(horizontal = 24.dp, vertical = 16.dp),
             )
         }
         return
     }
 
     LazyColumn(
-        modifier = modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+        modifier = modifier.padding(horizontal = 12.dp, vertical = 4.dp),
         state = listState,
-        contentPadding = PaddingValues(bottom = contentBottomPadding + 8.dp),
-        verticalArrangement = Arrangement.spacedBy(14.dp),
+        contentPadding = PaddingValues(bottom = contentBottomPadding + 6.dp),
+        verticalArrangement = Arrangement.spacedBy(10.dp),
     ) {
         items(messages, key = { it.id }) { message ->
             ChatMessageBubble(message = message)
@@ -251,7 +209,7 @@ private fun ChatMessageBubble(message: ChatMessage) {
                 color = UserBubbleBg,
                 tonalElevation = 0.dp,
             ) {
-                Column(modifier = Modifier.padding(horizontal = 14.dp, vertical = 10.dp)) {
+                Column(modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)) {
                     if (message.attachments.isNotEmpty()) {
                         Row(
                             horizontalArrangement = Arrangement.spacedBy(4.dp),
@@ -273,7 +231,7 @@ private fun ChatMessageBubble(message: ChatMessage) {
                     }
                     Text(
                         text = message.content,
-                        style = MaterialTheme.typography.bodyMedium,
+                        style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurface,
                     )
                 }
@@ -304,7 +262,7 @@ private fun ChatMessageBubble(message: ChatMessage) {
             }
             Text(
                 text = message.content,
-                style = MaterialTheme.typography.bodyMedium,
+                style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.92f),
             )
         }
@@ -340,7 +298,7 @@ private fun AgentThinkingBubble(agentProgress: AgentProgress?) {
             Column(modifier = Modifier.padding(start = 12.dp)) {
                 Text(
                     text = statusMessage,
-                    style = MaterialTheme.typography.bodyMedium,
+                    style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.75f),
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis,

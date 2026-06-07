@@ -100,7 +100,7 @@ private fun MainContent(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .weight(0.52f)
+                    .weight(0.50f)
                     .background(MaterialTheme.colorScheme.surfaceVariant),
             ) {
                 BrowserPanel(
@@ -134,14 +134,13 @@ private fun MainContent(
                 messages = state.messages,
                 isAgentThinking = state.isAgentThinking,
                 agentProgress = state.agentProgress,
-                onSettings = { viewModel.toggleSettings(true) },
                 onStop = viewModel::stopAgent,
                 scrollOnInput = chatInputFocused,
                 composerBottomPadding = composerBottomPadding,
                 bannerMessage = state.error,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .weight(0.48f)
+                    .weight(0.50f)
                     .background(MaterialTheme.colorScheme.background),
             )
         }
@@ -178,6 +177,7 @@ private fun MainContent(
             onPinSession = viewModel::pinSession,
             onDeleteSession = viewModel::deleteSession,
             onSearchSessions = viewModel::searchSessions,
+            onOpenSettings = { viewModel.toggleSettings(true) },
             modifier = Modifier.zIndex(50f),
         )
     }

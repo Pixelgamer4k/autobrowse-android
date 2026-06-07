@@ -33,6 +33,7 @@ import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.PushPin
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.outlined.PushPin
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -118,6 +119,7 @@ fun SessionsPanelOverlay(
     onPinSession: (String, Boolean) -> Unit,
     onDeleteSession: (String) -> Unit,
     onSearchSessions: suspend (String) -> List<SessionListItem>,
+    onOpenSettings: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     AnimatedVisibility(
@@ -141,6 +143,7 @@ fun SessionsPanelOverlay(
             onPinSession = onPinSession,
             onDeleteSession = onDeleteSession,
             onSearchSessions = onSearchSessions,
+            onOpenSettings = onOpenSettings,
         )
     }
 }
@@ -155,6 +158,7 @@ private fun SessionsPanelContent(
     onPinSession: (String, Boolean) -> Unit,
     onDeleteSession: (String) -> Unit,
     onSearchSessions: suspend (String) -> List<SessionListItem>,
+    onOpenSettings: () -> Unit,
 ) {
     var searchQuery by remember { mutableStateOf("") }
     var listItems by remember { mutableStateOf<List<SessionListItem>>(emptyList()) }
@@ -200,6 +204,20 @@ private fun SessionsPanelContent(
                         },
                         style = MaterialTheme.typography.labelSmall,
                         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.55f),
+                    )
+                }
+                IconButton(
+                    onClick = {
+                        onDismiss()
+                        onOpenSettings()
+                    },
+                    modifier = Modifier.size(40.dp),
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Settings,
+                        contentDescription = "Settings",
+                        modifier = Modifier.size(22.dp),
+                        tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.8f),
                     )
                 }
             }

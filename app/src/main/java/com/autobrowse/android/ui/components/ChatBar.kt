@@ -208,7 +208,7 @@ fun ChatComposer(
         SectionSeparator()
 
         Column(
-            modifier = Modifier.padding(horizontal = 16.dp, vertical = 10.dp),
+            modifier = Modifier.padding(horizontal = 12.dp, vertical = 7.dp),
         ) {
         AttachmentPickerSheet(
             visible = showPicker,
@@ -241,8 +241,8 @@ fun ChatComposer(
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .heightIn(min = 52.dp)
-                .clip(RoundedCornerShape(22.dp))
+                .heightIn(min = 44.dp)
+                .clip(RoundedCornerShape(18.dp))
                 .background(ComposerInputBg)
                 .border(
                     width = 1.dp,
@@ -251,9 +251,9 @@ fun ChatComposer(
                     } else {
                         ComposerBorder.copy(alpha = 0.55f)
                     },
-                    shape = RoundedCornerShape(22.dp),
+                    shape = RoundedCornerShape(18.dp),
                 )
-                .padding(horizontal = 4.dp, vertical = 2.dp),
+                .padding(horizontal = 3.dp, vertical = 1.dp),
         ) {
             TextField(
                 value = value,
@@ -263,14 +263,14 @@ fun ChatComposer(
                     Text(
                         text = if (attachments.isEmpty()) "Ask anything"
                         else "Add a message about your attachment…",
-                        style = MaterialTheme.typography.bodyMedium,
+                        style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.42f),
                     )
                 },
-                textStyle = MaterialTheme.typography.bodyMedium.copy(
+                textStyle = MaterialTheme.typography.bodySmall.copy(
                     color = MaterialTheme.colorScheme.onSurface,
                 ),
-                shape = RoundedCornerShape(20.dp),
+                shape = RoundedCornerShape(16.dp),
                 maxLines = 6,
                 enabled = !isSending,
                 interactionSource = interactionSource,
@@ -289,7 +289,7 @@ fun ChatComposer(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(top = 10.dp),
+                .padding(top = 7.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween,
         ) {
@@ -309,14 +309,14 @@ fun ChatComposer(
                     } else {
                         ComposerButtonBg
                     },
-                    modifier = Modifier.size(40.dp),
+                    modifier = Modifier.size(34.dp),
                 ) {
                     Box(contentAlignment = Alignment.Center) {
                     Icon(
                         imageVector = Icons.Default.Add,
                         contentDescription = "Attach file",
                         tint = Color.White,
-                        modifier = Modifier.size(20.dp),
+                        modifier = Modifier.size(18.dp),
                     )
                     }
                 }
@@ -333,19 +333,19 @@ fun ChatComposer(
                         color = MaterialTheme.colorScheme.error.copy(alpha = 0.2f),
                     ) {
                         Row(
-                            modifier = Modifier.padding(horizontal = 16.dp, vertical = 10.dp),
+                            modifier = Modifier.padding(horizontal = 12.dp, vertical = 7.dp),
                             verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.spacedBy(6.dp),
+                            horizontalArrangement = Arrangement.spacedBy(5.dp),
                         ) {
                             Icon(
                                 Icons.Default.Stop,
                                 contentDescription = "Stop",
                                 tint = MaterialTheme.colorScheme.error,
-                                modifier = Modifier.size(18.dp),
+                                modifier = Modifier.size(16.dp),
                             )
                             Text(
                                 text = "Stop",
-                                style = MaterialTheme.typography.labelMedium,
+                                style = MaterialTheme.typography.labelSmall,
                                 fontWeight = FontWeight.SemiBold,
                                 color = MaterialTheme.colorScheme.error,
                             )
@@ -355,13 +355,13 @@ fun ChatComposer(
                     if (!showSend) {
                         IconButton(
                             onClick = { onMicClick() },
-                            modifier = Modifier.size(40.dp),
+                            modifier = Modifier.size(34.dp),
                         ) {
                             Icon(
                                 Icons.Default.Mic,
                                 contentDescription = "Voice input",
                                 tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.82f),
-                                modifier = Modifier.size(22.dp),
+                                modifier = Modifier.size(20.dp),
                             )
                         }
                     }
@@ -385,7 +385,7 @@ fun ChatComposer(
                                     ComposerButtonBg
                                 },
                                 modifier = Modifier
-                                    .size(40.dp)
+                                    .size(34.dp)
                                     .scale(sendScale),
                             ) {
                                 Box(contentAlignment = Alignment.Center) {
@@ -397,7 +397,7 @@ fun ChatComposer(
                                         } else {
                                             MaterialTheme.colorScheme.onSurface.copy(alpha = 0.35f)
                                         },
-                                        modifier = Modifier.size(20.dp),
+                                        modifier = Modifier.size(18.dp),
                                     )
                                 }
                             }
@@ -408,19 +408,19 @@ fun ChatComposer(
                                 color = MaterialTheme.colorScheme.primary,
                             ) {
                                 Row(
-                                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 10.dp),
+                                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 7.dp),
                                     verticalAlignment = Alignment.CenterVertically,
-                                    horizontalArrangement = Arrangement.spacedBy(6.dp),
+                                    horizontalArrangement = Arrangement.spacedBy(5.dp),
                                 ) {
                                     Icon(
                                         Icons.Default.GraphicEq,
                                         contentDescription = null,
                                         tint = MaterialTheme.colorScheme.onPrimary,
-                                        modifier = Modifier.size(18.dp),
+                                        modifier = Modifier.size(16.dp),
                                     )
                                     Text(
                                         text = "Speak",
-                                        style = MaterialTheme.typography.labelMedium,
+                                        style = MaterialTheme.typography.labelSmall,
                                         fontWeight = FontWeight.SemiBold,
                                         color = MaterialTheme.colorScheme.onPrimary,
                                     )
