@@ -118,7 +118,7 @@ fun BrowserPanel(
                         },
                         onMoveWindow = { layout -> onMoveWindow(tab.id, layout) },
                         onResizeWindow = { layout -> onResizeWindow(tab.id, layout) },
-                        onEndWindowManipulation = { onEndWindowManipulation(tab.id) },
+                        onEndManipulation = { onEndWindowManipulation(tab.id) },
                         onRefresh = { onRefreshTab(tab.id) },
                         onToggleMaximize = { onToggleMaximizeTab(tab.id) },
                         onMinimize = { onMinimizeTab(tab.id) },
