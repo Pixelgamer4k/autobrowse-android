@@ -177,6 +177,7 @@ private fun MainContent(
             onNewSession = viewModel::createNewSession,
             onPinSession = viewModel::pinSession,
             onDeleteSession = viewModel::deleteSession,
+            onSearchSessions = viewModel::searchSessions,
             modifier = Modifier.zIndex(50f),
         )
     }

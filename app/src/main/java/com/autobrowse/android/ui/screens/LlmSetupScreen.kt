@@ -11,8 +11,12 @@ import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.relocation.BringIntoViewRequester
+import androidx.compose.foundation.relocation.bringIntoViewRequester
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectable
@@ -49,7 +53,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.onFocusEvent
 import androidx.compose.ui.semantics.Role
+import kotlinx.coroutines.launch
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
@@ -135,12 +142,20 @@ fun LlmSetupScreen(
             )
         },
     ) { padding ->
+        val scrollState = rememberScrollState()
+        val scope = rememberCoroutineScope()
+        val apiKeyBringIntoView = remember { BringIntoViewRequester() }
+        val apiUrlBringIntoView = remember { BringIntoViewRequester() }
+        val modelIdBringIntoView = remember { BringIntoViewRequester() }
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(padding)
+                .navigationBarsPadding()
+                .imePadding()
                 .padding(horizontal = 24.dp, vertical = 16.dp)
-                .verticalScroll(rememberScrollState()),
+                .verticalScroll(scrollState),
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
             Text(
@@ -177,6 +192,12 @@ fun LlmSetupScreen(
                     onApiUrlChange = { apiUrl = it },
                     onModelIdChange = { modelId = it },
                     onTest = { onTestConnection(currentConfig()) },
+                    apiKeyBringIntoView = apiKeyBringIntoView,
+                    apiUrlBringIntoView = apiUrlBringIntoView,
+                    modelIdBringIntoView = modelIdBringIntoView,
+                    onFocused = { requester ->
+                        scope.launch { requester.bringIntoView() }
+                    },
                 )
                 LlmProvider.LOCAL -> LocalLlmSection(
                     localModel = localModel,
@@ -256,6 +277,10 @@ private fun RemoteLlmSection(
     onApiUrlChange: (String) -> Unit,
     onModelIdChange: (String) -> Unit,
     onTest: () -> Unit,
+    apiKeyBringIntoView: BringIntoViewRequester,
+    apiUrlBringIntoView: BringIntoViewRequester,
+    modelIdBringIntoView: BringIntoViewRequester,
+    onFocused: (BringIntoViewRequester) -> Unit,
 ) {
     Text(
         "OpenAI-compatible endpoint — best experience on mobile. Credentials are stored encrypted on device.",
@@ -278,7 +303,10 @@ private fun RemoteLlmSection(
         value = apiKey,
         onValueChange = onApiKeyChange,
         label = { Text("API Token") },
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .bringIntoViewRequester(apiKeyBringIntoView)
+            .onFocusEvent { if (it.isFocused) onFocused(apiKeyBringIntoView) },
         visualTransformation = PasswordVisualTransformation(),
         singleLine = true,
     )
@@ -286,7 +314,10 @@ private fun RemoteLlmSection(
         value = apiUrl,
         onValueChange = onApiUrlChange,
         label = { Text("API URL") },
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .bringIntoViewRequester(apiUrlBringIntoView)
+            .onFocusEvent { if (it.isFocused) onFocused(apiUrlBringIntoView) },
         singleLine = true,
         placeholder = { Text("https://api.openai.com/v1/") },
     )
@@ -299,7 +330,10 @@ private fun RemoteLlmSection(
             value = modelId,
             onValueChange = onModelIdChange,
             label = { Text("Model ID") },
-            modifier = Modifier.weight(1f),
+            modifier = Modifier
+                .weight(1f)
+                .bringIntoViewRequester(modelIdBringIntoView)
+                .onFocusEvent { if (it.isFocused) onFocused(modelIdBringIntoView) },
             singleLine = true,
             placeholder = { Text("gpt-4o-mini") },
         )

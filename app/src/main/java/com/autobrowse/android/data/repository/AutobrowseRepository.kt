@@ -20,6 +20,7 @@ import com.autobrowse.android.domain.model.LearnedStrategy
 import com.autobrowse.android.domain.model.LlmConfig
 import com.autobrowse.android.domain.model.MemoryEntry
 import com.autobrowse.android.domain.model.Session
+import com.autobrowse.android.domain.model.SessionListItem
 import com.autobrowse.android.domain.model.SkillType
 import com.autobrowse.android.domain.model.TaskStatus
 import kotlinx.coroutines.flow.Flow
@@ -69,11 +70,10 @@ class AutobrowseRepository(
 
     suspend fun createNewSession(): Session {
         sessionDao.deactivateAll()
-        val index = sessionDao.count() + 1
         val now = System.currentTimeMillis()
         val session = SessionEntity(
             id = UUID.randomUUID().toString(),
-            title = "Session $index",
+            title = "New chat",
             createdAt = now,
             lastActiveAt = now,
             isActive = true,
@@ -129,6 +129,52 @@ class AutobrowseRepository(
             seedDefaultTab(active.id)
         }
         return active.toDomain()
+    }
+
+    suspend fun renameSession(sessionId: String, title: String) {
+        val session = sessionDao.getById(sessionId) ?: return
+        val cleaned = title.trim().ifBlank { "New chat" }
+        sessionDao.update(
+            session.copy(
+                title = cleaned,
+                lastActiveAt = System.currentTimeMillis(),
+            ),
+        )
+    }
+
+    suspend fun searchSessions(query: String): List<SessionListItem> {
+        val sessions = sessionDao.getAll()
+        val term = query.trim()
+        if (term.isEmpty()) {
+            return sessions.map { SessionListItem(session = it.toDomain()) }
+        }
+        val lowerTerm = term.lowercase()
+        return sessions.mapNotNull { entity ->
+            val session = entity.toDomain()
+            val titleMatch = session.title.lowercase().contains(lowerTerm)
+            val messageMatch = chatDao.findContentMatch(session.id, term)
+            if (!titleMatch && messageMatch == null) return@mapNotNull null
+            SessionListItem(
+                session = session,
+                matchSnippet = messageMatch?.content?.let { buildMatchSnippet(it, term) },
+                matchInTitle = titleMatch,
+                matchInMessages = messageMatch != null,
+            )
+        }
+    }
+
+    private fun buildMatchSnippet(content: String, term: String): String {
+        val compact = content.replace(Regex("""\s+"""), " ").trim()
+        val lower = compact.lowercase()
+        val lowerTerm = term.lowercase()
+        val index = lower.indexOf(lowerTerm)
+        if (index < 0) return compact.take(96)
+        val radius = 42
+        val start = (index - radius).coerceAtLeast(0)
+        val end = (index + term.length + radius).coerceAtMost(compact.length)
+        val prefix = if (start > 0) "…" else ""
+        val suffix = if (end < compact.length) "…" else ""
+        return prefix + compact.substring(start, end) + suffix
     }
 
     suspend fun touchSession(sessionId: String) {

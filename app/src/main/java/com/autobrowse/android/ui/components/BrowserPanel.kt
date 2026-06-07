@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -15,6 +16,10 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -33,6 +38,7 @@ import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -149,14 +155,25 @@ private fun TabStrip(
     onAddTab: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Row(
+    val listState = rememberLazyListState()
+    val activeIndex = tabs.indexOfFirst { it.id == activeTabId }
+
+    LaunchedEffect(activeIndex, tabs.size) {
+        if (activeIndex >= 0) {
+            listState.animateScrollToItem(activeIndex)
+        }
+    }
+
+    LazyRow(
+        state = listState,
         modifier = modifier
             .fillMaxWidth()
-            .padding(horizontal = 8.dp, vertical = 4.dp),
+            .padding(vertical = 4.dp),
         horizontalArrangement = Arrangement.spacedBy(6.dp),
         verticalAlignment = Alignment.CenterVertically,
+        contentPadding = PaddingValues(horizontal = 8.dp),
     ) {
-        tabs.take(6).forEach { tab ->
+        items(tabs, key = { it.id }) { tab ->
             val selected = tab.id == activeTabId
             val scale by animateFloatAsState(
                 targetValue = if (selected) 1.02f else 1f,
@@ -171,7 +188,7 @@ private fun TabStrip(
             }
             Surface(
                 modifier = Modifier
-                    .weight(1f, fill = false)
+                    .widthIn(min = 96.dp, max = 180.dp)
                     .height(32.dp)
                     .scale(scale)
                     .border(1.dp, tabBorder, RoundedCornerShape(8.dp))
@@ -181,7 +198,7 @@ private fun TabStrip(
                 tonalElevation = 0.dp,
             ) {
                 Row(
-                    modifier = Modifier.padding(horizontal = 8.dp),
+                    modifier = Modifier.padding(horizontal = 10.dp),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(5.dp),
                 ) {
@@ -194,7 +211,7 @@ private fun TabStrip(
                         ),
                     )
                     Text(
-                        text = tab.title.take(12),
+                        text = tab.title.ifBlank { "New Tab" },
                         style = MaterialTheme.typography.labelSmall,
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis,
@@ -205,13 +222,15 @@ private fun TabStrip(
                 }
             }
         }
-        IconButton(onClick = onAddTab, modifier = Modifier.size(36.dp)) {
-            Icon(
-                Icons.Default.Add,
-                contentDescription = "New tab",
-                modifier = Modifier.size(20.dp),
-                tint = Color.White,
-            )
+        item {
+            IconButton(onClick = onAddTab, modifier = Modifier.size(36.dp)) {
+                Icon(
+                    Icons.Default.Add,
+                    contentDescription = "New tab",
+                    modifier = Modifier.size(20.dp),
+                    tint = Color.White,
+                )
+            }
         }
     }
 }

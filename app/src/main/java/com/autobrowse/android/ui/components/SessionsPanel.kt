@@ -44,6 +44,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -56,6 +57,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.autobrowse.android.domain.model.Session
+import com.autobrowse.android.domain.model.SessionListItem
 import com.autobrowse.android.ui.theme.Motion
 import com.autobrowse.android.ui.theme.SectionSeparator
 import java.text.SimpleDateFormat
@@ -115,6 +117,7 @@ fun SessionsPanelOverlay(
     onNewSession: () -> Unit,
     onPinSession: (String, Boolean) -> Unit,
     onDeleteSession: (String) -> Unit,
+    onSearchSessions: suspend (String) -> List<SessionListItem>,
     modifier: Modifier = Modifier,
 ) {
     AnimatedVisibility(
@@ -137,6 +140,7 @@ fun SessionsPanelOverlay(
             onNewSession = onNewSession,
             onPinSession = onPinSession,
             onDeleteSession = onDeleteSession,
+            onSearchSessions = onSearchSessions,
         )
     }
 }
@@ -150,18 +154,15 @@ private fun SessionsPanelContent(
     onNewSession: () -> Unit,
     onPinSession: (String, Boolean) -> Unit,
     onDeleteSession: (String) -> Unit,
+    onSearchSessions: suspend (String) -> List<SessionListItem>,
 ) {
     var searchQuery by remember { mutableStateOf("") }
-    val filteredSessions = remember(sessions, searchQuery) {
-        val query = searchQuery.trim().lowercase()
-        if (query.isEmpty()) {
-            sessions
-        } else {
-            sessions.filter { session ->
-                session.title.lowercase().contains(query)
-            }
-        }
+    var listItems by remember { mutableStateOf<List<SessionListItem>>(emptyList()) }
+
+    LaunchedEffect(sessions, searchQuery) {
+        listItems = onSearchSessions(searchQuery)
     }
+
     val pinnedCount = sessions.count { it.isPinned }
 
     Surface(
@@ -218,7 +219,7 @@ private fun SessionsPanelContent(
                     singleLine = true,
                     placeholder = {
                         Text(
-                            "Search sessions",
+                            "Search titles and messages",
                             color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.45f),
                         )
                     },
@@ -279,7 +280,7 @@ private fun SessionsPanelContent(
 
             SectionSeparator()
 
-            if (filteredSessions.isEmpty()) {
+            if (listItems.isEmpty()) {
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
@@ -302,14 +303,15 @@ private fun SessionsPanelContent(
                     ),
                     verticalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
-                    items(filteredSessions, key = { it.id }) { session ->
+                    items(listItems, key = { it.session.id }) { item ->
                         SessionRow(
-                            session = session,
-                            selected = session.id == activeSessionId,
+                            item = item,
+                            searchQuery = searchQuery,
+                            selected = item.session.id == activeSessionId,
                             canDelete = sessions.size > 1,
-                            onClick = { onSelectSession(session.id) },
-                            onPin = { onPinSession(session.id, !session.isPinned) },
-                            onDelete = { onDeleteSession(session.id) },
+                            onClick = { onSelectSession(item.session.id) },
+                            onPin = { onPinSession(item.session.id, !item.session.isPinned) },
+                            onDelete = { onDeleteSession(item.session.id) },
                         )
                     }
                 }
@@ -320,13 +322,15 @@ private fun SessionsPanelContent(
 
 @Composable
 private fun SessionRow(
-    session: Session,
+    item: SessionListItem,
+    searchQuery: String,
     selected: Boolean,
     canDelete: Boolean,
     onClick: () -> Unit,
     onPin: () -> Unit,
     onDelete: () -> Unit,
 ) {
+    val session = item.session
     var menuExpanded by remember { mutableStateOf(false) }
     val dateLabel = remember(session.lastActiveAt) {
         SimpleDateFormat("MMM d, HH:mm", Locale.getDefault()).format(Date(session.lastActiveAt))
@@ -360,12 +364,23 @@ private fun SessionRow(
                         tint = MaterialTheme.colorScheme.primary.copy(alpha = 0.85f),
                     )
                 }
-                Text(
+                HighlightedText(
                     text = session.title,
+                    query = if (item.matchInTitle) searchQuery else "",
                     style = MaterialTheme.typography.bodyLarge,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
-                    color = MaterialTheme.colorScheme.onSurface,
+                )
+            }
+            item.matchSnippet?.let { snippet ->
+                Spacer(modifier = Modifier.height(4.dp))
+                HighlightedText(
+                    text = snippet,
+                    query = searchQuery,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.72f),
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
                 )
             }
             Spacer(modifier = Modifier.height(2.dp))

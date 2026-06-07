@@ -19,6 +19,9 @@ interface SessionDao {
     @Query("SELECT * FROM sessions ORDER BY isPinned DESC, pinnedAt DESC, lastActiveAt DESC")
     fun observeAll(): Flow<List<SessionEntity>>
 
+    @Query("SELECT * FROM sessions ORDER BY isPinned DESC, pinnedAt DESC, lastActiveAt DESC")
+    suspend fun getAll(): List<SessionEntity>
+
     @Query("SELECT * FROM sessions WHERE isActive = 1 LIMIT 1")
     suspend fun getActive(): SessionEntity?
 
@@ -64,6 +67,16 @@ interface ChatMessageDao {
 
     @Query("DELETE FROM chat_messages WHERE sessionId = :sessionId")
     suspend fun deleteBySession(sessionId: String)
+
+    @Query(
+        """
+        SELECT * FROM chat_messages
+        WHERE sessionId = :sessionId AND LOWER(content) LIKE '%' || LOWER(:term) || '%'
+        ORDER BY timestamp DESC
+        LIMIT 1
+        """,
+    )
+    suspend fun findContentMatch(sessionId: String, term: String): ChatMessageEntity?
 }
 
 @Dao

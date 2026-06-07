@@ -7,6 +7,7 @@ import androidx.core.content.FileProvider
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.autobrowse.android.AutobrowseApplication
+import com.autobrowse.android.agent.core.SessionTitleGenerator
 import com.autobrowse.android.browser.AddressBarNavigation
 import com.autobrowse.android.browser.BrowserController
 import com.autobrowse.android.browser.FloatingWindowEngine
@@ -29,6 +30,7 @@ import com.autobrowse.android.domain.model.LocalLlmModel
 import com.autobrowse.android.domain.model.MemoryEntry
 import com.autobrowse.android.domain.model.PendingAttachment
 import com.autobrowse.android.domain.model.Session
+import com.autobrowse.android.domain.model.SessionListItem
 import com.autobrowse.android.domain.model.SkillConfig
 import com.autobrowse.android.domain.model.SkillType
 import com.autobrowse.android.skills.SkillMetadata
@@ -135,7 +137,12 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
         viewModelScope.launch {
             repository.observeSessions().collect { sessions ->
-                _uiState.update { it.copy(sessions = sessions) }
+                _uiState.update { state ->
+                    val refreshedSession = state.session?.let { current ->
+                        sessions.find { it.id == current.id } ?: current
+                    }
+                    state.copy(sessions = sessions, session = refreshedSession)
+                }
             }
         }
 
@@ -213,6 +220,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     fun closeSessionsPanel() {
         _uiState.update { it.copy(showSessionsPanel = false) }
     }
+
+    suspend fun searchSessions(query: String): List<SessionListItem> =
+        repository.searchSessions(query)
 
     fun createNewSession() {
         viewModelScope.launch {
@@ -661,6 +671,15 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 agentJob = null
                 _uiState.update { it.copy(isAgentThinking = false) }
                 refreshAgentSkills()
+                if (prompt.isNotBlank()) {
+                    launch {
+                        runCatching {
+                            val config = repository.getLlmConfig()
+                            val title = SessionTitleGenerator.generateTitle(llmApi, config, prompt)
+                            repository.renameSession(id, title)
+                        }
+                    }
+                }
             }
         }
     }
