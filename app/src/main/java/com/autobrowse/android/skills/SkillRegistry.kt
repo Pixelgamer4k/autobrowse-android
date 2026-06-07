@@ -19,7 +19,20 @@ class SkillRegistry(
     )
 
     fun getEnabledSkills(enabledTypes: Set<SkillType>): List<Skill> =
-        enabledTypes.mapNotNull { allSkills[it] }
+        if (enabledTypes.isEmpty()) {
+            emptyList()
+        } else {
+            enabledTypes.mapNotNull { allSkills[it] }
+        }
+
+    suspend fun getEnabledSkills(repository: AutobrowseRepository): List<Skill> {
+        val enabled = repository.getEnabledSkills()
+        return if (enabled.isEmpty()) {
+            allSkills.values.toList()
+        } else {
+            enabled.mapNotNull { allSkills[it] }
+        }
+    }
 
     fun allSkillConfigs() = allSkills.values.map { skill ->
         com.autobrowse.android.domain.model.SkillConfig(

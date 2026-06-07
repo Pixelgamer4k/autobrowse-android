@@ -18,8 +18,12 @@ class WebFetchTool(
 
     override suspend fun execute(args: Map<String, Any?>, context: ToolExecutionContext): ToolExecutionResult {
         val url = args["url"]?.toString().orEmpty()
+        val enabled = repository.getEnabledSkills()
+        if (enabled.isNotEmpty() && SkillType.WEB_REQUEST !in enabled) {
+            return ToolExecutionResult("Web request skill disabled", success = false)
+        }
         val skill = skillRegistry.getEnabledSkills(setOf(SkillType.WEB_REQUEST)).firstOrNull()
-            ?: return ToolExecutionResult("Web request skill disabled", success = false)
+            ?: return ToolExecutionResult("Web request skill unavailable", success = false)
         val result = skill.execute(
             SkillContext(
                 sessionId = context.sessionId,
@@ -48,8 +52,12 @@ class ExtractDataTool(
 
     override suspend fun execute(args: Map<String, Any?>, context: ToolExecutionContext): ToolExecutionResult {
         val instruction = args["instruction"]?.toString().orEmpty()
+        val enabled = repository.getEnabledSkills()
+        if (enabled.isNotEmpty() && SkillType.DATA_EXTRACTION !in enabled) {
+            return ToolExecutionResult("Data extraction skill disabled", success = false)
+        }
         val skill = skillRegistry.getEnabledSkills(setOf(SkillType.DATA_EXTRACTION)).firstOrNull()
-            ?: return ToolExecutionResult("Data extraction skill disabled", success = false)
+            ?: return ToolExecutionResult("Data extraction skill unavailable", success = false)
         val result = skill.execute(
             SkillContext(
                 sessionId = context.sessionId,
@@ -77,8 +85,12 @@ class SummarizeTool(
 
     override suspend fun execute(args: Map<String, Any?>, context: ToolExecutionContext): ToolExecutionResult {
         val instruction = args["instruction"]?.toString().orEmpty()
+        val enabled = repository.getEnabledSkills()
+        if (enabled.isNotEmpty() && SkillType.SUMMARIZE !in enabled) {
+            return ToolExecutionResult("Summarize skill disabled", success = false)
+        }
         val skill = skillRegistry.getEnabledSkills(setOf(SkillType.SUMMARIZE)).firstOrNull()
-            ?: return ToolExecutionResult("Summarize skill disabled", success = false)
+            ?: return ToolExecutionResult("Summarize skill unavailable", success = false)
         val result = skill.execute(
             SkillContext(
                 sessionId = context.sessionId,

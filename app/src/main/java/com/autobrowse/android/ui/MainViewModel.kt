@@ -9,6 +9,7 @@ import com.autobrowse.android.AutobrowseApplication
 import com.autobrowse.android.browser.AddressBarNavigation
 import com.autobrowse.android.browser.BrowserController
 import com.autobrowse.android.browser.FloatingWindowEngine
+import com.autobrowse.android.browser.TabInfo
 import com.autobrowse.android.domain.model.AgentPhase
 import com.autobrowse.android.domain.model.AgentProgress
 import com.autobrowse.android.domain.model.AutoBrowseRequest
@@ -29,9 +30,11 @@ import com.autobrowse.android.domain.model.Session
 import com.autobrowse.android.domain.model.SkillConfig
 import com.autobrowse.android.domain.model.SkillType
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.withContext
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -89,6 +92,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private var agentJob: Job? = null
 
     init {
+        wireTabManager()
         viewModelScope.launch {
             val session = repository.getOrCreateActiveSession()
             val llmConfig = repository.getLlmConfig()
@@ -467,8 +471,79 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     fun stopAgent() {
         agentJob?.cancel()
+        app.taskOrchestrator.cancelAll()
         agentLoop.requestCancel()
     }
+
+    private fun wireTabManager() {
+        app.tabManager.openTabHandler = { url -> openTabForAgent(url) }
+        app.tabManager.closeTabHandler = { tabId -> closeTabForAgent(tabId) }
+        app.tabManager.switchTabHandler = { tabId -> switchTabForAgent(tabId) }
+        app.tabManager.listTabsHandler = { listTabsForAgent() }
+        app.tabManager.activeTabIdHandler = { _uiState.value.activeTabId }
+    }
+
+    private suspend fun openTabForAgent(url: String?): TabInfo = withContext(Dispatchers.Main) {
+        val session = sessionId ?: throw IllegalStateException("No active session") // used for saveTab
+        val index = _uiState.value.tabs.size
+        val maxZ = _uiState.value.tabs.maxOfOrNull { it.zIndex } ?: 0
+        val tab = BrowserTab(
+            id = UUID.randomUUID().toString(),
+            url = url ?: "https://www.google.com",
+            title = "Agent Tab",
+            status = BrowserTabStatus.IDLE,
+            zIndex = maxZ + 1,
+            layout = BrowserWindowLayout.defaultForIndex(index),
+            desktopMode = true,
+        )
+        _uiState.update { state ->
+            val frames = FloatingWindowEngine.addFrameForTab(state.windowFrames, tab)
+            state.copy(activeTabId = tab.id, windowFrames = frames)
+        }
+        browserController.setActiveTab(tab.id)
+        url?.let { browserController.loadUrl(it, tab.id) }
+        val frame = _uiState.value.windowFrames[tab.id] ?: BrowserWindowFrame.fromTab(tab)
+        repository.saveTab(tab.withFrame(frame), session)
+        tabToInfo(tab, isActive = true)
+    }
+
+    private suspend fun closeTabForAgent(tabId: String?): TabInfo? = withContext(Dispatchers.Main) {
+        if (sessionId == null) return@withContext null
+        val targetId = tabId ?: _uiState.value.activeTabId ?: return@withContext null
+        val closing = _uiState.value.tabs.find { it.id == targetId } ?: return@withContext null
+        repository.deleteTab(targetId)
+        _uiState.update { state ->
+            val remaining = state.tabs.filter { it.id != targetId }
+            val frames = FloatingWindowEngine.removeFrame(state.windowFrames, targetId)
+            val nextActive = if (state.activeTabId == targetId) {
+                remaining.maxByOrNull { it.zIndex }?.id
+            } else {
+                state.activeTabId
+            }
+            nextActive?.let { browserController.setActiveTab(it) }
+            state.copy(tabs = remaining, windowFrames = frames, activeTabId = nextActive)
+        }
+        tabToInfo(closing, isActive = false)
+    }
+
+    private suspend fun switchTabForAgent(tabId: String): TabInfo = withContext(Dispatchers.Main) {
+        selectTab(tabId)
+        val tab = _uiState.value.tabs.find { it.id == tabId }
+            ?: throw IllegalArgumentException("Tab not found: $tabId")
+        tabToInfo(tab, isActive = true)
+    }
+
+    private fun listTabsForAgent(): List<TabInfo> {
+        val active = _uiState.value.activeTabId
+        return _uiState.value.tabs.map { tabToInfo(it, isActive = tab.id == active) }
+    }
+
+    private fun tabToInfo(tab: BrowserTab, isActive: Boolean) = TabInfo(
+        id = tab.id,
+        url = tab.url,
+        title = tab.title,
+        isActive = isActive,
+    )
 
     fun sendMessage() {
         val prompt = _uiState.value.chatInput.trim()

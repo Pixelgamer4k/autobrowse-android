@@ -1,5 +1,6 @@
 package com.autobrowse.android.agent.tools
 
+import com.autobrowse.android.browser.TabManager
 import com.autobrowse.android.domain.model.ToolDefinition
 
 data class ToolExecutionContext(
@@ -7,8 +8,12 @@ data class ToolExecutionContext(
     val pageUrl: String?,
     val pageHtml: String?,
     val pageText: String?,
+    val activeTabId: String? = null,
+    val tabManager: TabManager? = null,
     val browserActions: MutableList<com.autobrowse.android.domain.model.AgentAction> = mutableListOf(),
     val extractedData: MutableMap<String, String> = mutableMapOf(),
+    val pendingVisionImages: MutableList<String> = mutableListOf(),
+    val parallelTaskResults: MutableMap<String, String> = mutableMapOf(),
 )
 
 data class ToolExecutionResult(

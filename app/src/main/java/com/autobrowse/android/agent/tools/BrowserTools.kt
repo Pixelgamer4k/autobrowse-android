@@ -22,23 +22,6 @@ class BrowserNavigateTool(
     }
 }
 
-class BrowserSnapshotTool(
-    private val browserController: BrowserController,
-) : AgentTool {
-    override val name = "browser_snapshot"
-    override val description = "Get visible page text and current URL from the active browser tab."
-    override val parametersJson = """{"type":"object","properties":{}}"""
-
-    override suspend fun execute(args: Map<String, Any?>, context: ToolExecutionContext): ToolExecutionResult {
-        val url = browserController.getCurrentUrl() ?: context.pageUrl.orEmpty()
-        val text = browserController.getPageText() ?: context.pageText.orEmpty()
-        val preview = text.take(6000)
-        context.extractedData["page_url"] = url
-        context.extractedData["page_text_preview"] = preview
-        return ToolExecutionResult("URL: $url\n\nVisible text:\n$preview")
-    }
-}
-
 class BrowserFillTool(
     private val browserController: BrowserController,
 ) : AgentTool {
@@ -63,25 +46,30 @@ class BrowserClickTool(
     private val browserController: BrowserController,
 ) : AgentTool {
     override val name = "browser_click"
-    override val description = "Click an element on the current page using a CSS selector."
+    override val description = "Click an element by ref (@eN from browser_snapshot) or CSS selector."
     override val parametersJson = """
-        {"type":"object","properties":{"selector":{"type":"string"}},"required":["selector"]}
+        {"type":"object","properties":{"ref":{"type":"string"},"selector":{"type":"string"},"tab_id":{"type":"string"}}}
     """.trimIndent()
 
     override suspend fun execute(args: Map<String, Any?>, context: ToolExecutionContext): ToolExecutionResult {
-        val selector = args["selector"]?.toString().orEmpty()
-        if (selector.isBlank()) return ToolExecutionResult("selector is required", success = false)
-        val script = """
-            (function() {
-                var el = document.querySelector('$selector');
-                if (!el) return 'not_found';
-                el.click();
-                return 'clicked';
-            })();
-        """.trimIndent()
-        val result = browserController.evaluateScript(script)
-        context.browserActions += AgentAction(type = "click", target = selector, reasoning = "Agent clicked element")
-        return ToolExecutionResult("click $selector: ${result ?: "unknown"}")
+        val tabId = args["tab_id"]?.toString() ?: context.activeTabId
+        val ref = args["ref"]?.toString()
+        val selector = args["selector"]?.toString()
+        val result = when {
+            !ref.isNullOrBlank() -> browserController.clickRef(ref, tabId)
+            !selector.isNullOrBlank() -> browserController.evaluateScript("""
+                (function() {
+                    var el = document.querySelector('$selector');
+                    if (!el) return 'not_found';
+                    el.click();
+                    return 'clicked';
+                })();
+            """.trimIndent(), tabId)
+            else -> return ToolExecutionResult("ref or selector required", success = false)
+        }
+        val target = ref ?: selector.orEmpty()
+        context.browserActions += AgentAction(type = "click", target = target, reasoning = "Agent clicked element")
+        return ToolExecutionResult("click $target: ${result ?: "unknown"}")
     }
 }
 

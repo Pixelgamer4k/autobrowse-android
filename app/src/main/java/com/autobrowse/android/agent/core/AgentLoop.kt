@@ -4,6 +4,8 @@ import com.autobrowse.android.agent.memory.MemoryManager
 import com.autobrowse.android.agent.tools.ToolExecutionContext
 import com.autobrowse.android.agent.tools.ToolRegistry
 import com.autobrowse.android.agent.tools.parseToolArgs
+import com.autobrowse.android.browser.TabManager
+import com.autobrowse.android.domain.model.AttachmentPayload
 import com.autobrowse.android.agent.trajectory.SelfImprovementEngine
 import com.autobrowse.android.agent.trajectory.TrajectoryStore
 import com.autobrowse.android.data.remote.ChatMessageDto
@@ -22,6 +24,9 @@ import com.autobrowse.android.domain.model.TaskStatus
 import com.autobrowse.android.domain.model.ToolCall
 import com.autobrowse.android.domain.model.ToolResult
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -39,6 +44,7 @@ class AgentLoop(
     private val contextCompressor: ContextCompressor,
     private val trajectoryStore: TrajectoryStore,
     private val selfImprovementEngine: SelfImprovementEngine,
+    private val tabManager: TabManager? = null,
     private val maxIterations: Int = 12,
 ) {
     private val _progress = MutableStateFlow(AgentProgress(AgentPhase.IDLE, 0, maxIterations))
@@ -163,6 +169,8 @@ class AgentLoop(
                 pageUrl = browserContext.pageUrl,
                 pageHtml = browserContext.pageHtml,
                 pageText = browserContext.pageText,
+                activeTabId = tabManager?.activeTabId(),
+                tabManager = tabManager,
             )
 
             var finalResponse: String? = null
@@ -181,13 +189,21 @@ class AgentLoop(
                     request.sessionId,
                 )
 
+                val visionPayload = AttachmentPayload.fromVisionBase64(toolContext.pendingVisionImages)
+                val attachmentPayload = when {
+                    iteration == 1 -> request.attachmentPayload.merge(visionPayload)
+                    visionPayload.hasVisionContent -> visionPayload
+                    else -> AttachmentPayload()
+                }
+
                 val completion = llmApi.complete(
                     config = config,
                     systemPrompt = systemPrompt,
                     messages = loopMessages,
                     tools = toolRegistry.definitions(),
-                    attachmentPayload = if (iteration == 1) request.attachmentPayload else com.autobrowse.android.domain.model.AttachmentPayload(),
+                    attachmentPayload = attachmentPayload,
                 )
+                toolContext.pendingVisionImages.clear()
                 ensureNotCancelled()
 
                 if (completion.toolCalls.isEmpty()) {
@@ -210,24 +226,30 @@ class AgentLoop(
                 )
 
                 val toolResults = mutableListOf<ToolResult>()
-                for (call in toolCalls) {
-                    ensureNotCancelled()
-                    _progress.value = AgentProgress(
-                        phase = AgentPhase.EXECUTING_TOOL,
-                        iteration = iteration,
-                        maxIterations = maxIterations,
-                        currentTool = call.name,
-                        message = "Running ${call.name}…",
-                    )
-                    val args = parseToolArgs(call.argumentsJson)
-                    val result = toolRegistry.dispatch(call.name, args, toolContext)
-                    toolResults += ToolResult(call.id, call.name, result.output, result.success)
-                    loopMessages += ChatMessageDto(
-                        role = "tool",
-                        content = result.output,
-                        toolCallId = call.id,
-                        name = call.name,
-                    )
+                coroutineScope {
+                    toolCalls.map { call ->
+                        async {
+                            ensureNotCancelled()
+                            _progress.value = AgentProgress(
+                                phase = AgentPhase.EXECUTING_TOOL,
+                                iteration = iteration,
+                                maxIterations = maxIterations,
+                                currentTool = call.name,
+                                message = "Running ${call.name}…",
+                            )
+                            val args = parseToolArgs(call.argumentsJson)
+                            val result = toolRegistry.dispatch(call.name, args, toolContext)
+                            call to result
+                        }
+                    }.awaitAll().forEach { (call, result) ->
+                        toolResults += ToolResult(call.id, call.name, result.output, result.success)
+                        loopMessages += ChatMessageDto(
+                            role = "tool",
+                            content = result.output,
+                            toolCallId = call.id,
+                            name = call.name,
+                        )
+                    }
                 }
 
                 turns += AgentTurn(

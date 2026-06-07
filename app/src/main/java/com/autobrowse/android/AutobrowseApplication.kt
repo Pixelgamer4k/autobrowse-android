@@ -3,26 +3,52 @@ package com.autobrowse.android
 import android.app.Application
 import androidx.work.Configuration
 import com.autobrowse.android.agent.NavigationAgent
-import com.autobrowse.android.attachments.AttachmentProcessor
-import com.autobrowse.android.attachments.AttachmentStore
 import com.autobrowse.android.agent.core.AgentLoop
 import com.autobrowse.android.agent.core.ContextCompressor
 import com.autobrowse.android.agent.core.PromptBuilder
 import com.autobrowse.android.agent.memory.MemoryManager
+import com.autobrowse.android.agent.orchestration.TaskOrchestrator
+import com.autobrowse.android.agent.tools.BrowserBackTool
 import com.autobrowse.android.agent.tools.BrowserClickTool
+import com.autobrowse.android.agent.tools.BrowserClickXYTool
+import com.autobrowse.android.agent.tools.BrowserConsoleTool
 import com.autobrowse.android.agent.tools.BrowserFillTool
+import com.autobrowse.android.agent.tools.BrowserInteractiveSnapshotTool
 import com.autobrowse.android.agent.tools.BrowserNavigateTool
-import com.autobrowse.android.agent.tools.BrowserSnapshotTool
+import com.autobrowse.android.agent.tools.BrowserPressTool
+import com.autobrowse.android.agent.tools.BrowserScrollTool
+import com.autobrowse.android.agent.tools.BrowserTabCloseTool
+import com.autobrowse.android.agent.tools.BrowserTabListTool
+import com.autobrowse.android.agent.tools.BrowserTabOpenTool
+import com.autobrowse.android.agent.tools.BrowserTabSwitchTool
+import com.autobrowse.android.agent.tools.BrowserTypeTool
+import com.autobrowse.android.agent.tools.BrowserVisionTool
+import com.autobrowse.android.agent.tools.ChartGenerateTool
+import com.autobrowse.android.agent.tools.ClarifyTool
+import com.autobrowse.android.agent.tools.DelegateTaskTool
+import com.autobrowse.android.agent.tools.DocumentGenerator
+import com.autobrowse.android.agent.tools.ExecuteCodeTool
 import com.autobrowse.android.agent.tools.ExtractDataTool
 import com.autobrowse.android.agent.tools.MemoryRecallTool
 import com.autobrowse.android.agent.tools.MemoryRememberTool
+import com.autobrowse.android.agent.tools.PdfGenerateTool
+import com.autobrowse.android.agent.tools.PythonExecuteTool
 import com.autobrowse.android.agent.tools.ReflectTool
+import com.autobrowse.android.agent.tools.RunParallelTasksTool
 import com.autobrowse.android.agent.tools.SessionSearchTool
+import com.autobrowse.android.agent.tools.SkillCreatorTool
+import com.autobrowse.android.agent.tools.SkillManageTool
+import com.autobrowse.android.agent.tools.SkillViewTool
+import com.autobrowse.android.agent.tools.SkillsListTool
 import com.autobrowse.android.agent.tools.SummarizeTool
+import com.autobrowse.android.agent.tools.TodoWriteTool
 import com.autobrowse.android.agent.tools.ToolRegistry
 import com.autobrowse.android.agent.tools.WebFetchTool
 import com.autobrowse.android.agent.trajectory.SelfImprovementEngine
 import com.autobrowse.android.agent.trajectory.TrajectoryStore
+import com.autobrowse.android.attachments.AttachmentProcessor
+import com.autobrowse.android.attachments.AttachmentStore
+import com.autobrowse.android.browser.AndroidTabManager
 import com.autobrowse.android.browser.BrowserController
 import com.autobrowse.android.data.local.AutobrowseDatabase
 import com.autobrowse.android.data.local.LocalLlmService
@@ -31,6 +57,11 @@ import com.autobrowse.android.data.remote.LlmApiService
 import com.autobrowse.android.data.repository.AutobrowseRepository
 import com.autobrowse.android.data.settings.SecureSettingsStore
 import com.autobrowse.android.skills.SkillRegistry
+import com.autobrowse.android.skills.SkillStore
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
 
 class AutobrowseApplication : Application(), Configuration.Provider {
     lateinit var repository: AutobrowseRepository
@@ -42,10 +73,19 @@ class AutobrowseApplication : Application(), Configuration.Provider {
     lateinit var agentLoop: AgentLoop
         private set
 
+    lateinit var taskOrchestrator: TaskOrchestrator
+        private set
+
     lateinit var browserController: BrowserController
         private set
 
+    lateinit var tabManager: AndroidTabManager
+        private set
+
     lateinit var skillRegistry: SkillRegistry
+        private set
+
+    lateinit var skillStore: SkillStore
         private set
 
     lateinit var memoryManager: MemoryManager
@@ -63,6 +103,14 @@ class AutobrowseApplication : Application(), Configuration.Provider {
     lateinit var modelFileManager: ModelFileManager
         private set
 
+    lateinit var documentGenerator: DocumentGenerator
+        private set
+
+    lateinit var toolRegistry: ToolRegistry
+        private set
+
+    private val appScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+
     override fun onCreate() {
         super.onCreate()
         val database = AutobrowseDatabase.get(this)
@@ -72,32 +120,21 @@ class AutobrowseApplication : Application(), Configuration.Provider {
         llmApi = LlmApiService(localLlmService)
 
         repository = AutobrowseRepository(database, settingsStore)
+        skillStore = SkillStore(this)
         skillRegistry = SkillRegistry(this, repository, llmApi)
         browserController = BrowserController()
+        tabManager = AndroidTabManager()
         attachmentStore = AttachmentStore(this)
         attachmentProcessor = AttachmentProcessor(this)
+        documentGenerator = DocumentGenerator(this)
+
+        appScope.launch { skillStore.ensureBundledSkills() }
 
         memoryManager = MemoryManager(
             memoryDao = database.memoryDao(),
             trajectoryDao = database.trajectoryDao(),
             repository = repository,
             llmApi = llmApi,
-        )
-
-        val toolRegistry = ToolRegistry(
-            tools = listOf(
-                BrowserNavigateTool(browserController),
-                BrowserSnapshotTool(browserController),
-                BrowserFillTool(browserController),
-                BrowserClickTool(browserController),
-                WebFetchTool(skillRegistry, repository),
-                ExtractDataTool(skillRegistry, repository),
-                SummarizeTool(skillRegistry, repository),
-                MemoryRememberTool(memoryManager),
-                MemoryRecallTool(memoryManager),
-                SessionSearchTool(memoryManager),
-                ReflectTool(llmApi, repository),
-            ),
         )
 
         val selfImprovementEngine = SelfImprovementEngine(
@@ -107,17 +144,58 @@ class AutobrowseApplication : Application(), Configuration.Provider {
             memoryManager = memoryManager,
         )
 
+        toolRegistry = ToolRegistry(
+            tools = listOf(
+                BrowserNavigateTool(browserController),
+                BrowserInteractiveSnapshotTool(browserController),
+                BrowserClickTool(browserController),
+                BrowserFillTool(browserController),
+                BrowserTypeTool(browserController),
+                BrowserScrollTool(browserController),
+                BrowserPressTool(browserController),
+                BrowserBackTool(browserController),
+                BrowserClickXYTool(browserController),
+                BrowserConsoleTool(browserController),
+                BrowserVisionTool(browserController, llmApi, repository),
+                BrowserTabOpenTool(tabManager, browserController),
+                BrowserTabCloseTool(tabManager),
+                BrowserTabSwitchTool(tabManager),
+                BrowserTabListTool(tabManager),
+                WebFetchTool(skillRegistry, repository),
+                ExtractDataTool(skillRegistry, repository),
+                SummarizeTool(skillRegistry, repository),
+                MemoryRememberTool(memoryManager),
+                MemoryRecallTool(memoryManager),
+                SessionSearchTool(memoryManager),
+                ReflectTool(llmApi, repository),
+                TodoWriteTool(),
+                ClarifyTool(),
+                DelegateTaskTool { taskOrchestrator },
+                RunParallelTasksTool { taskOrchestrator },
+                ExecuteCodeTool({ toolRegistry }, documentGenerator),
+                PythonExecuteTool({ toolRegistry }, documentGenerator),
+                PdfGenerateTool(documentGenerator),
+                ChartGenerateTool(documentGenerator),
+                SkillsListTool(skillStore),
+                SkillViewTool(skillStore),
+                SkillManageTool(skillStore),
+                SkillCreatorTool(skillStore, llmApi, repository),
+            ),
+        )
+
         agentLoop = AgentLoop(
             repository = repository,
             llmApi = llmApi,
             toolRegistry = toolRegistry,
-            promptBuilder = PromptBuilder(repository, memoryManager),
+            promptBuilder = PromptBuilder(repository, memoryManager, skillStore),
             memoryManager = memoryManager,
             contextCompressor = ContextCompressor(llmApi),
             trajectoryStore = TrajectoryStore(database.trajectoryDao()),
             selfImprovementEngine = selfImprovementEngine,
+            tabManager = tabManager,
         )
 
+        taskOrchestrator = TaskOrchestrator(agentLoop, appScope)
         navigationAgent = NavigationAgent(agentLoop)
     }
 

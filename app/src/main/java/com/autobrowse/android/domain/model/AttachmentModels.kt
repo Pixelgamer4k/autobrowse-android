@@ -43,4 +43,30 @@ data class AttachmentPayload(
         }
 
     fun buildContextBlock(): String = attachments.joinToString("\n\n") { it.description }
+
+    fun merge(other: AttachmentPayload): AttachmentPayload =
+        AttachmentPayload(attachments = attachments + other.attachments)
+
+    companion object {
+        fun fromVisionBase64(base64Parts: List<String>): AttachmentPayload {
+            if (base64Parts.isEmpty()) return AttachmentPayload()
+            return AttachmentPayload(
+                attachments = base64Parts.mapIndexed { index, dataUrl ->
+                    ProcessedAttachment(
+                        attachment = StoredAttachment(
+                            id = "vision_$index",
+                            type = AttachmentType.IMAGE,
+                            fileName = "vision_$index.jpg",
+                            localPath = "",
+                            mimeType = "image/jpeg",
+                        ),
+                        description = "Browser vision capture $index",
+                        imageBase64Parts = listOf(
+                            if (dataUrl.startsWith("data:")) dataUrl else "data:image/jpeg;base64,$dataUrl",
+                        ),
+                    )
+                },
+            )
+        }
+    }
 }
