@@ -125,7 +125,6 @@ fun ThreeDotMenuButton(
 ) {
     val animatedColor by animateColorAsState(
         targetValue = dotColor,
-        animationSpec = Motion.tweenQuick,
         label = "dotColor",
     )
     val dotAlpha = if (isGesturing) 0.72f else 0.96f
