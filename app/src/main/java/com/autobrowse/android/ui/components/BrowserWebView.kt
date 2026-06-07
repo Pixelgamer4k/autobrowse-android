@@ -16,12 +16,14 @@ import com.autobrowse.android.browser.BrowserController
 import com.autobrowse.android.browser.DesktopBrowserConfig
 import com.autobrowse.android.domain.model.BrowserTab
 import com.autobrowse.android.domain.model.BrowserTabStatus
+
 @SuppressLint("SetJavaScriptEnabled")
 @Composable
 fun BrowserWebView(
     tab: BrowserTab,
     controller: BrowserController,
     onTabUpdate: (BrowserTab) -> Unit,
+    interactionEnabled: Boolean = true,
     modifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
@@ -42,14 +44,24 @@ fun BrowserWebView(
         },
         factory = { webView },
         update = { view ->
+            view.isEnabled = interactionEnabled
+            view.isClickable = interactionEnabled
             DesktopBrowserConfig.apply(view)
             view.webViewClient = object : WebViewClient() {
                 override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
-                    onTabUpdate(tab.copy(url = url ?: tab.url, status = BrowserTabStatus.LOADING))
+                    onTabUpdate(
+                        tab.copy(
+                            url = url ?: tab.url,
+                            status = BrowserTabStatus.LOADING,
+                        ),
+                    )
                 }
 
                 override fun onPageFinished(view: WebView?, url: String?) {
-                    view?.post { view.let { DesktopBrowserConfig.fitToWindow(it) } }
+                    view?.post {
+                        DesktopBrowserConfig.fitToWindow(view)
+                        view.postDelayed({ DesktopBrowserConfig.fitToWindow(view) }, 120)
+                    }
                     onTabUpdate(
                         tab.copy(
                             url = url ?: tab.url,
@@ -75,6 +87,7 @@ fun BrowserWebView(
             }
             view.webChromeClient = WebChromeClient()
             if (view.url != tab.url) {
+                DesktopBrowserConfig.fitToWindow(view)
                 view.loadUrl(tab.url)
             }
         },

@@ -40,18 +40,22 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.zIndex
 import com.autobrowse.android.browser.BrowserController
 import com.autobrowse.android.domain.model.BrowserTab
 import com.autobrowse.android.domain.model.BrowserWindowLayout
 import com.autobrowse.android.domain.model.BrowserWindowState
 import com.autobrowse.android.ui.theme.Motion
 import kotlin.math.roundToInt
+
+private val ResizeGutter = 32.dp
 
 @Composable
 fun ResizableBrowserWindow(
@@ -62,7 +66,8 @@ fun ResizableBrowserWindow(
     controller: BrowserController,
     onSelect: () -> Unit,
     onTabUpdate: (BrowserTab) -> Unit,
-    onLayoutChange: (BrowserWindowLayout) -> Unit,
+    onPreviewLayout: (BrowserWindowLayout) -> Unit,
+    onCommitLayout: (BrowserWindowLayout) -> Unit,
     onRefresh: () -> Unit,
     onToggleMaximize: () -> Unit,
     onMinimize: () -> Unit,
@@ -73,54 +78,41 @@ fun ResizableBrowserWindow(
     val titleBarHeightPx = with(density) { BrowserWindowLayout.TITLE_BAR_HEIGHT_DP.dp.toPx() }
     val minimizedHeightPx = titleBarHeightPx.coerceAtLeast(1f)
 
-    var dragOffset by remember(tab.id) { mutableStateOf(IntOffset.Zero) }
-    var resizeDelta by remember(tab.id) { mutableStateOf(0f to 0f) }
+    var isManipulating by remember(tab.id) { mutableStateOf(false) }
+    var dragStartLayout by remember(tab.id) { mutableStateOf<BrowserWindowLayout?>(null) }
+    var dragAccum by remember(tab.id) { mutableStateOf(Offset.Zero) }
+    var resizeStartLayout by remember(tab.id) { mutableStateOf<BrowserWindowLayout?>(null) }
+    var resizeAccum by remember(tab.id) { mutableStateOf(Offset.Zero) }
 
     val baseLayout = when (tab.windowState) {
         BrowserWindowState.MAXIMIZED -> BrowserWindowLayout.maximized()
-        BrowserWindowState.MINIMIZED -> tab.layout
-        BrowserWindowState.NORMAL -> tab.layout
+        BrowserWindowState.MINIMIZED,
+        BrowserWindowState.NORMAL,
+        -> tab.layout
     }
 
-    val widthPx = (baseLayout.widthFraction * canvasWidthPx + resizeDelta.first).coerceIn(
-        canvasWidthPx * BrowserWindowLayout.MIN_FRACTION,
-        canvasWidthPx,
-    )
+    val widthPx = baseLayout.widthFraction * canvasWidthPx
     val heightPx = when (tab.windowState) {
         BrowserWindowState.MINIMIZED -> minimizedHeightPx
-        else -> (baseLayout.heightFraction * canvasHeightPx + resizeDelta.second).coerceIn(
-            canvasHeightPx * BrowserWindowLayout.MIN_FRACTION,
-            canvasHeightPx,
-        )
+        else -> baseLayout.heightFraction * canvasHeightPx
     }
-    val xPx = (baseLayout.offsetX * canvasWidthPx + dragOffset.x).coerceIn(
-        0f,
-        (canvasWidthPx - widthPx).coerceAtLeast(0f),
-    )
-    val yPx = (baseLayout.offsetY * canvasHeightPx + dragOffset.y).coerceIn(
-        0f,
-        (canvasHeightPx - heightPx).coerceAtLeast(0f),
-    )
+    val xPx = (baseLayout.offsetX * canvasWidthPx).coerceIn(0f, (canvasWidthPx - widthPx).coerceAtLeast(0f))
+    val yPx = (baseLayout.offsetY * canvasHeightPx).coerceIn(0f, (canvasHeightPx - heightPx).coerceAtLeast(0f))
 
-    val canResize = tab.windowState == BrowserWindowState.NORMAL
+    val canResize = tab.windowState == BrowserWindowState.NORMAL && canvasWidthPx > 0f && canvasHeightPx > 0f
 
-    fun commitLayout() {
-        val newLayout = BrowserWindowLayout(
-            offsetX = (xPx / canvasWidthPx).coerceIn(0f, 1f),
-            offsetY = (yPx / canvasHeightPx).coerceIn(0f, 1f),
-            widthFraction = (widthPx / canvasWidthPx).coerceIn(
-                BrowserWindowLayout.MIN_FRACTION,
-                BrowserWindowLayout.MAX_FRACTION,
-            ),
-            heightFraction = (heightPx / canvasHeightPx).coerceIn(
-                BrowserWindowLayout.MIN_FRACTION,
-                BrowserWindowLayout.MAX_FRACTION,
-            ),
+    fun layoutFromDrag(start: BrowserWindowLayout, accum: Offset): BrowserWindowLayout {
+        return start.copy(
+            offsetX = start.offsetX + accum.x / canvasWidthPx,
+            offsetY = start.offsetY + accum.y / canvasHeightPx,
         ).clamped()
-        dragOffset = IntOffset.Zero
-        resizeDelta = 0f to 0f
-        onLayoutChange(newLayout)
-        onSelect()
+    }
+
+    fun layoutFromResize(start: BrowserWindowLayout, accum: Offset): BrowserWindowLayout {
+        return start.copy(
+            widthFraction = start.widthFraction + accum.x / canvasWidthPx,
+            heightFraction = start.heightFraction + accum.y / canvasHeightPx,
+        ).clamped()
     }
 
     val elevation by animateFloatAsState(
@@ -136,6 +128,7 @@ fun ResizableBrowserWindow(
 
     Box(
         modifier = modifier
+            .zIndex(if (isActive) 200f else tab.zIndex.toFloat())
             .scale(scale)
             .offset { IntOffset(xPx.roundToInt(), yPx.roundToInt()) }
             .width(with(density) { widthPx.toDp() })
@@ -154,64 +147,131 @@ fun ResizableBrowserWindow(
             WindowTitleBar(
                 tab = tab,
                 isActive = isActive,
-                onRefresh = {
-                    onSelect()
-                    onRefresh()
-                },
-                onToggleMaximize = {
-                    onSelect()
-                    onToggleMaximize()
-                },
-                onMinimize = {
-                    onSelect()
-                    onMinimize()
-                },
+                onRefresh = onRefresh,
+                onToggleMaximize = onToggleMaximize,
+                onMinimize = onMinimize,
                 onClose = onClose,
-                onDrag = { delta ->
-                    dragOffset = IntOffset(
-                        dragOffset.x + delta.x.roundToInt(),
-                        dragOffset.y + delta.y.roundToInt(),
-                    )
+                onSelect = onSelect,
+                onDragStart = {
+                    if (tab.windowState != BrowserWindowState.MAXIMIZED) {
+                        isManipulating = true
+                        dragStartLayout = tab.layout
+                        dragAccum = Offset.Zero
+                        onSelect()
+                    }
                 },
-                onDragEnd = { commitLayout() },
+                onDrag = { delta ->
+                    if (tab.windowState == BrowserWindowState.MAXIMIZED) return@WindowTitleBar
+                    val start = dragStartLayout ?: tab.layout
+                    dragAccum += delta
+                    onPreviewLayout(layoutFromDrag(start, dragAccum))
+                },
+                onDragEnd = {
+                    isManipulating = false
+                    if (dragStartLayout != null) {
+                        onCommitLayout(tab.layout)
+                    }
+                    dragStartLayout = null
+                    dragAccum = Offset.Zero
+                },
             )
 
             if (tab.windowState != BrowserWindowState.MINIMIZED) {
-                BrowserWebView(
-                    tab = tab,
-                    controller = controller,
-                    onTabUpdate = onTabUpdate,
+                Box(
                     modifier = Modifier
                         .weight(1f)
-                        .fillMaxSize(),
-                )
-            }
-        }
+                        .fillMaxWidth(),
+                ) {
+                    BrowserWebView(
+                        tab = tab,
+                        controller = controller,
+                        onTabUpdate = onTabUpdate,
+                        interactionEnabled = !isManipulating,
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(end = ResizeGutter, bottom = ResizeGutter),
+                    )
 
-        if (canResize) {
-            ResizeEdge(
-                modifier = Modifier
-                    .align(Alignment.CenterEnd)
-                    .fillMaxHeight()
-                    .width(20.dp),
-                onResize = { dx, _ -> resizeDelta = resizeDelta.first + dx to resizeDelta.second },
-                onResizeEnd = { commitLayout() },
-            )
-            ResizeEdge(
-                modifier = Modifier
-                    .align(Alignment.BottomCenter)
-                    .fillMaxWidth()
-                    .height(20.dp),
-                onResize = { _, dy -> resizeDelta = resizeDelta.first to resizeDelta.second + dy },
-                onResizeEnd = { commitLayout() },
-            )
-            ResizeHandle(
-                modifier = Modifier.align(Alignment.BottomEnd),
-                onResize = { dx, dy ->
-                    resizeDelta = resizeDelta.first + dx to resizeDelta.second + dy
-                },
-                onResizeEnd = { commitLayout() },
-            )
+                    if (canResize) {
+                        ResizeEdge(
+                            modifier = Modifier
+                                .align(Alignment.CenterEnd)
+                                .fillMaxHeight()
+                                .width(ResizeGutter)
+                                .zIndex(2f),
+                            onResizeStart = {
+                                isManipulating = true
+                                resizeStartLayout = tab.layout
+                                resizeAccum = Offset.Zero
+                                onSelect()
+                            },
+                            onResize = { dx, dy ->
+                                val start = resizeStartLayout ?: tab.layout
+                                resizeAccum += Offset(dx, dy)
+                                onPreviewLayout(layoutFromResize(start, resizeAccum))
+                            },
+                            onResizeEnd = {
+                                isManipulating = false
+                                if (resizeStartLayout != null) {
+                                    onCommitLayout(tab.layout)
+                                }
+                                resizeStartLayout = null
+                                resizeAccum = Offset.Zero
+                            },
+                        )
+                        ResizeEdge(
+                            modifier = Modifier
+                                .align(Alignment.BottomCenter)
+                                .fillMaxWidth()
+                                .height(ResizeGutter)
+                                .zIndex(2f),
+                            onResizeStart = {
+                                isManipulating = true
+                                resizeStartLayout = tab.layout
+                                resizeAccum = Offset.Zero
+                                onSelect()
+                            },
+                            onResize = { dx, dy ->
+                                val start = resizeStartLayout ?: tab.layout
+                                resizeAccum += Offset(dx, dy)
+                                onPreviewLayout(layoutFromResize(start, resizeAccum))
+                            },
+                            onResizeEnd = {
+                                isManipulating = false
+                                if (resizeStartLayout != null) {
+                                    onCommitLayout(tab.layout)
+                                }
+                                resizeStartLayout = null
+                                resizeAccum = Offset.Zero
+                            },
+                        )
+                        ResizeHandle(
+                            modifier = Modifier
+                                .align(Alignment.BottomEnd)
+                                .zIndex(3f),
+                            onResizeStart = {
+                                isManipulating = true
+                                resizeStartLayout = tab.layout
+                                resizeAccum = Offset.Zero
+                                onSelect()
+                            },
+                            onResize = { dx, dy ->
+                                val start = resizeStartLayout ?: tab.layout
+                                resizeAccum += Offset(dx, dy)
+                                onPreviewLayout(layoutFromResize(start, resizeAccum))
+                            },
+                            onResizeEnd = {
+                                isManipulating = false
+                                if (resizeStartLayout != null) {
+                                    onCommitLayout(tab.layout)
+                                }
+                                resizeStartLayout = null
+                                resizeAccum = Offset.Zero
+                            },
+                        )
+                    }
+                }
+            }
         }
     }
 }
@@ -225,7 +285,9 @@ private fun WindowTitleBar(
     onToggleMaximize: () -> Unit,
     onMinimize: () -> Unit,
     onClose: () -> Unit,
-    onDrag: (androidx.compose.ui.geometry.Offset) -> Unit,
+    onSelect: () -> Unit,
+    onDragStart: () -> Unit,
+    onDrag: (Offset) -> Unit,
     onDragEnd: () -> Unit,
 ) {
     val maxMinIcon = when (tab.windowState) {
@@ -237,7 +299,19 @@ private fun WindowTitleBar(
     Surface(
         color = if (isActive) MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.65f)
         else MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.9f),
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .pointerInput(tab.id, tab.windowState, tab.layout) {
+                detectDragGestures(
+                    onDragStart = { onDragStart() },
+                    onDragEnd = { onDragEnd() },
+                    onDragCancel = { onDragEnd() },
+                    onDrag = { change, dragAmount ->
+                        change.consume()
+                        onDrag(dragAmount)
+                    },
+                )
+            },
     ) {
         Row(
             modifier = Modifier
@@ -248,52 +322,43 @@ private fun WindowTitleBar(
             horizontalArrangement = Arrangement.spacedBy(2.dp),
         ) {
             WindowControlButton(
-                onClick = onRefresh,
-                contentDescription = "Refresh",
+                onClick = {
+                    onSelect()
+                    onRefresh()
+                },
                 tint = Color(0xFF4A90D9),
             ) {
-                Icon(Icons.Default.Refresh, contentDescription = null, modifier = Modifier.size(20.dp))
+                Icon(Icons.Default.Refresh, contentDescription = "Refresh", modifier = Modifier.size(22.dp))
             }
             WindowControlButton(
-                onClick = onToggleMaximize,
-                onLongClick = onMinimize,
-                contentDescription = "Maximize or restore. Long press to minimize.",
+                onClick = {
+                    onSelect()
+                    onToggleMaximize()
+                },
+                onLongClick = {
+                    onSelect()
+                    onMinimize()
+                },
                 tint = Color(0xFF34A853),
             ) {
-                Icon(maxMinIcon, contentDescription = null, modifier = Modifier.size(20.dp))
+                Icon(maxMinIcon, contentDescription = "Maximize or restore", modifier = Modifier.size(22.dp))
             }
             WindowControlButton(
                 onClick = onClose,
-                contentDescription = "Close",
                 tint = Color(0xFFE8453C),
             ) {
-                Icon(Icons.Default.Close, contentDescription = null, modifier = Modifier.size(20.dp))
+                Icon(Icons.Default.Close, contentDescription = "Close", modifier = Modifier.size(22.dp))
             }
 
-            Box(
+            Text(
+                text = tab.title.ifBlank { tab.url },
+                style = MaterialTheme.typography.labelMedium,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
                 modifier = Modifier
                     .weight(1f)
-                    .fillMaxHeight()
-                    .pointerInput(tab.id) {
-                        detectDragGestures(
-                            onDragEnd = { onDragEnd() },
-                            onDragCancel = { onDragEnd() },
-                            onDrag = { change, dragAmount ->
-                                change.consume()
-                                onDrag(dragAmount)
-                            },
-                        )
-                    }
                     .padding(horizontal = 8.dp),
-                contentAlignment = Alignment.CenterStart,
-            ) {
-                Text(
-                    text = tab.title.ifBlank { tab.url },
-                    style = MaterialTheme.typography.labelMedium,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                )
-            }
+            )
         }
     }
 }
@@ -302,7 +367,6 @@ private fun WindowTitleBar(
 @Composable
 private fun WindowControlButton(
     onClick: () -> Unit,
-    contentDescription: String,
     tint: Color,
     onLongClick: (() -> Unit)? = null,
     content: @Composable () -> Unit,
@@ -310,7 +374,7 @@ private fun WindowControlButton(
     val interactionSource = remember { MutableInteractionSource() }
     Box(
         modifier = Modifier
-            .size(40.dp)
+            .size(44.dp)
             .combinedClickable(
                 interactionSource = interactionSource,
                 indication = null,
@@ -321,8 +385,8 @@ private fun WindowControlButton(
     ) {
         Surface(
             shape = RoundedCornerShape(10.dp),
-            color = tint.copy(alpha = 0.18f),
-            modifier = Modifier.size(34.dp),
+            color = tint.copy(alpha = 0.2f),
+            modifier = Modifier.size(38.dp),
         ) {
             Box(contentAlignment = Alignment.Center) {
                 androidx.compose.runtime.CompositionLocalProvider(
@@ -337,15 +401,17 @@ private fun WindowControlButton(
 
 @Composable
 private fun ResizeHandle(
+    onResizeStart: () -> Unit,
     onResize: (Float, Float) -> Unit,
     onResizeEnd: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Box(
         modifier = modifier
-            .size(48.dp)
+            .size(56.dp)
             .pointerInput(Unit) {
                 detectDragGestures(
+                    onDragStart = { onResizeStart() },
                     onDragEnd = { onResizeEnd() },
                     onDragCancel = { onResizeEnd() },
                     onDrag = { change, dragAmount ->
@@ -358,15 +424,16 @@ private fun ResizeHandle(
     ) {
         Box(
             modifier = Modifier
-                .size(22.dp)
+                .size(24.dp)
                 .clip(RoundedCornerShape(4.dp))
-                .background(MaterialTheme.colorScheme.primary.copy(alpha = 0.45f)),
+                .background(MaterialTheme.colorScheme.primary.copy(alpha = 0.55f)),
         )
     }
 }
 
 @Composable
 private fun ResizeEdge(
+    onResizeStart: () -> Unit,
     onResize: (Float, Float) -> Unit,
     onResizeEnd: () -> Unit,
     modifier: Modifier = Modifier,
@@ -374,6 +441,7 @@ private fun ResizeEdge(
     Box(
         modifier = modifier.pointerInput(Unit) {
             detectDragGestures(
+                onDragStart = { onResizeStart() },
                 onDragEnd = { onResizeEnd() },
                 onDragCancel = { onResizeEnd() },
                 onDrag = { change, dragAmount ->
