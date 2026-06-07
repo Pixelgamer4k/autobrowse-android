@@ -8,6 +8,7 @@ import com.autobrowse.android.domain.model.LlmBackend
 import com.autobrowse.android.domain.model.LlmConfig
 import com.autobrowse.android.domain.model.ToolDefinition
 import com.google.ai.edge.litertlm.Backend
+import com.google.ai.edge.litertlm.Content
 import com.google.ai.edge.litertlm.ConversationConfig
 import com.google.ai.edge.litertlm.Contents
 import com.google.ai.edge.litertlm.Engine
@@ -31,7 +32,7 @@ class LocalLlmService(
         requireModelFile(config)
         withConversation(config) { conversation ->
             val response = conversation.sendMessage("Reply with OK.")
-            val text = response.text?.trim().orEmpty()
+            val text = messageText(response)
             if (text.isNotBlank()) {
                 "Connected on ${config.backend.name} — model replied: ${text.take(80)}"
             } else {
@@ -61,7 +62,7 @@ class LocalLlmService(
                 ?: throw IllegalStateException("No user message to send.")
             val response = conversation.sendMessage(lastUser)
             LlmCompletion(
-                content = response.text?.trim(),
+                content = messageText(response),
                 toolCalls = emptyList(),
                 finishReason = "stop",
             )
@@ -104,7 +105,9 @@ class LocalLlmService(
                     }
                 },
                 samplerConfig = SamplerConfig(
-                    temperature = config.temperature,
+                    topK = 40,
+                    topP = 0.95,
+                    temperature = config.temperature.toDouble(),
                 ),
             ),
         ).use { conversation ->
@@ -144,6 +147,14 @@ class LocalLlmService(
 
     private fun engineCacheKey(config: LlmConfig): String =
         "${config.localModelPath}|${config.backend}|${config.localModel}"
+
+    private fun messageText(message: Message): String? {
+        val text = message.contents.contents
+            .filterIsInstance<Content.Text>()
+            .joinToString(separator = "") { it.text }
+            .trim()
+        return text.ifBlank { message.toString().trim().ifBlank { null } }
+    }
 
     private fun toBackend(backend: LlmBackend): Backend = when (backend) {
         LlmBackend.CPU -> Backend.CPU()
