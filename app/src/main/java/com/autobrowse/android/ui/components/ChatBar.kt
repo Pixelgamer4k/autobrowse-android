@@ -308,12 +308,12 @@ fun ChatComposer(
                     modifier = Modifier.size(40.dp),
                 ) {
                     Box(contentAlignment = Alignment.Center) {
-                        Icon(
-                            imageVector = Icons.Default.Add,
-                            contentDescription = "Attach file",
-                            tint = MaterialTheme.colorScheme.onSurface,
-                            modifier = Modifier.size(20.dp),
-                        )
+                    Icon(
+                        imageVector = Icons.Default.Add,
+                        contentDescription = "Attach file",
+                        tint = Color.White,
+                        modifier = Modifier.size(20.dp),
+                    )
                     }
                 }
             }

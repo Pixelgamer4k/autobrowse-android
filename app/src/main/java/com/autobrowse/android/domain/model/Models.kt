@@ -71,6 +71,8 @@ data class Session(
     val isActive: Boolean = true,
     val parentSessionId: String? = null,
     val compressionSummary: String? = null,
+    val isPinned: Boolean = false,
+    val pinnedAt: Long? = null,
 )
 
 data class MemoryEntry(

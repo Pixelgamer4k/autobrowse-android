@@ -192,6 +192,32 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    fun pinSession(sessionId: String, pinned: Boolean) {
+        viewModelScope.launch {
+            repository.setSessionPinned(sessionId, pinned)
+        }
+    }
+
+    fun deleteSession(sessionId: String) {
+        viewModelScope.launch {
+            val replacement = repository.deleteSession(sessionId)
+            if (replacement != null) {
+                _uiState.update {
+                    it.copy(
+                        session = replacement,
+                        showSessionsPanel = false,
+                        error = null,
+                    )
+                }
+                activeSessionId.value = replacement.id
+            } else if (_uiState.value.sessions.size <= 1) {
+                _uiState.update {
+                    it.copy(error = "Keep at least one session.")
+                }
+            }
+        }
+    }
+
     fun updateChatInput(value: String) {
         _uiState.update { it.copy(chatInput = value) }
     }

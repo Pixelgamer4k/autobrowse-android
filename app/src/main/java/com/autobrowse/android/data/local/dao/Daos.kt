@@ -16,7 +16,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface SessionDao {
-    @Query("SELECT * FROM sessions ORDER BY lastActiveAt DESC")
+    @Query("SELECT * FROM sessions ORDER BY isPinned DESC, pinnedAt DESC, lastActiveAt DESC")
     fun observeAll(): Flow<List<SessionEntity>>
 
     @Query("SELECT * FROM sessions WHERE isActive = 1 LIMIT 1")
@@ -36,6 +36,19 @@ interface SessionDao {
 
     @Query("UPDATE sessions SET isActive = 0")
     suspend fun deactivateAll()
+
+    @Query("DELETE FROM sessions WHERE id = :id")
+    suspend fun delete(id: String)
+
+    @Query(
+        """
+        SELECT * FROM sessions
+        WHERE id != :excludeId
+        ORDER BY isPinned DESC, pinnedAt DESC, lastActiveAt DESC
+        LIMIT 1
+        """,
+    )
+    suspend fun getFallbackSession(excludeId: String): SessionEntity?
 }
 
 @Dao
@@ -48,6 +61,9 @@ interface ChatMessageDao {
 
     @Query("SELECT * FROM chat_messages WHERE sessionId = :sessionId ORDER BY timestamp DESC LIMIT :limit")
     suspend fun getRecent(sessionId: String, limit: Int): List<ChatMessageEntity>
+
+    @Query("DELETE FROM chat_messages WHERE sessionId = :sessionId")
+    suspend fun deleteBySession(sessionId: String)
 }
 
 @Dao
@@ -110,6 +126,9 @@ interface TrajectoryDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(trajectory: TrajectoryEntity)
+
+    @Query("DELETE FROM trajectories WHERE sessionId = :sessionId")
+    suspend fun deleteBySession(sessionId: String)
 }
 
 @Dao
@@ -122,6 +141,9 @@ interface AutomationTaskDao {
 
     @Update
     suspend fun update(task: AutomationTaskEntity)
+
+    @Query("DELETE FROM automation_tasks WHERE sessionId = :sessionId")
+    suspend fun deleteBySession(sessionId: String)
 }
 
 @Dao
@@ -137,4 +159,7 @@ interface BrowserTabDao {
 
     @Query("DELETE FROM browser_tabs WHERE id = :tabId")
     suspend fun delete(tabId: String)
+
+    @Query("DELETE FROM browser_tabs WHERE sessionId = :sessionId")
+    suspend fun deleteBySession(sessionId: String)
 }

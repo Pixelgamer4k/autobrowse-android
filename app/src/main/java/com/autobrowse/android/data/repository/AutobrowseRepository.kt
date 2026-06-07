@@ -36,6 +36,7 @@ class AutobrowseRepository(
     private val taskDao = database.automationTaskDao()
     private val tabDao = database.browserTabDao()
     private val strategyDao = database.strategyDao()
+    private val trajectoryDao = database.trajectoryDao()
 
     fun observeSessions(): Flow<List<Session>> =
         sessionDao.observeAll().map { list -> list.map { it.toDomain() } }
@@ -90,6 +91,42 @@ class AutobrowseRepository(
         sessionDao.upsert(active)
         if (tabDao.countBySession(sessionId) == 0) {
             seedDefaultTab(sessionId)
+        }
+        return active.toDomain()
+    }
+
+    suspend fun setSessionPinned(sessionId: String, pinned: Boolean): Session? {
+        val session = sessionDao.getById(sessionId) ?: return null
+        val updated = session.copy(
+            isPinned = pinned,
+            pinnedAt = if (pinned) System.currentTimeMillis() else null,
+        )
+        sessionDao.update(updated)
+        return updated.toDomain()
+    }
+
+    suspend fun deleteSession(sessionId: String): Session? {
+        if (sessionDao.count() <= 1) return null
+        val target = sessionDao.getById(sessionId) ?: return null
+        val wasActive = target.isActive
+
+        chatDao.deleteBySession(sessionId)
+        tabDao.deleteBySession(sessionId)
+        taskDao.deleteBySession(sessionId)
+        trajectoryDao.deleteBySession(sessionId)
+        sessionDao.delete(sessionId)
+
+        if (!wasActive) return null
+
+        val fallback = sessionDao.getFallbackSession(sessionId)
+            ?: return createNewSession()
+
+        sessionDao.deactivateAll()
+        val now = System.currentTimeMillis()
+        val active = fallback.copy(isActive = true, lastActiveAt = now)
+        sessionDao.upsert(active)
+        if (tabDao.countBySession(active.id) == 0) {
+            seedDefaultTab(active.id)
         }
         return active.toDomain()
     }
@@ -196,7 +233,15 @@ class AutobrowseRepository(
 }
 
 private fun SessionEntity.toDomain() = Session(
-    id, title, createdAt, lastActiveAt, isActive, parentSessionId, compressionSummary,
+    id = id,
+    title = title,
+    createdAt = createdAt,
+    lastActiveAt = lastActiveAt,
+    isActive = isActive,
+    parentSessionId = parentSessionId,
+    compressionSummary = compressionSummary,
+    isPinned = isPinned,
+    pinnedAt = pinnedAt,
 )
 
 private fun ChatMessageEntity.toDomain() = ChatMessage(

@@ -85,9 +85,13 @@ private fun MainContent(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(MaterialTheme.colorScheme.background)
-            .statusBarsPadding(),
+            .background(MaterialTheme.colorScheme.background),
     ) {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .statusBarsPadding(),
+        ) {
         Column(modifier = Modifier.fillMaxSize()) {
             Box(
                 modifier = Modifier
@@ -117,16 +121,6 @@ private fun MainContent(
                         .align(Alignment.TopStart)
                         .padding(start = 10.dp, top = 8.dp)
                         .zIndex(30f),
-                )
-
-                SessionsPanelOverlay(
-                    visible = state.showSessionsPanel,
-                    sessions = state.sessions,
-                    activeSessionId = state.session?.id,
-                    onDismiss = viewModel::closeSessionsPanel,
-                    onSelectSession = viewModel::switchSession,
-                    onNewSession = viewModel::createNewSession,
-                    modifier = Modifier.zIndex(40f),
                 )
             }
 
@@ -174,5 +168,18 @@ private fun MainContent(
                 modifier = Modifier.fillMaxWidth(),
             )
         }
+        }
+
+        SessionsPanelOverlay(
+            visible = state.showSessionsPanel,
+            sessions = state.sessions,
+            activeSessionId = state.session?.id,
+            onDismiss = viewModel::closeSessionsPanel,
+            onSelectSession = viewModel::switchSession,
+            onNewSession = viewModel::createNewSession,
+            onPinSession = viewModel::pinSession,
+            onDeleteSession = viewModel::deleteSession,
+            modifier = Modifier.zIndex(50f),
+        )
     }
 }

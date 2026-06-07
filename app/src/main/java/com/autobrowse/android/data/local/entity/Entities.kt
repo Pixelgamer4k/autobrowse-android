@@ -12,6 +12,8 @@ data class SessionEntity(
     val isActive: Boolean,
     val parentSessionId: String? = null,
     val compressionSummary: String? = null,
+    val isPinned: Boolean = false,
+    val pinnedAt: Long? = null,
 )
 
 @Entity(tableName = "chat_messages")

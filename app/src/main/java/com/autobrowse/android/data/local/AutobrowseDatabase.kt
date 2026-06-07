@@ -31,7 +31,7 @@ import com.autobrowse.android.data.local.entity.TrajectoryEntity
         StrategyEntity::class,
         TrajectoryEntity::class,
     ],
-    version = 4,
+    version = 5,
     exportSchema = false,
 )
 abstract class AutobrowseDatabase : RoomDatabase() {

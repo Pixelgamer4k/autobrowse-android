@@ -35,6 +35,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
@@ -198,7 +199,12 @@ private fun TabStrip(
             }
         }
         IconButton(onClick = onAddTab, modifier = Modifier.size(36.dp)) {
-            Icon(Icons.Default.Add, contentDescription = "New tab", modifier = Modifier.size(20.dp))
+            Icon(
+                Icons.Default.Add,
+                contentDescription = "New tab",
+                modifier = Modifier.size(20.dp),
+                tint = Color.White,
+            )
         }
     }
 }
@@ -232,7 +238,12 @@ private fun BrowserToolbar(
             },
         )
         IconButton(onClick = onAddTab, modifier = Modifier.size(36.dp)) {
-            Icon(Icons.Default.Add, contentDescription = "New tab", modifier = Modifier.size(18.dp))
+            Icon(
+                Icons.Default.Add,
+                contentDescription = "New tab",
+                modifier = Modifier.size(18.dp),
+                tint = Color.White,
+            )
         }
         Icon(
             Icons.Default.DesktopWindows,
