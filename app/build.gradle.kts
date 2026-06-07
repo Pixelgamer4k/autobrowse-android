@@ -62,6 +62,7 @@ dependencies {
     implementation("androidx.compose.material3:material3")
     implementation("androidx.compose.material:material-icons-extended")
     implementation("androidx.compose.animation:animation")
+    implementation("io.coil-kt:coil:2.7.0")
     implementation("io.coil-kt:coil-compose:2.7.0")
 
     implementation("androidx.datastore:datastore-preferences:1.1.1")
@@ -93,6 +94,7 @@ dependencies {
     implementation("io.noties.markwon:linkify:$markwon")
     implementation("io.noties.markwon:html:$markwon")
     implementation("io.noties.markwon:image:$markwon")
+    implementation("io.noties.markwon:image-coil:$markwon")
     implementation("io.noties.markwon:inline-parser:$markwon")
     implementation("io.noties.markwon:ext-latex:$markwon")
     implementation("ru.noties:jlatexmath-android:0.2.0")

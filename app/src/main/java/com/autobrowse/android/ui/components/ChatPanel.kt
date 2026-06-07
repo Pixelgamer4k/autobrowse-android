@@ -187,11 +187,15 @@ private fun ChatMessageBubble(message: ChatMessage) {
                             )
                         }
                     }
-                    Text(
-                        text = message.content,
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurface,
-                    )
+                    if (shouldRenderMarkdown(message.role, message.content)) {
+                        MarkdownMessageText(content = message.content)
+                    } else {
+                        Text(
+                            text = message.content,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurface,
+                        )
+                    }
                 }
             }
         }
@@ -291,6 +295,7 @@ private fun AgentThinkingBubble(agentProgress: AgentProgress?) {
                     if (shouldRenderMarkdown(AgentRole.AGENT, preview)) {
                         MarkdownMessageText(
                             content = preview,
+                            stabilizeIncomplete = true,
                             modifier = Modifier
                                 .padding(top = 6.dp)
                                 .heightIn(max = 160.dp)
