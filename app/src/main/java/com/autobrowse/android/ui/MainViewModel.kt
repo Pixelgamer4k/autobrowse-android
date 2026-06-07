@@ -24,7 +24,6 @@ import com.autobrowse.android.domain.model.LearnedStrategy
 import com.autobrowse.android.data.local.ModelDownloadProgress
 import com.autobrowse.android.domain.model.LlmConfig
 import com.autobrowse.android.domain.model.LlmProvider
-import com.autobrowse.android.domain.model.LlmProvider.LOCAL
 import com.autobrowse.android.domain.model.LocalLlmModel
 import com.autobrowse.android.domain.model.MemoryEntry
 import com.autobrowse.android.domain.model.PendingAttachment
@@ -613,7 +612,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             }
             try {
                 val prepareModel = async {
-                    if (llmConfig.provider == LOCAL) {
+                    if (llmConfig.provider == LlmProvider.LOCAL) {
                         llmApi.prepareLocalEngine(llmConfig)
                     }
                 }
@@ -624,8 +623,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 prepareModel.await()
 
                 val pageUrl = browserController.getCurrentUrl()
-                val pageHtml = if (llmConfig.provider == LOCAL) null else browserController.getPageHtml()
-                val pageText = if (llmConfig.provider == LOCAL) null else browserController.getPageText()
+                val pageHtml = if (llmConfig.provider == LlmProvider.LOCAL) null else browserController.getPageHtml()
+                val pageText = if (llmConfig.provider == LlmProvider.LOCAL) null else browserController.getPageText()
 
                 val result = app.taskOrchestrator.runSingle(
                     request = AutoBrowseRequest(
