@@ -38,6 +38,8 @@ data class BrowserTab(
     val isAgentControlled: Boolean = false,
     val zIndex: Int = 0,
     val layout: BrowserWindowLayout = BrowserWindowLayout(),
+    val windowState: BrowserWindowState = BrowserWindowState.NORMAL,
+    val savedLayout: BrowserWindowLayout? = null,
     val desktopMode: Boolean = true,
 )
 

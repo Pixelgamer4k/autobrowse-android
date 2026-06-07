@@ -13,6 +13,7 @@ import com.autobrowse.android.domain.model.BrowserContext
 import com.autobrowse.android.domain.model.BrowserTab
 import com.autobrowse.android.domain.model.BrowserTabStatus
 import com.autobrowse.android.domain.model.BrowserWindowLayout
+import com.autobrowse.android.domain.model.BrowserWindowState
 import com.autobrowse.android.domain.model.ChatMessage
 import com.autobrowse.android.domain.model.LearnedStrategy
 import com.autobrowse.android.domain.model.LlmConfig
@@ -171,7 +172,74 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         val session = sessionId ?: return
         val tab = _uiState.value.tabs.find { it.id == tabId } ?: return
         viewModelScope.launch {
-            repository.saveTab(tab.copy(layout = layout.clamped()), session)
+            repository.saveTab(
+                tab.copy(layout = layout.clamped(), windowState = BrowserWindowState.NORMAL),
+                session,
+            )
+        }
+    }
+
+    fun refreshTab(tabId: String) {
+        val tab = _uiState.value.tabs.find { it.id == tabId } ?: return
+        browserController.loadUrl(tab.url, tabId)
+        selectTab(tabId)
+    }
+
+    fun closeTab(tabId: String) {
+        val session = sessionId ?: return
+        viewModelScope.launch {
+            repository.deleteTab(tabId)
+            val remaining = _uiState.value.tabs.filter { it.id != tabId }
+            val nextActive = if (_uiState.value.activeTabId == tabId) {
+                remaining.maxByOrNull { it.zIndex }?.id
+            } else {
+                _uiState.value.activeTabId
+            }
+            nextActive?.let { browserController.setActiveTab(it) }
+            _uiState.update { it.copy(activeTabId = nextActive) }
+        }
+    }
+
+    fun toggleMaximizeTab(tabId: String) {
+        val session = sessionId ?: return
+        val tab = _uiState.value.tabs.find { it.id == tabId } ?: return
+        val updated = when (tab.windowState) {
+            BrowserWindowState.MAXIMIZED, BrowserWindowState.MINIMIZED -> tab.copy(
+                windowState = BrowserWindowState.NORMAL,
+                layout = tab.savedLayout?.clamped() ?: tab.layout,
+                savedLayout = null,
+            )
+            BrowserWindowState.NORMAL -> tab.copy(
+                windowState = BrowserWindowState.MAXIMIZED,
+                savedLayout = tab.layout,
+                layout = BrowserWindowLayout.maximized(),
+            )
+        }
+        viewModelScope.launch {
+            repository.saveTab(updated, session)
+            selectTab(tabId)
+        }
+    }
+
+    fun minimizeTab(tabId: String) {
+        val session = sessionId ?: return
+        val tab = _uiState.value.tabs.find { it.id == tabId } ?: return
+        if (tab.windowState == BrowserWindowState.MINIMIZED) {
+            toggleMaximizeTab(tabId)
+            return
+        }
+        val layoutBeforeMinimize = when (tab.windowState) {
+            BrowserWindowState.MAXIMIZED -> tab.savedLayout ?: tab.layout
+            else -> tab.layout
+        }
+        val updated = tab.copy(
+            windowState = BrowserWindowState.MINIMIZED,
+            savedLayout = layoutBeforeMinimize,
+            layout = layoutBeforeMinimize.clamped(),
+        )
+        viewModelScope.launch {
+            repository.saveTab(updated, session)
+            selectTab(tabId)
         }
     }
 

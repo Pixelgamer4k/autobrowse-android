@@ -14,6 +14,7 @@ import com.autobrowse.android.domain.model.AutomationTask
 import com.autobrowse.android.domain.model.BrowserTab
 import com.autobrowse.android.domain.model.BrowserTabStatus
 import com.autobrowse.android.domain.model.BrowserWindowLayout
+import com.autobrowse.android.domain.model.BrowserWindowState
 import com.autobrowse.android.domain.model.ChatMessage
 import com.autobrowse.android.domain.model.LearnedStrategy
 import com.autobrowse.android.domain.model.LlmConfig
@@ -228,6 +229,20 @@ private fun BrowserTabEntity.toDomain() = BrowserTab(
     isAgentControlled = isAgentControlled,
     zIndex = zIndex,
     layout = BrowserWindowLayout(offsetX, offsetY, widthFraction, heightFraction),
+    windowState = runCatching { BrowserWindowState.valueOf(windowState) }
+        .getOrDefault(BrowserWindowState.NORMAL),
+    savedLayout = if (savedOffsetX != null && savedOffsetY != null &&
+        savedWidthFraction != null && savedHeightFraction != null
+    ) {
+        BrowserWindowLayout(
+            savedOffsetX,
+            savedOffsetY,
+            savedWidthFraction,
+            savedHeightFraction,
+        )
+    } else {
+        null
+    },
     desktopMode = desktopMode,
 )
 
@@ -244,6 +259,11 @@ private fun BrowserTab.toEntity(sessionId: String) = BrowserTabEntity(
     offsetY = layout.offsetY,
     widthFraction = layout.widthFraction,
     heightFraction = layout.heightFraction,
+    windowState = windowState.name,
+    savedOffsetX = savedLayout?.offsetX,
+    savedOffsetY = savedLayout?.offsetY,
+    savedWidthFraction = savedLayout?.widthFraction,
+    savedHeightFraction = savedLayout?.heightFraction,
     desktopMode = desktopMode,
 )
 

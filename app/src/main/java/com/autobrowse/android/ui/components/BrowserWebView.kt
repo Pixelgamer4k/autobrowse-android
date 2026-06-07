@@ -9,13 +9,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.viewinterop.AndroidView
 import com.autobrowse.android.browser.BrowserController
 import com.autobrowse.android.browser.DesktopBrowserConfig
 import com.autobrowse.android.domain.model.BrowserTab
 import com.autobrowse.android.domain.model.BrowserTabStatus
-
 @SuppressLint("SetJavaScriptEnabled")
 @Composable
 fun BrowserWebView(
@@ -37,7 +37,9 @@ fun BrowserWebView(
     }
 
     AndroidView(
-        modifier = modifier,
+        modifier = modifier.onSizeChanged {
+            webView.post { DesktopBrowserConfig.fitToWindow(webView) }
+        },
         factory = { webView },
         update = { view ->
             DesktopBrowserConfig.apply(view)
@@ -47,7 +49,7 @@ fun BrowserWebView(
                 }
 
                 override fun onPageFinished(view: WebView?, url: String?) {
-                    view?.evaluateJavascript(DesktopBrowserConfig.VIEWPORT_INJECT_SCRIPT, null)
+                    view?.post { view.let { DesktopBrowserConfig.fitToWindow(it) } }
                     onTabUpdate(
                         tab.copy(
                             url = url ?: tab.url,

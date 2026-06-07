@@ -19,7 +19,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.DesktopWindows
 import androidx.compose.material.icons.filled.Language
-import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -56,6 +55,10 @@ fun BrowserPanel(
     onTabUpdate: (BrowserTab) -> Unit,
     onLayoutChange: (String, BrowserWindowLayout) -> Unit,
     onNavigate: (String) -> Unit,
+    onRefreshTab: (String) -> Unit,
+    onToggleMaximizeTab: (String) -> Unit,
+    onMinimizeTab: (String) -> Unit,
+    onCloseTab: (String) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val activeTab = tabs.find { it.id == activeTabId } ?: tabs.firstOrNull()
@@ -83,7 +86,7 @@ fun BrowserPanel(
             if (tabs.isEmpty()) {
                 Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                     Text(
-                        "No browser windows",
+                        "No browser windows — tap + to open one",
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f),
                     )
@@ -100,6 +103,10 @@ fun BrowserPanel(
                         onSelect = { onSelectTab(tab.id) },
                         onTabUpdate = onTabUpdate,
                         onLayoutChange = { layout -> onLayoutChange(tab.id, layout) },
+                        onRefresh = { onRefreshTab(tab.id) },
+                        onToggleMaximize = { onToggleMaximizeTab(tab.id) },
+                        onMinimize = { onMinimizeTab(tab.id) },
+                        onClose = { onCloseTab(tab.id) },
                         modifier = Modifier.zIndex(if (isActive) 100f else tab.zIndex.toFloat()),
                     )
                 }
@@ -108,9 +115,7 @@ fun BrowserPanel(
 
         BrowserToolbar(
             url = activeTab?.url.orEmpty(),
-            desktopMode = true,
             onNavigate = onNavigate,
-            onRefresh = { activeTab?.let { controller.loadUrl(it.url, it.id) } },
             onAddTab = onAddTab,
         )
     }
@@ -169,8 +174,8 @@ private fun TabStrip(
                 }
             }
         }
-        IconButton(onClick = onAddTab, modifier = Modifier.size(32.dp)) {
-            Icon(Icons.Default.Add, contentDescription = "New tab", modifier = Modifier.size(18.dp))
+        IconButton(onClick = onAddTab, modifier = Modifier.size(36.dp)) {
+            Icon(Icons.Default.Add, contentDescription = "New tab", modifier = Modifier.size(20.dp))
         }
     }
 }
@@ -199,79 +204,39 @@ private fun StatusDots(status: BrowserTabStatus, modifier: Modifier = Modifier) 
 @Composable
 private fun BrowserToolbar(
     url: String,
-    desktopMode: Boolean,
     onNavigate: (String) -> Unit,
-    onRefresh: () -> Unit,
     onAddTab: () -> Unit,
 ) {
     var address by remember { mutableStateOf(url) }
     LaunchedEffect(url) { address = url }
 
-    Column(
+    Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 12.dp, vertical = 6.dp),
-        verticalArrangement = Arrangement.spacedBy(6.dp),
+            .padding(horizontal = 12.dp, vertical = 8.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         OutlinedTextField(
             value = address,
             onValueChange = { address = it },
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.weight(1f),
             singleLine = true,
             label = { Text("Address") },
             trailingIcon = {
-                IconButton(onClick = { onNavigate(address) }) {
+                IconButton(onClick = { onNavigate(address) }, modifier = Modifier.size(40.dp)) {
                     Icon(Icons.Default.Language, contentDescription = "Go")
                 }
             },
         )
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceEvenly,
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            listOf(
-                Icons.Default.Refresh to onRefresh,
-                Icons.Default.Add to onAddTab,
-            ).forEach { (icon, action) ->
-                Surface(
-                    modifier = Modifier
-                        .weight(1f)
-                        .padding(horizontal = 4.dp)
-                        .height(28.dp)
-                        .clickable(onClick = action),
-                    shape = RoundedCornerShape(14.dp),
-                    color = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.5f),
-                ) {
-                    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                        Icon(
-                            imageVector = icon,
-                            contentDescription = null,
-                            modifier = Modifier.size(16.dp),
-                            tint = MaterialTheme.colorScheme.onPrimaryContainer,
-                        )
-                    }
-                }
-            }
-            if (desktopMode) {
-                Row(
-                    modifier = Modifier.padding(start = 8.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(4.dp),
-                ) {
-                    Icon(
-                        Icons.Default.DesktopWindows,
-                        contentDescription = "Desktop mode",
-                        modifier = Modifier.size(14.dp),
-                        tint = MaterialTheme.colorScheme.primary,
-                    )
-                    Text(
-                        text = "Desktop",
-                        style = MaterialTheme.typography.labelSmall,
-                        color = MaterialTheme.colorScheme.primary,
-                    )
-                }
-            }
+        IconButton(onClick = onAddTab, modifier = Modifier.size(44.dp)) {
+            Icon(Icons.Default.Add, contentDescription = "New tab")
         }
+        Icon(
+            Icons.Default.DesktopWindows,
+            contentDescription = "Desktop mode",
+            modifier = Modifier.size(18.dp),
+            tint = MaterialTheme.colorScheme.primary,
+        )
     }
 }
