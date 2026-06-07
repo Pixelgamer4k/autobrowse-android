@@ -14,9 +14,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.isImeVisible
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AttachFile
 import androidx.compose.material.icons.filled.Settings
@@ -47,7 +44,6 @@ import com.autobrowse.android.domain.model.PendingAttachment
 
 private val UserBubbleBg = Color(0xFF2C2C2E)
 
-@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun ChatPanel(
     messages: List<ChatMessage>,
@@ -60,11 +56,11 @@ fun ChatPanel(
     onRemoveAttachment: (String) -> Unit,
     onSend: () -> Unit,
     onSettings: () -> Unit,
+    onChatInputFocusChange: (Boolean) -> Unit = {},
     error: String?,
     modifier: Modifier = Modifier,
 ) {
     var inputFocused by remember { mutableStateOf(false) }
-    val keyboardVisible = WindowInsets.isImeVisible
 
     Column(
         modifier = modifier
@@ -77,7 +73,7 @@ fun ChatPanel(
             messages = messages,
             isAgentThinking = isAgentThinking,
             agentProgress = agentProgress,
-            scrollOnInput = inputFocused || keyboardVisible,
+            scrollOnInput = inputFocused,
             modifier = Modifier
                 .weight(1f)
                 .fillMaxWidth(),
@@ -100,7 +96,10 @@ fun ChatPanel(
             onRemoveAttachment = onRemoveAttachment,
             onSend = onSend,
             isSending = isAgentThinking,
-            onFocusChange = { inputFocused = it },
+            onFocusChange = {
+                inputFocused = it
+                onChatInputFocusChange(it)
+            },
             modifier = Modifier.fillMaxWidth(),
         )
     }

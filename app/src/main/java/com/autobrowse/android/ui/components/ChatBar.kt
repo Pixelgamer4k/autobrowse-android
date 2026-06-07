@@ -184,7 +184,7 @@ fun ChatComposer(
         modifier = modifier
             .fillMaxWidth()
             .background(MaterialTheme.colorScheme.background)
-            .imePadding()
+            .then(if (isFocused) Modifier.imePadding() else Modifier)
             .navigationBarsPadding()
             .padding(horizontal = 16.dp, vertical = 10.dp),
     ) {

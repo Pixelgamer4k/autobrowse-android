@@ -2,6 +2,7 @@ package com.autobrowse.android.ui.components
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -13,7 +14,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
@@ -156,61 +156,50 @@ private fun TabStrip(
                 animationSpec = Motion.springSnappy,
                 label = "tabScale",
             )
+            val tabBg = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = if (selected) 0.55f else 0.35f)
+            val tabBorder = if (selected) {
+                MaterialTheme.colorScheme.onSurface.copy(alpha = 0.42f)
+            } else {
+                MaterialTheme.colorScheme.outline.copy(alpha = 0.18f)
+            }
             Surface(
                 modifier = Modifier
                     .weight(1f, fill = false)
                     .height(32.dp)
                     .scale(scale)
+                    .border(1.dp, tabBorder, RoundedCornerShape(8.dp))
                     .clickable { onSelectTab(tab.id) },
                 shape = RoundedCornerShape(8.dp),
-                color = if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surface,
-                tonalElevation = if (selected) 4.dp else 1.dp,
+                color = tabBg,
+                tonalElevation = 0.dp,
             ) {
                 Row(
-                    modifier = Modifier.padding(horizontal = 6.dp),
+                    modifier = Modifier.padding(horizontal = 8.dp),
                     verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(4.dp),
+                    horizontalArrangement = Arrangement.spacedBy(5.dp),
                 ) {
                     Icon(
                         imageVector = Icons.Default.Language,
                         contentDescription = null,
-                        modifier = Modifier.size(14.dp),
-                        tint = if (selected) Color.White else MaterialTheme.colorScheme.onSurface,
+                        modifier = Modifier.size(13.dp),
+                        tint = MaterialTheme.colorScheme.onSurface.copy(
+                            alpha = if (selected) 0.9f else 0.55f,
+                        ),
                     )
                     Text(
                         text = tab.title.take(12),
                         style = MaterialTheme.typography.labelSmall,
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis,
-                        color = if (selected) Color.White else MaterialTheme.colorScheme.onSurface,
+                        color = MaterialTheme.colorScheme.onSurface.copy(
+                            alpha = if (selected) 0.92f else 0.55f,
+                        ),
                     )
-                    StatusDots(status = tab.status)
                 }
             }
         }
         IconButton(onClick = onAddTab, modifier = Modifier.size(36.dp)) {
             Icon(Icons.Default.Add, contentDescription = "New tab", modifier = Modifier.size(20.dp))
-        }
-    }
-}
-
-@Composable
-private fun StatusDots(status: BrowserTabStatus, modifier: Modifier = Modifier) {
-    val colors = when (status) {
-        BrowserTabStatus.ACTIVE -> listOf(Color(0xFF4CAF50), Color(0xFF8BC34A), Color(0xFFCDDC39))
-        BrowserTabStatus.AGENT_CONTROLLED -> listOf(Color(0xFF00BCD4), Color(0xFF4CAF50), Color(0xFFFFC107))
-        BrowserTabStatus.LOADING -> listOf(Color(0xFFFFC107), Color(0xFFFFC107), Color(0xFFE0E0E0))
-        BrowserTabStatus.ERROR -> listOf(Color(0xFFF44336), Color(0xFFF44336), Color(0xFFE0E0E0))
-        BrowserTabStatus.IDLE -> listOf(Color(0xFFE0E0E0), Color(0xFFE0E0E0), Color(0xFFE0E0E0))
-    }
-    Row(modifier = modifier, horizontalArrangement = Arrangement.spacedBy(3.dp)) {
-        colors.forEach { color ->
-            Box(
-                modifier = Modifier
-                    .size(6.dp)
-                    .clip(CircleShape)
-                    .background(color),
-            )
         }
     }
 }

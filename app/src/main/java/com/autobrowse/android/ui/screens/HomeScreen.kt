@@ -9,15 +9,15 @@ import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.isImeVisible
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -64,20 +64,19 @@ fun HomeScreen(viewModel: MainViewModel) {
     }
 }
 
-@OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun MainContent(
     viewModel: MainViewModel,
     state: com.autobrowse.android.ui.MainUiState,
 ) {
-    val keyboardOpen = WindowInsets.isImeVisible
+    var chatInputFocused by remember { mutableStateOf(false) }
     val browserWeight by animateFloatAsState(
-        targetValue = if (keyboardOpen) 0f else 0.56f,
+        targetValue = if (chatInputFocused) 0f else 0.56f,
         animationSpec = Motion.springSmooth,
         label = "browserWeight",
     )
     val chatWeight by animateFloatAsState(
-        targetValue = if (keyboardOpen) 1f else 0.44f,
+        targetValue = if (chatInputFocused) 1f else 0.44f,
         animationSpec = Motion.springSmooth,
         label = "chatWeight",
     )
@@ -140,6 +139,7 @@ private fun MainContent(
             onRemoveAttachment = viewModel::removeAttachment,
             onSend = viewModel::sendMessage,
             onSettings = { viewModel.toggleSettings(true) },
+            onChatInputFocusChange = { chatInputFocused = it },
             error = state.error,
             modifier = Modifier
                 .fillMaxWidth()
