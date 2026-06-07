@@ -1,0 +1,23 @@
+The image shows a smartphone screen displaying the "LLM Setup" page of a mobile application in dark mode. The phone has a black bezel and is centered against a dark gray gradient background.
+
+**Status bar (top):** Shows the time "2:28", a red square icon, a green square icon, carrier name "MEO", signal strength bars, Wi-Fi symbol, "3.00 KB/s" data speed, and a battery indicator at "91%".
+
+**Main content:**
+
+- **Header:** A left-pointing arrow followed by the title "LLM Setup" in white text.
+- **Recommendation text:** "Cloud API is recommended for fast, reliable agent runs. Local on-device models are experimental."
+- **Selection toggle:** Two pill-shaped buttons side by side. The left one ("Cloud API (recommended)") is selected, shown in dark gray/purple with a white checkmark. The right one ("Local (experimental)") is unselected and outlined.
+- **Description text:** "OpenAI-compatible endpoint — best experience on mobile. Credentials are stored encrypted on device."
+- **Model options:** Three rounded rectangular buttons listing models:
+  - "gpt-4o-mini"
+  - "gpt-4o"
+  - "claude-sonnet-4"
+- **Input fields** (all with light gray borders on black background):
+  - "API Token" field containing a row of masked dots.
+  - "API URL" field pre-filled with "https://openrouter.ai/api/v1".
+  - "Model ID" field pre-filled with "openrouter/owl-alpha", accompanied by a circular refresh icon on the right.
+- **Action buttons** (bottom):
+  - "Test" button (dark, outlined).
+  - "Save" button (white background with black text, more prominent).
+
+The overall UI uses a clean, modern mobile design with white text on a black background, typical of a settings or configuration screen for connecting to large language model APIs.

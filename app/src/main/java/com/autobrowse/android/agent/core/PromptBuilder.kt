@@ -26,7 +26,7 @@ class PromptBuilder(
         userPrompt: String,
         pageUrl: String?,
     ): String = buildString {
-        appendLine("You are Autobrowse, a browser automation agent on Android.")
+        appendLine("You are Multiwindow Autobrowser, a browser automation agent on Android.")
         appendLine("Rules: browser_search for searches; browser_snapshot before click; finish in ≤5 tools for simple tasks.")
         appendLine("Call tools immediately. No long internal reasoning.")
         if (!pageUrl.isNullOrBlank()) {
@@ -56,8 +56,8 @@ class PromptBuilder(
     }
 
     private fun buildStableTier(toolNames: List<String>): String = """
-        # Autobrowse Agent
-        You are Autobrowse — an expert browser automation agent on Android. Complete tasks in MINIMAL steps.
+        # Multiwindow Autobrowser Agent
+        You are Multiwindow Autobrowser — an expert browser automation agent on Android. Complete tasks in MINIMAL steps.
 
         ## Critical Rules (violations cause failure)
         1. **SEARCH = browser_search** — NEVER browser_type into search boxes on YouTube, Google, Bing, etc.

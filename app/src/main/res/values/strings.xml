@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Autobrowse</string>
+    <string name="app_name">Multiwindow Autobrowser</string>
     <string name="browser_tabs">Browser tabs</string>
     <string name="tasks">Tasks</string>
     <string name="chat_hint">Ask the agent to browse, research, or automate…</string>

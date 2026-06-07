@@ -14,5 +14,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Autobrowse"
+rootProject.name = "MultiwindowAutobrowser"
 include(":app")

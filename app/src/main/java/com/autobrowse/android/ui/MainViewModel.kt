@@ -811,7 +811,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         Intent(Intent.ACTION_SEND).apply {
             type = "application/json"
             putExtra(Intent.EXTRA_STREAM, uri)
-            putExtra(Intent.EXTRA_SUBJECT, "Autobrowse learned skills")
+            putExtra(Intent.EXTRA_SUBJECT, "Multiwindow Autobrowser learned skills")
             addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         }
 

@@ -4,13 +4,73 @@
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
+    <!-- Ambient glow -->
     <path
-        android:fillColor="#0D7377"
-        android:pathData="M24,32h60v44H24z" />
+        android:fillColor="#33FFFFFF"
+        android:pathData="M54,54m-34,0a34,34 0,1 1,68 0a34,34 0,1 1,-68 0" />
+
+    <!-- Back window shadow -->
+    <path
+        android:fillColor="#33000000"
+        android:pathData="M24,36h46v34c0,3.2 2.6,5.8 5.8,5.8h0c3.2,0 5.8,-2.6 5.8,-5.8V36H24z" />
+    <!-- Back window -->
+    <path
+        android:fillColor="#3D4A6B"
+        android:pathData="M22,32h46v34c0,3.2 2.6,5.8 5.8,5.8h0c3.2,0 5.8,-2.6 5.8,-5.8V32H22z" />
+    <path
+        android:fillColor="#55648A"
+        android:pathData="M22,32h46v7H22z" />
+
+    <!-- Middle window shadow -->
+    <path
+        android:fillColor="#44000000"
+        android:pathData="M32,44h48v36c0,3.2 2.6,5.8 5.8,5.8h0c3.2,0 5.8,-2.6 5.8,-5.8V44H32z" />
+    <!-- Middle window -->
+    <path
+        android:fillColor="#5E6F98"
+        android:pathData="M30,40h48v36c0,3.2 2.6,5.8 5.8,5.8h0c3.2,0 5.8,-2.6 5.8,-5.8V40H30z" />
+    <path
+        android:fillColor="#7A8CB5"
+        android:pathData="M30,40h48v8H30z" />
+    <path
+        android:fillColor="#9AA8C8"
+        android:pathData="M36,54h20v3H36zM36,60h14v3H36z" />
+
+    <!-- Front window shadow -->
+    <path
+        android:fillColor="#55000000"
+        android:pathData="M40,52h52v40c0,3.5 2.8,6.3 6.3,6.3h0c3.5,0 6.3,-2.8 6.3,-6.3V52H40z" />
+    <!-- Front window body -->
+    <path
+        android:fillColor="#F4F7FF"
+        android:pathData="M38,48h52v40c0,3.5 2.8,6.3 6.3,6.3h0c3.5,0 6.3,-2.8 6.3,-6.3V48H38z" />
+    <!-- Front window top highlight -->
     <path
         android:fillColor="#FFFFFF"
-        android:pathData="M32,40h44v4H32zM32,50h32v4H32zM32,60h24v4H32z" />
+        android:pathData="M38,48h52v9H38z" />
+    <!-- Window chrome dots -->
+    <path
+        android:fillColor="#D0D7E8"
+        android:pathData="M44,52m-2,0a2,2 0,1 1,4 0a2,2 0,1 1,-4 0" />
+    <path
+        android:fillColor="#D0D7E8"
+        android:pathData="M52,52m-2,0a2,2 0,1 1,4 0a2,2 0,1 1,-4 0" />
+    <path
+        android:fillColor="#D0D7E8"
+        android:pathData="M60,52m-2,0a2,2 0,1 1,4 0a2,2 0,1 1,-4 0" />
+    <!-- Content lines -->
+    <path
+        android:fillColor="#C5D0E6"
+        android:pathData="M44,64h34v3H44zM44,70h24v3H44zM44,76h30v3H44z" />
+    <!-- Accent search orb -->
     <path
         android:fillColor="#14FFEC"
-        android:pathData="M54,72m-8,0a8,8 0,1 1,16 0a8,8 0,1 1,-16 0" />
+        android:pathData="M74,78m-7,0a7,7 0,1 1,14 0a7,7 0,1 1,-14 0" />
+    <path
+        android:fillColor="#0D7377"
+        android:pathData="M79,83 L84,88 L82,90 L77,85z" />
+    <!-- Specular highlight -->
+    <path
+        android:fillColor="#66FFFFFF"
+        android:pathData="M42,50h18v2H42z" />
 </vector>
