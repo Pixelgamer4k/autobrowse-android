@@ -52,6 +52,18 @@ class BrowserController {
         webViewFor(tabId)?.goBack()
     }
 
+    fun goForward(tabId: String? = null) {
+        webViewFor(tabId)?.goForward()
+    }
+
+    fun reload(tabId: String? = null) {
+        webViewFor(tabId)?.reload()
+    }
+
+    fun stopLoading(tabId: String? = null) {
+        webViewFor(tabId)?.stopLoading()
+    }
+
     suspend fun getPageHtml(tabId: String? = null): String? = evaluateJs(
         script = """
         (function() {

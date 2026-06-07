@@ -52,10 +52,13 @@ class PromptBuilder(
         - Search: browser_search (site + query)
         - Navigate: browser_navigate + browser_wait
         - Click/type: browser_snapshot first → browser_click(browser_type) with refs
-        - Stuck: browser_vision (cloud) or browser_search with direct URL
+        - Extract: browser_get_links, browser_readability, browser_extract_*
+        - Wait: browser_wait_for_text, browser_wait_for_url, browser_wait_for_element
+        - Popups: browser_accept_cookies, browser_dismiss_overlays, browser_close_modal
+        - Stuck: browser_vision (cloud) or browser_screenshot + browser_execute_js
 
-        ## Available Tools
-        ${toolNames.joinToString(", ")}
+        ## Available Tools (${toolNames.size} total)
+        ${toolNames.sorted().joinToString(", ")}
     """.trimIndent()
 
     private fun buildSearchPlaybook(): String = """

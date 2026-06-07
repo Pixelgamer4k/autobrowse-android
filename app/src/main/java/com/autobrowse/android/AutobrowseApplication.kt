@@ -8,6 +8,7 @@ import com.autobrowse.android.agent.core.ContextCompressor
 import com.autobrowse.android.agent.core.PromptBuilder
 import com.autobrowse.android.agent.memory.MemoryManager
 import com.autobrowse.android.agent.orchestration.TaskOrchestrator
+import com.autobrowse.android.agent.tools.BrowserAdvancedTools
 import com.autobrowse.android.agent.tools.BrowserBackTool
 import com.autobrowse.android.agent.tools.BrowserSearchTool
 import com.autobrowse.android.agent.tools.BrowserWaitTool
@@ -184,6 +185,7 @@ class AutobrowseApplication : Application(), Configuration.Provider {
                 BrowserTabCloseTool(tabManager),
                 BrowserTabSwitchTool(tabManager),
                 BrowserTabListTool(tabManager),
+                *BrowserAdvancedTools.createAll(browserController).toTypedArray(),
                 WebFetchTool(skillRegistry, repository),
                 ExtractDataTool(skillRegistry, repository),
                 SummarizeTool(skillRegistry, repository),
