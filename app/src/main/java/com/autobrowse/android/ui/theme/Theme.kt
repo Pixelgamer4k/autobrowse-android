@@ -16,20 +16,23 @@ private val TealPrimary = Color(0xFF0D7377)
 private val TealLight = Color(0xFF14A085)
 
 private val DarkColors = darkColorScheme(
-    primary = Color(0xFFFFFFFF),
-    onPrimary = Color(0xFF000000),
-    primaryContainer = Color(0xFF2C2C2E),
-    onPrimaryContainer = Color(0xFFF5F5F5),
-    secondary = Color(0xFF8E8E93),
+    primary = Color(0xFFF2F2F7),
+    onPrimary = Color(0xFF0A0A0C),
+    primaryContainer = Color(0xFF2C2C36),
+    onPrimaryContainer = Color(0xFFF5F5F7),
+    secondary = Color(0xFF9898A0),
     onSecondary = Color(0xFF000000),
+    tertiary = Color(0xFF6B7FD7),
     background = Color(0xFF000000),
-    surface = Color(0xFF000000),
-    surfaceVariant = Color(0xFF1C1C1E),
-    onBackground = Color(0xFFF5F5F5),
-    onSurface = Color(0xFFF5F5F5),
-    onSurfaceVariant = Color(0xFFAEAEB2),
-    outline = Color(0xFF3A3A3C),
-    outlineVariant = Color(0xFF2C2C2E),
+    surface = Color(0xFF0C0C10),
+    surfaceVariant = Color(0xFF1C1C24),
+    surfaceContainerHigh = Color(0xFF22222C),
+    surfaceContainerHighest = Color(0xFF2A2A34),
+    onBackground = Color(0xFFF2F2F7),
+    onSurface = Color(0xFFF2F2F7),
+    onSurfaceVariant = Color(0xFFAEAEB8),
+    outline = Color(0xFF45454F),
+    outlineVariant = Color(0xFF2E2E38),
 )
 
 private val LightColors = lightColorScheme(

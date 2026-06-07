@@ -34,7 +34,10 @@ import com.autobrowse.android.ui.components.ChatComposer
 import com.autobrowse.android.ui.components.ChatPanel
 import com.autobrowse.android.ui.components.SessionsLauncherButton
 import com.autobrowse.android.ui.components.SessionsPanelOverlay
+import com.autobrowse.android.ui.theme.AppGradients
+import com.autobrowse.android.ui.theme.ComposerTopFade
 import com.autobrowse.android.ui.theme.Motion
+import com.autobrowse.android.ui.theme.SectionSeparator
 
 @Composable
 fun HomeScreen(viewModel: MainViewModel) {
@@ -91,7 +94,8 @@ private fun MainContent(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .weight(0.56f),
+                    .weight(0.56f)
+                    .background(AppGradients.browserSection),
             ) {
                 BrowserPanel(
                     tabs = state.tabs,
@@ -128,6 +132,8 @@ private fun MainContent(
                 )
             }
 
+            SectionSeparator()
+
             ChatPanel(
                 messages = state.messages,
                 isAgentThinking = state.isAgentThinking,
@@ -137,7 +143,8 @@ private fun MainContent(
                 composerBottomPadding = composerBottomPadding,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .weight(0.44f),
+                    .weight(0.44f)
+                    .background(AppGradients.chatSection),
             )
         }
 
@@ -147,6 +154,8 @@ private fun MainContent(
                 .fillMaxWidth()
                 .onSizeChanged { composerHeightPx = it.height },
         ) {
+            ComposerTopFade()
+
             state.error?.let { error ->
                 Text(
                     text = error,

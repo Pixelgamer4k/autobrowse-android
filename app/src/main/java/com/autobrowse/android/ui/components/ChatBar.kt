@@ -20,6 +20,7 @@ import androidx.compose.animation.slideOutVertically
 import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.Arrangement
@@ -54,7 +55,6 @@ import androidx.compose.material.icons.filled.Videocam
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
@@ -67,6 +67,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
@@ -79,12 +80,12 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.autobrowse.android.domain.model.AttachmentType
 import com.autobrowse.android.domain.model.PendingAttachment
+import com.autobrowse.android.ui.theme.AppGradients
 import com.autobrowse.android.ui.theme.Motion
+import com.autobrowse.android.ui.theme.SectionSeparator
 import java.util.UUID
 
-private val ComposerInputBg = Color(0xFF1C1C1E)
-private val ComposerButtonBg = Color(0xFF2C2C2E)
-private val ComposerBorder = Color(0xFF3A3A3C)
+private val ComposerBorder = Color(0xFF4A4A56)
 
 @Composable
 fun ChatBar(
@@ -197,10 +198,14 @@ fun ChatComposer(
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .background(MaterialTheme.colorScheme.background)
-            .windowInsetsPadding(bottomInsets.only(WindowInsetsSides.Bottom))
-            .padding(horizontal = 16.dp, vertical = 10.dp),
+            .background(AppGradients.composerDock)
+            .windowInsetsPadding(bottomInsets.only(WindowInsetsSides.Bottom)),
     ) {
+        SectionSeparator()
+
+        Column(
+            modifier = Modifier.padding(horizontal = 16.dp, vertical = 10.dp),
+        ) {
         AttachmentPickerSheet(
             visible = showPicker,
             onDismiss = { showPicker = false },
@@ -234,7 +239,7 @@ fun ChatComposer(
                 .fillMaxWidth()
                 .heightIn(min = 52.dp)
                 .clip(RoundedCornerShape(22.dp))
-                .background(ComposerInputBg)
+                .background(AppGradients.composerInput)
                 .border(
                     width = 1.dp,
                     color = if (isFocused) {
@@ -292,24 +297,40 @@ fun ChatComposer(
                 },
                 label = "attachIcon",
             ) { expanded ->
-                Surface(
-                    onClick = { showPicker = !expanded },
-                    shape = CircleShape,
-                    color = if (expanded) {
-                        MaterialTheme.colorScheme.onSurface.copy(alpha = 0.18f)
-                    } else {
-                        ComposerButtonBg
-                    },
-                    modifier = Modifier.size(40.dp),
-                ) {
-                    Box(contentAlignment = Alignment.Center) {
-                        Icon(
-                            imageVector = Icons.Default.Add,
-                            contentDescription = "Attach file",
-                            tint = MaterialTheme.colorScheme.onSurface,
-                            modifier = Modifier.size(20.dp),
+                Box(
+                    modifier = Modifier
+                        .size(40.dp)
+                        .clip(CircleShape)
+                        .background(
+                            if (expanded) {
+                                Brush.radialGradient(
+                                    colors = listOf(
+                                        MaterialTheme.colorScheme.tertiary.copy(alpha = 0.35f),
+                                        Color(0xFF2A2A36),
+                                    ),
+                                )
+                            } else {
+                                AppGradients.actionChip
+                            },
                         )
-                    }
+                        .border(
+                            width = 1.dp,
+                            color = if (expanded) {
+                                MaterialTheme.colorScheme.tertiary.copy(alpha = 0.4f)
+                            } else {
+                                Color.White.copy(alpha = 0.1f)
+                            },
+                            shape = CircleShape,
+                        )
+                        .clickable { showPicker = !expanded },
+                    contentAlignment = Alignment.Center,
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Add,
+                        contentDescription = "Attach file",
+                        tint = MaterialTheme.colorScheme.onSurface,
+                        modifier = Modifier.size(20.dp),
+                    )
                 }
             }
 
@@ -341,38 +362,48 @@ fun ChatComposer(
                     label = "micSendToggle",
                 ) { sending ->
                     if (sending) {
-                        Surface(
-                            onClick = onSend,
-                            enabled = canSend,
-                            shape = CircleShape,
-                            color = if (canSend) {
-                                MaterialTheme.colorScheme.primary
-                            } else {
-                                ComposerButtonBg
-                            },
+                        Box(
                             modifier = Modifier
                                 .size(40.dp)
-                                .scale(sendScale),
-                        ) {
-                            Box(contentAlignment = Alignment.Center) {
-                                Icon(
-                                    Icons.Default.ArrowUpward,
-                                    contentDescription = "Send",
-                                    tint = if (canSend) {
-                                        MaterialTheme.colorScheme.onPrimary
-                                    } else {
-                                        MaterialTheme.colorScheme.onSurface.copy(alpha = 0.35f)
-                                    },
-                                    modifier = Modifier.size(20.dp),
+                                .scale(sendScale)
+                                .clip(CircleShape)
+                                .background(
+                                    if (canSend) AppGradients.sendButton else AppGradients.actionChip,
                                 )
-                            }
+                                .border(
+                                    width = 1.dp,
+                                    color = if (canSend) {
+                                        Color.White.copy(alpha = 0.25f)
+                                    } else {
+                                        Color.White.copy(alpha = 0.08f)
+                                    },
+                                    shape = CircleShape,
+                                )
+                                .clickable(enabled = canSend, onClick = onSend),
+                            contentAlignment = Alignment.Center,
+                        ) {
+                            Icon(
+                                Icons.Default.ArrowUpward,
+                                contentDescription = "Send",
+                                tint = if (canSend) {
+                                    Color(0xFF1A1A22)
+                                } else {
+                                    MaterialTheme.colorScheme.onSurface.copy(alpha = 0.35f)
+                                },
+                                modifier = Modifier.size(20.dp),
+                            )
                         }
                     } else {
-                        Surface(
-                            onClick = { onMicClick() },
-                            enabled = !isSending,
-                            shape = RoundedCornerShape(20.dp),
-                            color = MaterialTheme.colorScheme.primary,
+                        Box(
+                            modifier = Modifier
+                                .clip(RoundedCornerShape(20.dp))
+                                .background(AppGradients.speakPill)
+                                .border(
+                                    width = 1.dp,
+                                    color = Color.White.copy(alpha = 0.18f),
+                                    shape = RoundedCornerShape(20.dp),
+                                )
+                                .clickable(enabled = !isSending, onClick = { onMicClick() }),
                         ) {
                             Row(
                                 modifier = Modifier.padding(horizontal = 16.dp, vertical = 10.dp),
@@ -382,14 +413,14 @@ fun ChatComposer(
                                 Icon(
                                     Icons.Default.GraphicEq,
                                     contentDescription = null,
-                                    tint = MaterialTheme.colorScheme.onPrimary,
+                                    tint = Color.White,
                                     modifier = Modifier.size(18.dp),
                                 )
                                 Text(
                                     text = "Speak",
                                     style = MaterialTheme.typography.labelMedium,
                                     fontWeight = FontWeight.SemiBold,
-                                    color = MaterialTheme.colorScheme.onPrimary,
+                                    color = Color.White,
                                 )
                             }
                         }
@@ -406,10 +437,15 @@ private fun AttachmentChip(
     onRemove: () -> Unit,
 ) {
     val context = LocalContext.current
-    Surface(
-        shape = RoundedCornerShape(14.dp),
-        color = ComposerButtonBg,
-        tonalElevation = 0.dp,
+    Box(
+        modifier = Modifier
+            .clip(RoundedCornerShape(14.dp))
+            .background(AppGradients.attachmentChip)
+            .border(
+                width = 1.dp,
+                color = Color.White.copy(alpha = 0.08f),
+                shape = RoundedCornerShape(14.dp),
+            ),
     ) {
         Row(
             modifier = Modifier.padding(start = 4.dp, end = 8.dp, top = 4.dp, bottom = 4.dp),
