@@ -37,11 +37,6 @@ import com.autobrowse.android.agent.tools.ExecuteCodeTool
 import com.autobrowse.android.agent.tools.ExtractDataTool
 import com.autobrowse.android.agent.tools.MemoryRecallTool
 import com.autobrowse.android.agent.tools.MemoryRememberTool
-import com.autobrowse.android.agent.tools.NotesCreateTool
-import com.autobrowse.android.agent.tools.NotesListTool
-import com.autobrowse.android.agent.tools.NotesReadTool
-import com.autobrowse.android.agent.tools.NotesSearchTool
-import com.autobrowse.android.agent.tools.NotesUpdateTool
 import com.autobrowse.android.agent.tools.PdfGenerateTool
 import com.autobrowse.android.agent.tools.PythonExecuteTool
 import com.autobrowse.android.agent.tools.ReflectTool
@@ -67,9 +62,6 @@ import com.autobrowse.android.data.local.ModelFileManager
 import com.autobrowse.android.data.remote.LlmApiService
 import com.autobrowse.android.data.repository.AutobrowseRepository
 import com.autobrowse.android.data.settings.SecureSettingsStore
-import com.autobrowse.android.notes.NoteExporter
-import com.autobrowse.android.notes.NotesManager
-import com.autobrowse.android.notes.NotesStore
 import com.autobrowse.android.skills.SkillRegistry
 import com.autobrowse.android.skills.SkillStore
 import kotlinx.coroutines.CoroutineScope
@@ -111,15 +103,6 @@ class AutobrowseApplication : Application(), Configuration.Provider {
     lateinit var attachmentProcessor: AttachmentProcessor
         private set
 
-    lateinit var notesManager: NotesManager
-        private set
-
-    lateinit var notesStore: NotesStore
-        private set
-
-    lateinit var noteExporter: NoteExporter
-        private set
-
     lateinit var llmApi: LlmApiService
         private set
 
@@ -156,8 +139,6 @@ class AutobrowseApplication : Application(), Configuration.Provider {
         tabManager = AndroidTabManager()
         attachmentStore = AttachmentStore(this)
         attachmentProcessor = AttachmentProcessor(this)
-        notesStore = NotesStore(this)
-        noteExporter = NoteExporter(this)
         documentGenerator = DocumentGenerator(this)
 
         val trajectoryStore = TrajectoryStore(database.trajectoryDao())
@@ -174,8 +155,6 @@ class AutobrowseApplication : Application(), Configuration.Provider {
             repository = repository,
             llmApi = llmApi,
         )
-
-        notesManager = NotesManager(repository)
 
         val selfImprovementEngine = SelfImprovementEngine(
             strategyDao = database.strategyDao(),
@@ -216,11 +195,6 @@ class AutobrowseApplication : Application(), Configuration.Provider {
                 MemoryRememberTool(memoryManager),
                 MemoryRecallTool(memoryManager),
                 SessionSearchTool(memoryManager),
-                NotesListTool(notesManager),
-                NotesSearchTool(notesManager),
-                NotesReadTool(notesManager),
-                NotesCreateTool(notesManager),
-                NotesUpdateTool(notesManager),
                 ReflectTool(llmApi, repository),
                 TodoWriteTool(),
                 ClarifyTool(),
@@ -243,7 +217,7 @@ class AutobrowseApplication : Application(), Configuration.Provider {
             llmApi = llmApi,
             toolRegistry = toolRegistry,
             promptBuilder = PromptBuilder(
-                repository, memoryManager, notesManager, skillStore, trainingCorpusLoader, trajectoryStore,
+                repository, memoryManager, skillStore, trainingCorpusLoader, trajectoryStore,
             ),
             memoryManager = memoryManager,
             contextCompressor = ContextCompressor(llmApi),

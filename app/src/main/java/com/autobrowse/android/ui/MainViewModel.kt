@@ -28,14 +28,7 @@ import com.autobrowse.android.domain.model.LlmConfig
 import com.autobrowse.android.domain.model.LlmProvider
 import com.autobrowse.android.domain.model.LocalLlmModel
 import com.autobrowse.android.domain.model.MemoryEntry
-import com.autobrowse.android.domain.model.MiniAppId
-import com.autobrowse.android.domain.model.Note
-import com.autobrowse.android.domain.model.NoteBlock
-import com.autobrowse.android.domain.model.NoteBlockType
-import com.autobrowse.android.domain.model.NoteListItem
 import com.autobrowse.android.domain.model.PendingAttachment
-import com.autobrowse.android.ui.miniapps.NotesEditorState
-import android.graphics.Bitmap
 import com.autobrowse.android.domain.model.Session
 import com.autobrowse.android.domain.model.SessionListItem
 import com.autobrowse.android.domain.model.SkillConfig
@@ -100,10 +93,6 @@ data class MainUiState(
     val modelDownload: ModelDownloadState = ModelDownloadState(),
     val skillTransfer: SkillTransferState = SkillTransferState(),
     val error: String? = null,
-    val showMiniApps: Boolean = false,
-    val activeMiniApp: MiniAppId? = null,
-    val notes: List<NoteListItem> = emptyList(),
-    val notesEditor: NotesEditorState = NotesEditorState(),
 )
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
@@ -112,10 +101,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val agentLoop = app.agentLoop
     private val attachmentStore = app.attachmentStore
     private val attachmentProcessor = app.attachmentProcessor
-    private val notesStore = app.notesStore
-    private val noteExporter = app.noteExporter
     private val llmApi = app.llmApi
-    private var noteSaveJob: Job? = null
     val browserController: BrowserController = app.browserController
 
     private val _uiState = MutableStateFlow(MainUiState())
@@ -146,18 +132,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             refreshAgentSkills()
             if (llmConfig.isConfigured()) {
                 llmApi.warmUpLocalModel(llmConfig)
-            }
-        }
-
-        viewModelScope.launch {
-            repository.observeNotes().collect { notes ->
-                _uiState.update { state ->
-                    if (state.notesEditor.searchQuery.isBlank()) {
-                        state.copy(notes = notes)
-                    } else {
-                        state
-                    }
-                }
             }
         }
 
@@ -1035,236 +1009,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         updateTabMetadata(tabId, url = resolved, status = BrowserTabStatus.LOADING)
         browserController.loadUrl(resolved, tabId)
     }
-
-    fun openMiniApps() {
-        _uiState.update { it.copy(showMiniApps = true) }
-    }
-
-    fun closeMiniApps() {
-        _uiState.update { it.copy(showMiniApps = false, activeMiniApp = null) }
-    }
-
-    fun launchMiniApp(app: MiniAppId) {
-        _uiState.update { it.copy(activeMiniApp = app) }
-        if (app == MiniAppId.NOTES && _uiState.value.notesEditor.selectedNoteId == null) {
-            createNewNote()
-        }
-    }
-
-    fun backToMiniAppLauncher() {
-        _uiState.update { it.copy(activeMiniApp = null) }
-    }
-
-    fun updateNotesSearch(query: String) {
-        viewModelScope.launch {
-            val notes = if (query.isBlank()) {
-                repository.getRecentNotes(50).map { it.toListItem() }
-            } else {
-                repository.searchNotes(query).map { it.toListItem() }
-            }
-            _uiState.update {
-                it.copy(
-                    notesEditor = it.notesEditor.copy(searchQuery = query),
-                    notes = notes,
-                )
-            }
-        }
-    }
-
-    fun selectNote(noteId: String) {
-        viewModelScope.launch {
-            val note = repository.getNote(noteId) ?: return@launch
-            _uiState.update {
-                it.copy(
-                    notesEditor = NotesEditorState(
-                        selectedNoteId = note.id,
-                        title = note.title,
-                        body = note.markdownBody,
-                        isPinned = note.isPinned,
-                        searchQuery = it.notesEditor.searchQuery,
-                    ),
-                )
-            }
-        }
-    }
-
-    fun createNewNote() {
-        viewModelScope.launch {
-            val note = Note(
-                id = UUID.randomUUID().toString(),
-                title = "",
-                blocks = listOf(NoteBlock(id = UUID.randomUUID().toString(), type = NoteBlockType.TEXT)),
-                sessionId = sessionId,
-                createdAt = System.currentTimeMillis(),
-                updatedAt = System.currentTimeMillis(),
-            )
-            repository.saveNote(note)
-            _uiState.update {
-                it.copy(
-                    notesEditor = NotesEditorState(
-                        selectedNoteId = note.id,
-                        searchQuery = it.notesEditor.searchQuery,
-                    ),
-                )
-            }
-        }
-    }
-
-    fun updateNoteTitle(title: String) {
-        _uiState.update { it.copy(notesEditor = it.notesEditor.copy(title = title)) }
-        scheduleNoteSave()
-    }
-
-    fun updateNoteBody(body: String) {
-        _uiState.update { it.copy(notesEditor = it.notesEditor.copy(body = body)) }
-        scheduleNoteSave()
-    }
-
-    fun toggleNotePin() {
-        _uiState.update {
-            it.copy(notesEditor = it.notesEditor.copy(isPinned = !it.notesEditor.isPinned))
-        }
-        scheduleNoteSave()
-    }
-
-    fun toggleNotePreview() {
-        _uiState.update {
-            it.copy(notesEditor = it.notesEditor.copy(isPreviewMode = !it.notesEditor.isPreviewMode))
-        }
-    }
-
-    fun wrapNoteSelection(prefix: String, suffix: String) {
-        val editor = _uiState.value.notesEditor
-        val insertion = "$prefix text $suffix"
-        updateNoteBody(if (editor.body.isBlank()) insertion else "${editor.body}\n$insertion")
-    }
-
-    fun insertNoteLinePrefix(prefix: String) {
-        val editor = _uiState.value.notesEditor
-        updateNoteBody(if (editor.body.isBlank()) prefix else "${editor.body}\n$prefix")
-    }
-
-    fun insertNoteBlock(block: String) {
-        val editor = _uiState.value.notesEditor
-        updateNoteBody(editor.body + block)
-    }
-
-    fun attachNoteImage(uri: Uri) {
-        viewModelScope.launch {
-            val context = getApplication<Application>()
-            val path = notesStore.persistImage(context, uri, "image.jpg")
-            val markdown = "\n![image]($path)\n"
-            insertNoteBlock(markdown)
-        }
-    }
-
-    fun saveNoteDrawing(bitmap: Bitmap) {
-        viewModelScope.launch {
-            val path = notesStore.saveDrawing(bitmap)
-            bitmap.recycle()
-            insertNoteBlock("\n![drawing]($path)\n")
-        }
-    }
-
-    fun deleteNote(noteId: String) {
-        viewModelScope.launch {
-            repository.deleteNote(noteId)
-            val editor = _uiState.value.notesEditor
-            if (editor.selectedNoteId == noteId) {
-                _uiState.update {
-                    it.copy(notesEditor = NotesEditorState(searchQuery = it.notesEditor.searchQuery))
-                }
-            }
-        }
-    }
-
-    fun shareExportedNoteText() = shareNote("text/plain") { noteExporter.exportText(it) }
-
-    fun shareExportedNoteMarkdown() = shareNote("text/markdown") { noteExporter.exportMarkdown(it) }
-
-    fun shareExportedNotePdf() = shareNote("application/pdf") { noteExporter.exportPdf(it) }
-
-    fun shareExportedNoteImage() = shareNote("image/png") { noteExporter.exportImage(it) }
-
-    private fun shareNote(mime: String, block: suspend (Note) -> Uri) {
-        viewModelScope.launch {
-            persistCurrentNote()
-            val editor = _uiState.value.notesEditor
-            val note = buildNoteFromEditor(editor) ?: return@launch
-            runCatching {
-                val uri = block(note)
-                val intent = noteExporter.buildShareIntent(uri, mime)
-                val context = getApplication<Application>()
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                context.startActivity(Intent.createChooser(intent, "Export note"))
-            }
-        }
-    }
-
-    private fun scheduleNoteSave() {
-        noteSaveJob?.cancel()
-        noteSaveJob = viewModelScope.launch {
-            delay(500)
-            persistCurrentNote()
-        }
-    }
-
-    private suspend fun persistCurrentNote() {
-        val editor = _uiState.value.notesEditor
-        val note = buildNoteFromEditor(editor) ?: return
-        repository.saveNote(note)
-    }
-
-    private suspend fun buildNoteFromEditor(editor: NotesEditorState): Note? {
-        val id = editor.selectedNoteId ?: return null
-        val existing = repository.getNote(id)
-        val now = System.currentTimeMillis()
-        val blocks = parseBodyToBlocks(editor.body)
-        return Note(
-            id = id,
-            title = editor.title,
-            blocks = blocks,
-            sessionId = sessionId ?: existing?.sessionId,
-            tags = existing?.tags.orEmpty(),
-            isPinned = editor.isPinned,
-            folder = existing?.folder ?: "Notes",
-            createdAt = existing?.createdAt ?: now,
-            updatedAt = now,
-        )
-    }
-
-    private fun parseBodyToBlocks(body: String): List<NoteBlock> {
-        if (body.isBlank()) {
-            return listOf(NoteBlock(id = UUID.randomUUID().toString(), type = NoteBlockType.TEXT))
-        }
-        return listOf(
-            NoteBlock(
-                id = UUID.randomUUID().toString(),
-                type = NoteBlockType.TEXT,
-                markdown = body,
-            ),
-        )
-    }
-
-    private fun filterNotes(query: String, notes: List<NoteListItem>): List<NoteListItem> {
-        if (query.isBlank()) return notes
-        val q = query.lowercase()
-        return notes.filter {
-            it.title.lowercase().contains(q) ||
-                it.preview.lowercase().contains(q) ||
-                it.tags.any { tag -> tag.lowercase().contains(q) }
-        }
-    }
-
-    private fun Note.toListItem() = NoteListItem(
-        id = id,
-        title = title.ifBlank { "Untitled" },
-        preview = markdownBody.lineSequence().firstOrNull()?.take(120) ?: "",
-        isPinned = isPinned,
-        folder = folder,
-        updatedAt = updatedAt,
-        tags = tags,
-    )
 
     fun toggleSkill(skillType: SkillType, enabled: Boolean) {
         viewModelScope.launch {

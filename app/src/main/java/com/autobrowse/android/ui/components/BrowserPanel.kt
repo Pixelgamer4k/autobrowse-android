@@ -58,7 +58,6 @@ import com.autobrowse.android.domain.model.BrowserTab
 import com.autobrowse.android.domain.model.BrowserTabStatus
 import com.autobrowse.android.domain.model.BrowserWindowFrame
 import com.autobrowse.android.domain.model.BrowserWindowLayout
-import com.autobrowse.android.ui.MainViewModel
 import com.autobrowse.android.ui.theme.Motion
 
 @Composable
@@ -75,7 +74,6 @@ fun BrowserPanel(
     onRefreshTab: (String) -> Unit,
     onToggleMaximizeTab: (String) -> Unit,
     onCloseTab: (String) -> Unit,
-    viewModel: MainViewModel,
     modifier: Modifier = Modifier,
 ) {
     val activeTab = tabs.find { it.id == activeTabId } ?: tabs.firstOrNull()
@@ -146,7 +144,6 @@ fun BrowserPanel(
             url = activeTab?.url.orEmpty(),
             onNavigate = onNavigate,
             onAddTab = onAddTab,
-            onOpenMiniApps = viewModel::openMiniApps,
         )
     }
 }
@@ -264,7 +261,6 @@ private fun BrowserToolbar(
     url: String,
     onNavigate: (String) -> Unit,
     onAddTab: () -> Unit,
-    onOpenMiniApps: () -> Unit,
 ) {
     var address by remember { mutableStateOf(url) }
     LaunchedEffect(url) { address = url }
@@ -331,7 +327,6 @@ private fun BrowserToolbar(
                     tint = Color.White,
                 )
             }
-            MiniAppsLauncherIcon(onClick = onOpenMiniApps)
         }
     }
 }

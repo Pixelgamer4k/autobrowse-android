@@ -9,7 +9,6 @@ import com.autobrowse.android.data.local.entity.AutomationTaskEntity
 import com.autobrowse.android.data.local.entity.BrowserTabEntity
 import com.autobrowse.android.data.local.entity.ChatMessageEntity
 import com.autobrowse.android.data.local.entity.MemoryEntryEntity
-import com.autobrowse.android.data.local.entity.NoteEntity
 import com.autobrowse.android.data.local.entity.SessionEntity
 import com.autobrowse.android.data.local.entity.StrategyEntity
 import com.autobrowse.android.data.local.entity.TrajectoryEntity
@@ -110,45 +109,6 @@ interface MemoryDao {
 
     @Query("SELECT * FROM memory_entries WHERE value LIKE '%' || :term || '%' OR key LIKE '%' || :term || '%' ORDER BY importance DESC LIMIT :limit")
     suspend fun searchLike(term: String, limit: Int): List<MemoryEntryEntity>
-}
-
-@Dao
-interface NoteDao {
-    @Query("SELECT * FROM notes ORDER BY isPinned DESC, updatedAt DESC")
-    fun observeAll(): Flow<List<NoteEntity>>
-
-    @Query("SELECT * FROM notes WHERE id = :id LIMIT 1")
-    suspend fun getById(id: String): NoteEntity?
-
-    @Query("SELECT * FROM notes ORDER BY isPinned DESC, updatedAt DESC LIMIT :limit")
-    suspend fun getRecent(limit: Int): List<NoteEntity>
-
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun upsert(note: NoteEntity)
-
-    @Query("DELETE FROM notes WHERE id = :id")
-    suspend fun delete(id: String)
-
-    @Query(
-        """
-        SELECT n.* FROM notes n
-        JOIN notes_fts fts ON n.rowid = fts.rowid
-        WHERE notes_fts MATCH :query
-        ORDER BY n.isPinned DESC, n.updatedAt DESC
-        LIMIT :limit
-        """,
-    )
-    suspend fun searchFts(query: String, limit: Int): List<NoteEntity>
-
-    @Query(
-        """
-        SELECT * FROM notes
-        WHERE title LIKE '%' || :term || '%' OR plainText LIKE '%' || :term || '%' OR tags LIKE '%' || :term || '%'
-        ORDER BY isPinned DESC, updatedAt DESC
-        LIMIT :limit
-        """,
-    )
-    suspend fun searchLike(term: String, limit: Int): List<NoteEntity>
 }
 
 @Dao

@@ -1,7 +1,6 @@
 package com.autobrowse.android.agent.core
 
 import com.autobrowse.android.agent.memory.MemoryManager
-import com.autobrowse.android.notes.NotesManager
 import com.autobrowse.android.agent.training.TrainingCorpusLoader
 import com.autobrowse.android.agent.trajectory.TrajectoryStore
 import com.autobrowse.android.data.repository.AutobrowseRepository
@@ -15,7 +14,6 @@ import com.autobrowse.android.skills.SkillStore
 class PromptBuilder(
     private val repository: AutobrowseRepository,
     private val memoryManager: MemoryManager,
-    private val notesManager: NotesManager? = null,
     private val skillStore: SkillStore? = null,
     private val trainingCorpus: TrainingCorpusLoader? = null,
     private val trajectoryStore: TrajectoryStore? = null,
@@ -49,8 +47,7 @@ class PromptBuilder(
         val searchPlaybook = buildSearchPlaybook()
         val hints = buildInternalHintsTier(userPrompt)
         val training = buildTrainingTier(userPrompt)
-        val prefetchedNotes = notesManager?.prefetch(userPrompt).orEmpty()
-        val context = buildContextTier(prefetchedMemory, prefetchedNotes, strategies, userPrompt)
+        val context = buildContextTier(prefetchedMemory, strategies, userPrompt)
         val skills = buildSkillsTier(userPrompt)
         val volatile = buildVolatileTier(pageUrl)
         return listOf(stable, searchPlaybook, hints, training, context, skills, volatile)
@@ -68,7 +65,6 @@ class PromptBuilder(
         3. **VERIFY then STOP** — if snapshot shows results, summarize and finish. Do NOT loop 10+ times.
         4. **Simple search = 3-5 tool calls max**: browser_search → browser_wait → browser_snapshot → respond
         5. Snapshot BEFORE click — use @eN refs from browser_snapshot, not guessed CSS selectors
-        6. **Notes** — for long-form info the user may want later, suggest saving to Notes and use notes_create / notes_update. User Notes support Markdown, LaTeX, images, and drawings.
 
         ## Tool Priority
         - Search: browser_search (site + query)
@@ -142,7 +138,6 @@ class PromptBuilder(
 
     private suspend fun buildContextTier(
         prefetchedMemory: String,
-        prefetchedNotes: String,
         strategies: List<LearnedStrategy>,
         userPrompt: String,
     ): String = buildString {
@@ -159,10 +154,6 @@ class PromptBuilder(
         if (prefetchedMemory.isNotBlank()) {
             appendLine("## Relevant Memories (prefetched)")
             appendLine(prefetchedMemory)
-            appendLine()
-        }
-        if (prefetchedNotes.isNotBlank()) {
-            appendLine(prefetchedNotes)
             appendLine()
         }
         if (strategies.isNotEmpty()) {
