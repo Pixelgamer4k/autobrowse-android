@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="docs/icon.png" alt="Multiwindow Autobrowser app icon" width="128"/>
+<img src="docs/icon_rounded.png" alt="Multiwindow Autobrowser app icon" width="128"/>
 
 <br/><br/>
 
@@ -55,38 +55,34 @@ Each browser tab renders as a **self-contained window unit** with rounded corner
 - **Maximize / minimize** — from the window options menu
 - **Multi-window sync** — geometry persisted per tab in Room
 
-<p align="center">
-  <img src="docs/mockups/window_unit.jpg" alt="Single floating browser window showing Amazon product page" width="640"/>
-  <br/>
-  <sub><b>Window unit</b> — one resizable browser instance with minimal chrome and full web content inside.</sub>
-</p>
+See [§1 Window unit](#1-window-unit--the-building-block) in the walkthrough for a full-size mockup.
 
 ### Agent-driven multitasking
 
 The agent understands your open windows and can orchestrate complex workflows: parallel product comparison, multi-source research, form filling, data extraction, and tab management — all through tool calls like `browser_search`, `browser_snapshot`, `browser_click`, and `browser_tab_open`.
 
+While the agent works, the chat panel shows a live **thinking indicator** with turn progress — so you always know automation is running.
+
 <p align="center">
-  <img src="docs/mockups/sneakers_multitab.jpg" alt="Four overlapping Amazon sneaker windows for side-by-side comparison" width="640"/>
+  <img src="docs/mockups/thinking_spinner.jpg" alt="Agent thinking indicator with turn progress" width="520"/>
   <br/>
-  <sub><b>Shopping comparison</b> — four highly-rated affordable sneakers, each in its own floating window, ready to browse simultaneously.</sub>
+  <sub><b>Agent runtime</b> — transparent feedback during multi-step browser automation.</sub>
 </p>
 
 ### Deep research mode
 
 Stack windows with maps, articles, and data tables. Perfect for literature reviews, species research, competitive analysis, or any task where context switching kills momentum.
 
-<p align="center">
-  <img src="docs/mockups/penguins_research.jpg" alt="Multi-window penguin population research with maps and data tables" width="640"/>
-  <br/>
-  <sub><b>Research workflow</b> — Google results, species impact tables, and map visualizations open together while the agent summarizes findings.</sub>
-</p>
+See [§3 Research workspace](#3-research--windows-as-a-workspace) for the penguin climate-study demo.
 
 ### Skills, memory & self-improvement
 
-- **Bundled skills** — search, extraction, form-fill, e-commerce, and site-specific playbooks
-- **Learned skills** — export/import skill packs after successful agent runs
-- **Strategy memory** — heuristics refined from past trajectories
+- **Bundled skills** — 26+ playbooks for search, extraction, form-fill, e-commerce, and site-specific tasks
+- **Learned skills** — export/import skill packs as JSON after successful agent runs
+- **Strategy memory** — heuristics refined from past trajectories, injected into prompts automatically
 - **Training corpus** — baked-in site templates and failure patterns
+
+The **Secure Dashboard** centralizes skill management and self-improved strategies. See [§6](#6-secure-dashboard--agent-skills) and [§7](#7-secure-dashboard--self-improved-strategies).
 
 ### Attachments & rich chat
 
@@ -112,12 +108,10 @@ Every tab in Multiwindow Autobrowser is a **window unit**: a floating card with 
 
 ### 2. Multi-tab shopping — compare without switching
 
-Ask the agent to find and open multiple products. Each result lands in **its own window**, overlapping on the canvas so you can glance across options instantly. The sneakers demo opens four affordable, highly-rated options (4.1–4.3★) on Amazon — each independently scrollable.
+The hero image above shows the end result: ask the agent to find and open multiple products, and each result lands in **its own window** — overlapping on the canvas so you can glance across options instantly. The sneakers demo opens four affordable, highly-rated options (4.1–4.3★) on Amazon, each independently scrollable.
 
 **Example prompt:**
 > *"Find 4 affordable highly-rated men's sneakers on Amazon and open each in its own window."*
-
-<img src="docs/mockups/sneakers_multitab.jpg" alt="Sneakers multi-tab mockup" width="100%"/>
 
 ---
 
@@ -158,6 +152,32 @@ For offline or privacy-focused use, download a **GGUF model** directly to your p
 
 <p align="center">
   <img src="docs/mockups/llm_setup_local.jpg" alt="LLM Setup — Local GGUF model download" width="480"/>
+</p>
+
+---
+
+### 6. Secure Dashboard — Agent Skills
+
+The Secure Dashboard lists **bundled playbooks** and skills auto-created after automation runs. When a task matches a skill, its instructions load into the agent prompt. Export learned skills as JSON to share across installs or future releases.
+
+| Capability | Detail |
+|------------|--------|
+| Bundled playbooks | 26 pre-built skills (amazon-shopping, data-extraction, code-automation, …) |
+| Share / Save export | Package learned skills for backup or distribution |
+| Import learned skills | Restore a skill pack from JSON |
+
+<p align="center">
+  <img src="docs/mockups/secure_dashboard_skills.jpg" alt="Secure Dashboard — Agent Skills management" width="480"/>
+</p>
+
+---
+
+### 7. Secure Dashboard — Self-Improved Strategies
+
+Strategies are **heuristics learned from past agent trajectories** — site-specific rules like "use `browser_search` on Amazon" or "open tabs per source for research." Each strategy carries a confidence score and is injected into the agent prompt automatically.
+
+<p align="center">
+  <img src="docs/mockups/secure_dashboard_strategies.jpg" alt="Secure Dashboard — Self-improved strategies with confidence scores" width="480"/>
 </p>
 
 ---

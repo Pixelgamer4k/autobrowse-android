@@ -1,0 +1,37 @@
+The image shows a realistic screenshot of a black smartphone (with rounded corners and a thin bezel) displaying a mobile app interface in dark mode. The phone's status bar at the top shows:
+
+- Time: 3:02
+- Icons for signal, Wi-Fi, data speed (3.00 KB/s), and battery (85%)
+- A green dot and other status indicators
+
+The app screen has a black background with white and light gray text. At the top is a header with a left-pointing arrow followed by the title **"Secure Dashboard"** in bold white text.
+
+Below the header, the content includes:
+
+- A message in white text:  
+  **"No memories yet. Say 'remember that I prefer concise summaries' or let the agent learn from tasks."**
+
+- A bold section header: **"Self-Improved Strategies"**
+
+- A subtitle in gray text:  
+  **"Heuristics learned from past trajectories. Injected into the agent prompt automatically."**
+
+- A vertical list of eight strategy entries, each in a bracketed category format followed by a description and confidence level. The entries are:
+
+  1. **[google.com]** Amazon: browser_search/site=amazon, query=...). Click product via @eN ref from snapshot. (98% confidence)
+
+  2. **[research]** Weather: browser_search/site=google, query='weather {city}'). Read snapshot text. (98% confidence)
+
+  3. **[ecommerce]** Research: open tabs per source, browser_search each, web_fetch articles, summarize findings. (98% confidence)
+
+  4. **[reddit.com]** Google: browser_search(site=google, query=...). URL must contain q= parameter. (97% confidence)
+
+  5. **[walmart.org]** Stuck after 5 iterations: try browser_vision or web_fetch alternative path. (97% confidence)
+
+  6. **[stackoverflow.com]** Research: open tabs per source, browser_search each, web_fetch articles, summarize findings. (97% confidence)
+
+  7. **[booking.com]** Price compare: run parallel_tasks with browser_search per retailer site. (97% confidence)
+
+  8. **[booking.com]** Stack Overflow: search then click top answer link via snapshot ref. (97% confidence)
+
+The text is left-aligned, uses a clean sans-serif font, and has a slight vertical scroll appearance. The overall visual style is minimalist and technical, with high contrast between the white/gray text and the black background. No other objects, people, or graphical elements are visible beyond the phone frame and the app's text content.

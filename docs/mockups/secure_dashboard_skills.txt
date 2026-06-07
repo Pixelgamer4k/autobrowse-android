@@ -1,0 +1,30 @@
+The image is a realistic screenshot of a smartphone displaying a mobile app interface in dark mode. The phone frame is dark gray/black with rounded corners, set against a solid dark gray background.
+
+**Status Bar (top edge):**
+- Time: "3:02" in white text (left).
+- Status icons: red circle, green square, white circle (left of center).
+- Network indicators (right): "5G" with signal bars, Wi-Fi symbol, "3.00 KB/s" data speed, battery icon showing 85%.
+
+**App Header:**
+- Back arrow (left) followed by the title "Secure Dashboard" in bold white text on a black background.
+
+**Main Content Section – "Agent Skills":**
+- White heading text.
+- Two paragraphs of descriptive white/gray text explaining:
+  - Bundled playbooks and auto-created skills after automation runs.
+  - Instructions on training skills, exporting as JSON, and sharing for future app releases.
+
+**Buttons (centered, pill-shaped with white borders and dark fill):**
+- Two side-by-side rounded buttons: "Share export" and "Save export".
+- Below them, a wider full-width rounded button: "Import learned skills".
+
+**Bundled Section:**
+- Heading "Bundled (26)" in white text.
+- Scrollable list of playbook entries (white titles, gray descriptions), showing the first five items:
+  1. **amazon-shopping** – "Specialized playbook for amazon shopping tasks using browser_search and snapshot verification."
+  2. **autobrowse** – "Core browser automation playbook. Search tasks use browser_search, not typing."
+  3. **code-automation** – "Run Python-like scripts with execute_code and python_execute including tool_call RPC."
+  4. **cookie-consent** – "Specialized playbook for cookie consent tasks using browser_search and snapshot verification."
+  5. **data-extraction** – (partially visible; title only, description cut off at the bottom edge).
+
+The interface uses a clean, modern UI style with black background, white primary text, light gray secondary text, and subtle rounded elements. The list appears scrollable, indicating additional bundled items exist beyond the visible portion. No other images, people, or decorative graphics are present.
