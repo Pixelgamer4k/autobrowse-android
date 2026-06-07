@@ -28,15 +28,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.WindowInsetsSides
 import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.ime
-import androidx.compose.foundation.layout.navigationBars
-import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.union
-import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
@@ -79,7 +72,6 @@ import coil.request.ImageRequest
 import com.autobrowse.android.domain.model.AttachmentType
 import com.autobrowse.android.domain.model.PendingAttachment
 import com.autobrowse.android.ui.theme.Motion
-import com.autobrowse.android.ui.theme.SectionSeparator
 import java.util.UUID
 
 private val ComposerInputBg = Color(0xFF1C1C1E)
@@ -123,7 +115,6 @@ fun ChatComposer(
     onStop: () -> Unit = {},
     isSending: Boolean,
     modifier: Modifier = Modifier,
-    keyboardLiftActive: Boolean = false,
     onFocusChange: (Boolean) -> Unit = {},
 ) {
     val context = LocalContext.current
@@ -191,23 +182,11 @@ fun ChatComposer(
         label = "sendScale",
     )
 
-    val bottomInsets = if (keyboardLiftActive) {
-        WindowInsets.navigationBars.union(WindowInsets.ime)
-    } else {
-        WindowInsets.navigationBars
-    }
-
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .background(MaterialTheme.colorScheme.surfaceVariant)
-            .windowInsetsPadding(bottomInsets.only(WindowInsetsSides.Bottom)),
+            .padding(horizontal = 10.dp, vertical = 6.dp),
     ) {
-        SectionSeparator()
-
-        Column(
-            modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp),
-        ) {
         AttachmentPickerSheet(
             visible = showPicker,
             onDismiss = { showPicker = false },
@@ -380,7 +359,6 @@ fun ChatComposer(
                     }
                 }
             }
-        }
         }
     }
 }

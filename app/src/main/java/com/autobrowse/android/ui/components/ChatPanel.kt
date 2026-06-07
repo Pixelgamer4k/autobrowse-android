@@ -20,7 +20,6 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AttachFile
-import androidx.compose.material.icons.filled.Stop
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -49,7 +48,6 @@ fun ChatPanel(
     messages: List<ChatMessage>,
     isAgentThinking: Boolean,
     agentProgress: AgentProgress?,
-    onStop: () -> Unit,
     scrollOnInput: Boolean,
     composerBottomPadding: Dp,
     bannerMessage: String? = null,
@@ -60,10 +58,6 @@ fun ChatPanel(
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background),
     ) {
-        if (isAgentThinking) {
-            ChatStopBar(onStop = onStop)
-        }
-
         bannerMessage?.let { message ->
             ChatBanner(message = message)
         }
@@ -94,42 +88,6 @@ private fun ChatBanner(message: String) {
                 .padding(horizontal = 16.dp, vertical = 8.dp),
         )
         SectionSeparator()
-    }
-}
-
-@Composable
-private fun ChatStopBar(onStop: () -> Unit) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 12.dp, vertical = 6.dp),
-        horizontalArrangement = Arrangement.End,
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        Surface(
-            onClick = onStop,
-            shape = RoundedCornerShape(14.dp),
-            color = MaterialTheme.colorScheme.error.copy(alpha = 0.18f),
-        ) {
-            Row(
-                modifier = Modifier.padding(horizontal = 10.dp, vertical = 5.dp),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(5.dp),
-            ) {
-                Icon(
-                    Icons.Default.Stop,
-                    contentDescription = "Stop",
-                    modifier = Modifier.size(14.dp),
-                    tint = MaterialTheme.colorScheme.error,
-                )
-                Text(
-                    text = "Stop",
-                    style = MaterialTheme.typography.labelSmall,
-                    fontWeight = FontWeight.SemiBold,
-                    color = MaterialTheme.colorScheme.error,
-                )
-            }
-        }
     }
 }
 

@@ -3,10 +3,18 @@ package com.autobrowse.android.ui.screens
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.WindowInsetsSides
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.ime
+import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.navigationBars
+import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.layout.union
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -27,7 +35,7 @@ import com.autobrowse.android.ui.components.ChatComposer
 import com.autobrowse.android.ui.components.ChatPanel
 import com.autobrowse.android.ui.components.SessionsLauncherButton
 import com.autobrowse.android.ui.components.SessionsPanelOverlay
-import com.autobrowse.android.ui.theme.SectionSeparator
+
 
 @Composable
 fun HomeScreen(viewModel: MainViewModel) {
@@ -83,24 +91,22 @@ private fun MainContent(
     var chatInputFocused by remember { mutableStateOf(false) }
     var composerHeightPx by remember { mutableIntStateOf(0) }
     val density = LocalDensity.current
-    val composerBottomPadding = with(density) { composerHeightPx.toDp() }
-    val keyboardLiftActive = chatInputFocused
+    val composerBottomPadding = with(density) { composerHeightPx.toDp() + 4.dp }
 
     Box(
         modifier = Modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background),
     ) {
-        Box(
+        Column(
             modifier = Modifier
                 .fillMaxSize()
                 .statusBarsPadding(),
         ) {
-        Column(modifier = Modifier.fillMaxSize()) {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .weight(0.50f)
+                    .weight(0.46f)
                     .background(MaterialTheme.colorScheme.surfaceVariant),
             ) {
                 BrowserPanel(
@@ -128,44 +134,47 @@ private fun MainContent(
                 )
             }
 
-            SectionSeparator()
-
             ChatPanel(
                 messages = state.messages,
                 isAgentThinking = state.isAgentThinking,
                 agentProgress = state.agentProgress,
-                onStop = viewModel::stopAgent,
                 scrollOnInput = chatInputFocused,
                 composerBottomPadding = composerBottomPadding,
                 bannerMessage = state.error,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .weight(0.50f)
-                    .background(MaterialTheme.colorScheme.background),
+                    .weight(0.54f)
+                    .then(
+                        if (chatInputFocused) {
+                            Modifier.windowInsetsPadding(
+                                WindowInsets.ime.union(WindowInsets.navigationBars)
+                                    .only(WindowInsetsSides.Bottom),
+                            )
+                        } else {
+                            Modifier
+                        },
+                    ),
             )
         }
 
-        Column(
+        ChatComposer(
+            value = state.chatInput,
+            onValueChange = viewModel::updateChatInput,
+            attachments = state.pendingAttachments,
+            onAddAttachment = viewModel::addAttachment,
+            onRemoveAttachment = viewModel::removeAttachment,
+            onSend = viewModel::sendMessage,
+            onStop = viewModel::stopAgent,
+            isSending = state.isAgentThinking,
+            onFocusChange = { chatInputFocused = it },
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .fillMaxWidth()
-                .onSizeChanged { composerHeightPx = it.height },
-        ) {
-            ChatComposer(
-                value = state.chatInput,
-                onValueChange = viewModel::updateChatInput,
-                attachments = state.pendingAttachments,
-                onAddAttachment = viewModel::addAttachment,
-                onRemoveAttachment = viewModel::removeAttachment,
-                onSend = viewModel::sendMessage,
-                onStop = viewModel::stopAgent,
-                isSending = state.isAgentThinking,
-                keyboardLiftActive = keyboardLiftActive,
-                onFocusChange = { chatInputFocused = it },
-                modifier = Modifier.fillMaxWidth(),
-            )
-        }
-        }
+                .imePadding()
+                .windowInsetsPadding(WindowInsets.navigationBars.only(WindowInsetsSides.Bottom))
+                .onSizeChanged { composerHeightPx = it.height }
+                .zIndex(20f),
+        )
 
         SessionsPanelOverlay(
             visible = state.showSessionsPanel,
