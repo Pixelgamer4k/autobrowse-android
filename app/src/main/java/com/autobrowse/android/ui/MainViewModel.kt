@@ -24,6 +24,7 @@ import com.autobrowse.android.domain.model.LearnedStrategy
 import com.autobrowse.android.data.local.ModelDownloadProgress
 import com.autobrowse.android.domain.model.LlmConfig
 import com.autobrowse.android.domain.model.LlmProvider
+import com.autobrowse.android.domain.model.LlmProvider.LOCAL
 import com.autobrowse.android.domain.model.LocalLlmModel
 import com.autobrowse.android.domain.model.MemoryEntry
 import com.autobrowse.android.domain.model.PendingAttachment
@@ -34,6 +35,7 @@ import com.autobrowse.android.skills.SkillMetadata
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
@@ -610,14 +612,20 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 )
             }
             try {
+                val prepareModel = async {
+                    if (llmConfig.provider == LOCAL) {
+                        llmApi.prepareLocalEngine(llmConfig)
+                    }
+                }
                 val stored = attachments.map { pending ->
                     attachmentStore.persist(getApplication(), pending)
                 }
                 val payload = attachmentProcessor.processAll(stored)
+                prepareModel.await()
 
-                val pageHtml = browserController.getPageHtml()
-                val pageText = browserController.getPageText()
                 val pageUrl = browserController.getCurrentUrl()
+                val pageHtml = if (llmConfig.provider == LOCAL) null else browserController.getPageHtml()
+                val pageText = if (llmConfig.provider == LOCAL) null else browserController.getPageText()
 
                 val result = app.taskOrchestrator.runSingle(
                     request = AutoBrowseRequest(

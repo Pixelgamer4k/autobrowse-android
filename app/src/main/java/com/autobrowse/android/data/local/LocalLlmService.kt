@@ -24,9 +24,16 @@ import java.util.concurrent.atomic.AtomicBoolean
 class LocalLlmService(
     private val modelFileManager: ModelFileManager,
 ) {
+    private companion object {
+        const val MAX_LOCAL_PROMPT_CHARS = 6_000
+        const val LOCAL_CONTEXT_LENGTH = 2048
+        const val LOCAL_MAX_OUTPUT_TOKENS = 512
+    }
+
     private val engineMutex = Mutex()
     private val inferenceMutex = Mutex()
     private var cachedConfigKey: String? = null
+    private var primedConfigKey: String? = null
     private val generationCancelled = AtomicBoolean(false)
 
     /**
@@ -39,11 +46,17 @@ class LocalLlmService(
         runCatching { MultimodalBridge.release() }
     }
 
-    suspend fun warmUp(config: LlmConfig) = withContext(Dispatchers.IO) {
+    suspend fun warmUp(config: LlmConfig) = prepareEngine(config)
+
+    /** Load model weights and run a 1-token prime so the first user prompt is not paying cold-start cost. */
+    suspend fun prepareEngine(config: LlmConfig) = withContext(Dispatchers.IO) {
         if (!config.localModelPath.isNotBlank() || !config.localMmprojPath.isNotBlank()) return@withContext
-        runCatching {
-            requireModelFiles(config)
-            ensureEngine(config)
+        inferenceMutex.withLock {
+            runCatching {
+                requireModelFiles(config)
+                ensureEngine(config)
+                primeEngine(config)
+            }
         }
     }
 
@@ -141,10 +154,11 @@ class LocalLlmService(
         val enrichedSystem = augmentSystemPrompt(systemPrompt, tools, compactTools)
         val visionContext = analyzeVisionContext(config, messages, attachmentPayload)
         val promptMessages = buildPromptMessages(messages, visionContext)
-        val prompt = LlamaBridge.applyChatTemplate(
+        val templated = LlamaBridge.applyChatTemplate(
             messages = listOf("system" to enrichedSystem) + promptMessages,
             addAssistantPrefix = true,
         ) ?: fallbackPrompt(enrichedSystem, promptMessages)
+        val prompt = capPrompt(templated, compactTools)
 
         val rawText = if (onTokenDelta != null) {
             generateStream(prompt, onTokenDelta)
@@ -265,16 +279,16 @@ class LocalLlmService(
 
         // Params must be set before init — contextLength/batch/gpuLayers apply at load time.
         LlamaBridge.updateGenerateParams(
-            temperature = config.temperature,
-            maxTokens = config.maxTokens.coerceIn(256, 1024),
-            topP = 0.9f,
-            topK = 40,
-            repeatPenalty = 1.1f,
-            contextLength = 4096,
+            temperature = config.temperature.coerceIn(0.4f, 0.9f),
+            maxTokens = config.maxTokens.coerceIn(128, LOCAL_MAX_OUTPUT_TOKENS),
+            topP = 0.8f,
+            topK = 20,
+            repeatPenalty = 1.05f,
+            contextLength = LOCAL_CONTEXT_LENGTH,
             numThreads = Runtime.getRuntime().availableProcessors().coerceIn(2, 4),
             useMmap = true,
             flashAttention = false,
-            batchSize = 128,
+            batchSize = 64,
             gpuLayers = gpuLayers,
         )
 
@@ -284,6 +298,23 @@ class LocalLlmService(
         }
 
         cachedConfigKey = key
+        primedConfigKey = null
+    }
+
+    private fun primeEngine(config: LlmConfig) {
+        val key = engineCacheKey(config)
+        if (primedConfigKey == key) return
+        runCatching {
+            LlamaBridge.sessionReset()
+            LlamaBridge.generate("OK")
+            LlamaBridge.sessionReset()
+        }
+        primedConfigKey = key
+    }
+
+    private fun capPrompt(prompt: String, compact: Boolean): String {
+        if (!compact || prompt.length <= MAX_LOCAL_PROMPT_CHARS) return prompt
+        return prompt.take(MAX_LOCAL_PROMPT_CHARS)
     }
 
     private fun requireModelFiles(config: LlmConfig) {
@@ -313,14 +344,9 @@ class LocalLlmService(
             append("\n\n# Tools\n")
             append("Call tools using the model's native tool-call format.\n")
             if (compact) {
-                append("Available tools:\n")
-                tools.forEach { tool ->
-                    append("- ")
-                    append(tool.name)
-                    append(": ")
-                    append(tool.description.take(120))
-                    append('\n')
-                }
+                append("Tools: ")
+                append(tools.joinToString(", ") { it.name })
+                append('\n')
             } else {
                 val toolArray = JSONArray()
                 tools.forEach { tool ->

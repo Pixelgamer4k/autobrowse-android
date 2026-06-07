@@ -142,33 +142,45 @@ class AgentLoop(
         rawPrompt: String,
     ): AgentConversationResult = runCatching {
             ensureNotCancelled()
-            _progress.value = AgentProgress(AgentPhase.THINKING, 0, maxIterations, message = "Planning…")
 
             val config = repository.getLlmConfig()
             val allToolDefs = toolRegistry.definitions()
             val isLocal = config.provider == LlmProvider.LOCAL
-            val prefetched = memoryManager.prefetch(rawPrompt)
-            val strategies = selfImprovementEngine.getRelevantStrategies(
-                rawPrompt,
-                browserContext.pageUrl,
-            )
-            val systemPrompt = promptBuilder.build(
-                prefetchedMemory = prefetched,
-                strategies = strategies,
-                pageUrl = browserContext.pageUrl,
-                enabledToolNames = if (isLocal) {
-                    LocalToolSelector.select(rawPrompt, allToolDefs, iteration = 1).map { it.name }
-                } else {
-                    allToolDefs.map { it.name }
-                },
-                userPrompt = rawPrompt,
-            )
 
-            var history = repository.getRecentChatHistory(request.sessionId, 30)
-            val (compressedHistory, summary) = contextCompressor.maybeCompress(config, history)
-            history = compressedHistory
-            if (summary != null) {
-                repository.saveCompressionSummary(request.sessionId, summary)
+            if (isLocal) {
+                _progress.value = AgentProgress(AgentPhase.THINKING, 0, maxIterations, message = "Loading model…")
+                llmApi.prepareLocalEngine(config)
+            }
+
+            _progress.value = AgentProgress(AgentPhase.THINKING, 0, maxIterations, message = "Planning…")
+
+            val systemPrompt = if (isLocal) {
+                promptBuilder.buildForLocal(
+                    userPrompt = rawPrompt,
+                    pageUrl = browserContext.pageUrl,
+                )
+            } else {
+                val prefetched = memoryManager.prefetch(rawPrompt)
+                val strategies = selfImprovementEngine.getRelevantStrategies(
+                    rawPrompt,
+                    browserContext.pageUrl,
+                )
+                promptBuilder.build(
+                    prefetchedMemory = prefetched,
+                    strategies = strategies,
+                    pageUrl = browserContext.pageUrl,
+                    enabledToolNames = allToolDefs.map { it.name },
+                    userPrompt = rawPrompt,
+                )
+            }
+
+            var history = repository.getRecentChatHistory(request.sessionId, if (isLocal) 8 else 30)
+            if (!isLocal) {
+                val (compressedHistory, summary) = contextCompressor.maybeCompress(config, history)
+                history = compressedHistory
+                if (summary != null) {
+                    repository.saveCompressionSummary(request.sessionId, summary)
+                }
             }
 
             val budget = IterationBudget(maxIterations)
@@ -194,7 +206,7 @@ class AgentLoop(
                     phase = AgentPhase.THINKING,
                     iteration = iteration,
                     maxIterations = maxIterations,
-                    message = "Thinking (turn $iteration)…",
+                    message = if (isLocal && iteration == 1) "Generating…" else "Thinking (turn $iteration)…",
                     streamPreview = "",
                 )
                 repository.updateTask(

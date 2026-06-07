@@ -29,6 +29,12 @@ class LlmApiService(
             localLlmService?.warmUp(config)
         }
     }
+
+    suspend fun prepareLocalEngine(config: LlmConfig) {
+        if (config.provider == LlmProvider.LOCAL) {
+            localLlmService?.prepareEngine(config)
+        }
+    }
     private val moshi = Moshi.Builder()
         .add(KotlinJsonAdapterFactory())
         .build()

@@ -7,7 +7,8 @@ import com.autobrowse.android.domain.model.ToolDefinition
  * Remote/cloud agents still receive the full tool catalog.
  */
 object LocalToolSelector {
-    private const val MAX_TOOLS = 22
+    private const val MAX_TOOLS_FIRST_TURN = 10
+    private const val MAX_TOOLS_LATER = 14
 
     private val CORE_TOOLS = setOf(
         "browser_search",
@@ -18,15 +19,6 @@ object LocalToolSelector {
         "browser_type",
         "browser_scroll",
         "browser_back",
-        "browser_accept_cookies",
-        "browser_dismiss_overlays",
-        "browser_get_links",
-        "browser_find_text",
-        "browser_readability",
-        "memory_remember",
-        "memory_recall",
-        "todo_write",
-        "clarify",
     )
 
     fun select(
@@ -78,9 +70,10 @@ object LocalToolSelector {
             )
         }
 
+        val limit = if (iteration <= 1) MAX_TOOLS_FIRST_TURN else MAX_TOOLS_LATER
         return selected
             .mapNotNull { byName[it] }
-            .take(MAX_TOOLS)
-            .ifEmpty { allTools.take(MAX_TOOLS) }
+            .take(limit)
+            .ifEmpty { allTools.take(limit) }
     }
 }

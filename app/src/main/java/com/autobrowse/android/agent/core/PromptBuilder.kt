@@ -18,6 +18,24 @@ class PromptBuilder(
     private val trainingCorpus: TrainingCorpusLoader? = null,
     private val trajectoryStore: TrajectoryStore? = null,
 ) {
+    /**
+     * Minimal on-device prompt — skips training corpus, skill bodies, and long playbooks
+     * so the first token is not blocked by multi-thousand-token prefill.
+     */
+    fun buildForLocal(
+        userPrompt: String,
+        pageUrl: String?,
+    ): String = buildString {
+        appendLine("You are Autobrowse, a browser automation agent on Android.")
+        appendLine("Rules: browser_search for searches; browser_snapshot before click; finish in ≤5 tools for simple tasks.")
+        appendLine("Call tools immediately. No long internal reasoning.")
+        if (!pageUrl.isNullOrBlank()) {
+            appendLine("Current page: $pageUrl")
+        }
+        val hints = TaskPreprocessor.hintsForPrompt(userPrompt).take(2)
+        hints.forEach { appendLine("Hint: $it") }
+    }.trim()
+
     suspend fun build(
         prefetchedMemory: String,
         strategies: List<LearnedStrategy>,
