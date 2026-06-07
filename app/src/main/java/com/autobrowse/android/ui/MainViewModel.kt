@@ -70,7 +70,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     private var sessionId: String? = null
     private var flowsBound = false
-    private var persistJob: Job? = null
+    private val persistJobs = mutableMapOf<String, Job>()
 
     init {
         viewModelScope.launch {
@@ -104,24 +104,17 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         viewModelScope.launch {
             repository.observeTabs(id).collect { dbTabs ->
                 _uiState.update { state ->
-                    val tabsById = state.tabs.associateBy { it.id }
-                    val frames = state.windowFrames.toMutableMap()
-                    val liveIds = dbTabs.map { it.id }.toSet()
-                    frames.keys.retainAll(liveIds)
-
-                    val tabs = dbTabs.map { dbTab ->
-                        val existing = tabsById[dbTab.id]
-                        val frame = FloatingWindowEngine.hydrateFrame(
-                            tabId = dbTab.id,
-                            dbTab = dbTab,
-                            existing = frames[dbTab.id],
-                        ).also { frames[dbTab.id] = it }
-                        FloatingWindowEngine.syncTabMetadata(dbTab, existing, frame)
-                    }
+                    val merged = FloatingWindowEngine.mergeDbTabs(
+                        dbTabs = dbTabs,
+                        currentTabs = state.tabs,
+                        currentFrames = state.windowFrames,
+                    )
                     state.copy(
-                        tabs = tabs,
-                        windowFrames = frames,
-                        activeTabId = state.activeTabId ?: tabs.firstOrNull()?.id,
+                        tabs = merged.tabs,
+                        windowFrames = merged.frames,
+                        activeTabId = state.activeTabId?.takeIf { id ->
+                            merged.tabs.any { it.id == id }
+                        } ?: merged.tabs.maxByOrNull { it.zIndex }?.id,
                     )
                 }
             }
@@ -193,11 +186,14 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     fun commitWindowGeometry(tabId: String, layout: BrowserWindowLayout, persist: Boolean = true) {
         _uiState.update { state ->
             val fallbackTab = state.tabs.find { it.id == tabId }
-            val frames = FloatingWindowEngine.commitLayout(
-                frames = state.windowFrames,
-                tabId = tabId,
-                layout = layout,
-                fallbackTab = fallbackTab,
+            val frames = FloatingWindowEngine.reconcileFrames(
+                state.tabs,
+                FloatingWindowEngine.commitLayout(
+                    frames = state.windowFrames,
+                    tabId = tabId,
+                    layout = layout,
+                    fallbackTab = fallbackTab,
+                ),
             )
             state.copy(
                 windowFrames = frames,
@@ -248,10 +244,11 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     private fun schedulePersist(tabId: String) {
-        persistJob?.cancel()
-        persistJob = viewModelScope.launch {
+        persistJobs[tabId]?.cancel()
+        persistJobs[tabId] = viewModelScope.launch {
             delay(400)
             persistWindowNow(tabId)
+            persistJobs.remove(tabId)
         }
     }
 
@@ -283,7 +280,15 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     fun toggleMaximizeTab(tabId: String) {
         _uiState.update { state ->
-            val frames = FloatingWindowEngine.toggleMaximize(state.windowFrames, tabId)
+            val fallbackTab = state.tabs.find { it.id == tabId }
+            val frames = FloatingWindowEngine.reconcileFrames(
+                state.tabs,
+                FloatingWindowEngine.toggleMaximize(
+                    frames = state.windowFrames,
+                    tabId = tabId,
+                    fallbackTab = fallbackTab,
+                ),
+            )
             state.copy(
                 windowFrames = frames,
                 tabs = applyFramesToTabs(state.tabs, frames),
@@ -296,7 +301,15 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     fun minimizeTab(tabId: String) {
         _uiState.update { state ->
-            val frames = FloatingWindowEngine.minimize(state.windowFrames, tabId)
+            val fallbackTab = state.tabs.find { it.id == tabId }
+            val frames = FloatingWindowEngine.reconcileFrames(
+                state.tabs,
+                FloatingWindowEngine.minimize(
+                    frames = state.windowFrames,
+                    tabId = tabId,
+                    fallbackTab = fallbackTab,
+                ),
+            )
             state.copy(
                 windowFrames = frames,
                 tabs = applyFramesToTabs(state.tabs, frames),
@@ -315,17 +328,16 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         val id = sessionId ?: return
         viewModelScope.launch {
             val index = _uiState.value.tabs.size
+            val maxZ = _uiState.value.tabs.maxOfOrNull { it.zIndex } ?: 0
             val tab = BrowserTab(
                 id = UUID.randomUUID().toString(),
                 url = url,
                 title = "New Tab",
                 status = BrowserTabStatus.IDLE,
-                zIndex = index,
+                zIndex = maxZ + 1,
                 layout = BrowserWindowLayout.defaultForIndex(index),
                 desktopMode = true,
             )
-            repository.saveTab(tab, id)
-            browserController.setActiveTab(tab.id)
             _uiState.update { state ->
                 val frames = FloatingWindowEngine.addFrameForTab(state.windowFrames, tab)
                 state.copy(
@@ -333,6 +345,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                     windowFrames = frames,
                 )
             }
+            browserController.setActiveTab(tab.id)
+            val frame = _uiState.value.windowFrames[tab.id] ?: BrowserWindowFrame.fromTab(tab)
+            repository.saveTab(tab.withFrame(frame), id)
         }
     }
 

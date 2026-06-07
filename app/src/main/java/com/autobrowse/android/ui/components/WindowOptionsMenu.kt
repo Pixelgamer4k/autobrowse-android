@@ -1,6 +1,7 @@
 package com.autobrowse.android.ui.components
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.MutableTransitionState
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.fadeIn
@@ -40,7 +41,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.input.pointer.PointerEventPass
@@ -56,6 +56,7 @@ fun WindowDragHandle(
     tabId: String,
     canDrag: Boolean,
     isGesturing: Boolean,
+    dotColor: Color,
     onDragStart: () -> Unit,
     onDrag: (Float, Float) -> Unit,
     onDragEnd: () -> Unit,
@@ -67,7 +68,7 @@ fun WindowDragHandle(
 
     Box(
         modifier = modifier
-            .size(width = 72.dp, height = 40.dp)
+            .size(width = 52.dp, height = 28.dp)
             .pointerInput(tabId, canDrag) {
                 if (!canDrag) {
                     awaitEachGesture {
@@ -109,33 +110,38 @@ fun WindowDragHandle(
             },
         contentAlignment = Alignment.Center,
     ) {
-        ThreeDotMenuButton(isGesturing = isGesturing)
+        ThreeDotMenuButton(
+            isGesturing = isGesturing,
+            dotColor = dotColor,
+        )
     }
 }
 
 @Composable
 fun ThreeDotMenuButton(
     isGesturing: Boolean,
+    dotColor: Color,
     modifier: Modifier = Modifier,
 ) {
-    Surface(
-        modifier = modifier.shadow(6.dp, CircleShape),
-        shape = CircleShape,
-        color = Color(0xFF1B1B1F).copy(alpha = 0.88f),
+    val animatedColor by animateColorAsState(
+        targetValue = dotColor,
+        animationSpec = Motion.springSmooth,
+        label = "dotColor",
+    )
+    val dotAlpha = if (isGesturing) 0.72f else 0.96f
+
+    Row(
+        modifier = modifier.padding(horizontal = 4.dp, vertical = 2.dp),
+        horizontalArrangement = Arrangement.spacedBy(4.dp),
+        verticalAlignment = Alignment.CenterVertically,
     ) {
-        Row(
-            modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp),
-            horizontalArrangement = Arrangement.spacedBy(5.dp),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            val dotAlpha = if (isGesturing) 0.7f else 1f
-            repeat(3) {
-                Box(
-                    modifier = Modifier
-                        .size(5.dp)
-                        .background(Color.White.copy(alpha = dotAlpha), CircleShape),
-                )
-            }
+        repeat(3) {
+            Box(
+                modifier = Modifier
+                    .size(4.dp)
+                    .alpha(dotAlpha)
+                    .background(animatedColor, CircleShape),
+            )
         }
     }
 }

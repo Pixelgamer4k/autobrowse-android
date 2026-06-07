@@ -17,7 +17,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -46,12 +45,14 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import com.autobrowse.android.browser.BrowserController
+import com.autobrowse.android.browser.ContentColorSampler
 import com.autobrowse.android.browser.WindowGeometry
 import com.autobrowse.android.domain.model.BrowserTab
 import com.autobrowse.android.domain.model.BrowserWindowFrame
 import com.autobrowse.android.domain.model.BrowserWindowLayout
 import com.autobrowse.android.domain.model.BrowserWindowState
 import com.autobrowse.android.ui.theme.Motion
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import kotlin.math.max
@@ -59,8 +60,8 @@ import kotlin.math.max
 private val WindowCornerRadius = 12.dp
 private val CornerGripExtent = 26.dp
 private val CornerGripTouchSize = 56.dp
-private val DragHandleOverlap = 10.dp
-private val MenuPopupOffset = 30.dp
+private val MenuPopupOffset = 22.dp
+private val DefaultDotColor = Color(0xFFF2F2F2)
 
 private data class GestureSnapshot(
     val xPx: Float,
@@ -69,6 +70,16 @@ private data class GestureSnapshot(
     val heightPx: Float,
     val offsetX: Float,
     val offsetY: Float,
+)
+
+private data class DisplayGeometry(
+    val x: Float,
+    val y: Float,
+    val w: Float,
+    val h: Float,
+    val layoutW: Float,
+    val layoutH: Float,
+    val resizeScale: Float,
 )
 
 @Composable
@@ -95,7 +106,13 @@ fun ResizableBrowserWindow(
         WindowGeometry.Canvas(canvasWidthPx, canvasHeightPx, titleBarHeightPx)
     }
 
-    val resolved = remember(frame.layout, frame.windowState, canvas) {
+    val resolved = remember(
+        frame.layout.offsetX,
+        frame.layout.offsetY,
+        frame.layout.widthFraction,
+        frame.windowState,
+        canvas,
+    ) {
         WindowGeometry.resolve(frame, canvas)
     }
 
@@ -110,6 +127,8 @@ fun ResizableBrowserWindow(
     var dragDx by remember(tab.id) { mutableFloatStateOf(0f) }
     var dragDy by remember(tab.id) { mutableFloatStateOf(0f) }
     var gestureAnchor by remember(tab.id) { mutableStateOf<GestureSnapshot?>(null) }
+    var dotColor by remember(tab.id) { mutableStateOf(DefaultDotColor) }
+    var settleJob by remember(tab.id) { mutableStateOf<Job?>(null) }
 
     LaunchedEffect(isActive) {
         if (!isActive) menuExpanded = false
@@ -122,9 +141,14 @@ fun ResizableBrowserWindow(
         frame.windowState,
         canvasWidthPx,
         canvasHeightPx,
+        gestureActive,
     ) {
-        if (gestureActive) return@LaunchedEffect
-        coroutineScope {
+        if (gestureActive) {
+            settleJob?.cancel()
+            return@LaunchedEffect
+        }
+        settleJob?.cancel()
+        settleJob = coroutineScope {
             launch { animX.animateTo(resolved.xPx, Motion.springWindow) }
             launch { animY.animateTo(resolved.yPx, Motion.springWindow) }
             launch { animW.animateTo(resolved.widthPx, Motion.springWindowSettle) }
@@ -141,6 +165,7 @@ fun ResizableBrowserWindow(
     }
 
     suspend fun snapAnimToDisplay(xPx: Float, yPx: Float, widthPx: Float, heightPx: Float) {
+        settleJob?.cancel()
         coroutineScope {
             launch { animX.snapTo(xPx) }
             launch { animY.snapTo(yPx) }
@@ -149,44 +174,38 @@ fun ResizableBrowserWindow(
         }
     }
 
-    val displayGeometry by remember {
-        derivedStateOf {
-            val snap = gestureAnchor
-            val dragging = gestureActive && gestureMode == "move" && snap != null
-            val resizing = gestureActive && gestureMode == "resize" && snap != null
+    val snap = gestureAnchor
+    val dragging = gestureActive && gestureMode == "move" && snap != null
+    val resizing = gestureActive && gestureMode == "resize" && snap != null
 
-            val w = when {
-                resizing -> {
-                    val delta = max(dragDx, dragDy * BrowserWindowLayout.CONTENT_ASPECT_RATIO)
-                    (snap!!.widthPx + delta).coerceIn(
-                        BrowserWindowLayout.MIN_FRACTION * canvas.widthPx,
-                        canvas.widthPx,
-                    )
-                }
-                else -> animW.value
-            }
-            val h = when (frame.windowState) {
-                BrowserWindowState.MINIMIZED -> canvas.titleBarPx.coerceAtLeast(1f)
-                BrowserWindowState.MAXIMIZED -> animH.value
-                BrowserWindowState.NORMAL -> BrowserWindowLayout.totalHeightPx(w, canvas.titleBarPx)
-            }
-            val x = when {
-                dragging -> (snap!!.xPx + dragDx)
-                    .coerceIn(0f, (canvas.widthPx - w).coerceAtLeast(0f))
-                else -> animX.value
-            }
-            val y = when {
-                dragging -> (snap!!.yPx + dragDy)
-                    .coerceIn(0f, (canvas.heightPx - h).coerceAtLeast(0f))
-                else -> animY.value
-            }
-            val layoutW = if (resizing && snap != null) snap.widthPx else w
-            val layoutH = if (resizing && snap != null) snap.heightPx else h
-            val resizeScale = if (resizing && snap != null && snap.widthPx > 0f) w / snap.widthPx else 1f
-
-            DisplayGeometry(x, y, w, h, layoutW, layoutH, resizeScale)
+    val displayW = when {
+        resizing -> {
+            val delta = max(dragDx, dragDy * BrowserWindowLayout.CONTENT_ASPECT_RATIO)
+            (snap!!.widthPx + delta).coerceIn(
+                BrowserWindowLayout.MIN_FRACTION * canvas.widthPx,
+                canvas.widthPx,
+            )
         }
+        else -> animW.value
     }
+    val displayH = when (frame.windowState) {
+        BrowserWindowState.MINIMIZED -> canvas.titleBarPx.coerceAtLeast(1f)
+        BrowserWindowState.MAXIMIZED -> animH.value
+        BrowserWindowState.NORMAL -> BrowserWindowLayout.totalHeightPx(displayW, canvas.titleBarPx)
+    }
+    val displayX = when {
+        dragging -> (snap!!.xPx + dragDx)
+            .coerceIn(0f, (canvas.widthPx - displayW).coerceAtLeast(0f))
+        else -> animX.value
+    }
+    val displayY = when {
+        dragging -> (snap!!.yPx + dragDy)
+            .coerceIn(0f, (canvas.heightPx - displayH).coerceAtLeast(0f))
+        else -> animY.value
+    }
+    val layoutW = if (resizing && snap != null) snap.widthPx else displayW
+    val layoutH = if (resizing && snap != null) snap.heightPx else displayH
+    val resizeScale = if (resizing && snap != null && snap.widthPx > 0f) displayW / snap.widthPx else 1f
 
     val canResize = frame.windowState == BrowserWindowState.NORMAL && canvas.widthPx > 0f
     val canDrag = frame.windowState == BrowserWindowState.NORMAL
@@ -210,6 +229,7 @@ fun ResizableBrowserWindow(
     fun beginMoveGesture() {
         if (!canDrag) return
         menuExpanded = false
+        settleJob?.cancel()
         gestureActive = true
         gestureMode = "move"
         gestureAnchor = GestureSnapshot(
@@ -226,25 +246,25 @@ fun ResizableBrowserWindow(
     }
 
     fun endMoveGesture() {
-        val snap = gestureAnchor
+        val anchor = gestureAnchor
         val mode = gestureMode
         val dx = dragDx
         val dy = dragDy
         scope.launch {
-            if (mode == "move" && snap != null && (dx != 0f || dy != 0f)) {
-                val finalW = snap.widthPx
-                val finalH = snap.heightPx
-                val finalX = (snap.xPx + dx)
+            if (mode == "move" && anchor != null && (dx != 0f || dy != 0f)) {
+                val finalW = anchor.widthPx
+                val finalH = anchor.heightPx
+                val finalX = (anchor.xPx + dx)
                     .coerceIn(0f, (canvas.widthPx - finalW).coerceAtLeast(0f))
-                val finalY = (snap.yPx + dy)
+                val finalY = (anchor.yPx + dy)
                     .coerceIn(0f, (canvas.heightPx - finalH).coerceAtLeast(0f))
                 snapAnimToDisplay(finalX, finalY, finalW, finalH)
                 onCommitGeometry(
                     WindowGeometry.moved(
                         base = resolved.layout,
                         widthPx = finalW,
-                        offsetX = if (canvas.widthPx > 0f) finalX / canvas.widthPx else snap.offsetX,
-                        offsetY = if (canvas.heightPx > 0f) finalY / canvas.heightPx else snap.offsetY,
+                        offsetX = if (canvas.widthPx > 0f) finalX / canvas.widthPx else anchor.offsetX,
+                        offsetY = if (canvas.heightPx > 0f) finalY / canvas.heightPx else anchor.offsetY,
                         canvas = canvas,
                     ),
                 )
@@ -255,16 +275,16 @@ fun ResizableBrowserWindow(
 
     Box(
         modifier = modifier
-            .zIndex(if (isActive) 200f else tab.zIndex.toFloat())
+            .zIndex(if (isActive) 200f + tab.zIndex else tab.zIndex.toFloat())
             .graphicsLayer {
-                translationX = displayGeometry.x
-                translationY = displayGeometry.y
-                scaleX = displayGeometry.resizeScale * windowScale
-                scaleY = displayGeometry.resizeScale * windowScale
+                translationX = displayX
+                translationY = displayY
+                scaleX = resizeScale * windowScale
+                scaleY = resizeScale * windowScale
                 transformOrigin = TransformOrigin(0f, 0f)
             }
-            .width(with(density) { displayGeometry.layoutW.toDp() })
-            .height(with(density) { displayGeometry.layoutH.toDp() }),
+            .width(with(density) { layoutW.toDp() })
+            .height(with(density) { layoutH.toDp() }),
     ) {
         WindowBody(
             tab = tab,
@@ -272,6 +292,10 @@ fun ResizableBrowserWindow(
             controller = controller,
             onTabUpdate = onTabUpdate,
             interactionEnabled = webInteractionEnabled,
+            sampleContentColor = frame.windowState != BrowserWindowState.MINIMIZED,
+            onContentColorSampled = { sampled ->
+                dotColor = ContentColorSampler.smoothToward(dotColor, sampled)
+            },
             elevation = elevation,
             isActive = isActive,
         )
@@ -280,9 +304,9 @@ fun ResizableBrowserWindow(
             tabId = tab.id,
             canDrag = canDrag,
             isGesturing = gestureActive && gestureMode == "move",
+            dotColor = dotColor,
             modifier = Modifier
                 .align(Alignment.TopCenter)
-                .offset(y = DragHandleOverlap)
                 .zIndex(12f),
             onDragStart = ::beginMoveGesture,
             onDrag = { dx, dy ->
@@ -337,6 +361,7 @@ fun ResizableBrowserWindow(
                     .zIndex(8f),
                 onResizeStart = {
                     menuExpanded = false
+                    settleJob?.cancel()
                     gestureActive = true
                     gestureMode = "resize"
                     gestureAnchor = GestureSnapshot(
@@ -358,19 +383,19 @@ fun ResizableBrowserWindow(
                     }
                 },
                 onResizeEnd = {
-                    val snap = gestureAnchor
+                    val anchor = gestureAnchor
                     val mode = gestureMode
                     val dx = dragDx
                     val dy = dragDy
                     scope.launch {
-                        if (mode == "resize" && snap != null && (dx != 0f || dy != 0f)) {
+                        if (mode == "resize" && anchor != null && (dx != 0f || dy != 0f)) {
                             val delta = max(dx, dy * BrowserWindowLayout.CONTENT_ASPECT_RATIO)
-                            val finalW = (snap.widthPx + delta).coerceIn(
+                            val finalW = (anchor.widthPx + delta).coerceIn(
                                 BrowserWindowLayout.MIN_FRACTION * canvas.widthPx,
                                 canvas.widthPx,
                             )
                             val finalH = BrowserWindowLayout.totalHeightPx(finalW, canvas.titleBarPx)
-                            snapAnimToDisplay(snap.xPx, snap.yPx, finalW, finalH)
+                            snapAnimToDisplay(anchor.xPx, anchor.yPx, finalW, finalH)
                             onCommitGeometry(
                                 WindowGeometry.resized(
                                     base = resolved.layout,
@@ -387,16 +412,6 @@ fun ResizableBrowserWindow(
     }
 }
 
-private data class DisplayGeometry(
-    val x: Float,
-    val y: Float,
-    val w: Float,
-    val h: Float,
-    val layoutW: Float,
-    val layoutH: Float,
-    val resizeScale: Float,
-)
-
 @Composable
 private fun WindowBody(
     tab: BrowserTab,
@@ -404,6 +419,8 @@ private fun WindowBody(
     controller: BrowserController,
     onTabUpdate: (BrowserTab) -> Unit,
     interactionEnabled: Boolean,
+    sampleContentColor: Boolean,
+    onContentColorSampled: (Color) -> Unit,
     elevation: Float,
     isActive: Boolean,
 ) {
@@ -421,15 +438,15 @@ private fun WindowBody(
             .background(MaterialTheme.colorScheme.surface),
     ) {
         if (frame.windowState != BrowserWindowState.MINIMIZED) {
-            Box(modifier = Modifier.fillMaxSize()) {
-                BrowserWebView(
-                    tab = tab,
-                    controller = controller,
-                    onTabUpdate = onTabUpdate,
-                    interactionEnabled = interactionEnabled,
-                    modifier = Modifier.fillMaxSize(),
-                )
-            }
+            BrowserWebView(
+                tab = tab,
+                controller = controller,
+                onTabUpdate = onTabUpdate,
+                interactionEnabled = interactionEnabled,
+                sampleContentColor = sampleContentColor,
+                onContentColorSampled = onContentColorSampled,
+                modifier = Modifier.fillMaxSize(),
+            )
         }
     }
 }

@@ -40,6 +40,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import com.autobrowse.android.browser.BrowserController
+import com.autobrowse.android.browser.FloatingWindowEngine
 import com.autobrowse.android.domain.model.BrowserTab
 import com.autobrowse.android.domain.model.BrowserTabStatus
 import com.autobrowse.android.domain.model.BrowserWindowFrame
@@ -95,7 +96,7 @@ fun BrowserPanel(
             } else {
                 Box(modifier = Modifier.fillMaxSize()) {
                 sortedTabs.forEach { tab ->
-                    val frame = windowFrames[tab.id] ?: BrowserWindowFrame.fromTab(tab)
+                    val frame = FloatingWindowEngine.frameForTab(tab.id, tabs, windowFrames)
                     val isActive = tab.id == activeTabId
                     ResizableBrowserWindow(
                         tab = tab,

@@ -10,9 +10,11 @@ import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clipToBounds
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.layout
@@ -21,10 +23,12 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.viewinterop.AndroidView
 import com.autobrowse.android.browser.BrowserController
+import com.autobrowse.android.browser.ContentColorSampler
 import com.autobrowse.android.browser.DesktopBrowserConfig
 import com.autobrowse.android.browser.VirtualDisplayConfig
 import com.autobrowse.android.domain.model.BrowserTab
 import com.autobrowse.android.domain.model.BrowserTabStatus
+import kotlinx.coroutines.delay
 import kotlin.math.roundToInt
 
 @SuppressLint("SetJavaScriptEnabled")
@@ -34,6 +38,8 @@ fun BrowserWebView(
     controller: BrowserController,
     onTabUpdate: (BrowserTab) -> Unit,
     interactionEnabled: Boolean = true,
+    sampleContentColor: Boolean = false,
+    onContentColorSampled: (Color) -> Unit = {},
     modifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
@@ -53,7 +59,16 @@ fun BrowserWebView(
         onDispose { controller.detach(tab.id) }
     }
 
-    DisposableEffect(tab.id, onTabUpdate) {
+    fun reportContentColor() {
+        if (!sampleContentColor) return
+        ContentColorSampler.sampleTopBandAsync(webView) { sampled ->
+            if (ContentColorSampler.isValid(sampled)) {
+                onContentColorSampled(ContentColorSampler.dotsFromContent(ContentColorSampler.saturate(sampled)))
+            }
+        }
+    }
+
+    DisposableEffect(tab.id, onTabUpdate, sampleContentColor) {
         webView.webViewClient = object : WebViewClient() {
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                 onTabUpdate(
@@ -65,7 +80,10 @@ fun BrowserWebView(
             }
 
             override fun onPageFinished(view: WebView?, url: String?) {
-                view?.post { DesktopBrowserConfig.applyVirtualViewport(view) }
+                view?.post {
+                    DesktopBrowserConfig.applyVirtualViewport(view)
+                    reportContentColor()
+                }
                 onTabUpdate(
                     tab.copy(
                         url = url ?: tab.url,
@@ -91,6 +109,14 @@ fun BrowserWebView(
         }
         webView.webChromeClient = WebChromeClient()
         onDispose { }
+    }
+
+    LaunchedEffect(tab.id, sampleContentColor) {
+        if (!sampleContentColor) return@LaunchedEffect
+        while (true) {
+            delay(1800)
+            reportContentColor()
+        }
     }
 
     BoxWithConstraints(
