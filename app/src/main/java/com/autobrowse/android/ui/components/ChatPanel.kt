@@ -27,16 +27,9 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.onSizeChanged
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
@@ -45,7 +38,6 @@ import com.autobrowse.android.domain.model.AgentPhase
 import com.autobrowse.android.domain.model.AgentProgress
 import com.autobrowse.android.domain.model.AgentRole
 import com.autobrowse.android.domain.model.ChatMessage
-import com.autobrowse.android.domain.model.PendingAttachment
 
 private val UserBubbleBg = Color(0xFF2C2C2E)
 
@@ -54,68 +46,28 @@ fun ChatPanel(
     messages: List<ChatMessage>,
     isAgentThinking: Boolean,
     agentProgress: AgentProgress?,
-    value: String,
-    onValueChange: (String) -> Unit,
-    attachments: List<PendingAttachment>,
-    onAddAttachment: (PendingAttachment) -> Unit,
-    onRemoveAttachment: (String) -> Unit,
-    onSend: () -> Unit,
     onSettings: () -> Unit,
-    error: String?,
+    scrollOnInput: Boolean,
+    composerBottomPadding: Dp,
     modifier: Modifier = Modifier,
 ) {
-    var inputFocused by remember { mutableStateOf(false) }
-    var composerHeightPx by remember { mutableIntStateOf(0) }
-    val density = LocalDensity.current
-    val composerClearance = with(density) { composerHeightPx.toDp() }
-
-    Box(
+    Column(
         modifier = modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background),
     ) {
-        Column(modifier = Modifier.fillMaxSize()) {
-            ChatPanelHeader(onSettings = onSettings)
+        ChatPanelHeader(onSettings = onSettings)
 
-            ChatConversation(
-                messages = messages,
-                isAgentThinking = isAgentThinking,
-                agentProgress = agentProgress,
-                scrollOnInput = inputFocused,
-                contentBottomPadding = composerClearance,
-                modifier = Modifier
-                    .weight(1f)
-                    .fillMaxWidth(),
-            )
-        }
-
-        Column(
+        ChatConversation(
+            messages = messages,
+            isAgentThinking = isAgentThinking,
+            agentProgress = agentProgress,
+            scrollOnInput = scrollOnInput,
+            contentBottomPadding = composerBottomPadding,
             modifier = Modifier
-                .align(Alignment.BottomCenter)
-                .fillMaxWidth()
-                .onSizeChanged { composerHeightPx = it.height },
-        ) {
-            error?.let { message ->
-                Text(
-                    text = message,
-                    color = MaterialTheme.colorScheme.error,
-                    style = MaterialTheme.typography.bodySmall,
-                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp),
-                )
-            }
-
-            ChatComposer(
-                value = value,
-                onValueChange = onValueChange,
-                attachments = attachments,
-                onAddAttachment = onAddAttachment,
-                onRemoveAttachment = onRemoveAttachment,
-                onSend = onSend,
-                isSending = isAgentThinking,
-                onFocusChange = { inputFocused = it },
-                modifier = Modifier.fillMaxWidth(),
-            )
-        }
+                .weight(1f)
+                .fillMaxWidth(),
+        )
     }
 }
 

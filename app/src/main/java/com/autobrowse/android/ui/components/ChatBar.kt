@@ -27,16 +27,16 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.WindowInsetsSides
 import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.ime
 import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.union
 import androidx.compose.foundation.layout.windowInsetsPadding
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.ime
-import androidx.compose.foundation.layout.isImeVisible
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
@@ -71,7 +71,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -86,6 +85,16 @@ import java.util.UUID
 private val ComposerInputBg = Color(0xFF1C1C1E)
 private val ComposerButtonBg = Color(0xFF2C2C2E)
 private val ComposerBorder = Color(0xFF3A3A3C)
+
+@OptIn(ExperimentalLayoutApi::class)
+fun Modifier.chatComposerWindowInsets(keyboardLiftActive: Boolean): Modifier {
+    val bottomInsets = if (keyboardLiftActive) {
+        WindowInsets.navigationBars.union(WindowInsets.ime)
+    } else {
+        WindowInsets.navigationBars
+    }
+    return windowInsetsPadding(bottomInsets.only(WindowInsetsSides.Bottom))
+}
 
 @Composable
 fun ChatBar(
@@ -110,7 +119,6 @@ fun ChatBar(
     )
 }
 
-@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun ChatComposer(
     value: String,
@@ -121,16 +129,13 @@ fun ChatComposer(
     onSend: () -> Unit,
     isSending: Boolean,
     modifier: Modifier = Modifier,
+    keyboardLiftActive: Boolean = false,
     onFocusChange: (Boolean) -> Unit = {},
 ) {
     val context = LocalContext.current
-    val density = LocalDensity.current
     var showPicker by remember { mutableStateOf(false) }
     val interactionSource = remember { MutableInteractionSource() }
     val isFocused by interactionSource.collectIsFocusedAsState()
-    val imeVisible = WindowInsets.isImeVisible
-    val imeBottom = WindowInsets.ime.getBottom(density)
-    val liftForKeyboard = isFocused && (imeVisible || imeBottom > 0)
 
     androidx.compose.runtime.LaunchedEffect(isFocused) {
         onFocusChange(isFocused)
@@ -196,17 +201,7 @@ fun ChatComposer(
         modifier = modifier
             .fillMaxWidth()
             .background(MaterialTheme.colorScheme.background)
-            .then(
-                if (liftForKeyboard) {
-                    Modifier.windowInsetsPadding(
-                        WindowInsets.ime.only(WindowInsetsSides.Bottom),
-                    )
-                } else {
-                    Modifier.windowInsetsPadding(
-                        WindowInsets.navigationBars.only(WindowInsetsSides.Bottom),
-                    )
-                },
-            )
+            .chatComposerWindowInsets(keyboardLiftActive)
             .padding(horizontal = 16.dp, vertical = 10.dp),
     ) {
         AttachmentPickerSheet(
