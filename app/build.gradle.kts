@@ -9,7 +9,7 @@ plugins {
 
 android {
     namespace = "com.autobrowse.android"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.autobrowse.android"
