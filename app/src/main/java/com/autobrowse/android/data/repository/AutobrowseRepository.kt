@@ -56,7 +56,12 @@ class AutobrowseRepository(
 
     suspend fun getOrCreateActiveSession(): Session {
         val existing = sessionDao.getActive()
-        if (existing != null) return existing.toDomain()
+        if (existing != null) {
+            if (tabDao.countBySession(existing.id) == 0) {
+                seedDefaultTab(existing.id)
+            }
+            return existing.toDomain()
+        }
 
         sessionDao.deactivateAll()
         val session = SessionEntity(

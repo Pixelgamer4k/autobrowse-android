@@ -63,19 +63,27 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     val uiState: StateFlow<MainUiState> = _uiState.asStateFlow()
 
     private var sessionId: String? = null
+    private var flowsBound = false
 
     init {
         viewModelScope.launch {
             val session = repository.getOrCreateActiveSession()
             sessionId = session.id
+            val llmConfig = repository.getLlmConfig()
             _uiState.update {
                 it.copy(
                     session = session,
-                    llmConfig = repository.getLlmConfig(),
+                    llmConfig = llmConfig,
                     skillConfigs = app.skillRegistry.allSkillConfigs(),
                     enabledSkills = repository.getEnabledSkills(),
+                    error = if (llmConfig.apiKey.isBlank()) {
+                        "Add your API key in Settings (gear icon) to use the agent."
+                    } else {
+                        null
+                    },
                 )
             }
+            bindSessionFlows(session.id)
         }
     }
 
@@ -83,11 +91,13 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         .map { it.tasks }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
 
-    fun bindSessionFlows() {
-        val id = sessionId ?: return
+    private fun bindSessionFlows(id: String) {
+        if (flowsBound) return
+        flowsBound = true
         viewModelScope.launch {
             repository.observeTabs(id).collect { tabs ->
                 val active = _uiState.value.activeTabId ?: tabs.firstOrNull()?.id
+                active?.let { browserController.setActiveTab(it) }
                 _uiState.update { it.copy(tabs = tabs, activeTabId = active) }
             }
         }
@@ -202,6 +212,13 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         if ((prompt.isBlank() && attachments.isEmpty()) || _uiState.value.isAgentThinking) return
 
         viewModelScope.launch {
+            val llmConfig = repository.getLlmConfig()
+            if (llmConfig.apiKey.isBlank()) {
+                _uiState.update {
+                    it.copy(error = "Add your API key in Settings (gear icon) before sending messages.")
+                }
+                return@launch
+            }
             _uiState.update {
                 it.copy(chatInput = "", pendingAttachments = emptyList(), isAgentThinking = true, error = null)
             }
@@ -242,8 +259,27 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     fun saveLlmConfig(config: LlmConfig) {
         viewModelScope.launch {
             repository.saveLlmConfig(config)
-            _uiState.update { it.copy(llmConfig = config) }
+            _uiState.update {
+                it.copy(
+                    llmConfig = config,
+                    error = if (config.apiKey.isBlank()) {
+                        "Add your API key in Settings (gear icon) to use the agent."
+                    } else {
+                        null
+                    },
+                )
+            }
         }
+    }
+
+    fun navigateActiveTab(url: String) {
+        val trimmed = url.trim()
+        if (trimmed.isBlank()) return
+        val tabId = _uiState.value.activeTabId ?: return
+        val tab = _uiState.value.tabs.find { it.id == tabId } ?: return
+        val normalized = if (trimmed.startsWith("http")) trimmed else "https://$trimmed"
+        browserController.loadUrl(normalized, tabId)
+        updateTab(tab.copy(url = normalized, status = BrowserTabStatus.LOADING))
     }
 
     fun toggleSkill(skillType: SkillType, enabled: Boolean) {

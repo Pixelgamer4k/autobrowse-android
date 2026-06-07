@@ -13,7 +13,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -28,10 +27,6 @@ import com.autobrowse.android.ui.theme.Motion
 @Composable
 fun HomeScreen(viewModel: MainViewModel) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
-
-    LaunchedEffect(Unit) {
-        viewModel.bindSessionFlows()
-    }
 
     AnimatedContent(
         targetState = state.showSettings,
@@ -91,6 +86,7 @@ private fun MainContent(
                     onAddTab = { viewModel.addTab() },
                     onTabUpdate = viewModel::updateTab,
                     onLayoutChange = viewModel::updateTabLayout,
+                    onNavigate = viewModel::navigateActiveTab,
                     modifier = Modifier.fillMaxSize(),
                 )
             },

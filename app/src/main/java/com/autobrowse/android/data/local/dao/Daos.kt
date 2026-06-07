@@ -123,6 +123,9 @@ interface BrowserTabDao {
     @Query("SELECT * FROM browser_tabs WHERE sessionId = :sessionId ORDER BY zIndex ASC")
     fun observeBySession(sessionId: String): Flow<List<BrowserTabEntity>>
 
+    @Query("SELECT COUNT(*) FROM browser_tabs WHERE sessionId = :sessionId")
+    suspend fun countBySession(sessionId: String): Int
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsert(tab: BrowserTabEntity)
 
