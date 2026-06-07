@@ -86,16 +86,6 @@ private val ComposerInputBg = Color(0xFF1C1C1E)
 private val ComposerButtonBg = Color(0xFF2C2C2E)
 private val ComposerBorder = Color(0xFF3A3A3C)
 
-@OptIn(ExperimentalLayoutApi::class)
-fun Modifier.chatComposerWindowInsets(keyboardLiftActive: Boolean): Modifier {
-    val bottomInsets = if (keyboardLiftActive) {
-        WindowInsets.navigationBars.union(WindowInsets.ime)
-    } else {
-        WindowInsets.navigationBars
-    }
-    return windowInsetsPadding(bottomInsets.only(WindowInsetsSides.Bottom))
-}
-
 @Composable
 fun ChatBar(
     value: String,
@@ -119,6 +109,7 @@ fun ChatBar(
     )
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun ChatComposer(
     value: String,
@@ -197,11 +188,17 @@ fun ChatComposer(
         label = "sendScale",
     )
 
+    val bottomInsets = if (keyboardLiftActive) {
+        WindowInsets.navigationBars.union(WindowInsets.ime)
+    } else {
+        WindowInsets.navigationBars
+    }
+
     Column(
         modifier = modifier
             .fillMaxWidth()
             .background(MaterialTheme.colorScheme.background)
-            .chatComposerWindowInsets(keyboardLiftActive)
+            .windowInsetsPadding(bottomInsets.only(WindowInsetsSides.Bottom))
             .padding(horizontal = 16.dp, vertical = 10.dp),
     ) {
         AttachmentPickerSheet(
