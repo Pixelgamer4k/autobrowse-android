@@ -90,4 +90,6 @@ data class AgentProgress(
     val maxIterations: Int,
     val currentTool: String? = null,
     val message: String = "",
+    /** Live model output during THINKING; cleared when the turn finishes. */
+    val streamPreview: String = "",
 )

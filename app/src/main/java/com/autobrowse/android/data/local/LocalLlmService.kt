@@ -48,13 +48,14 @@ class LocalLlmService(
         messages: List<ChatMessageDto>,
         tools: List<ToolDefinition> = emptyList(),
         attachmentPayload: AttachmentPayload = AttachmentPayload(),
+        onTokenDelta: ((String) -> Unit)? = null,
     ): LlmCompletion = withContext(Dispatchers.IO) {
         requireModelFiles(config)
         if (messages.isEmpty()) {
             throw IllegalStateException("No messages to send.")
         }
         ensureEngine(config)
-        generateFromMessages(config, systemPrompt, messages, tools, attachmentPayload)
+        generateFromMessages(config, systemPrompt, messages, tools, attachmentPayload, onTokenDelta)
     }
 
     suspend fun chat(
@@ -82,6 +83,7 @@ class LocalLlmService(
         messages: List<ChatMessageDto>,
         tools: List<ToolDefinition>,
         attachmentPayload: AttachmentPayload,
+        onTokenDelta: ((String) -> Unit)? = null,
     ): LlmCompletion {
         val enrichedSystem = augmentSystemPrompt(systemPrompt, tools)
         val visionContext = analyzeVisionContext(config, messages, attachmentPayload)
@@ -91,8 +93,39 @@ class LocalLlmService(
             addAssistantPrefix = true,
         ) ?: fallbackPrompt(enrichedSystem, promptMessages)
 
-        val rawText = LlamaBridge.generate(prompt)
+        val rawText = if (onTokenDelta != null) {
+            generateStream(prompt, onTokenDelta)
+        } else {
+            LlamaBridge.generate(prompt)
+        }
         return parseCompletion(rawText, tools.map { it.name }.toSet())
+    }
+
+    private fun generateStream(prompt: String, onTokenDelta: (String) -> Unit): String {
+        val builder = StringBuilder()
+        val latch = java.util.concurrent.CountDownLatch(1)
+        var error: String? = null
+        LlamaBridge.generateStream(
+            prompt,
+            object : GenStream {
+                override fun onDelta(text: String) {
+                    builder.append(text)
+                    onTokenDelta(text)
+                }
+
+                override fun onComplete() {
+                    latch.countDown()
+                }
+
+                override fun onError(message: String) {
+                    error = message
+                    latch.countDown()
+                }
+            },
+        )
+        latch.await()
+        error?.let { throw IllegalStateException("Local model stream failed: $it") }
+        return builder.toString()
     }
 
     private fun analyzeVisionContext(

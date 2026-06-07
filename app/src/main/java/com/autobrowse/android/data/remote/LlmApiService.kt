@@ -116,6 +116,7 @@ class LlmApiService(
         messages: List<ChatMessageDto>,
         tools: List<ToolDefinition> = emptyList(),
         attachmentPayload: AttachmentPayload = AttachmentPayload(),
+        onTokenDelta: ((String) -> Unit)? = null,
     ): LlmCompletion = withContext(Dispatchers.IO) {
         if (config.provider == LlmProvider.LOCAL) {
             return@withContext localLlmService?.complete(
@@ -124,6 +125,7 @@ class LlmApiService(
                 messages = messages,
                 tools = tools,
                 attachmentPayload = attachmentPayload,
+                onTokenDelta = onTokenDelta,
             ) ?: throw IllegalStateException("Local GGUF inference is not available.")
         }
         require(config.apiKey.isNotBlank()) { "API token is required. Configure it on the setup screen." }

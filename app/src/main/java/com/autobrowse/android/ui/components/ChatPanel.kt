@@ -8,12 +8,15 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AttachFile
@@ -183,7 +186,7 @@ private fun ChatConversation(
 ) {
     val listState = rememberLazyListState()
 
-    LaunchedEffect(messages.size, isAgentThinking) {
+    LaunchedEffect(messages.size, isAgentThinking, agentProgress?.streamPreview) {
         val lastIndex = messages.size + if (isAgentThinking) 1 else 0
         if (lastIndex > 0) {
             listState.animateScrollToItem(lastIndex - 1)
@@ -310,30 +313,71 @@ private fun ChatMessageBubble(message: ChatMessage) {
 
 @Composable
 private fun AgentThinkingBubble(agentProgress: AgentProgress?) {
-    Row(
+    val preview = agentProgress?.streamPreview.orEmpty()
+    val statusMessage = agentProgress?.message?.takeIf { it.isNotBlank() } ?: "Thinking…"
+    val previewScroll = rememberScrollState()
+
+    LaunchedEffect(preview) {
+        if (preview.isNotBlank()) {
+            previewScroll.animateScrollTo(previewScroll.maxValue)
+        }
+    }
+
+    Column(
         modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.Start,
-        verticalAlignment = Alignment.CenterVertically,
+        verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
-        CircularProgressIndicator(
-            modifier = Modifier.size(16.dp),
-            strokeWidth = 2.dp,
-            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
-        )
-        Column(modifier = Modifier.padding(start = 12.dp)) {
-            Text(
-                text = agentProgress?.message?.takeIf { it.isNotBlank() } ?: "Thinking…",
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.75f),
-                maxLines = 2,
-                overflow = TextOverflow.Ellipsis,
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Start,
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            CircularProgressIndicator(
+                modifier = Modifier.size(16.dp),
+                strokeWidth = 2.dp,
+                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
             )
-            if (agentProgress?.phase != null && agentProgress.phase != AgentPhase.IDLE) {
+            Column(modifier = Modifier.padding(start = 12.dp)) {
                 Text(
-                    text = agentProgress.phase.name.lowercase().replace('_', ' '),
-                    style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.45f),
+                    text = statusMessage,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.75f),
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
                 )
+                if (agentProgress?.phase != null && agentProgress.phase != AgentPhase.IDLE) {
+                    Text(
+                        text = agentProgress.phase.name.lowercase().replace('_', ' '),
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.45f),
+                    )
+                }
+            }
+        }
+
+        if (preview.isNotBlank()) {
+            Surface(
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(12.dp),
+                color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.55f),
+            ) {
+                Column(modifier = Modifier.padding(horizontal = 12.dp, vertical = 10.dp)) {
+                    Text(
+                        text = "Thinking",
+                        style = MaterialTheme.typography.labelMedium,
+                        fontWeight = FontWeight.SemiBold,
+                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+                    )
+                    Text(
+                        text = preview,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.82f),
+                        modifier = Modifier
+                            .padding(top = 6.dp)
+                            .heightIn(max = 160.dp)
+                            .verticalScroll(previewScroll),
+                    )
+                }
             }
         }
     }

@@ -585,7 +585,18 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 return@launch
             }
             _uiState.update {
-                it.copy(chatInput = "", pendingAttachments = emptyList(), isAgentThinking = true, error = null)
+                it.copy(
+                    chatInput = "",
+                    pendingAttachments = emptyList(),
+                    isAgentThinking = true,
+                    agentProgress = AgentProgress(
+                        phase = AgentPhase.THINKING,
+                        iteration = 0,
+                        maxIterations = 20,
+                        message = "Preparing…",
+                    ),
+                    error = null,
+                )
             }
             try {
                 val stored = attachments.map { pending ->

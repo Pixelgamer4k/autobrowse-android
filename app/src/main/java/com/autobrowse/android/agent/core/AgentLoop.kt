@@ -186,6 +186,7 @@ class AgentLoop(
                     iteration = iteration,
                     maxIterations = maxIterations,
                     message = "Thinking (turn $iteration)…",
+                    streamPreview = "",
                 )
                 repository.updateTask(
                     task.copy(progress = iteration.toFloat() / maxIterations),
@@ -199,13 +200,30 @@ class AgentLoop(
                     else -> AttachmentPayload()
                 }
 
+                val streamBuffer = StringBuilder()
+                var lastStreamUiUpdate = 0L
                 val completion = llmApi.complete(
                     config = config,
                     systemPrompt = systemPrompt,
                     messages = loopMessages,
                     tools = toolRegistry.definitions(),
                     attachmentPayload = attachmentPayload,
+                    onTokenDelta = { delta ->
+                        streamBuffer.append(delta)
+                        val now = System.currentTimeMillis()
+                        if (now - lastStreamUiUpdate >= 120L) {
+                            lastStreamUiUpdate = now
+                            _progress.value = _progress.value.copy(
+                                streamPreview = formatThinkingPreview(streamBuffer.toString()),
+                            )
+                        }
+                    },
                 )
+                if (streamBuffer.isNotEmpty()) {
+                    _progress.value = _progress.value.copy(
+                        streamPreview = formatThinkingPreview(streamBuffer.toString()),
+                    )
+                }
                 toolContext.pendingVisionImages.clear()
                 ensureNotCancelled()
 
@@ -245,6 +263,7 @@ class AgentLoop(
                         maxIterations = maxIterations,
                         currentTool = call.name,
                         message = "Running ${call.name}…",
+                        streamPreview = "",
                     )
                     val args = parseToolArgs(call.argumentsJson)
                     val raw = toolRegistry.dispatch(call.name, args, toolContext)
@@ -375,4 +394,27 @@ class AgentLoop(
                 error = error.message,
             )
         }
+
+    private fun formatThinkingPreview(raw: String): String {
+        val thinkOpen = "<think>"
+        val thinkClose = "</think>"
+        val start = raw.indexOf(thinkOpen)
+        if (start >= 0) {
+            val contentStart = start + thinkOpen.length
+            val end = raw.indexOf(thinkClose, contentStart)
+            val thinking = if (end >= 0) {
+                raw.substring(contentStart, end)
+            } else {
+                raw.substring(contentStart)
+            }
+            return thinking.trim().take(2_500)
+        }
+        return raw
+            .replace(Regex("""<tool_call>.*""", RegexOption.DOT_MATCHES_ALL), "")
+            .replace(thinkOpen, "")
+            .replace(thinkClose, "")
+            .trim()
+            .takeLast(1_200)
+            .trim()
+    }
 }
