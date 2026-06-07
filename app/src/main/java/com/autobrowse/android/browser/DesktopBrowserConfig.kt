@@ -19,7 +19,7 @@ object DesktopBrowserConfig {
             builtInZoomControls = false
             displayZoomControls = false
             setSupportZoom(false)
-            textZoom = (100 * VirtualDisplayConfig.CONTENT_ZOOM).toInt()
+            textZoom = 100
             mixedContentMode = WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE
             cacheMode = WebSettings.LOAD_DEFAULT
             mediaPlaybackRequiresUserGesture = false
@@ -39,14 +39,14 @@ object DesktopBrowserConfig {
                     meta.setAttribute('name', 'viewport');
                     document.head.appendChild(meta);
                 }
-                meta.setAttribute('content', 'width=' + width + ', initial-scale=${VirtualDisplayConfig.CONTENT_ZOOM}');
+                meta.setAttribute('content', 'width=' + width + ', initial-scale=1.0');
                 if (document.documentElement) {
-                    document.documentElement.style.zoom = '${VirtualDisplayConfig.CONTENT_ZOOM}';
+                    document.documentElement.style.zoom = '';
                     document.documentElement.style.transform = '';
                     document.documentElement.style.minWidth = '';
                 }
                 if (document.body) {
-                    document.body.style.zoom = '${VirtualDisplayConfig.CONTENT_ZOOM}';
+                    document.body.style.zoom = '';
                     document.body.style.transform = '';
                     document.body.style.minWidth = '';
                 }
