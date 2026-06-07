@@ -148,7 +148,12 @@ class AgentLoop(
             val isLocal = config.provider == LlmProvider.LOCAL
 
             if (isLocal) {
-                _progress.value = AgentProgress(AgentPhase.THINKING, 0, maxIterations, message = "Loading model…")
+                _progress.value = AgentProgress(
+                    phase = AgentPhase.THINKING,
+                    iteration = 0,
+                    maxIterations = maxIterations,
+                    message = "Loading local model (experimental — may take several minutes)…",
+                )
                 llmApi.prepareLocalEngine(config)
             }
 

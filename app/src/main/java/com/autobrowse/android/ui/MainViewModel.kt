@@ -605,7 +605,11 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                         phase = AgentPhase.THINKING,
                         iteration = 0,
                         maxIterations = 20,
-                        message = "Preparing…",
+                        message = if (llmConfig.provider == LlmProvider.LOCAL) {
+                            "Local model (experimental — may take several minutes)…"
+                        } else {
+                            "Preparing…"
+                        },
                     ),
                     error = null,
                 )
@@ -789,8 +793,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private fun setupBannerMessage(config: LlmConfig): String? = when {
         config.isConfigured() -> null
         config.provider == LlmProvider.LOCAL ->
-            "Download a local Q4 GGUF vision model on the setup screen to use the agent."
-        else -> "Add your API token on the setup screen to use the agent."
+            "Local models are experimental — expect 6–10 min per response. Cloud API is recommended."
+        else -> "Add your cloud API token on the setup screen to use the agent (recommended)."
     }
 
     fun openLlmSetup(fromSettings: Boolean = false) {

@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -207,6 +208,9 @@ fun ResizableBrowserWindow(
     val layoutH = if (resizing && snap != null) snap.heightPx else displayH
     val resizeScale = if (resizing && snap != null && snap.widthPx > 0f) displayW / snap.widthPx else 1f
 
+    val windowWidthDp = with(density) { layoutW.toDp() }
+    val useCompactChrome = windowWidthDp < 200.dp
+
     val canResize = frame.windowState == BrowserWindowState.NORMAL && canvas.widthPx > 0f
     val canDrag = frame.windowState == BrowserWindowState.NORMAL
     val webInteractionEnabled = !gestureActive && !menuExpanded
@@ -307,6 +311,7 @@ fun ResizableBrowserWindow(
             dotColor = dotColor,
             modifier = Modifier
                 .align(Alignment.TopCenter)
+                .widthIn(min = 48.dp)
                 .zIndex(12f),
             onDragStart = ::beginMoveGesture,
             onDrag = { dx, dy ->
@@ -328,27 +333,51 @@ fun ResizableBrowserWindow(
                 onDismiss = { menuExpanded = false },
                 modifier = Modifier.matchParentSize().zIndex(14f),
             )
-            WindowOptionsPopup(
-                windowState = frame.windowState,
-                modifier = Modifier
-                    .align(Alignment.TopCenter)
-                    .offset(y = MenuPopupOffset)
-                    .zIndex(20f),
-                onRefresh = {
-                    menuExpanded = false
-                    onSelect()
-                    onRefresh()
-                },
-                onToggleMaximize = {
-                    menuExpanded = false
-                    onSelect()
-                    onToggleMaximize()
-                },
-                onClose = {
-                    menuExpanded = false
-                    onClose()
-                },
-            )
+            if (useCompactChrome) {
+                WindowCompactControls(
+                    windowState = frame.windowState,
+                    modifier = Modifier
+                        .align(Alignment.TopCenter)
+                        .offset(y = 30.dp)
+                        .zIndex(20f),
+                    onRefresh = {
+                        menuExpanded = false
+                        onSelect()
+                        onRefresh()
+                    },
+                    onToggleMaximize = {
+                        menuExpanded = false
+                        onSelect()
+                        onToggleMaximize()
+                    },
+                    onClose = {
+                        menuExpanded = false
+                        onClose()
+                    },
+                )
+            } else {
+                WindowOptionsPopup(
+                    windowState = frame.windowState,
+                    modifier = Modifier
+                        .align(Alignment.TopCenter)
+                        .offset(y = MenuPopupOffset)
+                        .zIndex(20f),
+                    onRefresh = {
+                        menuExpanded = false
+                        onSelect()
+                        onRefresh()
+                    },
+                    onToggleMaximize = {
+                        menuExpanded = false
+                        onSelect()
+                        onToggleMaximize()
+                    },
+                    onClose = {
+                        menuExpanded = false
+                        onClose()
+                    },
+                )
+            }
         }
 
         if (canResize) {

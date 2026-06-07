@@ -38,7 +38,7 @@ class SecureSettingsStore(context: Context) {
             }.getOrDefault(LocalLlmModel.QWEN3_5_2B),
             backend = LlmBackend.valueOf(
                 prefs.getString(KEY_BACKEND, LlmBackend.CPU.name) ?: LlmBackend.CPU.name,
-            ),
+            ).let { if (it == LlmBackend.NPU) LlmBackend.CPU else it },
             localModelPath = prefs.getString(KEY_LOCAL_MODEL_PATH, "") ?: "",
             localMmprojPath = prefs.getString(KEY_LOCAL_MMPROJ_PATH, "") ?: "",
             temperature = prefs.getFloat(KEY_TEMPERATURE, 0.7f),
@@ -53,7 +53,10 @@ class SecureSettingsStore(context: Context) {
             .putString(KEY_API_URL, config.apiUrl)
             .putString(KEY_MODEL_ID, config.modelId)
             .putString(KEY_LOCAL_MODEL, config.localModel.name)
-            .putString(KEY_BACKEND, config.backend.name)
+            .putString(
+                KEY_BACKEND,
+                if (config.backend == LlmBackend.NPU) LlmBackend.CPU.name else config.backend.name,
+            )
             .putString(KEY_LOCAL_MODEL_PATH, config.localModelPath)
             .putString(KEY_LOCAL_MMPROJ_PATH, config.localMmprojPath)
             .putFloat(KEY_TEMPERATURE, config.temperature)

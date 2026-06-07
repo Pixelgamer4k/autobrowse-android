@@ -80,7 +80,9 @@ fun LlmSetupScreen(
     var apiUrl by remember(llmConfig) { mutableStateOf(llmConfig.apiUrl) }
     var modelId by remember(llmConfig) { mutableStateOf(llmConfig.modelId) }
     var localModel by remember(llmConfig) { mutableStateOf(llmConfig.localModel) }
-    var backend by remember(llmConfig) { mutableStateOf(llmConfig.backend) }
+    var backend by remember(llmConfig) {
+        mutableStateOf(if (llmConfig.backend == LlmBackend.NPU) LlmBackend.CPU else llmConfig.backend)
+    }
     var localModelPath by remember(llmConfig) { mutableStateOf(llmConfig.localModelPath) }
     var localMmprojPath by remember(llmConfig) { mutableStateOf(llmConfig.localMmprojPath) }
 
@@ -142,7 +144,7 @@ fun LlmSetupScreen(
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
             Text(
-                "Choose a cloud API or run Q4 GGUF vision models locally via llama.cpp.",
+                "Cloud API is recommended for fast, reliable agent runs. Local on-device models are experimental.",
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.75f),
             )
@@ -153,14 +155,14 @@ fun LlmSetupScreen(
                     onClick = { provider = LlmProvider.REMOTE },
                     shape = SegmentedButtonDefaults.itemShape(index = 0, count = 2),
                 ) {
-                    Text("Cloud API")
+                    Text("Cloud API (recommended)")
                 }
                 SegmentedButton(
                     selected = provider == LlmProvider.LOCAL,
                     onClick = { provider = LlmProvider.LOCAL },
                     shape = SegmentedButtonDefaults.itemShape(index = 1, count = 2),
                 ) {
-                    Text("Local")
+                    Text("Local (experimental)")
                 }
             }
 
@@ -242,6 +244,7 @@ fun LlmSetupScreen(
     }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun RemoteLlmSection(
     apiKey: String,
@@ -255,10 +258,22 @@ private fun RemoteLlmSection(
     onTest: () -> Unit,
 ) {
     Text(
-        "OpenAI-compatible endpoint. Credentials are stored encrypted on device.",
+        "OpenAI-compatible endpoint — best experience on mobile. Credentials are stored encrypted on device.",
         style = MaterialTheme.typography.bodySmall,
         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
     )
+    FlowRow(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        listOf("gpt-4o-mini", "gpt-4o", "claude-sonnet-4").forEach { preset ->
+            FilterChip(
+                selected = modelId == preset,
+                onClick = { onModelIdChange(preset) },
+                label = { Text(preset) },
+            )
+        }
+    }
     OutlinedTextField(
         value = apiKey,
         onValueChange = onApiKeyChange,
@@ -314,6 +329,27 @@ private fun LocalLlmSection(
     onOpenUrl: (String) -> Unit,
     onPathsReady: (String, String) -> Unit,
 ) {
+    Card(
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.errorContainer.copy(alpha = 0.45f),
+        ),
+        modifier = Modifier.fillMaxWidth(),
+    ) {
+        Column(modifier = Modifier.padding(14.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+            Text(
+                "Experimental — very slow on phone",
+                style = MaterialTheme.typography.titleSmall,
+                color = MaterialTheme.colorScheme.error,
+            )
+            Text(
+                "Local models are highly experimental. First response often takes 6–10 minutes on " +
+                    "flagship phones (e.g. Snapdragon 8 Gen 2). Cloud API is strongly recommended.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.85f),
+            )
+        }
+    }
+
     Text(
         "Local Q4 GGUF models (vision + tool calling)",
         style = MaterialTheme.typography.titleMedium,
@@ -368,7 +404,7 @@ private fun LocalLlmSection(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
     ) {
-        LlmBackend.entries.forEach { option ->
+        LlmBackend.entries.filter { it != LlmBackend.NPU }.forEach { option ->
             FilterChip(
                 selected = backend == option,
                 onClick = { onBackendChange(option) },
@@ -380,7 +416,7 @@ private fun LocalLlmSection(
         when (backend) {
             LlmBackend.CPU -> "CPU: widest compatibility, slowest."
             LlmBackend.GPU -> "GPU: offloads layers via Vulkan/OpenCL when available."
-            LlmBackend.NPU -> "NPU: falls back to CPU (not supported by llama.cpp yet)."
+            LlmBackend.NPU -> "NPU is not supported — use CPU or GPU."
         },
         style = MaterialTheme.typography.bodySmall,
         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.65f),

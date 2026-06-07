@@ -13,7 +13,7 @@ data class BrowserWindowLayout(
     val heightFraction: Float = 0.58f,
 ) {
     companion object {
-        const val MIN_FRACTION = 0.10f
+        const val MIN_FRACTION = 0.30f
         const val MAX_FRACTION = 1f
         const val TITLE_BAR_HEIGHT_DP = 0f
         const val CONTENT_ASPECT_RATIO = 4f / 3f

@@ -26,7 +26,7 @@ object LocalLlmCatalog {
         LocalLlmModelInfo(
             model = LocalLlmModel.QWEN3_5_0_8B,
             displayName = "Qwen3.5 0.8B",
-            description = "Ultra-light · vision + tool calling · 256K ctx",
+            description = "Experimental · ultra-light · expect 6–10 min responses on phone",
             sizeLabel = "~740 MB (Q4 + vision)",
             pageUrl = QWEN_0_8B,
             modelFileName = "Qwen3.5-0.8B-Q4_K_M.gguf",
@@ -37,7 +37,7 @@ object LocalLlmCatalog {
         LocalLlmModelInfo(
             model = LocalLlmModel.QWEN3_5_2B,
             displayName = "Qwen3.5 2B",
-            description = "Best agent balance · vision + tool calling · 256K ctx",
+            description = "Experimental · balanced · cloud API recommended for daily use",
             sizeLabel = "~1.8 GB (Q4 + vision)",
             pageUrl = QWEN_2B,
             modelFileName = "Qwen3.5-2B-Q4_K_M.gguf",
@@ -48,7 +48,7 @@ object LocalLlmCatalog {
         LocalLlmModelInfo(
             model = LocalLlmModel.QWEN3_5_4B,
             displayName = "Qwen3.5 4B",
-            description = "Stronger reasoning · vision + tool calling · 256K ctx",
+            description = "Experimental · slower · 6–10+ min typical on mobile",
             sizeLabel = "~3.4 GB (Q4 + vision)",
             pageUrl = QWEN_4B,
             modelFileName = "Qwen3.5-4B-Q4_K_M.gguf",
