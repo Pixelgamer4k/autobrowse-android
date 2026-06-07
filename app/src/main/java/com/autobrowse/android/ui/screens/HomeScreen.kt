@@ -1,6 +1,7 @@
 package com.autobrowse.android.ui.screens
 
 import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInHorizontally
@@ -8,8 +9,10 @@ import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.isImeVisible
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.runtime.Composable
@@ -65,49 +68,63 @@ private fun MainContent(
     viewModel: MainViewModel,
     state: com.autobrowse.android.ui.MainUiState,
 ) {
+    val keyboardOpen = WindowInsets.isImeVisible
+    val browserWeight by animateFloatAsState(
+        targetValue = if (keyboardOpen) 0f else 0.56f,
+        animationSpec = Motion.springSmooth,
+        label = "browserWeight",
+    )
+    val chatWeight by animateFloatAsState(
+        targetValue = if (keyboardOpen) 1f else 0.44f,
+        animationSpec = Motion.springSmooth,
+        label = "chatWeight",
+    )
+
     Column(
         modifier = Modifier
             .fillMaxSize()
             .statusBarsPadding(),
     ) {
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .weight(0.56f),
-        ) {
-            BrowserPanel(
-                tabs = state.tabs,
-                windowFrames = state.windowFrames,
-                activeTabId = state.activeTabId,
-                controller = viewModel.browserController,
-                onSelectTab = viewModel::selectTab,
-                onAddTab = { viewModel.addTab() },
-                onTabMetadataUpdate = viewModel::updateTabMetadata,
-                onCommitGeometry = viewModel::commitWindowGeometry,
-                onNavigate = viewModel::navigateActiveTab,
-                onRefreshTab = viewModel::refreshTab,
-                onToggleMaximizeTab = viewModel::toggleMaximizeTab,
-                onCloseTab = viewModel::closeTab,
-                modifier = Modifier.fillMaxSize(),
-            )
-
-            SessionsLauncherButton(
-                onClick = viewModel::toggleSessionsPanel,
+        if (browserWeight > 0.01f) {
+            Box(
                 modifier = Modifier
-                    .align(Alignment.TopStart)
-                    .padding(start = 10.dp, top = 8.dp)
-                    .zIndex(30f),
-            )
+                    .fillMaxWidth()
+                    .weight(browserWeight),
+            ) {
+                BrowserPanel(
+                    tabs = state.tabs,
+                    windowFrames = state.windowFrames,
+                    activeTabId = state.activeTabId,
+                    controller = viewModel.browserController,
+                    onSelectTab = viewModel::selectTab,
+                    onAddTab = { viewModel.addTab() },
+                    onTabMetadataUpdate = viewModel::updateTabMetadata,
+                    onCommitGeometry = viewModel::commitWindowGeometry,
+                    onNavigate = viewModel::navigateActiveTab,
+                    onRefreshTab = viewModel::refreshTab,
+                    onToggleMaximizeTab = viewModel::toggleMaximizeTab,
+                    onCloseTab = viewModel::closeTab,
+                    modifier = Modifier.fillMaxSize(),
+                )
 
-            SessionsPanelOverlay(
-                visible = state.showSessionsPanel,
-                sessions = state.sessions,
-                activeSessionId = state.session?.id,
-                onDismiss = viewModel::closeSessionsPanel,
-                onSelectSession = viewModel::switchSession,
-                onNewSession = viewModel::createNewSession,
-                modifier = Modifier.zIndex(40f),
-            )
+                SessionsLauncherButton(
+                    onClick = viewModel::toggleSessionsPanel,
+                    modifier = Modifier
+                        .align(Alignment.TopStart)
+                        .padding(start = 10.dp, top = 8.dp)
+                        .zIndex(30f),
+                )
+
+                SessionsPanelOverlay(
+                    visible = state.showSessionsPanel,
+                    sessions = state.sessions,
+                    activeSessionId = state.session?.id,
+                    onDismiss = viewModel::closeSessionsPanel,
+                    onSelectSession = viewModel::switchSession,
+                    onNewSession = viewModel::createNewSession,
+                    modifier = Modifier.zIndex(40f),
+                )
+            }
         }
 
         ChatPanel(
@@ -124,7 +141,7 @@ private fun MainContent(
             error = state.error,
             modifier = Modifier
                 .fillMaxWidth()
-                .weight(0.44f),
+                .weight(chatWeight),
         )
     }
 }

@@ -14,19 +14,22 @@ import androidx.compose.ui.unit.sp
 
 private val TealPrimary = Color(0xFF0D7377)
 private val TealLight = Color(0xFF14A085)
-private val AccentCyan = Color(0xFF14FFEC)
-private val SurfaceDark = Color(0xFF1A1A2E)
-private val SurfaceCard = Color(0xFF16213E)
 
 private val DarkColors = darkColorScheme(
-    primary = TealPrimary,
-    onPrimary = Color.White,
-    secondary = AccentCyan,
-    onSecondary = Color.Black,
-    background = SurfaceDark,
-    surface = SurfaceCard,
-    onBackground = Color(0xFFE8E8E8),
-    onSurface = Color(0xFFE8E8E8),
+    primary = Color(0xFFFFFFFF),
+    onPrimary = Color(0xFF000000),
+    primaryContainer = Color(0xFF2C2C2E),
+    onPrimaryContainer = Color(0xFFF5F5F5),
+    secondary = Color(0xFF8E8E93),
+    onSecondary = Color(0xFF000000),
+    background = Color(0xFF000000),
+    surface = Color(0xFF000000),
+    surfaceVariant = Color(0xFF1C1C1E),
+    onBackground = Color(0xFFF5F5F5),
+    onSurface = Color(0xFFF5F5F5),
+    onSurfaceVariant = Color(0xFFAEAEB2),
+    outline = Color(0xFF3A3A3C),
+    outlineVariant = Color(0xFF2C2C2E),
 )
 
 private val LightColors = lightColorScheme(
@@ -41,7 +44,7 @@ private val LightColors = lightColorScheme(
 )
 
 private val AppTypography = Typography(
-    bodyMedium = TextStyle(fontFamily = FontFamily.SansSerif, fontWeight = FontWeight.Normal, fontSize = 15.sp, lineHeight = 21.sp),
+    bodyMedium = TextStyle(fontFamily = FontFamily.SansSerif, fontWeight = FontWeight.Normal, fontSize = 15.sp, lineHeight = 22.sp),
     bodySmall = TextStyle(fontFamily = FontFamily.SansSerif, fontWeight = FontWeight.Normal, fontSize = 13.sp, lineHeight = 18.sp),
     labelMedium = TextStyle(fontFamily = FontFamily.SansSerif, fontWeight = FontWeight.Medium, fontSize = 13.sp),
     titleSmall = TextStyle(fontFamily = FontFamily.SansSerif, fontWeight = FontWeight.SemiBold, fontSize = 15.sp),
