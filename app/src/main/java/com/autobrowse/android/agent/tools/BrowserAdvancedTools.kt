@@ -12,9 +12,6 @@ object BrowserAdvancedTools {
     fun createAll(controller: BrowserController): List<AgentTool> =
         SPECS.map { spec -> JsBrowserTool(controller, spec) }
 
-    /** Read-only tools: refresh context only, no post-action wait. */
-    val READ_ONLY_NAMES: Set<String> = SPECS.filter { it.readOnly }.map { it.name }.toSet()
-
     private data class BrowserToolSpec(
         val name: String,
         val description: String,
@@ -48,14 +45,18 @@ object BrowserAdvancedTools {
     private fun js(
         name: String,
         description: String,
-        params: String,
+        params: String = "",
         readOnly: Boolean = true,
         storeKey: String? = null,
         script: String,
     ) = BrowserToolSpec(
         name = name,
         description = description,
-        parametersJson = """{"type":"object","properties":{$params,$TAB_PARAM}}""",
+        parametersJson = if (params.isBlank()) {
+            """{"type":"object","properties":{$TAB_PARAM}}"""
+        } else {
+            """{"type":"object","properties":{$params,$TAB_PARAM}}"""
+        },
         readOnly = readOnly,
         storeKey = storeKey,
         execute = { controller, args, tabId, _ ->
@@ -765,4 +766,7 @@ object BrowserAdvancedTools {
     ).also { specs ->
         require(specs.size == 50) { "Expected exactly 50 advanced browser tools, got ${specs.size}" }
     }
+
+    /** Read-only tools: refresh context only, no post-action wait. */
+    val READ_ONLY_NAMES: Set<String> = SPECS.filter { it.readOnly }.map { it.name }.toSet()
 }
