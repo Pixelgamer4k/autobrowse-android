@@ -22,7 +22,6 @@ import com.autobrowse.android.domain.model.TaskStatus
 import com.autobrowse.android.domain.model.ToolCall
 import com.autobrowse.android.domain.model.ToolResult
 import kotlinx.coroutines.CancellationException
-import kotlinx.coroutines.coroutineContext
 import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -55,8 +54,8 @@ class AgentLoop(
         )
     }
 
-    private fun ensureNotCancelled() {
-        coroutineContext.ensureActive()
+    private suspend fun ensureNotCancelled() {
+        kotlinx.coroutines.coroutineContext.ensureActive()
         if (cancelRequested.get()) {
             throw CancellationException("Stopped by user")
         }
