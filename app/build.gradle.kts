@@ -95,7 +95,7 @@ dependencies {
     implementation("io.noties.markwon:image:$markwon")
     implementation("io.noties.markwon:inline-parser:$markwon")
     implementation("io.noties.markwon:ext-latex:$markwon")
-    implementation("ru.noties.jlatexmath:jlatexmath-android:0.2.0")
+    implementation("ru.noties:jlatexmath-android:0.2.0")
 
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
