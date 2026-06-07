@@ -311,5 +311,4 @@ class AgentLoop(
                 error = error.message,
             )
         }
-    }
 }
