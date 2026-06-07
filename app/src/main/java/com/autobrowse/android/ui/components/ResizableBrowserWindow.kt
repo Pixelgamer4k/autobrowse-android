@@ -2,13 +2,9 @@ package com.autobrowse.android.ui.components
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.gestures.detectDragGestures
-import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -16,21 +12,12 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Close
-import androidx.compose.material.icons.filled.Fullscreen
-import androidx.compose.material.icons.filled.FullscreenExit
-import androidx.compose.material.icons.filled.Refresh
-import androidx.compose.material.icons.filled.UnfoldMore
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -52,7 +39,6 @@ import androidx.compose.ui.graphics.drawscope.clipPath
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import com.autobrowse.android.browser.BrowserController
@@ -96,6 +82,11 @@ fun ResizableBrowserWindow(
     var dragAccum by remember(tab.id) { mutableStateOf(Offset.Zero) }
     var resizeAnchor by remember(tab.id) { mutableStateOf<BrowserWindowLayout?>(null) }
     var resizeAccum by remember(tab.id) { mutableStateOf(Offset.Zero) }
+    var menuExpanded by remember(tab.id) { mutableStateOf(false) }
+
+    LaunchedEffect(isActive) {
+        if (!isActive) menuExpanded = false
+    }
 
     fun normalizedLayout(source: BrowserWindowLayout): BrowserWindowLayout = when (frame.windowState) {
         BrowserWindowState.NORMAL -> source.normalized(canvasWidthPx, canvasHeightPx, titleBarHeightPx)
@@ -202,15 +193,37 @@ fun ResizableBrowserWindow(
         ) {
             Column(modifier = Modifier.fillMaxSize()) {
                 WindowTitleBar(
-                    tab = tab,
+                    tabId = tab.id,
                     frame = frame,
-                    onRefresh = onRefresh,
-                    onToggleMaximize = onToggleMaximize,
-                    onMinimize = onMinimize,
-                    onClose = onClose,
-                    onSelect = onSelect,
+                    menuExpanded = menuExpanded,
+                    isManipulating = isManipulating,
+                    onToggleMenu = {
+                        menuExpanded = !menuExpanded
+                        onSelect()
+                    },
+                    onDismissMenu = { menuExpanded = false },
+                    onRefresh = {
+                        menuExpanded = false
+                        onSelect()
+                        onRefresh()
+                    },
+                    onToggleMaximize = {
+                        menuExpanded = false
+                        onSelect()
+                        onToggleMaximize()
+                    },
+                    onMinimize = {
+                        menuExpanded = false
+                        onSelect()
+                        onMinimize()
+                    },
+                    onClose = {
+                        menuExpanded = false
+                        onClose()
+                    },
                     onDragStart = {
                         if (frame.windowState != BrowserWindowState.MAXIMIZED) {
+                            menuExpanded = false
                             isManipulating = true
                             resizeAnchor = null
                             resizeAccum = Offset.Zero
@@ -227,15 +240,18 @@ fun ResizableBrowserWindow(
                         val start = dragAnchor
                         if (start != null && dragAccum != Offset.Zero) {
                             onMoveWindow(
-                                start.copy(
+                                BrowserWindowLayout.fromDisplayedSize(
+                                    widthPx = widthPx,
                                     offsetX = start.offsetX + dragAccum.x / canvasWidthPx,
                                     offsetY = start.offsetY + dragAccum.y / canvasHeightPx,
-                                ).clampedOffsetOnly(canvasWidthPx, canvasHeightPx, titleBarHeightPx),
+                                    canvasWidthPx = canvasWidthPx,
+                                    canvasHeightPx = canvasHeightPx,
+                                    titleBarHeightPx = titleBarHeightPx,
+                                ),
                             )
                         }
                         finishManipulation()
                     },
-                    isManipulating = isManipulating,
                 )
 
                 if (frame.windowState != BrowserWindowState.MINIMIZED) {
@@ -257,6 +273,12 @@ fun ResizableBrowserWindow(
             }
         }
 
+        WindowMenuScrim(
+            visible = menuExpanded,
+            onDismiss = { menuExpanded = false },
+            modifier = Modifier.matchParentSize(),
+        )
+
         if (canResize) {
             FrameCornerResizeGrip(
                 tabId = tab.id,
@@ -266,6 +288,7 @@ fun ResizableBrowserWindow(
                     .size(CornerGripTouchSize)
                     .zIndex(8f),
                 onResizeStart = {
+                    menuExpanded = false
                     isManipulating = true
                     dragAnchor = null
                     dragAccum = Offset.Zero
@@ -283,8 +306,14 @@ fun ResizableBrowserWindow(
                         val delta = max(resizeAccum.x, resizeAccum.y * BrowserWindowLayout.CONTENT_ASPECT_RATIO)
                         val newWidthFraction = (startWidthPx + delta) / canvasWidthPx
                         onResizeWindow(
-                            start.copy(widthFraction = newWidthFraction)
-                                .clamped(canvasWidthPx, canvasHeightPx, titleBarHeightPx),
+                            BrowserWindowLayout.fromDisplayedSize(
+                                widthPx = widthPx,
+                                offsetX = start.offsetX,
+                                offsetY = start.offsetY,
+                                canvasWidthPx = canvasWidthPx,
+                                canvasHeightPx = canvasHeightPx,
+                                titleBarHeightPx = titleBarHeightPx,
+                            ),
                         )
                     }
                     finishManipulation()
@@ -294,110 +323,53 @@ fun ResizableBrowserWindow(
     }
 }
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 private fun WindowTitleBar(
-    tab: BrowserTab,
+    tabId: String,
     frame: BrowserWindowFrame,
+    menuExpanded: Boolean,
+    isManipulating: Boolean,
+    onToggleMenu: () -> Unit,
+    onDismissMenu: () -> Unit,
     onRefresh: () -> Unit,
     onToggleMaximize: () -> Unit,
     onMinimize: () -> Unit,
     onClose: () -> Unit,
-    onSelect: () -> Unit,
     onDragStart: () -> Unit,
     onDrag: (Offset) -> Unit,
     onDragEnd: () -> Unit,
-    isManipulating: Boolean,
 ) {
-    val maxMinIcon = when (frame.windowState) {
-        BrowserWindowState.MAXIMIZED -> Icons.Default.FullscreenExit
-        BrowserWindowState.MINIMIZED -> Icons.Default.UnfoldMore
-        BrowserWindowState.NORMAL -> Icons.Default.Fullscreen
+    val dragModifier = Modifier.pointerInput(tabId, frame.windowState) {
+        detectDragGestures(
+            onDragStart = { onDragStart() },
+            onDragEnd = { onDragEnd() },
+            onDragCancel = { onDragEnd() },
+            onDrag = { change, dragAmount ->
+                change.consume()
+                onDrag(dragAmount)
+            },
+        )
     }
 
-    Surface(
-        color = if (isManipulating) MaterialTheme.colorScheme.primaryContainer
-        else MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.65f),
+    Row(
         modifier = Modifier
             .fillMaxWidth()
-            .pointerInput(tab.id, frame.windowState) {
-                detectDragGestures(
-                    onDragStart = { onDragStart() },
-                    onDragEnd = { onDragEnd() },
-                    onDragCancel = { onDragEnd() },
-                    onDrag = { change, dragAmount ->
-                        change.consume()
-                        onDrag(dragAmount)
-                    },
-                )
-            },
+            .height(BrowserWindowLayout.TITLE_BAR_HEIGHT_DP.dp),
+        verticalAlignment = Alignment.CenterVertically,
     ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(BrowserWindowLayout.TITLE_BAR_HEIGHT_DP.dp)
-                .padding(horizontal = 4.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(2.dp),
-        ) {
-            WindowControlButton(onClick = { onSelect(); onRefresh() }, tint = Color(0xFF4A90D9)) {
-                Icon(Icons.Default.Refresh, contentDescription = "Refresh", modifier = Modifier.size(22.dp))
-            }
-            WindowControlButton(
-                onClick = { onSelect(); onToggleMaximize() },
-                onLongClick = { onSelect(); onMinimize() },
-                tint = Color(0xFF34A853),
-            ) {
-                Icon(maxMinIcon, contentDescription = "Maximize or restore", modifier = Modifier.size(22.dp))
-            }
-            WindowControlButton(onClick = onClose, tint = Color(0xFFE8453C)) {
-                Icon(Icons.Default.Close, contentDescription = "Close", modifier = Modifier.size(22.dp))
-            }
-            Text(
-                text = tab.title.ifBlank { tab.url },
-                style = MaterialTheme.typography.labelMedium,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-                modifier = Modifier
-                    .weight(1f)
-                    .padding(horizontal = 8.dp),
-            )
-        }
-    }
-}
-
-@OptIn(ExperimentalFoundationApi::class)
-@Composable
-private fun WindowControlButton(
-    onClick: () -> Unit,
-    tint: Color,
-    onLongClick: (() -> Unit)? = null,
-    content: @Composable () -> Unit,
-) {
-    Box(
-        modifier = Modifier
-            .size(44.dp)
-            .combinedClickable(
-                interactionSource = remember { MutableInteractionSource() },
-                indication = null,
-                onClick = onClick,
-                onLongClick = onLongClick,
-            ),
-        contentAlignment = Alignment.Center,
-    ) {
-        Surface(
-            shape = RoundedCornerShape(10.dp),
-            color = tint.copy(alpha = 0.2f),
-            modifier = Modifier.size(38.dp),
-        ) {
-            Box(contentAlignment = Alignment.Center) {
-                androidx.compose.runtime.CompositionLocalProvider(
-                    androidx.compose.material3.LocalContentColor provides tint,
-                ) {
-                    content()
-                }
-            }
-        }
+        Box(modifier = Modifier.weight(1f).then(dragModifier))
+        WindowChromeWithMenu(
+            windowState = frame.windowState,
+            menuExpanded = menuExpanded,
+            isManipulating = isManipulating,
+            onToggleMenu = onToggleMenu,
+            onDismissMenu = onDismissMenu,
+            onRefresh = onRefresh,
+            onToggleMaximize = onToggleMaximize,
+            onMinimize = onMinimize,
+            onClose = onClose,
+        )
+        Box(modifier = Modifier.weight(1f).then(dragModifier))
     }
 }
 

@@ -15,7 +15,7 @@ data class BrowserWindowLayout(
     companion object {
         const val MIN_FRACTION = 0.10f
         const val MAX_FRACTION = 1f
-        const val TITLE_BAR_HEIGHT_DP = 44f
+        const val TITLE_BAR_HEIGHT_DP = 36f
         const val CONTENT_ASPECT_RATIO = 4f / 3f
 
         fun contentHeightPx(widthPx: Float): Float = widthPx / CONTENT_ASPECT_RATIO
@@ -32,6 +32,32 @@ data class BrowserWindowLayout(
             if (canvasWidthPx <= 0f || canvasHeightPx <= 0f) return widthFraction
             val widthPx = widthFraction * canvasWidthPx
             return totalHeightPx(widthPx, titleBarHeightPx) / canvasHeightPx
+        }
+
+        fun fromDisplayedSize(
+            widthPx: Float,
+            offsetX: Float,
+            offsetY: Float,
+            canvasWidthPx: Float,
+            canvasHeightPx: Float,
+            titleBarHeightPx: Float,
+        ): BrowserWindowLayout {
+            if (canvasWidthPx <= 0f || canvasHeightPx <= 0f) {
+                return BrowserWindowLayout(offsetX = offsetX, offsetY = offsetY)
+            }
+            val widthFraction = (widthPx / canvasWidthPx).coerceIn(0f, MAX_FRACTION)
+            val heightFraction = heightFractionForWidth(
+                widthFraction,
+                canvasWidthPx,
+                canvasHeightPx,
+                titleBarHeightPx,
+            )
+            return BrowserWindowLayout(
+                offsetX = offsetX.coerceIn(0f, (1f - widthFraction).coerceAtLeast(0f)),
+                offsetY = offsetY.coerceIn(0f, (1f - heightFraction).coerceAtLeast(0f)),
+                widthFraction = widthFraction,
+                heightFraction = heightFraction,
+            )
         }
 
         fun defaultForIndex(index: Int): BrowserWindowLayout {
@@ -100,4 +126,5 @@ data class BrowserWindowLayout(
             offsetY = offsetY.coerceIn(0f, (1f - layout.heightFraction).coerceAtLeast(0f)),
         )
     }
+
 }
