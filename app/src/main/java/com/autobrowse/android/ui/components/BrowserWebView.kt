@@ -9,7 +9,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.viewinterop.AndroidView
 import com.autobrowse.android.browser.BrowserController
@@ -39,9 +38,7 @@ fun BrowserWebView(
     }
 
     AndroidView(
-        modifier = modifier.onSizeChanged {
-            webView.post { DesktopBrowserConfig.fitToWindow(webView) }
-        },
+        modifier = modifier,
         factory = { webView },
         update = { view ->
             view.isEnabled = interactionEnabled
@@ -58,10 +55,7 @@ fun BrowserWebView(
                 }
 
                 override fun onPageFinished(view: WebView?, url: String?) {
-                    view?.post {
-                        DesktopBrowserConfig.fitToWindow(view)
-                        view.postDelayed({ DesktopBrowserConfig.fitToWindow(view) }, 120)
-                    }
+                    view?.post { DesktopBrowserConfig.clearViewportOverrides(view) }
                     onTabUpdate(
                         tab.copy(
                             url = url ?: tab.url,
@@ -87,7 +81,6 @@ fun BrowserWebView(
             }
             view.webChromeClient = WebChromeClient()
             if (view.url != tab.url) {
-                DesktopBrowserConfig.fitToWindow(view)
                 view.loadUrl(tab.url)
             }
         },

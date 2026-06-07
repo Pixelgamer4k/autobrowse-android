@@ -42,19 +42,22 @@ import androidx.compose.ui.zIndex
 import com.autobrowse.android.browser.BrowserController
 import com.autobrowse.android.domain.model.BrowserTab
 import com.autobrowse.android.domain.model.BrowserTabStatus
+import com.autobrowse.android.domain.model.BrowserWindowFrame
 import com.autobrowse.android.domain.model.BrowserWindowLayout
 import com.autobrowse.android.ui.theme.Motion
 
 @Composable
 fun BrowserPanel(
     tabs: List<BrowserTab>,
+    windowFrames: Map<String, BrowserWindowFrame>,
     activeTabId: String?,
     controller: BrowserController,
     onSelectTab: (String) -> Unit,
     onAddTab: () -> Unit,
     onTabMetadataUpdate: (String, String?, String?, BrowserTabStatus?) -> Unit,
-    onPreviewLayout: (String, BrowserWindowLayout) -> Unit,
-    onCommitLayout: (String, BrowserWindowLayout) -> Unit,
+    onMoveWindow: (String, BrowserWindowLayout) -> Unit,
+    onResizeWindow: (String, BrowserWindowLayout) -> Unit,
+    onEndWindowManipulation: (String) -> Unit,
     onNavigate: (String) -> Unit,
     onRefreshTab: (String) -> Unit,
     onToggleMaximizeTab: (String) -> Unit,
@@ -93,10 +96,13 @@ fun BrowserPanel(
                     )
                 }
             } else {
+                Box(modifier = Modifier.fillMaxSize()) {
                 sortedTabs.forEach { tab ->
+                    val frame = windowFrames[tab.id] ?: BrowserWindowFrame.fromTab(tab)
                     val isActive = tab.id == activeTabId
                     ResizableBrowserWindow(
                         tab = tab,
+                        frame = frame,
                         isActive = isActive,
                         canvasWidthPx = canvasWidth,
                         canvasHeightPx = canvasHeight,
@@ -110,14 +116,16 @@ fun BrowserPanel(
                                 updated.status,
                             )
                         },
-                        onPreviewLayout = { layout -> onPreviewLayout(tab.id, layout) },
-                        onCommitLayout = { layout -> onCommitLayout(tab.id, layout) },
+                        onMoveWindow = { layout -> onMoveWindow(tab.id, layout) },
+                        onResizeWindow = { layout -> onResizeWindow(tab.id, layout) },
+                        onEndWindowManipulation = { onEndWindowManipulation(tab.id) },
                         onRefresh = { onRefreshTab(tab.id) },
                         onToggleMaximize = { onToggleMaximizeTab(tab.id) },
                         onMinimize = { onMinimizeTab(tab.id) },
                         onClose = { onCloseTab(tab.id) },
-                        modifier = Modifier.zIndex(if (isActive) 100f else tab.zIndex.toFloat()),
+                        modifier = Modifier,
                     )
+                }
                 }
             }
         }

@@ -80,13 +80,15 @@ private fun MainContent(
             topContent = {
                 BrowserPanel(
                     tabs = state.tabs,
+                    windowFrames = state.windowFrames,
                     activeTabId = state.activeTabId,
                     controller = viewModel.browserController,
                     onSelectTab = viewModel::selectTab,
                     onAddTab = { viewModel.addTab() },
                     onTabMetadataUpdate = viewModel::updateTabMetadata,
-                    onPreviewLayout = viewModel::previewTabLayout,
-                    onCommitLayout = viewModel::commitTabLayout,
+                    onMoveWindow = viewModel::moveWindow,
+                    onResizeWindow = viewModel::resizeWindow,
+                    onEndWindowManipulation = viewModel::endWindowManipulation,
                     onNavigate = viewModel::navigateActiveTab,
                     onRefreshTab = viewModel::refreshTab,
                     onToggleMaximizeTab = viewModel::toggleMaximizeTab,
