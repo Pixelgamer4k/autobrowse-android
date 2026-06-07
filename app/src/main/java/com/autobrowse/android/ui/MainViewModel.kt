@@ -103,10 +103,17 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             repository.observeTabs(id).collect { dbTabs ->
                 _uiState.update { state ->
                     val merged = FloatingWindowEngine.mergeDbTabs(dbTabs, state.windowFrames)
-                    val active = state.activeTabId ?: merged.tabs.firstOrNull()?.id
+                    val frames = state.windowFrames.toMutableMap()
+                    merged.frames.forEach { (tabId, frame) ->
+                        if (tabId !in frames) frames[tabId] = frame
+                    }
+                    val tabs = merged.tabs.map { tab ->
+                        frames[tab.id]?.let { tab.withFrame(it) } ?: tab
+                    }
+                    val active = state.activeTabId ?: tabs.firstOrNull()?.id
                     state.copy(
-                        tabs = merged.tabs,
-                        windowFrames = merged.frames,
+                        tabs = tabs,
+                        windowFrames = frames,
                         activeTabId = active,
                     )
                 }
@@ -175,7 +182,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             }
             state.copy(tabs = tabs, activeTabId = tabId)
         }
-        persistWindow(tabId)
     }
 
     fun moveWindow(tabId: String, layout: BrowserWindowLayout) {
@@ -339,7 +345,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             )
         }
         viewModelScope.launch {
-            val tab = tabForPersist(tabId) ?: return@launch
+            val tab = _uiState.value.tabs.find { it.id == tabId } ?: return@launch
             repository.saveTab(tab, id)
         }
     }

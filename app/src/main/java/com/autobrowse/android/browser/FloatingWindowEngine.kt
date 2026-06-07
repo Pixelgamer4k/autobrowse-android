@@ -23,10 +23,19 @@ object FloatingWindowEngine {
     ): MergeResult {
         val nextFrames = frames.toMutableMap()
         val mergedTabs = dbTabs.map { dbTab ->
-            val frame = nextFrames[dbTab.id] ?: BrowserWindowFrame.fromTab(dbTab).also {
-                nextFrames[dbTab.id] = it
+            val liveFrame = nextFrames[dbTab.id]
+            val frame = if (liveFrame != null) {
+                liveFrame
+            } else {
+                BrowserWindowFrame.fromTab(dbTab).also { nextFrames[dbTab.id] = it }
             }
-            dbTab.withFrame(frame)
+            dbTab.copy(
+                url = dbTab.url,
+                title = dbTab.title,
+                status = dbTab.status,
+                isAgentControlled = dbTab.isAgentControlled,
+                zIndex = dbTab.zIndex,
+            ).withFrame(frame)
         }
         val liveIds = dbTabs.map { it.id }.toSet()
         nextFrames.keys.retainAll(liveIds)
@@ -49,8 +58,7 @@ object FloatingWindowEngine {
         manipulating: Boolean = true,
     ): Map<String, BrowserWindowFrame> = updateFrame(frames, tabId) { frame ->
         frame.copy(
-            layout = layout.clamped(),
-            windowState = BrowserWindowState.NORMAL,
+            layout = layout,
             isManipulating = manipulating,
         )
     }

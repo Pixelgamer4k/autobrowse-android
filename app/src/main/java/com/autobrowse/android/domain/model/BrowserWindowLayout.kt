@@ -66,20 +66,17 @@ data class BrowserWindowLayout(
         titleBarHeightPx: Float = 0f,
     ): BrowserWindowLayout {
         val widthClamped = widthFraction.coerceIn(MIN_FRACTION, MAX_FRACTION)
-        val withRatio = if (canvasWidthPx > 0f && canvasHeightPx > 0f) {
+        val layout = if (canvasWidthPx > 0f && canvasHeightPx > 0f) {
             copy(widthFraction = widthClamped).withAspectRatio(canvasWidthPx, canvasHeightPx, titleBarHeightPx)
         } else {
-            copy(widthFraction = widthClamped)
-        }
-        return withRatio.copy(
-            offsetX = offsetX.coerceIn(0f, 1f - MIN_FRACTION),
-            offsetY = offsetY.coerceIn(0f, 1f - MIN_FRACTION),
-            heightFraction = withRatio.heightFraction.coerceIn(MIN_FRACTION, MAX_FRACTION),
-        ).let { layout ->
-            layout.copy(
-                offsetX = layout.offsetX.coerceAtMost(1f - layout.widthFraction),
-                offsetY = layout.offsetY.coerceAtMost(1f - layout.heightFraction),
+            copy(
+                widthFraction = widthClamped,
+                heightFraction = heightFraction.coerceIn(MIN_FRACTION, MAX_FRACTION),
             )
         }
+        return layout.copy(
+            offsetX = offsetX.coerceIn(0f, (1f - layout.widthFraction).coerceAtLeast(0f)),
+            offsetY = offsetY.coerceIn(0f, (1f - layout.heightFraction).coerceAtLeast(0f)),
+        )
     }
 }
