@@ -85,6 +85,18 @@ dependencies {
 
     implementation("com.llamatik:library:1.7.2")
 
+    val markwon = "4.6.2"
+    implementation("io.noties.markwon:core:$markwon")
+    implementation("io.noties.markwon:ext-strikethrough:$markwon")
+    implementation("io.noties.markwon:ext-tables:$markwon")
+    implementation("io.noties.markwon:ext-tasklist:$markwon")
+    implementation("io.noties.markwon:linkify:$markwon")
+    implementation("io.noties.markwon:html:$markwon")
+    implementation("io.noties.markwon:image:$markwon")
+    implementation("io.noties.markwon:inline-parser:$markwon")
+    implementation("io.noties.markwon:ext-latex:$markwon")
+    implementation("ru.noties.jlatexmath:jlatexmath-android:0.2.0")
+
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 }

@@ -218,11 +218,15 @@ private fun ChatMessageBubble(message: ChatMessage) {
                     )
                 }
             }
-            Text(
-                text = message.content,
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.92f),
-            )
+            if (shouldRenderMarkdown(message.role, message.content)) {
+                MarkdownMessageText(content = message.content)
+            } else {
+                Text(
+                    text = message.content,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.92f),
+                )
+            }
         }
     }
 }
@@ -284,15 +288,25 @@ private fun AgentThinkingBubble(agentProgress: AgentProgress?) {
                         fontWeight = FontWeight.SemiBold,
                         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
                     )
-                    Text(
-                        text = preview,
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.82f),
-                        modifier = Modifier
-                            .padding(top = 6.dp)
-                            .heightIn(max = 160.dp)
-                            .verticalScroll(previewScroll),
-                    )
+                    if (shouldRenderMarkdown(AgentRole.AGENT, preview)) {
+                        MarkdownMessageText(
+                            content = preview,
+                            modifier = Modifier
+                                .padding(top = 6.dp)
+                                .heightIn(max = 160.dp)
+                                .verticalScroll(previewScroll),
+                        )
+                    } else {
+                        Text(
+                            text = preview,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.82f),
+                            modifier = Modifier
+                                .padding(top = 6.dp)
+                                .heightIn(max = 160.dp)
+                                .verticalScroll(previewScroll),
+                        )
+                    }
                 }
             }
         }
