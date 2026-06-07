@@ -1,0 +1,2566 @@
+{
+  "version": 1,
+  "count": 320,
+  "strategies": [
+    {
+      "id": "bundle-0001",
+      "domain": "youtube.com",
+      "heuristic": "YouTube: browser_search(site=youtube, query=...) \u2014 never type in search box. Verify video titles in snapshot.",
+      "confidence": 0.93,
+      "successCount": 25,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0002",
+      "domain": "youtube.com",
+      "heuristic": "Google: browser_search(site=google, query=...). URL must contain q= parameter.",
+      "confidence": 0.89,
+      "successCount": 15,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0003",
+      "domain": "youtube.com",
+      "heuristic": "Amazon: browser_search(site=amazon, query=...). Click product via @eN ref from snapshot.",
+      "confidence": 0.89,
+      "successCount": 22,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0004",
+      "domain": "youtube.com",
+      "heuristic": "Research: open tabs per source, browser_search each, web_fetch articles, summarize findings.",
+      "confidence": 0.87,
+      "successCount": 10,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0005",
+      "domain": "youtube.com",
+      "heuristic": "Forms: snapshot \u2192 browser_type on @eN input refs \u2192 browser_press Enter \u2192 verify snapshot.",
+      "confidence": 0.88,
+      "successCount": 16,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0006",
+      "domain": "youtube.com",
+      "heuristic": "Login: never store passwords in memory; snapshot to find fields; browser_type credentials.",
+      "confidence": 0.91,
+      "successCount": 7,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0007",
+      "domain": "youtube.com",
+      "heuristic": "Pagination: snapshot \u2192 click Next @eN \u2192 wait \u2192 repeat until enough data extracted.",
+      "confidence": 0.87,
+      "successCount": 17,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0008",
+      "domain": "youtube.com",
+      "heuristic": "Cookie banners: snapshot \u2192 click Accept/Reject @eN before main task.",
+      "confidence": 0.72,
+      "successCount": 12,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0009",
+      "domain": "youtube.com",
+      "heuristic": "Multi-tab: browser_tab_list before actions; pass tab_id to all browser tools.",
+      "confidence": 0.9,
+      "successCount": 17,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0010",
+      "domain": "youtube.com",
+      "heuristic": "Stuck after 5 iterations: try browser_vision or web_fetch alternative path.",
+      "confidence": 0.86,
+      "successCount": 6,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0011",
+      "domain": "youtube.com",
+      "heuristic": "Price compare: run_parallel_tasks with browser_search per retailer site.",
+      "confidence": 0.82,
+      "successCount": 24,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0012",
+      "domain": "youtube.com",
+      "heuristic": "GitHub search: browser_search(site=github, query=...). Filter repos from snapshot text.",
+      "confidence": 0.91,
+      "successCount": 11,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0013",
+      "domain": "youtube.com",
+      "heuristic": "Wikipedia: browser_search(site=wikipedia, query=...) then extract_data on article.",
+      "confidence": 0.91,
+      "successCount": 13,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0014",
+      "domain": "youtube.com",
+      "heuristic": "Stack Overflow: search then click top answer link via snapshot ref.",
+      "confidence": 0.86,
+      "successCount": 15,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0015",
+      "domain": "youtube.com",
+      "heuristic": "Weather: browser_search(site=google, query='weather {city}'). Read snapshot text.",
+      "confidence": 0.82,
+      "successCount": 23,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0016",
+      "domain": "youtube.com",
+      "heuristic": "Job search: browser_search on LinkedIn/Indeed pattern; extract listing titles.",
+      "confidence": 0.75,
+      "successCount": 21,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0017",
+      "domain": "youtube.com",
+      "heuristic": "News research: browser_search(site=google, query='{topic} news') + web_fetch top URLs.",
+      "confidence": 0.89,
+      "successCount": 25,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0018",
+      "domain": "youtube.com",
+      "heuristic": "E-commerce cart: search product \u2192 click item \u2192 snapshot \u2192 add to cart button @eN.",
+      "confidence": 0.91,
+      "successCount": 20,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0019",
+      "domain": "youtube.com",
+      "heuristic": "PDF report: extract_data \u2192 pdf_generate with structured sections.",
+      "confidence": 0.72,
+      "successCount": 10,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0020",
+      "domain": "youtube.com",
+      "heuristic": "Charts: python_execute or chart_generate after data extraction.",
+      "confidence": 0.83,
+      "successCount": 25,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0021",
+      "domain": "google.com",
+      "heuristic": "YouTube: browser_search(site=youtube, query=...) \u2014 never type in search box. Verify video titles in snapshot.",
+      "confidence": 0.88,
+      "successCount": 21,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0022",
+      "domain": "google.com",
+      "heuristic": "Google: browser_search(site=google, query=...). URL must contain q= parameter.",
+      "confidence": 0.86,
+      "successCount": 11,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0023",
+      "domain": "google.com",
+      "heuristic": "Amazon: browser_search(site=amazon, query=...). Click product via @eN ref from snapshot.",
+      "confidence": 0.98,
+      "successCount": 10,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0024",
+      "domain": "google.com",
+      "heuristic": "Research: open tabs per source, browser_search each, web_fetch articles, summarize findings.",
+      "confidence": 0.95,
+      "successCount": 19,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0025",
+      "domain": "google.com",
+      "heuristic": "Forms: snapshot \u2192 browser_type on @eN input refs \u2192 browser_press Enter \u2192 verify snapshot.",
+      "confidence": 0.82,
+      "successCount": 5,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0026",
+      "domain": "google.com",
+      "heuristic": "Login: never store passwords in memory; snapshot to find fields; browser_type credentials.",
+      "confidence": 0.75,
+      "successCount": 14,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0027",
+      "domain": "google.com",
+      "heuristic": "Pagination: snapshot \u2192 click Next @eN \u2192 wait \u2192 repeat until enough data extracted.",
+      "confidence": 0.73,
+      "successCount": 17,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0028",
+      "domain": "google.com",
+      "heuristic": "Cookie banners: snapshot \u2192 click Accept/Reject @eN before main task.",
+      "confidence": 0.83,
+      "successCount": 24,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0029",
+      "domain": "google.com",
+      "heuristic": "Multi-tab: browser_tab_list before actions; pass tab_id to all browser tools.",
+      "confidence": 0.75,
+      "successCount": 21,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0030",
+      "domain": "google.com",
+      "heuristic": "Stuck after 5 iterations: try browser_vision or web_fetch alternative path.",
+      "confidence": 0.75,
+      "successCount": 6,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0031",
+      "domain": "google.com",
+      "heuristic": "Price compare: run_parallel_tasks with browser_search per retailer site.",
+      "confidence": 0.86,
+      "successCount": 7,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0032",
+      "domain": "google.com",
+      "heuristic": "GitHub search: browser_search(site=github, query=...). Filter repos from snapshot text.",
+      "confidence": 0.94,
+      "successCount": 16,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0033",
+      "domain": "google.com",
+      "heuristic": "Wikipedia: browser_search(site=wikipedia, query=...) then extract_data on article.",
+      "confidence": 0.91,
+      "successCount": 15,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0034",
+      "domain": "google.com",
+      "heuristic": "Stack Overflow: search then click top answer link via snapshot ref.",
+      "confidence": 0.96,
+      "successCount": 23,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0035",
+      "domain": "google.com",
+      "heuristic": "Weather: browser_search(site=google, query='weather {city}'). Read snapshot text.",
+      "confidence": 0.92,
+      "successCount": 18,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0036",
+      "domain": "google.com",
+      "heuristic": "Job search: browser_search on LinkedIn/Indeed pattern; extract listing titles.",
+      "confidence": 0.75,
+      "successCount": 24,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0037",
+      "domain": "google.com",
+      "heuristic": "News research: browser_search(site=google, query='{topic} news') + web_fetch top URLs.",
+      "confidence": 0.73,
+      "successCount": 19,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0038",
+      "domain": "google.com",
+      "heuristic": "E-commerce cart: search product \u2192 click item \u2192 snapshot \u2192 add to cart button @eN.",
+      "confidence": 0.87,
+      "successCount": 20,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0039",
+      "domain": "google.com",
+      "heuristic": "PDF report: extract_data \u2192 pdf_generate with structured sections.",
+      "confidence": 0.85,
+      "successCount": 14,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0040",
+      "domain": "google.com",
+      "heuristic": "Charts: python_execute or chart_generate after data extraction.",
+      "confidence": 0.82,
+      "successCount": 20,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0041",
+      "domain": "amazon.com",
+      "heuristic": "YouTube: browser_search(site=youtube, query=...) \u2014 never type in search box. Verify video titles in snapshot.",
+      "confidence": 0.75,
+      "successCount": 25,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0042",
+      "domain": "amazon.com",
+      "heuristic": "Google: browser_search(site=google, query=...). URL must contain q= parameter.",
+      "confidence": 0.75,
+      "successCount": 24,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0043",
+      "domain": "amazon.com",
+      "heuristic": "Amazon: browser_search(site=amazon, query=...). Click product via @eN ref from snapshot.",
+      "confidence": 0.84,
+      "successCount": 24,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0044",
+      "domain": "amazon.com",
+      "heuristic": "Research: open tabs per source, browser_search each, web_fetch articles, summarize findings.",
+      "confidence": 0.83,
+      "successCount": 12,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0045",
+      "domain": "amazon.com",
+      "heuristic": "Forms: snapshot \u2192 browser_type on @eN input refs \u2192 browser_press Enter \u2192 verify snapshot.",
+      "confidence": 0.92,
+      "successCount": 13,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0046",
+      "domain": "amazon.com",
+      "heuristic": "Login: never store passwords in memory; snapshot to find fields; browser_type credentials.",
+      "confidence": 0.84,
+      "successCount": 18,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0047",
+      "domain": "amazon.com",
+      "heuristic": "Pagination: snapshot \u2192 click Next @eN \u2192 wait \u2192 repeat until enough data extracted.",
+      "confidence": 0.92,
+      "successCount": 7,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0048",
+      "domain": "amazon.com",
+      "heuristic": "Cookie banners: snapshot \u2192 click Accept/Reject @eN before main task.",
+      "confidence": 0.82,
+      "successCount": 8,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0049",
+      "domain": "amazon.com",
+      "heuristic": "Multi-tab: browser_tab_list before actions; pass tab_id to all browser tools.",
+      "confidence": 0.93,
+      "successCount": 6,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0050",
+      "domain": "amazon.com",
+      "heuristic": "Stuck after 5 iterations: try browser_vision or web_fetch alternative path.",
+      "confidence": 0.77,
+      "successCount": 13,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0051",
+      "domain": "amazon.com",
+      "heuristic": "Price compare: run_parallel_tasks with browser_search per retailer site.",
+      "confidence": 0.86,
+      "successCount": 15,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0052",
+      "domain": "amazon.com",
+      "heuristic": "GitHub search: browser_search(site=github, query=...). Filter repos from snapshot text.",
+      "confidence": 0.94,
+      "successCount": 6,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0053",
+      "domain": "amazon.com",
+      "heuristic": "Wikipedia: browser_search(site=wikipedia, query=...) then extract_data on article.",
+      "confidence": 0.91,
+      "successCount": 22,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0054",
+      "domain": "amazon.com",
+      "heuristic": "Stack Overflow: search then click top answer link via snapshot ref.",
+      "confidence": 0.93,
+      "successCount": 24,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0055",
+      "domain": "amazon.com",
+      "heuristic": "Weather: browser_search(site=google, query='weather {city}'). Read snapshot text.",
+      "confidence": 0.81,
+      "successCount": 15,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0056",
+      "domain": "amazon.com",
+      "heuristic": "Job search: browser_search on LinkedIn/Indeed pattern; extract listing titles.",
+      "confidence": 0.81,
+      "successCount": 18,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0057",
+      "domain": "amazon.com",
+      "heuristic": "News research: browser_search(site=google, query='{topic} news') + web_fetch top URLs.",
+      "confidence": 0.92,
+      "successCount": 22,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0058",
+      "domain": "amazon.com",
+      "heuristic": "E-commerce cart: search product \u2192 click item \u2192 snapshot \u2192 add to cart button @eN.",
+      "confidence": 0.74,
+      "successCount": 20,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0059",
+      "domain": "amazon.com",
+      "heuristic": "PDF report: extract_data \u2192 pdf_generate with structured sections.",
+      "confidence": 0.82,
+      "successCount": 25,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0060",
+      "domain": "amazon.com",
+      "heuristic": "Charts: python_execute or chart_generate after data extraction.",
+      "confidence": 0.81,
+      "successCount": 17,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0061",
+      "domain": "reddit.com",
+      "heuristic": "YouTube: browser_search(site=youtube, query=...) \u2014 never type in search box. Verify video titles in snapshot.",
+      "confidence": 0.73,
+      "successCount": 11,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0062",
+      "domain": "reddit.com",
+      "heuristic": "Google: browser_search(site=google, query=...). URL must contain q= parameter.",
+      "confidence": 0.97,
+      "successCount": 10,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0063",
+      "domain": "reddit.com",
+      "heuristic": "Amazon: browser_search(site=amazon, query=...). Click product via @eN ref from snapshot.",
+      "confidence": 0.74,
+      "successCount": 15,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0064",
+      "domain": "reddit.com",
+      "heuristic": "Research: open tabs per source, browser_search each, web_fetch articles, summarize findings.",
+      "confidence": 0.81,
+      "successCount": 23,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0065",
+      "domain": "reddit.com",
+      "heuristic": "Forms: snapshot \u2192 browser_type on @eN input refs \u2192 browser_press Enter \u2192 verify snapshot.",
+      "confidence": 0.75,
+      "successCount": 6,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0066",
+      "domain": "reddit.com",
+      "heuristic": "Login: never store passwords in memory; snapshot to find fields; browser_type credentials.",
+      "confidence": 0.89,
+      "successCount": 9,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0067",
+      "domain": "reddit.com",
+      "heuristic": "Pagination: snapshot \u2192 click Next @eN \u2192 wait \u2192 repeat until enough data extracted.",
+      "confidence": 0.79,
+      "successCount": 10,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0068",
+      "domain": "reddit.com",
+      "heuristic": "Cookie banners: snapshot \u2192 click Accept/Reject @eN before main task.",
+      "confidence": 0.81,
+      "successCount": 15,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0069",
+      "domain": "reddit.com",
+      "heuristic": "Multi-tab: browser_tab_list before actions; pass tab_id to all browser tools.",
+      "confidence": 0.78,
+      "successCount": 7,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0070",
+      "domain": "reddit.com",
+      "heuristic": "Stuck after 5 iterations: try browser_vision or web_fetch alternative path.",
+      "confidence": 0.74,
+      "successCount": 16,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0071",
+      "domain": "reddit.com",
+      "heuristic": "Price compare: run_parallel_tasks with browser_search per retailer site.",
+      "confidence": 0.74,
+      "successCount": 5,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0072",
+      "domain": "reddit.com",
+      "heuristic": "GitHub search: browser_search(site=github, query=...). Filter repos from snapshot text.",
+      "confidence": 0.78,
+      "successCount": 24,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0073",
+      "domain": "reddit.com",
+      "heuristic": "Wikipedia: browser_search(site=wikipedia, query=...) then extract_data on article.",
+      "confidence": 0.93,
+      "successCount": 15,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0074",
+      "domain": "reddit.com",
+      "heuristic": "Stack Overflow: search then click top answer link via snapshot ref.",
+      "confidence": 0.76,
+      "successCount": 22,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0075",
+      "domain": "reddit.com",
+      "heuristic": "Weather: browser_search(site=google, query='weather {city}'). Read snapshot text.",
+      "confidence": 0.8,
+      "successCount": 23,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0076",
+      "domain": "reddit.com",
+      "heuristic": "Job search: browser_search on LinkedIn/Indeed pattern; extract listing titles.",
+      "confidence": 0.77,
+      "successCount": 25,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0077",
+      "domain": "reddit.com",
+      "heuristic": "News research: browser_search(site=google, query='{topic} news') + web_fetch top URLs.",
+      "confidence": 0.91,
+      "successCount": 21,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0078",
+      "domain": "reddit.com",
+      "heuristic": "E-commerce cart: search product \u2192 click item \u2192 snapshot \u2192 add to cart button @eN.",
+      "confidence": 0.95,
+      "successCount": 13,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0079",
+      "domain": "reddit.com",
+      "heuristic": "PDF report: extract_data \u2192 pdf_generate with structured sections.",
+      "confidence": 0.95,
+      "successCount": 22,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0080",
+      "domain": "reddit.com",
+      "heuristic": "Charts: python_execute or chart_generate after data extraction.",
+      "confidence": 0.83,
+      "successCount": 15,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0081",
+      "domain": "github.com",
+      "heuristic": "YouTube: browser_search(site=youtube, query=...) \u2014 never type in search box. Verify video titles in snapshot.",
+      "confidence": 0.86,
+      "successCount": 17,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0082",
+      "domain": "github.com",
+      "heuristic": "Google: browser_search(site=google, query=...). URL must contain q= parameter.",
+      "confidence": 0.84,
+      "successCount": 24,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0083",
+      "domain": "github.com",
+      "heuristic": "Amazon: browser_search(site=amazon, query=...). Click product via @eN ref from snapshot.",
+      "confidence": 0.82,
+      "successCount": 5,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0084",
+      "domain": "github.com",
+      "heuristic": "Research: open tabs per source, browser_search each, web_fetch articles, summarize findings.",
+      "confidence": 0.9,
+      "successCount": 23,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0085",
+      "domain": "github.com",
+      "heuristic": "Forms: snapshot \u2192 browser_type on @eN input refs \u2192 browser_press Enter \u2192 verify snapshot.",
+      "confidence": 0.87,
+      "successCount": 22,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0086",
+      "domain": "github.com",
+      "heuristic": "Login: never store passwords in memory; snapshot to find fields; browser_type credentials.",
+      "confidence": 0.74,
+      "successCount": 22,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0087",
+      "domain": "github.com",
+      "heuristic": "Pagination: snapshot \u2192 click Next @eN \u2192 wait \u2192 repeat until enough data extracted.",
+      "confidence": 0.77,
+      "successCount": 16,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0088",
+      "domain": "github.com",
+      "heuristic": "Cookie banners: snapshot \u2192 click Accept/Reject @eN before main task.",
+      "confidence": 0.77,
+      "successCount": 13,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0089",
+      "domain": "github.com",
+      "heuristic": "Multi-tab: browser_tab_list before actions; pass tab_id to all browser tools.",
+      "confidence": 0.88,
+      "successCount": 10,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0090",
+      "domain": "github.com",
+      "heuristic": "Stuck after 5 iterations: try browser_vision or web_fetch alternative path.",
+      "confidence": 0.88,
+      "successCount": 5,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0091",
+      "domain": "github.com",
+      "heuristic": "Price compare: run_parallel_tasks with browser_search per retailer site.",
+      "confidence": 0.76,
+      "successCount": 9,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0092",
+      "domain": "github.com",
+      "heuristic": "GitHub search: browser_search(site=github, query=...). Filter repos from snapshot text.",
+      "confidence": 0.88,
+      "successCount": 22,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0093",
+      "domain": "github.com",
+      "heuristic": "Wikipedia: browser_search(site=wikipedia, query=...) then extract_data on article.",
+      "confidence": 0.86,
+      "successCount": 15,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0094",
+      "domain": "github.com",
+      "heuristic": "Stack Overflow: search then click top answer link via snapshot ref.",
+      "confidence": 0.9,
+      "successCount": 15,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0095",
+      "domain": "github.com",
+      "heuristic": "Weather: browser_search(site=google, query='weather {city}'). Read snapshot text.",
+      "confidence": 0.87,
+      "successCount": 6,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0096",
+      "domain": "github.com",
+      "heuristic": "Job search: browser_search on LinkedIn/Indeed pattern; extract listing titles.",
+      "confidence": 0.81,
+      "successCount": 14,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0097",
+      "domain": "github.com",
+      "heuristic": "News research: browser_search(site=google, query='{topic} news') + web_fetch top URLs.",
+      "confidence": 0.73,
+      "successCount": 11,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0098",
+      "domain": "github.com",
+      "heuristic": "E-commerce cart: search product \u2192 click item \u2192 snapshot \u2192 add to cart button @eN.",
+      "confidence": 0.81,
+      "successCount": 23,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0099",
+      "domain": "github.com",
+      "heuristic": "PDF report: extract_data \u2192 pdf_generate with structured sections.",
+      "confidence": 0.76,
+      "successCount": 5,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0100",
+      "domain": "github.com",
+      "heuristic": "Charts: python_execute or chart_generate after data extraction.",
+      "confidence": 0.77,
+      "successCount": 10,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0101",
+      "domain": "wikipedia.org",
+      "heuristic": "YouTube: browser_search(site=youtube, query=...) \u2014 never type in search box. Verify video titles in snapshot.",
+      "confidence": 0.74,
+      "successCount": 24,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0102",
+      "domain": "wikipedia.org",
+      "heuristic": "Google: browser_search(site=google, query=...). URL must contain q= parameter.",
+      "confidence": 0.81,
+      "successCount": 15,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0103",
+      "domain": "wikipedia.org",
+      "heuristic": "Amazon: browser_search(site=amazon, query=...). Click product via @eN ref from snapshot.",
+      "confidence": 0.9,
+      "successCount": 10,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0104",
+      "domain": "wikipedia.org",
+      "heuristic": "Research: open tabs per source, browser_search each, web_fetch articles, summarize findings.",
+      "confidence": 0.92,
+      "successCount": 18,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0105",
+      "domain": "wikipedia.org",
+      "heuristic": "Forms: snapshot \u2192 browser_type on @eN input refs \u2192 browser_press Enter \u2192 verify snapshot.",
+      "confidence": 0.79,
+      "successCount": 20,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0106",
+      "domain": "wikipedia.org",
+      "heuristic": "Login: never store passwords in memory; snapshot to find fields; browser_type credentials.",
+      "confidence": 0.82,
+      "successCount": 9,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0107",
+      "domain": "wikipedia.org",
+      "heuristic": "Pagination: snapshot \u2192 click Next @eN \u2192 wait \u2192 repeat until enough data extracted.",
+      "confidence": 0.93,
+      "successCount": 17,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0108",
+      "domain": "wikipedia.org",
+      "heuristic": "Cookie banners: snapshot \u2192 click Accept/Reject @eN before main task.",
+      "confidence": 0.76,
+      "successCount": 7,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0109",
+      "domain": "wikipedia.org",
+      "heuristic": "Multi-tab: browser_tab_list before actions; pass tab_id to all browser tools.",
+      "confidence": 0.94,
+      "successCount": 18,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0110",
+      "domain": "wikipedia.org",
+      "heuristic": "Stuck after 5 iterations: try browser_vision or web_fetch alternative path.",
+      "confidence": 0.97,
+      "successCount": 7,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0111",
+      "domain": "wikipedia.org",
+      "heuristic": "Price compare: run_parallel_tasks with browser_search per retailer site.",
+      "confidence": 0.75,
+      "successCount": 14,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0112",
+      "domain": "wikipedia.org",
+      "heuristic": "GitHub search: browser_search(site=github, query=...). Filter repos from snapshot text.",
+      "confidence": 0.84,
+      "successCount": 10,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0113",
+      "domain": "wikipedia.org",
+      "heuristic": "Wikipedia: browser_search(site=wikipedia, query=...) then extract_data on article.",
+      "confidence": 0.77,
+      "successCount": 7,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0114",
+      "domain": "wikipedia.org",
+      "heuristic": "Stack Overflow: search then click top answer link via snapshot ref.",
+      "confidence": 0.76,
+      "successCount": 24,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0115",
+      "domain": "wikipedia.org",
+      "heuristic": "Weather: browser_search(site=google, query='weather {city}'). Read snapshot text.",
+      "confidence": 0.81,
+      "successCount": 16,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0116",
+      "domain": "wikipedia.org",
+      "heuristic": "Job search: browser_search on LinkedIn/Indeed pattern; extract listing titles.",
+      "confidence": 0.87,
+      "successCount": 23,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0117",
+      "domain": "wikipedia.org",
+      "heuristic": "News research: browser_search(site=google, query='{topic} news') + web_fetch top URLs.",
+      "confidence": 0.8,
+      "successCount": 19,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0118",
+      "domain": "wikipedia.org",
+      "heuristic": "E-commerce cart: search product \u2192 click item \u2192 snapshot \u2192 add to cart button @eN.",
+      "confidence": 0.92,
+      "successCount": 17,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0119",
+      "domain": "wikipedia.org",
+      "heuristic": "PDF report: extract_data \u2192 pdf_generate with structured sections.",
+      "confidence": 0.89,
+      "successCount": 9,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0120",
+      "domain": "wikipedia.org",
+      "heuristic": "Charts: python_execute or chart_generate after data extraction.",
+      "confidence": 0.92,
+      "successCount": 25,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0121",
+      "domain": "stackoverflow.com",
+      "heuristic": "YouTube: browser_search(site=youtube, query=...) \u2014 never type in search box. Verify video titles in snapshot.",
+      "confidence": 0.84,
+      "successCount": 10,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0122",
+      "domain": "stackoverflow.com",
+      "heuristic": "Google: browser_search(site=google, query=...). URL must contain q= parameter.",
+      "confidence": 0.83,
+      "successCount": 15,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0123",
+      "domain": "stackoverflow.com",
+      "heuristic": "Amazon: browser_search(site=amazon, query=...). Click product via @eN ref from snapshot.",
+      "confidence": 0.74,
+      "successCount": 21,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0124",
+      "domain": "stackoverflow.com",
+      "heuristic": "Research: open tabs per source, browser_search each, web_fetch articles, summarize findings.",
+      "confidence": 0.97,
+      "successCount": 25,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0125",
+      "domain": "stackoverflow.com",
+      "heuristic": "Forms: snapshot \u2192 browser_type on @eN input refs \u2192 browser_press Enter \u2192 verify snapshot.",
+      "confidence": 0.76,
+      "successCount": 22,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0126",
+      "domain": "stackoverflow.com",
+      "heuristic": "Login: never store passwords in memory; snapshot to find fields; browser_type credentials.",
+      "confidence": 0.9,
+      "successCount": 7,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0127",
+      "domain": "stackoverflow.com",
+      "heuristic": "Pagination: snapshot \u2192 click Next @eN \u2192 wait \u2192 repeat until enough data extracted.",
+      "confidence": 0.73,
+      "successCount": 8,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0128",
+      "domain": "stackoverflow.com",
+      "heuristic": "Cookie banners: snapshot \u2192 click Accept/Reject @eN before main task.",
+      "confidence": 0.81,
+      "successCount": 13,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0129",
+      "domain": "stackoverflow.com",
+      "heuristic": "Multi-tab: browser_tab_list before actions; pass tab_id to all browser tools.",
+      "confidence": 0.95,
+      "successCount": 13,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0130",
+      "domain": "stackoverflow.com",
+      "heuristic": "Stuck after 5 iterations: try browser_vision or web_fetch alternative path.",
+      "confidence": 0.85,
+      "successCount": 5,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0131",
+      "domain": "stackoverflow.com",
+      "heuristic": "Price compare: run_parallel_tasks with browser_search per retailer site.",
+      "confidence": 0.94,
+      "successCount": 9,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0132",
+      "domain": "stackoverflow.com",
+      "heuristic": "GitHub search: browser_search(site=github, query=...). Filter repos from snapshot text.",
+      "confidence": 0.78,
+      "successCount": 14,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0133",
+      "domain": "stackoverflow.com",
+      "heuristic": "Wikipedia: browser_search(site=wikipedia, query=...) then extract_data on article.",
+      "confidence": 0.94,
+      "successCount": 24,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0134",
+      "domain": "stackoverflow.com",
+      "heuristic": "Stack Overflow: search then click top answer link via snapshot ref.",
+      "confidence": 0.9,
+      "successCount": 12,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0135",
+      "domain": "stackoverflow.com",
+      "heuristic": "Weather: browser_search(site=google, query='weather {city}'). Read snapshot text.",
+      "confidence": 0.85,
+      "successCount": 21,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0136",
+      "domain": "stackoverflow.com",
+      "heuristic": "Job search: browser_search on LinkedIn/Indeed pattern; extract listing titles.",
+      "confidence": 0.95,
+      "successCount": 20,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0137",
+      "domain": "stackoverflow.com",
+      "heuristic": "News research: browser_search(site=google, query='{topic} news') + web_fetch top URLs.",
+      "confidence": 0.89,
+      "successCount": 14,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0138",
+      "domain": "stackoverflow.com",
+      "heuristic": "E-commerce cart: search product \u2192 click item \u2192 snapshot \u2192 add to cart button @eN.",
+      "confidence": 0.9,
+      "successCount": 12,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0139",
+      "domain": "stackoverflow.com",
+      "heuristic": "PDF report: extract_data \u2192 pdf_generate with structured sections.",
+      "confidence": 0.93,
+      "successCount": 14,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0140",
+      "domain": "stackoverflow.com",
+      "heuristic": "Charts: python_execute or chart_generate after data extraction.",
+      "confidence": 0.96,
+      "successCount": 25,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0141",
+      "domain": "linkedin.com",
+      "heuristic": "YouTube: browser_search(site=youtube, query=...) \u2014 never type in search box. Verify video titles in snapshot.",
+      "confidence": 0.96,
+      "successCount": 22,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0142",
+      "domain": "linkedin.com",
+      "heuristic": "Google: browser_search(site=google, query=...). URL must contain q= parameter.",
+      "confidence": 0.73,
+      "successCount": 5,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0143",
+      "domain": "linkedin.com",
+      "heuristic": "Amazon: browser_search(site=amazon, query=...). Click product via @eN ref from snapshot.",
+      "confidence": 0.86,
+      "successCount": 22,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0144",
+      "domain": "linkedin.com",
+      "heuristic": "Research: open tabs per source, browser_search each, web_fetch articles, summarize findings.",
+      "confidence": 0.83,
+      "successCount": 20,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0145",
+      "domain": "linkedin.com",
+      "heuristic": "Forms: snapshot \u2192 browser_type on @eN input refs \u2192 browser_press Enter \u2192 verify snapshot.",
+      "confidence": 0.88,
+      "successCount": 17,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0146",
+      "domain": "linkedin.com",
+      "heuristic": "Login: never store passwords in memory; snapshot to find fields; browser_type credentials.",
+      "confidence": 0.92,
+      "successCount": 24,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0147",
+      "domain": "linkedin.com",
+      "heuristic": "Pagination: snapshot \u2192 click Next @eN \u2192 wait \u2192 repeat until enough data extracted.",
+      "confidence": 0.81,
+      "successCount": 17,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0148",
+      "domain": "linkedin.com",
+      "heuristic": "Cookie banners: snapshot \u2192 click Accept/Reject @eN before main task.",
+      "confidence": 0.94,
+      "successCount": 17,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0149",
+      "domain": "linkedin.com",
+      "heuristic": "Multi-tab: browser_tab_list before actions; pass tab_id to all browser tools.",
+      "confidence": 0.8,
+      "successCount": 18,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0150",
+      "domain": "linkedin.com",
+      "heuristic": "Stuck after 5 iterations: try browser_vision or web_fetch alternative path.",
+      "confidence": 0.85,
+      "successCount": 12,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0151",
+      "domain": "linkedin.com",
+      "heuristic": "Price compare: run_parallel_tasks with browser_search per retailer site.",
+      "confidence": 0.95,
+      "successCount": 14,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0152",
+      "domain": "linkedin.com",
+      "heuristic": "GitHub search: browser_search(site=github, query=...). Filter repos from snapshot text.",
+      "confidence": 0.96,
+      "successCount": 5,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0153",
+      "domain": "linkedin.com",
+      "heuristic": "Wikipedia: browser_search(site=wikipedia, query=...) then extract_data on article.",
+      "confidence": 0.83,
+      "successCount": 19,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0154",
+      "domain": "linkedin.com",
+      "heuristic": "Stack Overflow: search then click top answer link via snapshot ref.",
+      "confidence": 0.93,
+      "successCount": 8,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0155",
+      "domain": "linkedin.com",
+      "heuristic": "Weather: browser_search(site=google, query='weather {city}'). Read snapshot text.",
+      "confidence": 0.96,
+      "successCount": 23,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0156",
+      "domain": "linkedin.com",
+      "heuristic": "Job search: browser_search on LinkedIn/Indeed pattern; extract listing titles.",
+      "confidence": 0.74,
+      "successCount": 17,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0157",
+      "domain": "linkedin.com",
+      "heuristic": "News research: browser_search(site=google, query='{topic} news') + web_fetch top URLs.",
+      "confidence": 0.84,
+      "successCount": 25,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0158",
+      "domain": "linkedin.com",
+      "heuristic": "E-commerce cart: search product \u2192 click item \u2192 snapshot \u2192 add to cart button @eN.",
+      "confidence": 0.81,
+      "successCount": 6,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0159",
+      "domain": "linkedin.com",
+      "heuristic": "PDF report: extract_data \u2192 pdf_generate with structured sections.",
+      "confidence": 0.74,
+      "successCount": 25,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0160",
+      "domain": "linkedin.com",
+      "heuristic": "Charts: python_execute or chart_generate after data extraction.",
+      "confidence": 0.88,
+      "successCount": 12,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0161",
+      "domain": "booking.com",
+      "heuristic": "YouTube: browser_search(site=youtube, query=...) \u2014 never type in search box. Verify video titles in snapshot.",
+      "confidence": 0.91,
+      "successCount": 10,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0162",
+      "domain": "booking.com",
+      "heuristic": "Google: browser_search(site=google, query=...). URL must contain q= parameter.",
+      "confidence": 0.78,
+      "successCount": 7,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0163",
+      "domain": "booking.com",
+      "heuristic": "Amazon: browser_search(site=amazon, query=...). Click product via @eN ref from snapshot.",
+      "confidence": 0.91,
+      "successCount": 21,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0164",
+      "domain": "booking.com",
+      "heuristic": "Research: open tabs per source, browser_search each, web_fetch articles, summarize findings.",
+      "confidence": 0.73,
+      "successCount": 10,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0165",
+      "domain": "booking.com",
+      "heuristic": "Forms: snapshot \u2192 browser_type on @eN input refs \u2192 browser_press Enter \u2192 verify snapshot.",
+      "confidence": 0.73,
+      "successCount": 19,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0166",
+      "domain": "booking.com",
+      "heuristic": "Login: never store passwords in memory; snapshot to find fields; browser_type credentials.",
+      "confidence": 0.77,
+      "successCount": 20,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0167",
+      "domain": "booking.com",
+      "heuristic": "Pagination: snapshot \u2192 click Next @eN \u2192 wait \u2192 repeat until enough data extracted.",
+      "confidence": 0.9,
+      "successCount": 15,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0168",
+      "domain": "booking.com",
+      "heuristic": "Cookie banners: snapshot \u2192 click Accept/Reject @eN before main task.",
+      "confidence": 0.92,
+      "successCount": 13,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0169",
+      "domain": "booking.com",
+      "heuristic": "Multi-tab: browser_tab_list before actions; pass tab_id to all browser tools.",
+      "confidence": 0.89,
+      "successCount": 15,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0170",
+      "domain": "booking.com",
+      "heuristic": "Stuck after 5 iterations: try browser_vision or web_fetch alternative path.",
+      "confidence": 0.77,
+      "successCount": 22,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0171",
+      "domain": "booking.com",
+      "heuristic": "Price compare: run_parallel_tasks with browser_search per retailer site.",
+      "confidence": 0.97,
+      "successCount": 9,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0172",
+      "domain": "booking.com",
+      "heuristic": "GitHub search: browser_search(site=github, query=...). Filter repos from snapshot text.",
+      "confidence": 0.92,
+      "successCount": 6,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0173",
+      "domain": "booking.com",
+      "heuristic": "Wikipedia: browser_search(site=wikipedia, query=...) then extract_data on article.",
+      "confidence": 0.88,
+      "successCount": 22,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0174",
+      "domain": "booking.com",
+      "heuristic": "Stack Overflow: search then click top answer link via snapshot ref.",
+      "confidence": 0.97,
+      "successCount": 14,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0175",
+      "domain": "booking.com",
+      "heuristic": "Weather: browser_search(site=google, query='weather {city}'). Read snapshot text.",
+      "confidence": 0.89,
+      "successCount": 6,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0176",
+      "domain": "booking.com",
+      "heuristic": "Job search: browser_search on LinkedIn/Indeed pattern; extract listing titles.",
+      "confidence": 0.78,
+      "successCount": 15,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0177",
+      "domain": "booking.com",
+      "heuristic": "News research: browser_search(site=google, query='{topic} news') + web_fetch top URLs.",
+      "confidence": 0.77,
+      "successCount": 19,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0178",
+      "domain": "booking.com",
+      "heuristic": "E-commerce cart: search product \u2192 click item \u2192 snapshot \u2192 add to cart button @eN.",
+      "confidence": 0.83,
+      "successCount": 21,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0179",
+      "domain": "booking.com",
+      "heuristic": "PDF report: extract_data \u2192 pdf_generate with structured sections.",
+      "confidence": 0.87,
+      "successCount": 23,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0180",
+      "domain": "booking.com",
+      "heuristic": "Charts: python_execute or chart_generate after data extraction.",
+      "confidence": 0.91,
+      "successCount": 22,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0181",
+      "domain": "weather.com",
+      "heuristic": "YouTube: browser_search(site=youtube, query=...) \u2014 never type in search box. Verify video titles in snapshot.",
+      "confidence": 0.78,
+      "successCount": 18,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0182",
+      "domain": "weather.com",
+      "heuristic": "Google: browser_search(site=google, query=...). URL must contain q= parameter.",
+      "confidence": 0.81,
+      "successCount": 10,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0183",
+      "domain": "weather.com",
+      "heuristic": "Amazon: browser_search(site=amazon, query=...). Click product via @eN ref from snapshot.",
+      "confidence": 0.88,
+      "successCount": 6,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0184",
+      "domain": "weather.com",
+      "heuristic": "Research: open tabs per source, browser_search each, web_fetch articles, summarize findings.",
+      "confidence": 0.79,
+      "successCount": 10,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0185",
+      "domain": "weather.com",
+      "heuristic": "Forms: snapshot \u2192 browser_type on @eN input refs \u2192 browser_press Enter \u2192 verify snapshot.",
+      "confidence": 0.89,
+      "successCount": 7,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0186",
+      "domain": "weather.com",
+      "heuristic": "Login: never store passwords in memory; snapshot to find fields; browser_type credentials.",
+      "confidence": 0.85,
+      "successCount": 17,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0187",
+      "domain": "weather.com",
+      "heuristic": "Pagination: snapshot \u2192 click Next @eN \u2192 wait \u2192 repeat until enough data extracted.",
+      "confidence": 0.72,
+      "successCount": 15,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0188",
+      "domain": "weather.com",
+      "heuristic": "Cookie banners: snapshot \u2192 click Accept/Reject @eN before main task.",
+      "confidence": 0.9,
+      "successCount": 19,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0189",
+      "domain": "weather.com",
+      "heuristic": "Multi-tab: browser_tab_list before actions; pass tab_id to all browser tools.",
+      "confidence": 0.89,
+      "successCount": 15,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0190",
+      "domain": "weather.com",
+      "heuristic": "Stuck after 5 iterations: try browser_vision or web_fetch alternative path.",
+      "confidence": 0.78,
+      "successCount": 18,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0191",
+      "domain": "weather.com",
+      "heuristic": "Price compare: run_parallel_tasks with browser_search per retailer site.",
+      "confidence": 0.96,
+      "successCount": 11,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0192",
+      "domain": "weather.com",
+      "heuristic": "GitHub search: browser_search(site=github, query=...). Filter repos from snapshot text.",
+      "confidence": 0.75,
+      "successCount": 23,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0193",
+      "domain": "weather.com",
+      "heuristic": "Wikipedia: browser_search(site=wikipedia, query=...) then extract_data on article.",
+      "confidence": 0.73,
+      "successCount": 12,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0194",
+      "domain": "weather.com",
+      "heuristic": "Stack Overflow: search then click top answer link via snapshot ref.",
+      "confidence": 0.91,
+      "successCount": 24,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0195",
+      "domain": "weather.com",
+      "heuristic": "Weather: browser_search(site=google, query='weather {city}'). Read snapshot text.",
+      "confidence": 0.78,
+      "successCount": 17,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0196",
+      "domain": "weather.com",
+      "heuristic": "Job search: browser_search on LinkedIn/Indeed pattern; extract listing titles.",
+      "confidence": 0.82,
+      "successCount": 9,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0197",
+      "domain": "weather.com",
+      "heuristic": "News research: browser_search(site=google, query='{topic} news') + web_fetch top URLs.",
+      "confidence": 0.87,
+      "successCount": 10,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0198",
+      "domain": "weather.com",
+      "heuristic": "E-commerce cart: search product \u2192 click item \u2192 snapshot \u2192 add to cart button @eN.",
+      "confidence": 0.91,
+      "successCount": 12,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0199",
+      "domain": "weather.com",
+      "heuristic": "PDF report: extract_data \u2192 pdf_generate with structured sections.",
+      "confidence": 0.93,
+      "successCount": 8,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0200",
+      "domain": "weather.com",
+      "heuristic": "Charts: python_execute or chart_generate after data extraction.",
+      "confidence": 0.94,
+      "successCount": 20,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0201",
+      "domain": "search",
+      "heuristic": "YouTube: browser_search(site=youtube, query=...) \u2014 never type in search box. Verify video titles in snapshot.",
+      "confidence": 0.87,
+      "successCount": 17,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0202",
+      "domain": "search",
+      "heuristic": "Google: browser_search(site=google, query=...). URL must contain q= parameter.",
+      "confidence": 0.82,
+      "successCount": 12,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0203",
+      "domain": "search",
+      "heuristic": "Amazon: browser_search(site=amazon, query=...). Click product via @eN ref from snapshot.",
+      "confidence": 0.86,
+      "successCount": 9,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0204",
+      "domain": "search",
+      "heuristic": "Research: open tabs per source, browser_search each, web_fetch articles, summarize findings.",
+      "confidence": 0.88,
+      "successCount": 23,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0205",
+      "domain": "search",
+      "heuristic": "Forms: snapshot \u2192 browser_type on @eN input refs \u2192 browser_press Enter \u2192 verify snapshot.",
+      "confidence": 0.89,
+      "successCount": 9,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0206",
+      "domain": "search",
+      "heuristic": "Login: never store passwords in memory; snapshot to find fields; browser_type credentials.",
+      "confidence": 0.92,
+      "successCount": 19,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0207",
+      "domain": "search",
+      "heuristic": "Pagination: snapshot \u2192 click Next @eN \u2192 wait \u2192 repeat until enough data extracted.",
+      "confidence": 0.82,
+      "successCount": 22,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0208",
+      "domain": "search",
+      "heuristic": "Cookie banners: snapshot \u2192 click Accept/Reject @eN before main task.",
+      "confidence": 0.92,
+      "successCount": 14,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0209",
+      "domain": "search",
+      "heuristic": "Multi-tab: browser_tab_list before actions; pass tab_id to all browser tools.",
+      "confidence": 0.79,
+      "successCount": 23,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0210",
+      "domain": "search",
+      "heuristic": "Stuck after 5 iterations: try browser_vision or web_fetch alternative path.",
+      "confidence": 0.83,
+      "successCount": 8,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0211",
+      "domain": "search",
+      "heuristic": "Price compare: run_parallel_tasks with browser_search per retailer site.",
+      "confidence": 0.81,
+      "successCount": 12,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0212",
+      "domain": "search",
+      "heuristic": "GitHub search: browser_search(site=github, query=...). Filter repos from snapshot text.",
+      "confidence": 0.95,
+      "successCount": 10,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0213",
+      "domain": "search",
+      "heuristic": "Wikipedia: browser_search(site=wikipedia, query=...) then extract_data on article.",
+      "confidence": 0.72,
+      "successCount": 25,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0214",
+      "domain": "search",
+      "heuristic": "Stack Overflow: search then click top answer link via snapshot ref.",
+      "confidence": 0.82,
+      "successCount": 24,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0215",
+      "domain": "search",
+      "heuristic": "Weather: browser_search(site=google, query='weather {city}'). Read snapshot text.",
+      "confidence": 0.86,
+      "successCount": 13,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0216",
+      "domain": "search",
+      "heuristic": "Job search: browser_search on LinkedIn/Indeed pattern; extract listing titles.",
+      "confidence": 0.8,
+      "successCount": 11,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0217",
+      "domain": "search",
+      "heuristic": "News research: browser_search(site=google, query='{topic} news') + web_fetch top URLs.",
+      "confidence": 0.9,
+      "successCount": 5,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0218",
+      "domain": "search",
+      "heuristic": "E-commerce cart: search product \u2192 click item \u2192 snapshot \u2192 add to cart button @eN.",
+      "confidence": 0.81,
+      "successCount": 12,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0219",
+      "domain": "search",
+      "heuristic": "PDF report: extract_data \u2192 pdf_generate with structured sections.",
+      "confidence": 0.85,
+      "successCount": 8,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0220",
+      "domain": "search",
+      "heuristic": "Charts: python_execute or chart_generate after data extraction.",
+      "confidence": 0.84,
+      "successCount": 17,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0221",
+      "domain": "form_fill",
+      "heuristic": "YouTube: browser_search(site=youtube, query=...) \u2014 never type in search box. Verify video titles in snapshot.",
+      "confidence": 0.78,
+      "successCount": 23,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0222",
+      "domain": "form_fill",
+      "heuristic": "Google: browser_search(site=google, query=...). URL must contain q= parameter.",
+      "confidence": 0.76,
+      "successCount": 6,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0223",
+      "domain": "form_fill",
+      "heuristic": "Amazon: browser_search(site=amazon, query=...). Click product via @eN ref from snapshot.",
+      "confidence": 0.84,
+      "successCount": 23,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0224",
+      "domain": "form_fill",
+      "heuristic": "Research: open tabs per source, browser_search each, web_fetch articles, summarize findings.",
+      "confidence": 0.89,
+      "successCount": 16,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0225",
+      "domain": "form_fill",
+      "heuristic": "Forms: snapshot \u2192 browser_type on @eN input refs \u2192 browser_press Enter \u2192 verify snapshot.",
+      "confidence": 0.97,
+      "successCount": 25,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0226",
+      "domain": "form_fill",
+      "heuristic": "Login: never store passwords in memory; snapshot to find fields; browser_type credentials.",
+      "confidence": 0.85,
+      "successCount": 22,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0227",
+      "domain": "form_fill",
+      "heuristic": "Pagination: snapshot \u2192 click Next @eN \u2192 wait \u2192 repeat until enough data extracted.",
+      "confidence": 0.87,
+      "successCount": 25,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0228",
+      "domain": "form_fill",
+      "heuristic": "Cookie banners: snapshot \u2192 click Accept/Reject @eN before main task.",
+      "confidence": 0.82,
+      "successCount": 25,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0229",
+      "domain": "form_fill",
+      "heuristic": "Multi-tab: browser_tab_list before actions; pass tab_id to all browser tools.",
+      "confidence": 0.74,
+      "successCount": 12,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0230",
+      "domain": "form_fill",
+      "heuristic": "Stuck after 5 iterations: try browser_vision or web_fetch alternative path.",
+      "confidence": 0.92,
+      "successCount": 11,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0231",
+      "domain": "form_fill",
+      "heuristic": "Price compare: run_parallel_tasks with browser_search per retailer site.",
+      "confidence": 0.8,
+      "successCount": 18,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0232",
+      "domain": "form_fill",
+      "heuristic": "GitHub search: browser_search(site=github, query=...). Filter repos from snapshot text.",
+      "confidence": 0.88,
+      "successCount": 18,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0233",
+      "domain": "form_fill",
+      "heuristic": "Wikipedia: browser_search(site=wikipedia, query=...) then extract_data on article.",
+      "confidence": 0.96,
+      "successCount": 24,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0234",
+      "domain": "form_fill",
+      "heuristic": "Stack Overflow: search then click top answer link via snapshot ref.",
+      "confidence": 0.82,
+      "successCount": 12,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0235",
+      "domain": "form_fill",
+      "heuristic": "Weather: browser_search(site=google, query='weather {city}'). Read snapshot text.",
+      "confidence": 0.84,
+      "successCount": 11,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0236",
+      "domain": "form_fill",
+      "heuristic": "Job search: browser_search on LinkedIn/Indeed pattern; extract listing titles.",
+      "confidence": 0.89,
+      "successCount": 25,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0237",
+      "domain": "form_fill",
+      "heuristic": "News research: browser_search(site=google, query='{topic} news') + web_fetch top URLs.",
+      "confidence": 0.89,
+      "successCount": 7,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0238",
+      "domain": "form_fill",
+      "heuristic": "E-commerce cart: search product \u2192 click item \u2192 snapshot \u2192 add to cart button @eN.",
+      "confidence": 0.76,
+      "successCount": 19,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0239",
+      "domain": "form_fill",
+      "heuristic": "PDF report: extract_data \u2192 pdf_generate with structured sections.",
+      "confidence": 0.78,
+      "successCount": 12,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0240",
+      "domain": "form_fill",
+      "heuristic": "Charts: python_execute or chart_generate after data extraction.",
+      "confidence": 0.74,
+      "successCount": 10,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0241",
+      "domain": "research",
+      "heuristic": "YouTube: browser_search(site=youtube, query=...) \u2014 never type in search box. Verify video titles in snapshot.",
+      "confidence": 0.94,
+      "successCount": 11,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0242",
+      "domain": "research",
+      "heuristic": "Google: browser_search(site=google, query=...). URL must contain q= parameter.",
+      "confidence": 0.74,
+      "successCount": 11,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0243",
+      "domain": "research",
+      "heuristic": "Amazon: browser_search(site=amazon, query=...). Click product via @eN ref from snapshot.",
+      "confidence": 0.97,
+      "successCount": 12,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0244",
+      "domain": "research",
+      "heuristic": "Research: open tabs per source, browser_search each, web_fetch articles, summarize findings.",
+      "confidence": 0.79,
+      "successCount": 11,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0245",
+      "domain": "research",
+      "heuristic": "Forms: snapshot \u2192 browser_type on @eN input refs \u2192 browser_press Enter \u2192 verify snapshot.",
+      "confidence": 0.9,
+      "successCount": 13,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0246",
+      "domain": "research",
+      "heuristic": "Login: never store passwords in memory; snapshot to find fields; browser_type credentials.",
+      "confidence": 0.9,
+      "successCount": 7,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0247",
+      "domain": "research",
+      "heuristic": "Pagination: snapshot \u2192 click Next @eN \u2192 wait \u2192 repeat until enough data extracted.",
+      "confidence": 0.84,
+      "successCount": 9,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0248",
+      "domain": "research",
+      "heuristic": "Cookie banners: snapshot \u2192 click Accept/Reject @eN before main task.",
+      "confidence": 0.84,
+      "successCount": 17,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0249",
+      "domain": "research",
+      "heuristic": "Multi-tab: browser_tab_list before actions; pass tab_id to all browser tools.",
+      "confidence": 0.76,
+      "successCount": 19,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0250",
+      "domain": "research",
+      "heuristic": "Stuck after 5 iterations: try browser_vision or web_fetch alternative path.",
+      "confidence": 0.97,
+      "successCount": 10,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0251",
+      "domain": "research",
+      "heuristic": "Price compare: run_parallel_tasks with browser_search per retailer site.",
+      "confidence": 0.81,
+      "successCount": 5,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0252",
+      "domain": "research",
+      "heuristic": "GitHub search: browser_search(site=github, query=...). Filter repos from snapshot text.",
+      "confidence": 0.95,
+      "successCount": 22,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0253",
+      "domain": "research",
+      "heuristic": "Wikipedia: browser_search(site=wikipedia, query=...) then extract_data on article.",
+      "confidence": 0.74,
+      "successCount": 12,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0254",
+      "domain": "research",
+      "heuristic": "Stack Overflow: search then click top answer link via snapshot ref.",
+      "confidence": 0.88,
+      "successCount": 20,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0255",
+      "domain": "research",
+      "heuristic": "Weather: browser_search(site=google, query='weather {city}'). Read snapshot text.",
+      "confidence": 0.98,
+      "successCount": 20,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0256",
+      "domain": "research",
+      "heuristic": "Job search: browser_search on LinkedIn/Indeed pattern; extract listing titles.",
+      "confidence": 0.89,
+      "successCount": 6,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0257",
+      "domain": "research",
+      "heuristic": "News research: browser_search(site=google, query='{topic} news') + web_fetch top URLs.",
+      "confidence": 0.76,
+      "successCount": 12,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0258",
+      "domain": "research",
+      "heuristic": "E-commerce cart: search product \u2192 click item \u2192 snapshot \u2192 add to cart button @eN.",
+      "confidence": 0.91,
+      "successCount": 8,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0259",
+      "domain": "research",
+      "heuristic": "PDF report: extract_data \u2192 pdf_generate with structured sections.",
+      "confidence": 0.89,
+      "successCount": 8,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0260",
+      "domain": "research",
+      "heuristic": "Charts: python_execute or chart_generate after data extraction.",
+      "confidence": 0.87,
+      "successCount": 16,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0261",
+      "domain": "extraction",
+      "heuristic": "YouTube: browser_search(site=youtube, query=...) \u2014 never type in search box. Verify video titles in snapshot.",
+      "confidence": 0.81,
+      "successCount": 10,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0262",
+      "domain": "extraction",
+      "heuristic": "Google: browser_search(site=google, query=...). URL must contain q= parameter.",
+      "confidence": 0.86,
+      "successCount": 23,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0263",
+      "domain": "extraction",
+      "heuristic": "Amazon: browser_search(site=amazon, query=...). Click product via @eN ref from snapshot.",
+      "confidence": 0.73,
+      "successCount": 12,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0264",
+      "domain": "extraction",
+      "heuristic": "Research: open tabs per source, browser_search each, web_fetch articles, summarize findings.",
+      "confidence": 0.81,
+      "successCount": 25,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0265",
+      "domain": "extraction",
+      "heuristic": "Forms: snapshot \u2192 browser_type on @eN input refs \u2192 browser_press Enter \u2192 verify snapshot.",
+      "confidence": 0.8,
+      "successCount": 23,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0266",
+      "domain": "extraction",
+      "heuristic": "Login: never store passwords in memory; snapshot to find fields; browser_type credentials.",
+      "confidence": 0.73,
+      "successCount": 25,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0267",
+      "domain": "extraction",
+      "heuristic": "Pagination: snapshot \u2192 click Next @eN \u2192 wait \u2192 repeat until enough data extracted.",
+      "confidence": 0.97,
+      "successCount": 24,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0268",
+      "domain": "extraction",
+      "heuristic": "Cookie banners: snapshot \u2192 click Accept/Reject @eN before main task.",
+      "confidence": 0.85,
+      "successCount": 24,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0269",
+      "domain": "extraction",
+      "heuristic": "Multi-tab: browser_tab_list before actions; pass tab_id to all browser tools.",
+      "confidence": 0.82,
+      "successCount": 15,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0270",
+      "domain": "extraction",
+      "heuristic": "Stuck after 5 iterations: try browser_vision or web_fetch alternative path.",
+      "confidence": 0.94,
+      "successCount": 23,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0271",
+      "domain": "extraction",
+      "heuristic": "Price compare: run_parallel_tasks with browser_search per retailer site.",
+      "confidence": 0.84,
+      "successCount": 10,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0272",
+      "domain": "extraction",
+      "heuristic": "GitHub search: browser_search(site=github, query=...). Filter repos from snapshot text.",
+      "confidence": 0.74,
+      "successCount": 20,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0273",
+      "domain": "extraction",
+      "heuristic": "Wikipedia: browser_search(site=wikipedia, query=...) then extract_data on article.",
+      "confidence": 0.91,
+      "successCount": 22,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0274",
+      "domain": "extraction",
+      "heuristic": "Stack Overflow: search then click top answer link via snapshot ref.",
+      "confidence": 0.83,
+      "successCount": 6,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0275",
+      "domain": "extraction",
+      "heuristic": "Weather: browser_search(site=google, query='weather {city}'). Read snapshot text.",
+      "confidence": 0.8,
+      "successCount": 9,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0276",
+      "domain": "extraction",
+      "heuristic": "Job search: browser_search on LinkedIn/Indeed pattern; extract listing titles.",
+      "confidence": 0.9,
+      "successCount": 16,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0277",
+      "domain": "extraction",
+      "heuristic": "News research: browser_search(site=google, query='{topic} news') + web_fetch top URLs.",
+      "confidence": 0.79,
+      "successCount": 20,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0278",
+      "domain": "extraction",
+      "heuristic": "E-commerce cart: search product \u2192 click item \u2192 snapshot \u2192 add to cart button @eN.",
+      "confidence": 0.82,
+      "successCount": 21,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0279",
+      "domain": "extraction",
+      "heuristic": "PDF report: extract_data \u2192 pdf_generate with structured sections.",
+      "confidence": 0.87,
+      "successCount": 8,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0280",
+      "domain": "extraction",
+      "heuristic": "Charts: python_execute or chart_generate after data extraction.",
+      "confidence": 0.93,
+      "successCount": 25,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0281",
+      "domain": "auth",
+      "heuristic": "YouTube: browser_search(site=youtube, query=...) \u2014 never type in search box. Verify video titles in snapshot.",
+      "confidence": 0.97,
+      "successCount": 24,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0282",
+      "domain": "auth",
+      "heuristic": "Google: browser_search(site=google, query=...). URL must contain q= parameter.",
+      "confidence": 0.96,
+      "successCount": 25,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0283",
+      "domain": "auth",
+      "heuristic": "Amazon: browser_search(site=amazon, query=...). Click product via @eN ref from snapshot.",
+      "confidence": 0.82,
+      "successCount": 13,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0284",
+      "domain": "auth",
+      "heuristic": "Research: open tabs per source, browser_search each, web_fetch articles, summarize findings.",
+      "confidence": 0.78,
+      "successCount": 8,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0285",
+      "domain": "auth",
+      "heuristic": "Forms: snapshot \u2192 browser_type on @eN input refs \u2192 browser_press Enter \u2192 verify snapshot.",
+      "confidence": 0.87,
+      "successCount": 20,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0286",
+      "domain": "auth",
+      "heuristic": "Login: never store passwords in memory; snapshot to find fields; browser_type credentials.",
+      "confidence": 0.8,
+      "successCount": 12,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0287",
+      "domain": "auth",
+      "heuristic": "Pagination: snapshot \u2192 click Next @eN \u2192 wait \u2192 repeat until enough data extracted.",
+      "confidence": 0.84,
+      "successCount": 16,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0288",
+      "domain": "auth",
+      "heuristic": "Cookie banners: snapshot \u2192 click Accept/Reject @eN before main task.",
+      "confidence": 0.97,
+      "successCount": 13,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0289",
+      "domain": "auth",
+      "heuristic": "Multi-tab: browser_tab_list before actions; pass tab_id to all browser tools.",
+      "confidence": 0.76,
+      "successCount": 17,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0290",
+      "domain": "auth",
+      "heuristic": "Stuck after 5 iterations: try browser_vision or web_fetch alternative path.",
+      "confidence": 0.92,
+      "successCount": 23,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0291",
+      "domain": "auth",
+      "heuristic": "Price compare: run_parallel_tasks with browser_search per retailer site.",
+      "confidence": 0.86,
+      "successCount": 14,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0292",
+      "domain": "auth",
+      "heuristic": "GitHub search: browser_search(site=github, query=...). Filter repos from snapshot text.",
+      "confidence": 0.8,
+      "successCount": 7,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0293",
+      "domain": "auth",
+      "heuristic": "Wikipedia: browser_search(site=wikipedia, query=...) then extract_data on article.",
+      "confidence": 0.88,
+      "successCount": 25,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0294",
+      "domain": "auth",
+      "heuristic": "Stack Overflow: search then click top answer link via snapshot ref.",
+      "confidence": 0.8,
+      "successCount": 23,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0295",
+      "domain": "auth",
+      "heuristic": "Weather: browser_search(site=google, query='weather {city}'). Read snapshot text.",
+      "confidence": 0.82,
+      "successCount": 10,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0296",
+      "domain": "auth",
+      "heuristic": "Job search: browser_search on LinkedIn/Indeed pattern; extract listing titles.",
+      "confidence": 0.86,
+      "successCount": 19,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0297",
+      "domain": "auth",
+      "heuristic": "News research: browser_search(site=google, query='{topic} news') + web_fetch top URLs.",
+      "confidence": 0.93,
+      "successCount": 12,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0298",
+      "domain": "auth",
+      "heuristic": "E-commerce cart: search product \u2192 click item \u2192 snapshot \u2192 add to cart button @eN.",
+      "confidence": 0.93,
+      "successCount": 18,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0299",
+      "domain": "auth",
+      "heuristic": "PDF report: extract_data \u2192 pdf_generate with structured sections.",
+      "confidence": 0.85,
+      "successCount": 11,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0300",
+      "domain": "auth",
+      "heuristic": "Charts: python_execute or chart_generate after data extraction.",
+      "confidence": 0.83,
+      "successCount": 23,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0301",
+      "domain": "ecommerce",
+      "heuristic": "YouTube: browser_search(site=youtube, query=...) \u2014 never type in search box. Verify video titles in snapshot.",
+      "confidence": 0.79,
+      "successCount": 10,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0302",
+      "domain": "ecommerce",
+      "heuristic": "Google: browser_search(site=google, query=...). URL must contain q= parameter.",
+      "confidence": 0.82,
+      "successCount": 18,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0303",
+      "domain": "ecommerce",
+      "heuristic": "Amazon: browser_search(site=amazon, query=...). Click product via @eN ref from snapshot.",
+      "confidence": 0.77,
+      "successCount": 17,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0304",
+      "domain": "ecommerce",
+      "heuristic": "Research: open tabs per source, browser_search each, web_fetch articles, summarize findings.",
+      "confidence": 0.98,
+      "successCount": 13,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0305",
+      "domain": "ecommerce",
+      "heuristic": "Forms: snapshot \u2192 browser_type on @eN input refs \u2192 browser_press Enter \u2192 verify snapshot.",
+      "confidence": 0.8,
+      "successCount": 25,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0306",
+      "domain": "ecommerce",
+      "heuristic": "Login: never store passwords in memory; snapshot to find fields; browser_type credentials.",
+      "confidence": 0.76,
+      "successCount": 13,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0307",
+      "domain": "ecommerce",
+      "heuristic": "Pagination: snapshot \u2192 click Next @eN \u2192 wait \u2192 repeat until enough data extracted.",
+      "confidence": 0.85,
+      "successCount": 22,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0308",
+      "domain": "ecommerce",
+      "heuristic": "Cookie banners: snapshot \u2192 click Accept/Reject @eN before main task.",
+      "confidence": 0.87,
+      "successCount": 8,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0309",
+      "domain": "ecommerce",
+      "heuristic": "Multi-tab: browser_tab_list before actions; pass tab_id to all browser tools.",
+      "confidence": 0.82,
+      "successCount": 20,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0310",
+      "domain": "ecommerce",
+      "heuristic": "Stuck after 5 iterations: try browser_vision or web_fetch alternative path.",
+      "confidence": 0.94,
+      "successCount": 13,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0311",
+      "domain": "ecommerce",
+      "heuristic": "Price compare: run_parallel_tasks with browser_search per retailer site.",
+      "confidence": 0.83,
+      "successCount": 5,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0312",
+      "domain": "ecommerce",
+      "heuristic": "GitHub search: browser_search(site=github, query=...). Filter repos from snapshot text.",
+      "confidence": 0.82,
+      "successCount": 6,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0313",
+      "domain": "ecommerce",
+      "heuristic": "Wikipedia: browser_search(site=wikipedia, query=...) then extract_data on article.",
+      "confidence": 0.92,
+      "successCount": 19,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0314",
+      "domain": "ecommerce",
+      "heuristic": "Stack Overflow: search then click top answer link via snapshot ref.",
+      "confidence": 0.83,
+      "successCount": 7,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0315",
+      "domain": "ecommerce",
+      "heuristic": "Weather: browser_search(site=google, query='weather {city}'). Read snapshot text.",
+      "confidence": 0.93,
+      "successCount": 10,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0316",
+      "domain": "ecommerce",
+      "heuristic": "Job search: browser_search on LinkedIn/Indeed pattern; extract listing titles.",
+      "confidence": 0.93,
+      "successCount": 23,
+      "failureCount": 3
+    },
+    {
+      "id": "bundle-0317",
+      "domain": "ecommerce",
+      "heuristic": "News research: browser_search(site=google, query='{topic} news') + web_fetch top URLs.",
+      "confidence": 0.72,
+      "successCount": 24,
+      "failureCount": 1
+    },
+    {
+      "id": "bundle-0318",
+      "domain": "ecommerce",
+      "heuristic": "E-commerce cart: search product \u2192 click item \u2192 snapshot \u2192 add to cart button @eN.",
+      "confidence": 0.97,
+      "successCount": 7,
+      "failureCount": 2
+    },
+    {
+      "id": "bundle-0319",
+      "domain": "ecommerce",
+      "heuristic": "PDF report: extract_data \u2192 pdf_generate with structured sections.",
+      "confidence": 0.82,
+      "successCount": 24,
+      "failureCount": 0
+    },
+    {
+      "id": "bundle-0320",
+      "domain": "ecommerce",
+      "heuristic": "Charts: python_execute or chart_generate after data extraction.",
+      "confidence": 0.89,
+      "successCount": 13,
+      "failureCount": 0
+    }
+  ]
+}

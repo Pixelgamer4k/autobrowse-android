@@ -1,0 +1,519 @@
+# Snapshot fixture: github.com (variant 8)
+# Query: home workout plan
+
+@e1 [heading] home workout plan
+@e2 [link] Read more about home workout plan
+@e3 [button] Submit
+pageText: Content loaded successfully
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for github.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.

@@ -41,6 +41,9 @@ fun HomeScreen(viewModel: MainViewModel) {
                 onTestConnection = viewModel::testLlmConnection,
                 onSave = viewModel::saveLlmConfig,
                 onImportModel = viewModel::importLocalModel,
+                onDownloadModel = viewModel::downloadLocalModel,
+                onCancelModelDownload = viewModel::cancelModelDownload,
+                modelDownload = state.modelDownload,
                 onOpenUrl = viewModel::openUrl,
                 onBack = if (state.llmSetupFromSettings) viewModel::closeLlmSetup else null,
             )

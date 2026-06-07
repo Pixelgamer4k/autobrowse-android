@@ -1,0 +1,556 @@
+# Snapshot fixture: search (variant 17)
+# Query: guitar lessons beginner
+
+@e1 [link] guitar lessons beginner - Wikipedia
+@e2 [heading] Results for guitar lessons beginner
+@e3 [link] Official guitar lessons beginner Documentation
+@e4 [link] guitar lessons beginner Guide | 2026 Edition
+pageText: About 1,240,000 results
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'guitar lessons beginner'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 17
+documents edge case handling.

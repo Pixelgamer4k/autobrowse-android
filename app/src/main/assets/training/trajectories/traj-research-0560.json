@@ -1,0 +1,41 @@
+{
+  "id": "traj-research-0560",
+  "domain": "research",
+  "prompt": "Search for python data science 271 on research",
+  "success": true,
+  "toolCount": 4,
+  "steps": [
+    {
+      "iteration": 1,
+      "tool": "browser_tab_open",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 1 completed for python data science 271"
+    },
+    {
+      "iteration": 2,
+      "tool": "browser_search",
+      "args": {
+        "site": "research",
+        "query": "python data science 271"
+      },
+      "success": true,
+      "output_hint": "Step 2 completed for python data science 271"
+    },
+    {
+      "iteration": 3,
+      "tool": "web_fetch",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 3 completed for python data science 271"
+    },
+    {
+      "iteration": 4,
+      "tool": "summarize",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 4 completed for python data science 271"
+    }
+  ],
+  "lesson": "Proven 4-step sequence for research tasks."
+}

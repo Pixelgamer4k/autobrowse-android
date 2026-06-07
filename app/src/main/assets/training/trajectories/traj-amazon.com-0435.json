@@ -1,0 +1,43 @@
+{
+  "id": "traj-amazon.com-0435",
+  "domain": "amazon.com",
+  "prompt": "Search for open source llm models 146 on amazon",
+  "success": true,
+  "toolCount": 4,
+  "steps": [
+    {
+      "iteration": 1,
+      "tool": "browser_search",
+      "args": {
+        "site": "amazon",
+        "query": "open source llm models 146"
+      },
+      "success": true,
+      "output_hint": "Step 1 completed for open source llm models 146"
+    },
+    {
+      "iteration": 2,
+      "tool": "browser_wait",
+      "args": {
+        "milliseconds": 2000
+      },
+      "success": true,
+      "output_hint": "Step 2 completed for open source llm models 146"
+    },
+    {
+      "iteration": 3,
+      "tool": "browser_snapshot",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 3 completed for open source llm models 146"
+    },
+    {
+      "iteration": 4,
+      "tool": "browser_click",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 4 completed for open source llm models 146"
+    }
+  ],
+  "lesson": "Proven 4-step sequence for amazon.com tasks."
+}

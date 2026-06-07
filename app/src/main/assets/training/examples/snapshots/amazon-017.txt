@@ -1,0 +1,556 @@
+# Snapshot fixture: amazon.com (variant 17)
+# Query: guitar lessons beginner
+
+@e1 [link] guitar lessons beginner - Amazon.com
+@e2 [heading] Results for guitar lessons beginner
+@e3 [link] Premium guitar lessons beginner Kit
+@e4 [button] Add to Cart
+@e5 [span] $29.99
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.

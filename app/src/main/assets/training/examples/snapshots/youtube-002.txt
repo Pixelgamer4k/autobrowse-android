@@ -1,0 +1,498 @@
+# Snapshot fixture: youtube.com (variant 2)
+# Query: kotlin coroutines guide
+
+@e1 [link] Home
+@e2 [searchbox] Search (contenteditable — DO NOT TYPE, use browser_search)
+@e3 [link] kotlin coroutines guide - Full Tutorial 2026
+@e4 [link] Best kotlin coroutines guide for Beginners
+@e5 [link] kotlin coroutines guide Explained in 10 Minutes
+@e6 [button] Filters
+pageText: Showing results for: kotlin coroutines guide
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.

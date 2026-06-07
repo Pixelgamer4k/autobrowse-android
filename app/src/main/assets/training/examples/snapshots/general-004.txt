@@ -1,0 +1,504 @@
+# Snapshot fixture: search (variant 4)
+# Query: climate change 2026
+
+@e1 [link] climate change 2026 - Wikipedia
+@e2 [heading] Results for climate change 2026
+@e3 [link] Official climate change 2026 Documentation
+@e4 [link] climate change 2026 Guide | 2026 Edition
+pageText: About 1,240,000 results
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.

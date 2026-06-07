@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "templates": {
+    "youtube": "https://www.youtube.com/results?search_query={query}",
+    "google": "https://www.google.com/search?q={query}",
+    "bing": "https://www.bing.com/search?q={query}",
+    "duckduckgo": "https://duckduckgo.com/?q={query}",
+    "reddit": "https://www.reddit.com/search/?q={query}",
+    "amazon": "https://www.amazon.com/s?k={query}",
+    "twitter": "https://x.com/search?q={query}&src=typed_query",
+    "github": "https://github.com/search?q={query}&type=repositories",
+    "wikipedia": "https://en.wikipedia.org/wiki/Special:Search?search={query}",
+    "stackoverflow": "https://stackoverflow.com/search?q={query}",
+    "linkedin": "https://www.linkedin.com/search/results/all/?keywords={query}",
+    "ebay": "https://www.ebay.com/sch/i.html?_nkw={query}",
+    "yelp": "https://www.yelp.com/search?find_desc={query}",
+    "imdb": "https://www.imdb.com/find/?q={query}",
+    "maps": "https://www.google.com/maps/search/{query}",
+    "news": "https://news.google.com/search?q={query}",
+    "scholar": "https://scholar.google.com/scholar?q={query}",
+    "archive": "https://archive.org/search?query={query}",
+    "npm": "https://www.npmjs.com/search?q={query}",
+    "pypi": "https://pypi.org/search/?q={query}"
+  }
+}

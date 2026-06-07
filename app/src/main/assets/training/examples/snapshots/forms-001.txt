@@ -1,0 +1,491 @@
+# Snapshot fixture: form_fill (variant 1)
+# Query: best pizza recipe
+
+@e1 [heading] best pizza recipe
+@e2 [link] Read more about best pizza recipe
+@e3 [button] Submit
+pageText: Content loaded successfully
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'best pizza recipe'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.

@@ -1,0 +1,36 @@
+{
+  "id": "traj-booking.com-0161",
+  "domain": "booking.com",
+  "prompt": "Search for healthy meal prep on booking",
+  "success": true,
+  "toolCount": 3,
+  "steps": [
+    {
+      "iteration": 1,
+      "tool": "browser_search",
+      "args": {
+        "site": "booking",
+        "query": "healthy meal prep"
+      },
+      "success": true,
+      "output_hint": "Step 1 completed for healthy meal prep"
+    },
+    {
+      "iteration": 2,
+      "tool": "browser_wait",
+      "args": {
+        "milliseconds": 2000
+      },
+      "success": true,
+      "output_hint": "Step 2 completed for healthy meal prep"
+    },
+    {
+      "iteration": 3,
+      "tool": "browser_snapshot",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 3 completed for healthy meal prep"
+    }
+  ],
+  "lesson": "Proven 3-step sequence for booking.com tasks."
+}

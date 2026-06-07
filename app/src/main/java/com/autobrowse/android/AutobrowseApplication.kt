@@ -12,6 +12,7 @@ import com.autobrowse.android.agent.tools.BrowserBackTool
 import com.autobrowse.android.agent.tools.BrowserSearchTool
 import com.autobrowse.android.agent.tools.BrowserWaitTool
 import com.autobrowse.android.agent.training.PostTaskSkillLearner
+import com.autobrowse.android.agent.training.TrainingCorpusLoader
 import com.autobrowse.android.agent.training.TrainingDataSeeder
 import com.autobrowse.android.agent.tools.BrowserClickTool
 import com.autobrowse.android.agent.tools.BrowserClickXYTool
@@ -113,6 +114,9 @@ class AutobrowseApplication : Application(), Configuration.Provider {
     lateinit var toolRegistry: ToolRegistry
         private set
 
+    lateinit var trainingCorpusLoader: TrainingCorpusLoader
+        private set
+
     private val appScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 
     override fun onCreate() {
@@ -125,6 +129,7 @@ class AutobrowseApplication : Application(), Configuration.Provider {
 
         repository = AutobrowseRepository(database, settingsStore)
         skillStore = SkillStore(this)
+        trainingCorpusLoader = TrainingCorpusLoader(this)
         skillRegistry = SkillRegistry(this, repository, llmApi)
         browserController = BrowserController()
         tabManager = AndroidTabManager()
@@ -132,9 +137,12 @@ class AutobrowseApplication : Application(), Configuration.Provider {
         attachmentProcessor = AttachmentProcessor(this)
         documentGenerator = DocumentGenerator(this)
 
+        val trajectoryStore = TrajectoryStore(database.trajectoryDao())
+
         appScope.launch {
+            trainingCorpusLoader.ensureLoaded()
             skillStore.ensureBundledSkills()
-            TrainingDataSeeder(database.strategyDao()).seedIfEmpty()
+            TrainingDataSeeder(database.strategyDao(), trainingCorpusLoader).seedIfEmpty()
         }
 
         memoryManager = MemoryManager(
@@ -203,10 +211,12 @@ class AutobrowseApplication : Application(), Configuration.Provider {
             repository = repository,
             llmApi = llmApi,
             toolRegistry = toolRegistry,
-            promptBuilder = PromptBuilder(repository, memoryManager, skillStore),
+            promptBuilder = PromptBuilder(
+                repository, memoryManager, skillStore, trainingCorpusLoader, trajectoryStore,
+            ),
             memoryManager = memoryManager,
             contextCompressor = ContextCompressor(llmApi),
-            trajectoryStore = TrajectoryStore(database.trajectoryDao()),
+            trajectoryStore = trajectoryStore,
             selfImprovementEngine = selfImprovementEngine,
             postTaskSkillLearner = postTaskSkillLearner,
             tabManager = tabManager,

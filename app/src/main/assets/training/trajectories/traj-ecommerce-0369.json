@@ -1,0 +1,43 @@
+{
+  "id": "traj-ecommerce-0369",
+  "domain": "ecommerce",
+  "prompt": "Search for kotlin coroutines guide 80 on shop",
+  "success": true,
+  "toolCount": 4,
+  "steps": [
+    {
+      "iteration": 1,
+      "tool": "browser_search",
+      "args": {
+        "site": "shop",
+        "query": "kotlin coroutines guide 80"
+      },
+      "success": true,
+      "output_hint": "Step 1 completed for kotlin coroutines guide 80"
+    },
+    {
+      "iteration": 2,
+      "tool": "browser_wait",
+      "args": {
+        "milliseconds": 2000
+      },
+      "success": true,
+      "output_hint": "Step 2 completed for kotlin coroutines guide 80"
+    },
+    {
+      "iteration": 3,
+      "tool": "browser_snapshot",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 3 completed for kotlin coroutines guide 80"
+    },
+    {
+      "iteration": 4,
+      "tool": "browser_click",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 4 completed for kotlin coroutines guide 80"
+    }
+  ],
+  "lesson": "Proven 4-step sequence for ecommerce tasks."
+}

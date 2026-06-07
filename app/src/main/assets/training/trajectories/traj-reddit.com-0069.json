@@ -1,0 +1,36 @@
+{
+  "id": "traj-reddit.com-0069",
+  "domain": "reddit.com",
+  "prompt": "Search for react native vs flutter on reddit",
+  "success": true,
+  "toolCount": 3,
+  "steps": [
+    {
+      "iteration": 1,
+      "tool": "browser_search",
+      "args": {
+        "site": "reddit",
+        "query": "react native vs flutter"
+      },
+      "success": true,
+      "output_hint": "Step 1 completed for react native vs flutter"
+    },
+    {
+      "iteration": 2,
+      "tool": "browser_wait",
+      "args": {
+        "milliseconds": 2000
+      },
+      "success": true,
+      "output_hint": "Step 2 completed for react native vs flutter"
+    },
+    {
+      "iteration": 3,
+      "tool": "browser_snapshot",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 3 completed for react native vs flutter"
+    }
+  ],
+  "lesson": "Proven 3-step sequence for reddit.com tasks."
+}

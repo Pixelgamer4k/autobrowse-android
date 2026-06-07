@@ -1,0 +1,506 @@
+# Snapshot fixture: youtube.com (variant 4)
+# Query: climate change 2026
+
+@e1 [link] Home
+@e2 [searchbox] Search (contenteditable — DO NOT TYPE, use browser_search)
+@e3 [link] climate change 2026 - Full Tutorial 2026
+@e4 [link] Best climate change 2026 for Beginners
+@e5 [link] climate change 2026 Explained in 10 Minutes
+@e6 [button] Filters
+pageText: Showing results for: climate change 2026
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.

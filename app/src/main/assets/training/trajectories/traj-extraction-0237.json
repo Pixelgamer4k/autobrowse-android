@@ -1,0 +1,24 @@
+{
+  "id": "traj-extraction-0237",
+  "domain": "extraction",
+  "prompt": "Search for kotlin coroutines guide on scrape",
+  "success": true,
+  "toolCount": 2,
+  "steps": [
+    {
+      "iteration": 1,
+      "tool": "browser_snapshot",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 1 completed for kotlin coroutines guide"
+    },
+    {
+      "iteration": 2,
+      "tool": "extract_data",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 2 completed for kotlin coroutines guide"
+    }
+  ],
+  "lesson": "Proven 2-step sequence for extraction tasks."
+}

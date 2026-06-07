@@ -1,0 +1,500 @@
+# Snapshot fixture: google.com (variant 3)
+# Query: android webview automation
+
+@e1 [link] android webview automation - Wikipedia
+@e2 [heading] Results for android webview automation
+@e3 [link] Official android webview automation Documentation
+@e4 [link] android webview automation Guide | 2026 Edition
+pageText: About 1,240,000 results
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.

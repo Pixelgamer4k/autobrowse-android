@@ -1,0 +1,41 @@
+{
+  "id": "traj-research-0224",
+  "domain": "research",
+  "prompt": "Search for python data science on research",
+  "success": true,
+  "toolCount": 4,
+  "steps": [
+    {
+      "iteration": 1,
+      "tool": "browser_tab_open",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 1 completed for python data science"
+    },
+    {
+      "iteration": 2,
+      "tool": "browser_search",
+      "args": {
+        "site": "research",
+        "query": "python data science"
+      },
+      "success": true,
+      "output_hint": "Step 2 completed for python data science"
+    },
+    {
+      "iteration": 3,
+      "tool": "web_fetch",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 3 completed for python data science"
+    },
+    {
+      "iteration": 4,
+      "tool": "summarize",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 4 completed for python data science"
+    }
+  ],
+  "lesson": "Proven 4-step sequence for research tasks."
+}

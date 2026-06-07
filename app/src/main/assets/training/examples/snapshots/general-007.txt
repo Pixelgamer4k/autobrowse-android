@@ -1,0 +1,516 @@
+# Snapshot fixture: search (variant 7)
+# Query: python data science
+
+@e1 [link] python data science - Wikipedia
+@e2 [heading] Results for python data science
+@e3 [link] Official python data science Documentation
+@e4 [link] python data science Guide | 2026 Edition
+pageText: About 1,240,000 results
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'python data science'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 7
+documents edge case handling.

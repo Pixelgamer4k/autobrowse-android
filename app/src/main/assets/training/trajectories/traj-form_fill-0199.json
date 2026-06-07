@@ -1,0 +1,38 @@
+{
+  "id": "traj-form_fill-0199",
+  "domain": "form_fill",
+  "prompt": "Search for machine learning tutorials on forms",
+  "success": true,
+  "toolCount": 4,
+  "steps": [
+    {
+      "iteration": 1,
+      "tool": "browser_snapshot",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 1 completed for machine learning tutorials"
+    },
+    {
+      "iteration": 2,
+      "tool": "browser_type",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 2 completed for machine learning tutorials"
+    },
+    {
+      "iteration": 3,
+      "tool": "browser_press",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 3 completed for machine learning tutorials"
+    },
+    {
+      "iteration": 4,
+      "tool": "browser_snapshot",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 4 completed for machine learning tutorials"
+    }
+  ],
+  "lesson": "Proven 4-step sequence for form_fill tasks."
+}

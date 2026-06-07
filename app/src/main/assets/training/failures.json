@@ -1,0 +1,770 @@
+{
+  "version": 1,
+  "count": 91,
+  "failures": [
+    {
+      "id": "search-box-typing",
+      "title": "Typing into YouTube/Google search box",
+      "symptom": "15+ iterations, empty snapshot, no results",
+      "fix": "Use browser_search(site=..., query=...) instead of browser_type",
+      "domains": [
+        "youtube.com",
+        "google.com",
+        "search"
+      ],
+      "domain": "youtube.com"
+    },
+    {
+      "id": "search-box-typing",
+      "title": "Typing into YouTube/Google search box",
+      "symptom": "15+ iterations, empty snapshot, no results",
+      "fix": "Use browser_search(site=..., query=...) instead of browser_type",
+      "domains": [
+        "youtube.com",
+        "google.com",
+        "search"
+      ],
+      "domain": "google.com"
+    },
+    {
+      "id": "search-box-typing",
+      "title": "Typing into YouTube/Google search box",
+      "symptom": "15+ iterations, empty snapshot, no results",
+      "fix": "Use browser_search(site=..., query=...) instead of browser_type",
+      "domains": [
+        "youtube.com",
+        "google.com",
+        "search"
+      ],
+      "domain": "search"
+    },
+    {
+      "id": "no-wait-after-navigate",
+      "title": "Snapshot before page loads",
+      "symptom": "Empty pageText, 'no results' when results exist",
+      "fix": "browser_wait(2000) after every browser_navigate/browser_search",
+      "domains": [
+        "general",
+        "search"
+      ],
+      "domain": "general"
+    },
+    {
+      "id": "no-wait-after-navigate",
+      "title": "Snapshot before page loads",
+      "symptom": "Empty pageText, 'no results' when results exist",
+      "fix": "browser_wait(2000) after every browser_navigate/browser_search",
+      "domains": [
+        "general",
+        "search"
+      ],
+      "domain": "search"
+    },
+    {
+      "id": "css-selector-guess",
+      "title": "Clicking guessed CSS selectors",
+      "symptom": "browser_click fails, element not found",
+      "fix": "browser_snapshot first, use @eN refs only",
+      "domains": [
+        "general",
+        "form_fill"
+      ],
+      "domain": "general"
+    },
+    {
+      "id": "css-selector-guess",
+      "title": "Clicking guessed CSS selectors",
+      "symptom": "browser_click fails, element not found",
+      "fix": "browser_snapshot first, use @eN refs only",
+      "domains": [
+        "general",
+        "form_fill"
+      ],
+      "domain": "form_fill"
+    },
+    {
+      "id": "over-looping",
+      "title": "Continuing after goal achieved",
+      "symptom": "10+ tool calls for simple search",
+      "fix": "After snapshot shows results matching query, STOP and summarize",
+      "domains": [
+        "search",
+        "youtube.com"
+      ],
+      "domain": "search"
+    },
+    {
+      "id": "over-looping",
+      "title": "Continuing after goal achieved",
+      "symptom": "10+ tool calls for simple search",
+      "fix": "After snapshot shows results matching query, STOP and summarize",
+      "domains": [
+        "search",
+        "youtube.com"
+      ],
+      "domain": "youtube.com"
+    },
+    {
+      "id": "wrong-tab",
+      "title": "Actions on wrong tab",
+      "symptom": "URL unchanged, snapshot from old page",
+      "fix": "browser_tab_list, pass tab_id to browser tools",
+      "domains": [
+        "research",
+        "general"
+      ],
+      "domain": "research"
+    },
+    {
+      "id": "wrong-tab",
+      "title": "Actions on wrong tab",
+      "symptom": "URL unchanged, snapshot from old page",
+      "fix": "browser_tab_list, pass tab_id to browser tools",
+      "domains": [
+        "research",
+        "general"
+      ],
+      "domain": "general"
+    },
+    {
+      "id": "search-box-typing-var-0",
+      "title": "Typing into YouTube/Google search box",
+      "symptom": "15+ iterations, empty snapshot, no results",
+      "fix": "Use browser_search(site=..., query=...) instead of browser_type",
+      "domain": "research",
+      "example_prompt": "android webview automation"
+    },
+    {
+      "id": "over-looping-var-1",
+      "title": "Continuing after goal achieved",
+      "symptom": "10+ tool calls for simple search",
+      "fix": "After snapshot shows results matching query, STOP and summarize",
+      "domain": "search",
+      "example_prompt": "kotlin coroutines guide"
+    },
+    {
+      "id": "css-selector-guess-var-2",
+      "title": "Clicking guessed CSS selectors",
+      "symptom": "browser_click fails, element not found",
+      "fix": "browser_snapshot first, use @eN refs only",
+      "domain": "reddit.com",
+      "example_prompt": "machine learning tutorials"
+    },
+    {
+      "id": "search-box-typing-var-3",
+      "title": "Typing into YouTube/Google search box",
+      "symptom": "15+ iterations, empty snapshot, no results",
+      "fix": "Use browser_search(site=..., query=...) instead of browser_type",
+      "domain": "github.com",
+      "example_prompt": "open source llm models"
+    },
+    {
+      "id": "search-box-typing-var-4",
+      "title": "Typing into YouTube/Google search box",
+      "symptom": "15+ iterations, empty snapshot, no results",
+      "fix": "Use browser_search(site=..., query=...) instead of browser_type",
+      "domain": "reddit.com",
+      "example_prompt": "electric cars review"
+    },
+    {
+      "id": "over-looping-var-5",
+      "title": "Continuing after goal achieved",
+      "symptom": "10+ tool calls for simple search",
+      "fix": "After snapshot shows results matching query, STOP and summarize",
+      "domain": "extraction",
+      "example_prompt": "android webview automation"
+    },
+    {
+      "id": "css-selector-guess-var-6",
+      "title": "Clicking guessed CSS selectors",
+      "symptom": "browser_click fails, element not found",
+      "fix": "browser_snapshot first, use @eN refs only",
+      "domain": "weather.com",
+      "example_prompt": "travel to tokyo"
+    },
+    {
+      "id": "search-box-typing-var-7",
+      "title": "Typing into YouTube/Google search box",
+      "symptom": "15+ iterations, empty snapshot, no results",
+      "fix": "Use browser_search(site=..., query=...) instead of browser_type",
+      "domain": "wikipedia.org",
+      "example_prompt": "python data science"
+    },
+    {
+      "id": "css-selector-guess-var-8",
+      "title": "Clicking guessed CSS selectors",
+      "symptom": "browser_click fails, element not found",
+      "fix": "browser_snapshot first, use @eN refs only",
+      "domain": "research",
+      "example_prompt": "open source llm models"
+    },
+    {
+      "id": "over-looping-var-9",
+      "title": "Continuing after goal achieved",
+      "symptom": "10+ tool calls for simple search",
+      "fix": "After snapshot shows results matching query, STOP and summarize",
+      "domain": "google.com",
+      "example_prompt": "healthy meal prep"
+    },
+    {
+      "id": "wrong-tab-var-10",
+      "title": "Actions on wrong tab",
+      "symptom": "URL unchanged, snapshot from old page",
+      "fix": "browser_tab_list, pass tab_id to browser tools",
+      "domain": "weather.com",
+      "example_prompt": "android webview automation"
+    },
+    {
+      "id": "over-looping-var-11",
+      "title": "Continuing after goal achieved",
+      "symptom": "10+ tool calls for simple search",
+      "fix": "After snapshot shows results matching query, STOP and summarize",
+      "domain": "stackoverflow.com",
+      "example_prompt": "kotlin coroutines guide"
+    },
+    {
+      "id": "no-wait-after-navigate-var-12",
+      "title": "Snapshot before page loads",
+      "symptom": "Empty pageText, 'no results' when results exist",
+      "fix": "browser_wait(2000) after every browser_navigate/browser_search",
+      "domain": "booking.com",
+      "example_prompt": "home workout plan"
+    },
+    {
+      "id": "no-wait-after-navigate-var-13",
+      "title": "Snapshot before page loads",
+      "symptom": "Empty pageText, 'no results' when results exist",
+      "fix": "browser_wait(2000) after every browser_navigate/browser_search",
+      "domain": "google.com",
+      "example_prompt": "react native vs flutter"
+    },
+    {
+      "id": "wrong-tab-var-14",
+      "title": "Actions on wrong tab",
+      "symptom": "URL unchanged, snapshot from old page",
+      "fix": "browser_tab_list, pass tab_id to browser tools",
+      "domain": "booking.com",
+      "example_prompt": "android webview automation"
+    },
+    {
+      "id": "search-box-typing-var-15",
+      "title": "Typing into YouTube/Google search box",
+      "symptom": "15+ iterations, empty snapshot, no results",
+      "fix": "Use browser_search(site=..., query=...) instead of browser_type",
+      "domain": "ecommerce",
+      "example_prompt": "cat videos funny"
+    },
+    {
+      "id": "wrong-tab-var-16",
+      "title": "Actions on wrong tab",
+      "symptom": "URL unchanged, snapshot from old page",
+      "fix": "browser_tab_list, pass tab_id to browser tools",
+      "domain": "github.com",
+      "example_prompt": "electric cars review"
+    },
+    {
+      "id": "wrong-tab-var-17",
+      "title": "Actions on wrong tab",
+      "symptom": "URL unchanged, snapshot from old page",
+      "fix": "browser_tab_list, pass tab_id to browser tools",
+      "domain": "wikipedia.org",
+      "example_prompt": "javascript frameworks"
+    },
+    {
+      "id": "over-looping-var-18",
+      "title": "Continuing after goal achieved",
+      "symptom": "10+ tool calls for simple search",
+      "fix": "After snapshot shows results matching query, STOP and summarize",
+      "domain": "youtube.com",
+      "example_prompt": "python data science"
+    },
+    {
+      "id": "no-wait-after-navigate-var-19",
+      "title": "Snapshot before page loads",
+      "symptom": "Empty pageText, 'no results' when results exist",
+      "fix": "browser_wait(2000) after every browser_navigate/browser_search",
+      "domain": "linkedin.com",
+      "example_prompt": "android webview automation"
+    },
+    {
+      "id": "wrong-tab-var-20",
+      "title": "Actions on wrong tab",
+      "symptom": "URL unchanged, snapshot from old page",
+      "fix": "browser_tab_list, pass tab_id to browser tools",
+      "domain": "weather.com",
+      "example_prompt": "open source llm models"
+    },
+    {
+      "id": "over-looping-var-21",
+      "title": "Continuing after goal achieved",
+      "symptom": "10+ tool calls for simple search",
+      "fix": "After snapshot shows results matching query, STOP and summarize",
+      "domain": "reddit.com",
+      "example_prompt": "budget laptop 2026"
+    },
+    {
+      "id": "wrong-tab-var-22",
+      "title": "Actions on wrong tab",
+      "symptom": "URL unchanged, snapshot from old page",
+      "fix": "browser_tab_list, pass tab_id to browser tools",
+      "domain": "form_fill",
+      "example_prompt": "healthy meal prep"
+    },
+    {
+      "id": "search-box-typing-var-23",
+      "title": "Typing into YouTube/Google search box",
+      "symptom": "15+ iterations, empty snapshot, no results",
+      "fix": "Use browser_search(site=..., query=...) instead of browser_type",
+      "domain": "weather.com",
+      "example_prompt": "healthy meal prep"
+    },
+    {
+      "id": "css-selector-guess-var-24",
+      "title": "Clicking guessed CSS selectors",
+      "symptom": "browser_click fails, element not found",
+      "fix": "browser_snapshot first, use @eN refs only",
+      "domain": "linkedin.com",
+      "example_prompt": "cat videos funny"
+    },
+    {
+      "id": "search-box-typing-var-25",
+      "title": "Typing into YouTube/Google search box",
+      "symptom": "15+ iterations, empty snapshot, no results",
+      "fix": "Use browser_search(site=..., query=...) instead of browser_type",
+      "domain": "research",
+      "example_prompt": "machine learning tutorials"
+    },
+    {
+      "id": "over-looping-var-26",
+      "title": "Continuing after goal achieved",
+      "symptom": "10+ tool calls for simple search",
+      "fix": "After snapshot shows results matching query, STOP and summarize",
+      "domain": "weather.com",
+      "example_prompt": "meditation benefits"
+    },
+    {
+      "id": "over-looping-var-27",
+      "title": "Continuing after goal achieved",
+      "symptom": "10+ tool calls for simple search",
+      "fix": "After snapshot shows results matching query, STOP and summarize",
+      "domain": "form_fill",
+      "example_prompt": "healthy meal prep"
+    },
+    {
+      "id": "over-looping-var-28",
+      "title": "Continuing after goal achieved",
+      "symptom": "10+ tool calls for simple search",
+      "fix": "After snapshot shows results matching query, STOP and summarize",
+      "domain": "form_fill",
+      "example_prompt": "javascript frameworks"
+    },
+    {
+      "id": "over-looping-var-29",
+      "title": "Continuing after goal achieved",
+      "symptom": "10+ tool calls for simple search",
+      "fix": "After snapshot shows results matching query, STOP and summarize",
+      "domain": "weather.com",
+      "example_prompt": "healthy meal prep"
+    },
+    {
+      "id": "over-looping-var-30",
+      "title": "Continuing after goal achieved",
+      "symptom": "10+ tool calls for simple search",
+      "fix": "After snapshot shows results matching query, STOP and summarize",
+      "domain": "youtube.com",
+      "example_prompt": "javascript frameworks"
+    },
+    {
+      "id": "no-wait-after-navigate-var-31",
+      "title": "Snapshot before page loads",
+      "symptom": "Empty pageText, 'no results' when results exist",
+      "fix": "browser_wait(2000) after every browser_navigate/browser_search",
+      "domain": "stackoverflow.com",
+      "example_prompt": "best pizza recipe"
+    },
+    {
+      "id": "search-box-typing-var-32",
+      "title": "Typing into YouTube/Google search box",
+      "symptom": "15+ iterations, empty snapshot, no results",
+      "fix": "Use browser_search(site=..., query=...) instead of browser_type",
+      "domain": "auth",
+      "example_prompt": "budget laptop 2026"
+    },
+    {
+      "id": "over-looping-var-33",
+      "title": "Continuing after goal achieved",
+      "symptom": "10+ tool calls for simple search",
+      "fix": "After snapshot shows results matching query, STOP and summarize",
+      "domain": "linkedin.com",
+      "example_prompt": "budget laptop 2026"
+    },
+    {
+      "id": "css-selector-guess-var-34",
+      "title": "Clicking guessed CSS selectors",
+      "symptom": "browser_click fails, element not found",
+      "fix": "browser_snapshot first, use @eN refs only",
+      "domain": "stackoverflow.com",
+      "example_prompt": "climate change 2026"
+    },
+    {
+      "id": "wrong-tab-var-35",
+      "title": "Actions on wrong tab",
+      "symptom": "URL unchanged, snapshot from old page",
+      "fix": "browser_tab_list, pass tab_id to browser tools",
+      "domain": "weather.com",
+      "example_prompt": "open source llm models"
+    },
+    {
+      "id": "no-wait-after-navigate-var-36",
+      "title": "Snapshot before page loads",
+      "symptom": "Empty pageText, 'no results' when results exist",
+      "fix": "browser_wait(2000) after every browser_navigate/browser_search",
+      "domain": "extraction",
+      "example_prompt": "open source llm models"
+    },
+    {
+      "id": "wrong-tab-var-37",
+      "title": "Actions on wrong tab",
+      "symptom": "URL unchanged, snapshot from old page",
+      "fix": "browser_tab_list, pass tab_id to browser tools",
+      "domain": "amazon.com",
+      "example_prompt": "climate change 2026"
+    },
+    {
+      "id": "search-box-typing-var-38",
+      "title": "Typing into YouTube/Google search box",
+      "symptom": "15+ iterations, empty snapshot, no results",
+      "fix": "Use browser_search(site=..., query=...) instead of browser_type",
+      "domain": "research",
+      "example_prompt": "machine learning tutorials"
+    },
+    {
+      "id": "no-wait-after-navigate-var-39",
+      "title": "Snapshot before page loads",
+      "symptom": "Empty pageText, 'no results' when results exist",
+      "fix": "browser_wait(2000) after every browser_navigate/browser_search",
+      "domain": "ecommerce",
+      "example_prompt": "python data science"
+    },
+    {
+      "id": "css-selector-guess-var-40",
+      "title": "Clicking guessed CSS selectors",
+      "symptom": "browser_click fails, element not found",
+      "fix": "browser_snapshot first, use @eN refs only",
+      "domain": "booking.com",
+      "example_prompt": "meditation benefits"
+    },
+    {
+      "id": "css-selector-guess-var-41",
+      "title": "Clicking guessed CSS selectors",
+      "symptom": "browser_click fails, element not found",
+      "fix": "browser_snapshot first, use @eN refs only",
+      "domain": "google.com",
+      "example_prompt": "android webview automation"
+    },
+    {
+      "id": "wrong-tab-var-42",
+      "title": "Actions on wrong tab",
+      "symptom": "URL unchanged, snapshot from old page",
+      "fix": "browser_tab_list, pass tab_id to browser tools",
+      "domain": "github.com",
+      "example_prompt": "guitar lessons beginner"
+    },
+    {
+      "id": "css-selector-guess-var-43",
+      "title": "Clicking guessed CSS selectors",
+      "symptom": "browser_click fails, element not found",
+      "fix": "browser_snapshot first, use @eN refs only",
+      "domain": "research",
+      "example_prompt": "best pizza recipe"
+    },
+    {
+      "id": "css-selector-guess-var-44",
+      "title": "Clicking guessed CSS selectors",
+      "symptom": "browser_click fails, element not found",
+      "fix": "browser_snapshot first, use @eN refs only",
+      "domain": "github.com",
+      "example_prompt": "healthy meal prep"
+    },
+    {
+      "id": "over-looping-var-45",
+      "title": "Continuing after goal achieved",
+      "symptom": "10+ tool calls for simple search",
+      "fix": "After snapshot shows results matching query, STOP and summarize",
+      "domain": "google.com",
+      "example_prompt": "cat videos funny"
+    },
+    {
+      "id": "wrong-tab-var-46",
+      "title": "Actions on wrong tab",
+      "symptom": "URL unchanged, snapshot from old page",
+      "fix": "browser_tab_list, pass tab_id to browser tools",
+      "domain": "booking.com",
+      "example_prompt": "kotlin coroutines guide"
+    },
+    {
+      "id": "wrong-tab-var-47",
+      "title": "Actions on wrong tab",
+      "symptom": "URL unchanged, snapshot from old page",
+      "fix": "browser_tab_list, pass tab_id to browser tools",
+      "domain": "booking.com",
+      "example_prompt": "stock market news"
+    },
+    {
+      "id": "search-box-typing-var-48",
+      "title": "Typing into YouTube/Google search box",
+      "symptom": "15+ iterations, empty snapshot, no results",
+      "fix": "Use browser_search(site=..., query=...) instead of browser_type",
+      "domain": "auth",
+      "example_prompt": "kotlin coroutines guide"
+    },
+    {
+      "id": "no-wait-after-navigate-var-49",
+      "title": "Snapshot before page loads",
+      "symptom": "Empty pageText, 'no results' when results exist",
+      "fix": "browser_wait(2000) after every browser_navigate/browser_search",
+      "domain": "linkedin.com",
+      "example_prompt": "javascript frameworks"
+    },
+    {
+      "id": "no-wait-after-navigate-var-50",
+      "title": "Snapshot before page loads",
+      "symptom": "Empty pageText, 'no results' when results exist",
+      "fix": "browser_wait(2000) after every browser_navigate/browser_search",
+      "domain": "auth",
+      "example_prompt": "react native vs flutter"
+    },
+    {
+      "id": "css-selector-guess-var-51",
+      "title": "Clicking guessed CSS selectors",
+      "symptom": "browser_click fails, element not found",
+      "fix": "browser_snapshot first, use @eN refs only",
+      "domain": "github.com",
+      "example_prompt": "stock market news"
+    },
+    {
+      "id": "css-selector-guess-var-52",
+      "title": "Clicking guessed CSS selectors",
+      "symptom": "browser_click fails, element not found",
+      "fix": "browser_snapshot first, use @eN refs only",
+      "domain": "linkedin.com",
+      "example_prompt": "climate change 2026"
+    },
+    {
+      "id": "over-looping-var-53",
+      "title": "Continuing after goal achieved",
+      "symptom": "10+ tool calls for simple search",
+      "fix": "After snapshot shows results matching query, STOP and summarize",
+      "domain": "booking.com",
+      "example_prompt": "machine learning tutorials"
+    },
+    {
+      "id": "wrong-tab-var-54",
+      "title": "Actions on wrong tab",
+      "symptom": "URL unchanged, snapshot from old page",
+      "fix": "browser_tab_list, pass tab_id to browser tools",
+      "domain": "google.com",
+      "example_prompt": "stock market news"
+    },
+    {
+      "id": "no-wait-after-navigate-var-55",
+      "title": "Snapshot before page loads",
+      "symptom": "Empty pageText, 'no results' when results exist",
+      "fix": "browser_wait(2000) after every browser_navigate/browser_search",
+      "domain": "wikipedia.org",
+      "example_prompt": "react native vs flutter"
+    },
+    {
+      "id": "no-wait-after-navigate-var-56",
+      "title": "Snapshot before page loads",
+      "symptom": "Empty pageText, 'no results' when results exist",
+      "fix": "browser_wait(2000) after every browser_navigate/browser_search",
+      "domain": "auth",
+      "example_prompt": "javascript frameworks"
+    },
+    {
+      "id": "wrong-tab-var-57",
+      "title": "Actions on wrong tab",
+      "symptom": "URL unchanged, snapshot from old page",
+      "fix": "browser_tab_list, pass tab_id to browser tools",
+      "domain": "github.com",
+      "example_prompt": "travel to tokyo"
+    },
+    {
+      "id": "wrong-tab-var-58",
+      "title": "Actions on wrong tab",
+      "symptom": "URL unchanged, snapshot from old page",
+      "fix": "browser_tab_list, pass tab_id to browser tools",
+      "domain": "ecommerce",
+      "example_prompt": "stock market news"
+    },
+    {
+      "id": "over-looping-var-59",
+      "title": "Continuing after goal achieved",
+      "symptom": "10+ tool calls for simple search",
+      "fix": "After snapshot shows results matching query, STOP and summarize",
+      "domain": "wikipedia.org",
+      "example_prompt": "python data science"
+    },
+    {
+      "id": "no-wait-after-navigate-var-60",
+      "title": "Snapshot before page loads",
+      "symptom": "Empty pageText, 'no results' when results exist",
+      "fix": "browser_wait(2000) after every browser_navigate/browser_search",
+      "domain": "linkedin.com",
+      "example_prompt": "machine learning tutorials"
+    },
+    {
+      "id": "no-wait-after-navigate-var-61",
+      "title": "Snapshot before page loads",
+      "symptom": "Empty pageText, 'no results' when results exist",
+      "fix": "browser_wait(2000) after every browser_navigate/browser_search",
+      "domain": "booking.com",
+      "example_prompt": "travel to tokyo"
+    },
+    {
+      "id": "search-box-typing-var-62",
+      "title": "Typing into YouTube/Google search box",
+      "symptom": "15+ iterations, empty snapshot, no results",
+      "fix": "Use browser_search(site=..., query=...) instead of browser_type",
+      "domain": "booking.com",
+      "example_prompt": "budget laptop 2026"
+    },
+    {
+      "id": "css-selector-guess-var-63",
+      "title": "Clicking guessed CSS selectors",
+      "symptom": "browser_click fails, element not found",
+      "fix": "browser_snapshot first, use @eN refs only",
+      "domain": "linkedin.com",
+      "example_prompt": "open source llm models"
+    },
+    {
+      "id": "css-selector-guess-var-64",
+      "title": "Clicking guessed CSS selectors",
+      "symptom": "browser_click fails, element not found",
+      "fix": "browser_snapshot first, use @eN refs only",
+      "domain": "weather.com",
+      "example_prompt": "climate change 2026"
+    },
+    {
+      "id": "css-selector-guess-var-65",
+      "title": "Clicking guessed CSS selectors",
+      "symptom": "browser_click fails, element not found",
+      "fix": "browser_snapshot first, use @eN refs only",
+      "domain": "youtube.com",
+      "example_prompt": "home workout plan"
+    },
+    {
+      "id": "css-selector-guess-var-66",
+      "title": "Clicking guessed CSS selectors",
+      "symptom": "browser_click fails, element not found",
+      "fix": "browser_snapshot first, use @eN refs only",
+      "domain": "search",
+      "example_prompt": "electric cars review"
+    },
+    {
+      "id": "search-box-typing-var-67",
+      "title": "Typing into YouTube/Google search box",
+      "symptom": "15+ iterations, empty snapshot, no results",
+      "fix": "Use browser_search(site=..., query=...) instead of browser_type",
+      "domain": "extraction",
+      "example_prompt": "machine learning tutorials"
+    },
+    {
+      "id": "no-wait-after-navigate-var-68",
+      "title": "Snapshot before page loads",
+      "symptom": "Empty pageText, 'no results' when results exist",
+      "fix": "browser_wait(2000) after every browser_navigate/browser_search",
+      "domain": "booking.com",
+      "example_prompt": "open source llm models"
+    },
+    {
+      "id": "no-wait-after-navigate-var-69",
+      "title": "Snapshot before page loads",
+      "symptom": "Empty pageText, 'no results' when results exist",
+      "fix": "browser_wait(2000) after every browser_navigate/browser_search",
+      "domain": "github.com",
+      "example_prompt": "guitar lessons beginner"
+    },
+    {
+      "id": "css-selector-guess-var-70",
+      "title": "Clicking guessed CSS selectors",
+      "symptom": "browser_click fails, element not found",
+      "fix": "browser_snapshot first, use @eN refs only",
+      "domain": "extraction",
+      "example_prompt": "best pizza recipe"
+    },
+    {
+      "id": "no-wait-after-navigate-var-71",
+      "title": "Snapshot before page loads",
+      "symptom": "Empty pageText, 'no results' when results exist",
+      "fix": "browser_wait(2000) after every browser_navigate/browser_search",
+      "domain": "research",
+      "example_prompt": "meditation benefits"
+    },
+    {
+      "id": "search-box-typing-var-72",
+      "title": "Typing into YouTube/Google search box",
+      "symptom": "15+ iterations, empty snapshot, no results",
+      "fix": "Use browser_search(site=..., query=...) instead of browser_type",
+      "domain": "stackoverflow.com",
+      "example_prompt": "stock market news"
+    },
+    {
+      "id": "wrong-tab-var-73",
+      "title": "Actions on wrong tab",
+      "symptom": "URL unchanged, snapshot from old page",
+      "fix": "browser_tab_list, pass tab_id to browser tools",
+      "domain": "linkedin.com",
+      "example_prompt": "react native vs flutter"
+    },
+    {
+      "id": "search-box-typing-var-74",
+      "title": "Typing into YouTube/Google search box",
+      "symptom": "15+ iterations, empty snapshot, no results",
+      "fix": "Use browser_search(site=..., query=...) instead of browser_type",
+      "domain": "booking.com",
+      "example_prompt": "python data science"
+    },
+    {
+      "id": "wrong-tab-var-75",
+      "title": "Actions on wrong tab",
+      "symptom": "URL unchanged, snapshot from old page",
+      "fix": "browser_tab_list, pass tab_id to browser tools",
+      "domain": "search",
+      "example_prompt": "budget laptop 2026"
+    },
+    {
+      "id": "over-looping-var-76",
+      "title": "Continuing after goal achieved",
+      "symptom": "10+ tool calls for simple search",
+      "fix": "After snapshot shows results matching query, STOP and summarize",
+      "domain": "research",
+      "example_prompt": "android webview automation"
+    },
+    {
+      "id": "over-looping-var-77",
+      "title": "Continuing after goal achieved",
+      "symptom": "10+ tool calls for simple search",
+      "fix": "After snapshot shows results matching query, STOP and summarize",
+      "domain": "stackoverflow.com",
+      "example_prompt": "travel to tokyo"
+    },
+    {
+      "id": "wrong-tab-var-78",
+      "title": "Actions on wrong tab",
+      "symptom": "URL unchanged, snapshot from old page",
+      "fix": "browser_tab_list, pass tab_id to browser tools",
+      "domain": "github.com",
+      "example_prompt": "budget laptop 2026"
+    },
+    {
+      "id": "over-looping-var-79",
+      "title": "Continuing after goal achieved",
+      "symptom": "10+ tool calls for simple search",
+      "fix": "After snapshot shows results matching query, STOP and summarize",
+      "domain": "linkedin.com",
+      "example_prompt": "open source llm models"
+    }
+  ]
+}

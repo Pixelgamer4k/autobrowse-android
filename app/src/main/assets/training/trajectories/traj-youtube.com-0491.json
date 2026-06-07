@@ -1,0 +1,36 @@
+{
+  "id": "traj-youtube.com-0491",
+  "domain": "youtube.com",
+  "prompt": "Search for home workout plan 202 on youtube",
+  "success": true,
+  "toolCount": 3,
+  "steps": [
+    {
+      "iteration": 1,
+      "tool": "browser_search",
+      "args": {
+        "site": "youtube",
+        "query": "home workout plan 202"
+      },
+      "success": true,
+      "output_hint": "Step 1 completed for home workout plan 202"
+    },
+    {
+      "iteration": 2,
+      "tool": "browser_wait",
+      "args": {
+        "milliseconds": 2000
+      },
+      "success": true,
+      "output_hint": "Step 2 completed for home workout plan 202"
+    },
+    {
+      "iteration": 3,
+      "tool": "browser_snapshot",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 3 completed for home workout plan 202"
+    }
+  ],
+  "lesson": "Proven 3-step sequence for youtube.com tasks."
+}

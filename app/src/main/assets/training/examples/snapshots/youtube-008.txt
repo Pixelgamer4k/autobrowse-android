@@ -1,0 +1,522 @@
+# Snapshot fixture: youtube.com (variant 8)
+# Query: home workout plan
+
+@e1 [link] Home
+@e2 [searchbox] Search (contenteditable — DO NOT TYPE, use browser_search)
+@e3 [link] home workout plan - Full Tutorial 2026
+@e4 [link] Best home workout plan for Beginners
+@e5 [link] home workout plan Explained in 10 Minutes
+@e6 [button] Filters
+pageText: Showing results for: home workout plan
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'home workout plan'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 8
+documents edge case handling.

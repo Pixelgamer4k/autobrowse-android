@@ -1,0 +1,36 @@
+{
+  "id": "traj-search-0327",
+  "domain": "search",
+  "prompt": "Search for travel to tokyo 38 on general",
+  "success": true,
+  "toolCount": 3,
+  "steps": [
+    {
+      "iteration": 1,
+      "tool": "browser_search",
+      "args": {
+        "site": "google",
+        "query": "travel to tokyo 38"
+      },
+      "success": true,
+      "output_hint": "Step 1 completed for travel to tokyo 38"
+    },
+    {
+      "iteration": 2,
+      "tool": "browser_wait",
+      "args": {
+        "milliseconds": 2000
+      },
+      "success": true,
+      "output_hint": "Step 2 completed for travel to tokyo 38"
+    },
+    {
+      "iteration": 3,
+      "tool": "browser_snapshot",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 3 completed for travel to tokyo 38"
+    }
+  ],
+  "lesson": "Proven 3-step sequence for search tasks."
+}

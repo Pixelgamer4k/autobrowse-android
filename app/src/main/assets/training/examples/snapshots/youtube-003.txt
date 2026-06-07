@@ -1,0 +1,502 @@
+# Snapshot fixture: youtube.com (variant 3)
+# Query: android webview automation
+
+@e1 [link] Home
+@e2 [searchbox] Search (contenteditable — DO NOT TYPE, use browser_search)
+@e3 [link] android webview automation - Full Tutorial 2026
+@e4 [link] Best android webview automation for Beginners
+@e5 [link] android webview automation Explained in 10 Minutes
+@e6 [button] Filters
+pageText: Showing results for: android webview automation
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'android webview automation'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 3 documents edge case handling.

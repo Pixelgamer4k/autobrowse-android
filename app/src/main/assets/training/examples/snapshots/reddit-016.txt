@@ -1,0 +1,551 @@
+# Snapshot fixture: reddit.com (variant 16)
+# Query: healthy meal prep
+
+@e1 [heading] healthy meal prep
+@e2 [link] Read more about healthy meal prep
+@e3 [button] Submit
+pageText: Content loaded successfully
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for reddit.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.

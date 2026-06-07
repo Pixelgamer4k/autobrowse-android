@@ -1,0 +1,43 @@
+{
+  "id": "traj-wikipedia.org-0447",
+  "domain": "wikipedia.org",
+  "prompt": "Search for open source llm models 158 on wikipedia",
+  "success": true,
+  "toolCount": 4,
+  "steps": [
+    {
+      "iteration": 1,
+      "tool": "browser_search",
+      "args": {
+        "site": "wikipedia",
+        "query": "open source llm models 158"
+      },
+      "success": true,
+      "output_hint": "Step 1 completed for open source llm models 158"
+    },
+    {
+      "iteration": 2,
+      "tool": "browser_wait",
+      "args": {
+        "milliseconds": 2000
+      },
+      "success": true,
+      "output_hint": "Step 2 completed for open source llm models 158"
+    },
+    {
+      "iteration": 3,
+      "tool": "browser_snapshot",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 3 completed for open source llm models 158"
+    },
+    {
+      "iteration": 4,
+      "tool": "extract_data",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 4 completed for open source llm models 158"
+    }
+  ],
+  "lesson": "Proven 4-step sequence for wikipedia.org tasks."
+}

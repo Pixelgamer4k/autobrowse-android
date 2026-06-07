@@ -6,12 +6,21 @@ import com.autobrowse.android.domain.model.LocalLlmCatalog
 import com.autobrowse.android.domain.model.LocalLlmModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import okhttp3.OkHttpClient
+import okhttp3.Request
 import java.io.File
+import java.util.concurrent.TimeUnit
 
 class ModelFileManager(private val context: Context) {
+    private val client = OkHttpClient.Builder()
+        .connectTimeout(60, TimeUnit.SECONDS)
+        .readTimeout(5, TimeUnit.MINUTES)
+        .writeTimeout(5, TimeUnit.MINUTES)
+        .build()
+
     suspend fun importModel(uri: Uri, model: LocalLlmModel): String = withContext(Dispatchers.IO) {
         val info = LocalLlmCatalog.infoFor(model)
-        val modelsDir = File(context.filesDir, "models").apply { mkdirs() }
+        val modelsDir = modelsDir()
         val destination = File(modelsDir, info.defaultFileName)
         context.contentResolver.openInputStream(uri)?.use { input ->
             destination.outputStream().use { output ->
@@ -21,5 +30,113 @@ class ModelFileManager(private val context: Context) {
         destination.absolutePath
     }
 
+    suspend fun downloadModel(
+        model: LocalLlmModel,
+        onProgress: (ModelDownloadProgress) -> Unit,
+    ): String = withContext(Dispatchers.IO) {
+        val info = LocalLlmCatalog.infoFor(model)
+        val modelsDir = modelsDir()
+        val destination = File(modelsDir, info.defaultFileName)
+        val partial = File(modelsDir, "${info.defaultFileName}.partial")
+
+        if (destination.exists() && destination.length() > 0) {
+            onProgress(
+                ModelDownloadProgress(
+                    bytesDownloaded = destination.length(),
+                    totalBytes = destination.length(),
+                    percent = 1f,
+                    message = "Model already downloaded.",
+                ),
+            )
+            return@withContext destination.absolutePath
+        }
+
+        val resumeFrom = if (partial.exists()) partial.length() else 0L
+        onProgress(
+            ModelDownloadProgress(
+                bytesDownloaded = resumeFrom,
+                message = if (resumeFrom > 0) "Resuming download…" else "Starting download…",
+            ),
+        )
+
+        val requestBuilder = Request.Builder().url(info.downloadUrl)
+        if (resumeFrom > 0) {
+            requestBuilder.header("Range", "bytes=$resumeFrom-")
+        }
+        val response = client.newCall(requestBuilder.build()).execute()
+        if (!response.isSuccessful && response.code != 206) {
+            throw IllegalStateException("Download failed: HTTP ${response.code}")
+        }
+
+        val body = response.body ?: throw IllegalStateException("Empty download response")
+        val contentLength = body.contentLength()
+        val totalBytes = when {
+            response.code == 206 -> resumeFrom + contentLength
+            contentLength > 0 -> contentLength
+            else -> null
+        }
+
+        java.io.FileOutputStream(partial, resumeFrom > 0).use { output ->
+            body.byteStream().use { input ->
+                val buffer = ByteArray(256 * 1024)
+                var downloaded = resumeFrom
+                var lastEmit = 0L
+                while (true) {
+                    val read = input.read(buffer)
+                    if (read == -1) break
+                    output.write(buffer, 0, read)
+                    downloaded += read
+                    if (downloaded - lastEmit >= 512 * 1024) {
+                        lastEmit = downloaded
+                        val percent = totalBytes?.let { (downloaded.toFloat() / it).coerceIn(0f, 1f) } ?: 0f
+                        onProgress(
+                            ModelDownloadProgress(
+                                bytesDownloaded = downloaded,
+                                totalBytes = totalBytes,
+                                percent = percent,
+                                message = formatProgress(downloaded, totalBytes),
+                            ),
+                        )
+                    }
+                }
+            }
+        }
+
+        if (partial.exists()) {
+            if (destination.exists()) destination.delete()
+            partial.renameTo(destination)
+        }
+
+        onProgress(
+            ModelDownloadProgress(
+                bytesDownloaded = destination.length(),
+                totalBytes = destination.length(),
+                percent = 1f,
+                message = "Download complete.",
+            ),
+        )
+        destination.absolutePath
+    }
+
     fun modelFileExists(path: String): Boolean = path.isNotBlank() && File(path).isFile
+
+    fun modelPathFor(model: LocalLlmModel): String {
+        val info = LocalLlmCatalog.infoFor(model)
+        return File(modelsDir(), info.defaultFileName).absolutePath
+    }
+
+    fun isModelDownloaded(model: LocalLlmModel): Boolean =
+        modelFileExists(modelPathFor(model))
+
+    private fun modelsDir(): File = File(context.filesDir, "models").apply { mkdirs() }
+
+    private fun formatProgress(downloaded: Long, total: Long?): String {
+        val dlMb = downloaded / (1024.0 * 1024.0)
+        return if (total != null && total > 0) {
+            val totalMb = total / (1024.0 * 1024.0)
+            String.format("%.1f / %.1f MB", dlMb, totalMb)
+        } else {
+            String.format("%.1f MB downloaded", dlMb)
+        }
+    }
 }

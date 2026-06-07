@@ -6,11 +6,32 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.util.UUID
 
-class TrainingDataSeeder(private val strategyDao: StrategyDao) {
+class TrainingDataSeeder(
+    private val strategyDao: StrategyDao,
+    private val corpusLoader: TrainingCorpusLoader? = null,
+) {
 
     suspend fun seedIfEmpty() = withContext(Dispatchers.IO) {
         if (strategyDao.getTop(1).isNotEmpty()) return@withContext
-        BUNDLED_STRATEGIES.forEach { strategyDao.upsert(it) }
+        val corpus = corpusLoader?.allStrategies().orEmpty()
+        if (corpus.isNotEmpty()) {
+            corpus.forEach { bundled ->
+                strategyDao.upsert(
+                    StrategyEntity(
+                        id = bundled.id.ifBlank { java.util.UUID.randomUUID().toString() },
+                        domain = bundled.domain,
+                        heuristic = bundled.heuristic,
+                        successCount = bundled.successCount,
+                        failureCount = bundled.failureCount,
+                        confidence = bundled.confidence,
+                        createdAt = now,
+                        updatedAt = now,
+                    ),
+                )
+            }
+        } else {
+            BUNDLED_STRATEGIES.forEach { strategyDao.upsert(it) }
+        }
     }
 
     companion object {

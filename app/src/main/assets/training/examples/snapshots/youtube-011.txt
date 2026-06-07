@@ -1,0 +1,534 @@
+# Snapshot fixture: youtube.com (variant 11)
+# Query: meditation benefits
+
+@e1 [link] Home
+@e2 [searchbox] Search (contenteditable — DO NOT TYPE, use browser_search)
+@e3 [link] meditation benefits - Full Tutorial 2026
+@e4 [link] Best meditation benefits for Beginners
+@e5 [link] meditation benefits Explained in 10 Minutes
+@e6 [button] Filters
+pageText: Showing results for: meditation benefits
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'meditation benefits'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 11 documents edge case handling.

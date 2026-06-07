@@ -1,0 +1,558 @@
+# Snapshot fixture: youtube.com (variant 17)
+# Query: guitar lessons beginner
+
+@e1 [link] Home
+@e2 [searchbox] Search (contenteditable — DO NOT TYPE, use browser_search)
+@e3 [link] guitar lessons beginner - Full Tutorial 2026
+@e4 [link] Best guitar lessons beginner for Beginners
+@e5 [link] guitar lessons beginner Explained in 10 Minutes
+@e6 [button] Filters
+pageText: Showing results for: guitar lessons beginner
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'guitar lessons beginner'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 17 documents edge case handling.

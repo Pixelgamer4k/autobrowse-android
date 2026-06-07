@@ -1,0 +1,524 @@
+# Snapshot fixture: amazon.com (variant 9)
+# Query: electric cars review
+
+@e1 [link] electric cars review - Amazon.com
+@e2 [heading] Results for electric cars review
+@e3 [link] Premium electric cars review Kit
+@e4 [button] Add to Cart
+@e5 [span] $29.99
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.

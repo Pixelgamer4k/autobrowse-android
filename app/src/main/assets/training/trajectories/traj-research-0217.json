@@ -1,0 +1,41 @@
+{
+  "id": "traj-research-0217",
+  "domain": "research",
+  "prompt": "Search for machine learning tutorials on research",
+  "success": true,
+  "toolCount": 4,
+  "steps": [
+    {
+      "iteration": 1,
+      "tool": "browser_tab_open",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 1 completed for machine learning tutorials"
+    },
+    {
+      "iteration": 2,
+      "tool": "browser_search",
+      "args": {
+        "site": "research",
+        "query": "machine learning tutorials"
+      },
+      "success": true,
+      "output_hint": "Step 2 completed for machine learning tutorials"
+    },
+    {
+      "iteration": 3,
+      "tool": "web_fetch",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 3 completed for machine learning tutorials"
+    },
+    {
+      "iteration": 4,
+      "tool": "summarize",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 4 completed for machine learning tutorials"
+    }
+  ],
+  "lesson": "Proven 4-step sequence for research tasks."
+}

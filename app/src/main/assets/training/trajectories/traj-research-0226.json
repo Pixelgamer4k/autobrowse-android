@@ -1,0 +1,41 @@
+{
+  "id": "traj-research-0226",
+  "domain": "research",
+  "prompt": "Search for electric cars review on research",
+  "success": true,
+  "toolCount": 4,
+  "steps": [
+    {
+      "iteration": 1,
+      "tool": "browser_tab_open",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 1 completed for electric cars review"
+    },
+    {
+      "iteration": 2,
+      "tool": "browser_search",
+      "args": {
+        "site": "research",
+        "query": "electric cars review"
+      },
+      "success": true,
+      "output_hint": "Step 2 completed for electric cars review"
+    },
+    {
+      "iteration": 3,
+      "tool": "web_fetch",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 3 completed for electric cars review"
+    },
+    {
+      "iteration": 4,
+      "tool": "summarize",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 4 completed for electric cars review"
+    }
+  ],
+  "lesson": "Proven 4-step sequence for research tasks."
+}

@@ -1,0 +1,36 @@
+{
+  "id": "traj-reddit.com-0072",
+  "domain": "reddit.com",
+  "prompt": "Search for guitar lessons beginner on reddit",
+  "success": true,
+  "toolCount": 3,
+  "steps": [
+    {
+      "iteration": 1,
+      "tool": "browser_search",
+      "args": {
+        "site": "reddit",
+        "query": "guitar lessons beginner"
+      },
+      "success": true,
+      "output_hint": "Step 1 completed for guitar lessons beginner"
+    },
+    {
+      "iteration": 2,
+      "tool": "browser_wait",
+      "args": {
+        "milliseconds": 2000
+      },
+      "success": true,
+      "output_hint": "Step 2 completed for guitar lessons beginner"
+    },
+    {
+      "iteration": 3,
+      "tool": "browser_snapshot",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 3 completed for guitar lessons beginner"
+    }
+  ],
+  "lesson": "Proven 3-step sequence for reddit.com tasks."
+}

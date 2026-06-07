@@ -1,0 +1,499 @@
+# Snapshot fixture: form_fill (variant 3)
+# Query: android webview automation
+
+@e1 [heading] android webview automation
+@e2 [link] Read more about android webview automation
+@e3 [button] Submit
+pageText: Content loaded successfully
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.
+Automation notes for form_fill: always verify snapshot contains expected
+keywords related to 'android webview automation'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 3
+documents edge case handling.

@@ -1,0 +1,36 @@
+{
+  "id": "traj-weather.com-0291",
+  "domain": "weather.com",
+  "prompt": "Search for kotlin coroutines guide 2 on weather",
+  "success": true,
+  "toolCount": 3,
+  "steps": [
+    {
+      "iteration": 1,
+      "tool": "browser_search",
+      "args": {
+        "site": "weather",
+        "query": "kotlin coroutines guide 2"
+      },
+      "success": true,
+      "output_hint": "Step 1 completed for kotlin coroutines guide 2"
+    },
+    {
+      "iteration": 2,
+      "tool": "browser_wait",
+      "args": {
+        "milliseconds": 2000
+      },
+      "success": true,
+      "output_hint": "Step 2 completed for kotlin coroutines guide 2"
+    },
+    {
+      "iteration": 3,
+      "tool": "browser_snapshot",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 3 completed for kotlin coroutines guide 2"
+    }
+  ],
+  "lesson": "Proven 3-step sequence for weather.com tasks."
+}

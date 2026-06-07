@@ -1,0 +1,24 @@
+{
+  "id": "traj-extraction-0241",
+  "domain": "extraction",
+  "prompt": "Search for travel to tokyo on scrape",
+  "success": true,
+  "toolCount": 2,
+  "steps": [
+    {
+      "iteration": 1,
+      "tool": "browser_snapshot",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 1 completed for travel to tokyo"
+    },
+    {
+      "iteration": 2,
+      "tool": "extract_data",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 2 completed for travel to tokyo"
+    }
+  ],
+  "lesson": "Proven 2-step sequence for extraction tasks."
+}

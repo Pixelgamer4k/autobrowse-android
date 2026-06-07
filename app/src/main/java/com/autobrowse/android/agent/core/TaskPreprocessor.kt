@@ -12,6 +12,14 @@ object TaskPreprocessor {
             skills.add("site-search")
         }
         if (lower.contains("form") || lower.contains("fill") || lower.contains("login")) skills.add("form-filling")
+        if (lower.contains("github")) skills.add("github-search")
+        if (lower.contains("wikipedia") || lower.contains("wiki")) skills.add("wikipedia-research")
+        if (lower.contains("stackoverflow") || lower.contains("stack overflow")) skills.add("stackoverflow-qa")
+        if (lower.contains("amazon") || lower.contains("shop") || lower.contains("buy")) skills.add("amazon-shopping")
+        if (lower.contains("cookie") || lower.contains("consent")) skills.add("cookie-consent")
+        if (lower.contains("job") || lower.contains("career")) skills.add("job-search")
+        if (lower.contains("price") || lower.contains("compare")) skills.add("price-compare")
+        if (lower.contains("weather")) skills.add("weather-check")
         if (lower.contains("research") || lower.contains("summar") || lower.contains("compare")) {
             skills.add("parallel-research")
             skills.add("news-research")
@@ -97,6 +105,12 @@ object TaskPreprocessor {
         lower.contains("reddit") -> "reddit"
         lower.contains("twitter") || lower.contains("x.com") -> "twitter"
         lower.contains("amazon") -> "amazon"
+        lower.contains("github") -> "github"
+        lower.contains("wikipedia") || lower.contains("wiki") -> "wikipedia"
+        lower.contains("stackoverflow") -> "stackoverflow"
+        lower.contains("linkedin") -> "linkedin"
+        lower.contains("ebay") -> "ebay"
+        lower.contains("imdb") -> "imdb"
         else -> null
     }
 

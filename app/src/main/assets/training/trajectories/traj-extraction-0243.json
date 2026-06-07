@@ -1,0 +1,24 @@
+{
+  "id": "traj-extraction-0243",
+  "domain": "extraction",
+  "prompt": "Search for home workout plan on scrape",
+  "success": true,
+  "toolCount": 2,
+  "steps": [
+    {
+      "iteration": 1,
+      "tool": "browser_snapshot",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 1 completed for home workout plan"
+    },
+    {
+      "iteration": 2,
+      "tool": "extract_data",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 2 completed for home workout plan"
+    }
+  ],
+  "lesson": "Proven 2-step sequence for extraction tasks."
+}

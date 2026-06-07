@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.verticalScroll
@@ -41,6 +42,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -57,6 +59,7 @@ import com.autobrowse.android.domain.model.LlmConfig
 import com.autobrowse.android.domain.model.LlmProvider
 import com.autobrowse.android.domain.model.LocalLlmModel
 import com.autobrowse.android.ui.LlmConnectionTestState
+import com.autobrowse.android.ui.ModelDownloadState
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
@@ -66,6 +69,9 @@ fun LlmSetupScreen(
     onTestConnection: (LlmConfig) -> Unit,
     onSave: (LlmConfig) -> Unit,
     onImportModel: (Uri, LocalLlmModel) -> Unit,
+    onDownloadModel: (LocalLlmModel) -> Unit,
+    onCancelModelDownload: () -> Unit,
+    modelDownload: ModelDownloadState,
     onOpenUrl: (String) -> Unit,
     onBack: (() -> Unit)? = null,
 ) {
@@ -76,6 +82,12 @@ fun LlmSetupScreen(
     var localModel by remember(llmConfig) { mutableStateOf(llmConfig.localModel) }
     var backend by remember(llmConfig) { mutableStateOf(llmConfig.backend) }
     var localModelPath by remember(llmConfig) { mutableStateOf(llmConfig.localModelPath) }
+
+    LaunchedEffect(llmConfig.localModelPath) {
+        if (llmConfig.localModelPath.isNotBlank()) {
+            localModelPath = llmConfig.localModelPath
+        }
+    }
 
     val importLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.OpenDocument(),
@@ -163,10 +175,17 @@ fun LlmSetupScreen(
                     localModel = localModel,
                     backend = backend,
                     localModelPath = localModelPath,
-                    onLocalModelChange = { localModel = it },
+                    modelDownload = modelDownload,
+                    onLocalModelChange = {
+                        localModel = it
+                        localModelPath = ""
+                    },
                     onBackendChange = { backend = it },
                     onImport = { importLauncher.launch(arrayOf("*/*")) },
+                    onDownload = onDownloadModel,
+                    onCancelDownload = onCancelModelDownload,
                     onOpenUrl = onOpenUrl,
+                    onPathReady = { localModelPath = it },
                 )
             }
 
@@ -275,27 +294,60 @@ private fun LocalLlmSection(
     localModel: LocalLlmModel,
     backend: LlmBackend,
     localModelPath: String,
+    modelDownload: ModelDownloadState,
     onLocalModelChange: (LocalLlmModel) -> Unit,
     onBackendChange: (LlmBackend) -> Unit,
     onImport: () -> Unit,
+    onDownload: (LocalLlmModel) -> Unit,
+    onCancelDownload: () -> Unit,
     onOpenUrl: (String) -> Unit,
+    onPathReady: (String) -> Unit,
 ) {
     Text(
         "Local models (Safe but slow and high power consumption)",
         style = MaterialTheme.typography.titleMedium,
     )
     Text(
-        "Runs fully on-device via LiteRT-LM. Download a .litertlm file, import it, then pick CPU, GPU, or NPU.",
+        "Download directly to your phone or import a .litertlm file, then pick CPU, GPU, or NPU.",
         style = MaterialTheme.typography.bodySmall,
         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
     )
+
+    if (modelDownload.isDownloading) {
+        Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            Text(
+                "Downloading ${modelDownload.model?.name ?: "model"}…",
+                style = MaterialTheme.typography.bodySmall,
+            )
+            if (modelDownload.progress.percent > 0f) {
+                LinearProgressIndicator(
+                    progress = { modelDownload.progress.percent },
+                    modifier = Modifier.fillMaxWidth(),
+                )
+            } else {
+                LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
+            }
+            Text(
+                modelDownload.progress.message,
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+            )
+            OutlinedButton(onClick = onCancelDownload, modifier = Modifier.fillMaxWidth()) {
+                Text("Cancel download")
+            }
+        }
+    }
 
     LocalLlmCatalog.models.forEach { info ->
         LocalModelCard(
             info = info,
             selected = localModel == info.model,
+            isDownloading = modelDownload.isDownloading && modelDownload.model == info.model,
             onSelect = { onLocalModelChange(info.model) },
-            onDownload = { onOpenUrl(info.downloadUrl) },
+            onDownload = {
+                onDownload(info.model)
+                onPathReady("")
+            },
             onOpenPage = { onOpenUrl(info.pageUrl) },
         )
     }
@@ -350,6 +402,7 @@ private fun LocalLlmSection(
 private fun LocalModelCard(
     info: com.autobrowse.android.domain.model.LocalLlmModelInfo,
     selected: Boolean,
+    isDownloading: Boolean,
     onSelect: () -> Unit,
     onDownload: () -> Unit,
     onOpenPage: () -> Unit,
@@ -393,9 +446,12 @@ private fun LocalModelCard(
                 )
             }
             Column(horizontalAlignment = Alignment.End) {
-                TextButton(onClick = onDownload) {
+                TextButton(onClick = onDownload, enabled = !isDownloading) {
                     Icon(Icons.Default.Download, contentDescription = null, modifier = Modifier.size(16.dp))
-                    Text("Download", modifier = Modifier.padding(start = 4.dp))
+                    Text(
+                        if (isDownloading) "Downloading…" else "Download to phone",
+                        modifier = Modifier.padding(start = 4.dp),
+                    )
                 }
                 Text(
                     text = "HuggingFace",

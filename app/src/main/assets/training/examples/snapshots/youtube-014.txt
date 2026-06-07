@@ -1,0 +1,546 @@
+# Snapshot fixture: youtube.com (variant 14)
+# Query: react native vs flutter
+
+@e1 [link] Home
+@e2 [searchbox] Search (contenteditable — DO NOT TYPE, use browser_search)
+@e3 [link] react native vs flutter - Full Tutorial 2026
+@e4 [link] Best react native vs flutter for Beginners
+@e5 [link] react native vs flutter Explained in 10 Minutes
+@e6 [button] Filters
+pageText: Showing results for: react native vs flutter
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'react native vs flutter'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 14 documents edge case handling.

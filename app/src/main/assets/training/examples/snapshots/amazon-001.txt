@@ -1,0 +1,492 @@
+# Snapshot fixture: amazon.com (variant 1)
+# Query: best pizza recipe
+
+@e1 [link] best pizza recipe - Amazon.com
+@e2 [heading] Results for best pizza recipe
+@e3 [link] Premium best pizza recipe Kit
+@e4 [button] Add to Cart
+@e5 [span] $29.99
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.

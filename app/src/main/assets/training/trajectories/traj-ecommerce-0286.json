@@ -1,0 +1,43 @@
+{
+  "id": "traj-ecommerce-0286",
+  "domain": "ecommerce",
+  "prompt": "Search for budget laptop 2026 on shop",
+  "success": true,
+  "toolCount": 4,
+  "steps": [
+    {
+      "iteration": 1,
+      "tool": "browser_search",
+      "args": {
+        "site": "shop",
+        "query": "budget laptop 2026"
+      },
+      "success": true,
+      "output_hint": "Step 1 completed for budget laptop 2026"
+    },
+    {
+      "iteration": 2,
+      "tool": "browser_wait",
+      "args": {
+        "milliseconds": 2000
+      },
+      "success": true,
+      "output_hint": "Step 2 completed for budget laptop 2026"
+    },
+    {
+      "iteration": 3,
+      "tool": "browser_snapshot",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 3 completed for budget laptop 2026"
+    },
+    {
+      "iteration": 4,
+      "tool": "browser_click",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 4 completed for budget laptop 2026"
+    }
+  ],
+  "lesson": "Proven 4-step sequence for ecommerce tasks."
+}

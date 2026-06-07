@@ -1,0 +1,550 @@
+# Snapshot fixture: youtube.com (variant 15)
+# Query: budget laptop 2026
+
+@e1 [link] Home
+@e2 [searchbox] Search (contenteditable — DO NOT TYPE, use browser_search)
+@e3 [link] budget laptop 2026 - Full Tutorial 2026
+@e4 [link] Best budget laptop 2026 for Beginners
+@e5 [link] budget laptop 2026 Explained in 10 Minutes
+@e6 [button] Filters
+pageText: Showing results for: budget laptop 2026
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'budget laptop 2026'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.

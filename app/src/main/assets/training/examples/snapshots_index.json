@@ -1,0 +1,1446 @@
+{
+  "version": 1,
+  "count": 288,
+  "items": [
+    {
+      "file": "youtube-000.txt",
+      "domain": "youtube.com",
+      "query": "machine learning tutorials"
+    },
+    {
+      "file": "youtube-001.txt",
+      "domain": "youtube.com",
+      "query": "best pizza recipe"
+    },
+    {
+      "file": "youtube-002.txt",
+      "domain": "youtube.com",
+      "query": "kotlin coroutines guide"
+    },
+    {
+      "file": "youtube-003.txt",
+      "domain": "youtube.com",
+      "query": "android webview automation"
+    },
+    {
+      "file": "youtube-004.txt",
+      "domain": "youtube.com",
+      "query": "climate change 2026"
+    },
+    {
+      "file": "youtube-005.txt",
+      "domain": "youtube.com",
+      "query": "open source llm models"
+    },
+    {
+      "file": "youtube-006.txt",
+      "domain": "youtube.com",
+      "query": "travel to tokyo"
+    },
+    {
+      "file": "youtube-007.txt",
+      "domain": "youtube.com",
+      "query": "python data science"
+    },
+    {
+      "file": "youtube-008.txt",
+      "domain": "youtube.com",
+      "query": "home workout plan"
+    },
+    {
+      "file": "youtube-009.txt",
+      "domain": "youtube.com",
+      "query": "electric cars review"
+    },
+    {
+      "file": "youtube-010.txt",
+      "domain": "youtube.com",
+      "query": "javascript frameworks"
+    },
+    {
+      "file": "youtube-011.txt",
+      "domain": "youtube.com",
+      "query": "meditation benefits"
+    },
+    {
+      "file": "youtube-012.txt",
+      "domain": "youtube.com",
+      "query": "stock market news"
+    },
+    {
+      "file": "youtube-013.txt",
+      "domain": "youtube.com",
+      "query": "cat videos funny"
+    },
+    {
+      "file": "youtube-014.txt",
+      "domain": "youtube.com",
+      "query": "react native vs flutter"
+    },
+    {
+      "file": "youtube-015.txt",
+      "domain": "youtube.com",
+      "query": "budget laptop 2026"
+    },
+    {
+      "file": "youtube-016.txt",
+      "domain": "youtube.com",
+      "query": "healthy meal prep"
+    },
+    {
+      "file": "youtube-017.txt",
+      "domain": "youtube.com",
+      "query": "guitar lessons beginner"
+    },
+    {
+      "file": "google-000.txt",
+      "domain": "google.com",
+      "query": "machine learning tutorials"
+    },
+    {
+      "file": "google-001.txt",
+      "domain": "google.com",
+      "query": "best pizza recipe"
+    },
+    {
+      "file": "google-002.txt",
+      "domain": "google.com",
+      "query": "kotlin coroutines guide"
+    },
+    {
+      "file": "google-003.txt",
+      "domain": "google.com",
+      "query": "android webview automation"
+    },
+    {
+      "file": "google-004.txt",
+      "domain": "google.com",
+      "query": "climate change 2026"
+    },
+    {
+      "file": "google-005.txt",
+      "domain": "google.com",
+      "query": "open source llm models"
+    },
+    {
+      "file": "google-006.txt",
+      "domain": "google.com",
+      "query": "travel to tokyo"
+    },
+    {
+      "file": "google-007.txt",
+      "domain": "google.com",
+      "query": "python data science"
+    },
+    {
+      "file": "google-008.txt",
+      "domain": "google.com",
+      "query": "home workout plan"
+    },
+    {
+      "file": "google-009.txt",
+      "domain": "google.com",
+      "query": "electric cars review"
+    },
+    {
+      "file": "google-010.txt",
+      "domain": "google.com",
+      "query": "javascript frameworks"
+    },
+    {
+      "file": "google-011.txt",
+      "domain": "google.com",
+      "query": "meditation benefits"
+    },
+    {
+      "file": "google-012.txt",
+      "domain": "google.com",
+      "query": "stock market news"
+    },
+    {
+      "file": "google-013.txt",
+      "domain": "google.com",
+      "query": "cat videos funny"
+    },
+    {
+      "file": "google-014.txt",
+      "domain": "google.com",
+      "query": "react native vs flutter"
+    },
+    {
+      "file": "google-015.txt",
+      "domain": "google.com",
+      "query": "budget laptop 2026"
+    },
+    {
+      "file": "google-016.txt",
+      "domain": "google.com",
+      "query": "healthy meal prep"
+    },
+    {
+      "file": "google-017.txt",
+      "domain": "google.com",
+      "query": "guitar lessons beginner"
+    },
+    {
+      "file": "amazon-000.txt",
+      "domain": "amazon.com",
+      "query": "machine learning tutorials"
+    },
+    {
+      "file": "amazon-001.txt",
+      "domain": "amazon.com",
+      "query": "best pizza recipe"
+    },
+    {
+      "file": "amazon-002.txt",
+      "domain": "amazon.com",
+      "query": "kotlin coroutines guide"
+    },
+    {
+      "file": "amazon-003.txt",
+      "domain": "amazon.com",
+      "query": "android webview automation"
+    },
+    {
+      "file": "amazon-004.txt",
+      "domain": "amazon.com",
+      "query": "climate change 2026"
+    },
+    {
+      "file": "amazon-005.txt",
+      "domain": "amazon.com",
+      "query": "open source llm models"
+    },
+    {
+      "file": "amazon-006.txt",
+      "domain": "amazon.com",
+      "query": "travel to tokyo"
+    },
+    {
+      "file": "amazon-007.txt",
+      "domain": "amazon.com",
+      "query": "python data science"
+    },
+    {
+      "file": "amazon-008.txt",
+      "domain": "amazon.com",
+      "query": "home workout plan"
+    },
+    {
+      "file": "amazon-009.txt",
+      "domain": "amazon.com",
+      "query": "electric cars review"
+    },
+    {
+      "file": "amazon-010.txt",
+      "domain": "amazon.com",
+      "query": "javascript frameworks"
+    },
+    {
+      "file": "amazon-011.txt",
+      "domain": "amazon.com",
+      "query": "meditation benefits"
+    },
+    {
+      "file": "amazon-012.txt",
+      "domain": "amazon.com",
+      "query": "stock market news"
+    },
+    {
+      "file": "amazon-013.txt",
+      "domain": "amazon.com",
+      "query": "cat videos funny"
+    },
+    {
+      "file": "amazon-014.txt",
+      "domain": "amazon.com",
+      "query": "react native vs flutter"
+    },
+    {
+      "file": "amazon-015.txt",
+      "domain": "amazon.com",
+      "query": "budget laptop 2026"
+    },
+    {
+      "file": "amazon-016.txt",
+      "domain": "amazon.com",
+      "query": "healthy meal prep"
+    },
+    {
+      "file": "amazon-017.txt",
+      "domain": "amazon.com",
+      "query": "guitar lessons beginner"
+    },
+    {
+      "file": "reddit-000.txt",
+      "domain": "reddit.com",
+      "query": "machine learning tutorials"
+    },
+    {
+      "file": "reddit-001.txt",
+      "domain": "reddit.com",
+      "query": "best pizza recipe"
+    },
+    {
+      "file": "reddit-002.txt",
+      "domain": "reddit.com",
+      "query": "kotlin coroutines guide"
+    },
+    {
+      "file": "reddit-003.txt",
+      "domain": "reddit.com",
+      "query": "android webview automation"
+    },
+    {
+      "file": "reddit-004.txt",
+      "domain": "reddit.com",
+      "query": "climate change 2026"
+    },
+    {
+      "file": "reddit-005.txt",
+      "domain": "reddit.com",
+      "query": "open source llm models"
+    },
+    {
+      "file": "reddit-006.txt",
+      "domain": "reddit.com",
+      "query": "travel to tokyo"
+    },
+    {
+      "file": "reddit-007.txt",
+      "domain": "reddit.com",
+      "query": "python data science"
+    },
+    {
+      "file": "reddit-008.txt",
+      "domain": "reddit.com",
+      "query": "home workout plan"
+    },
+    {
+      "file": "reddit-009.txt",
+      "domain": "reddit.com",
+      "query": "electric cars review"
+    },
+    {
+      "file": "reddit-010.txt",
+      "domain": "reddit.com",
+      "query": "javascript frameworks"
+    },
+    {
+      "file": "reddit-011.txt",
+      "domain": "reddit.com",
+      "query": "meditation benefits"
+    },
+    {
+      "file": "reddit-012.txt",
+      "domain": "reddit.com",
+      "query": "stock market news"
+    },
+    {
+      "file": "reddit-013.txt",
+      "domain": "reddit.com",
+      "query": "cat videos funny"
+    },
+    {
+      "file": "reddit-014.txt",
+      "domain": "reddit.com",
+      "query": "react native vs flutter"
+    },
+    {
+      "file": "reddit-015.txt",
+      "domain": "reddit.com",
+      "query": "budget laptop 2026"
+    },
+    {
+      "file": "reddit-016.txt",
+      "domain": "reddit.com",
+      "query": "healthy meal prep"
+    },
+    {
+      "file": "reddit-017.txt",
+      "domain": "reddit.com",
+      "query": "guitar lessons beginner"
+    },
+    {
+      "file": "github-000.txt",
+      "domain": "github.com",
+      "query": "machine learning tutorials"
+    },
+    {
+      "file": "github-001.txt",
+      "domain": "github.com",
+      "query": "best pizza recipe"
+    },
+    {
+      "file": "github-002.txt",
+      "domain": "github.com",
+      "query": "kotlin coroutines guide"
+    },
+    {
+      "file": "github-003.txt",
+      "domain": "github.com",
+      "query": "android webview automation"
+    },
+    {
+      "file": "github-004.txt",
+      "domain": "github.com",
+      "query": "climate change 2026"
+    },
+    {
+      "file": "github-005.txt",
+      "domain": "github.com",
+      "query": "open source llm models"
+    },
+    {
+      "file": "github-006.txt",
+      "domain": "github.com",
+      "query": "travel to tokyo"
+    },
+    {
+      "file": "github-007.txt",
+      "domain": "github.com",
+      "query": "python data science"
+    },
+    {
+      "file": "github-008.txt",
+      "domain": "github.com",
+      "query": "home workout plan"
+    },
+    {
+      "file": "github-009.txt",
+      "domain": "github.com",
+      "query": "electric cars review"
+    },
+    {
+      "file": "github-010.txt",
+      "domain": "github.com",
+      "query": "javascript frameworks"
+    },
+    {
+      "file": "github-011.txt",
+      "domain": "github.com",
+      "query": "meditation benefits"
+    },
+    {
+      "file": "github-012.txt",
+      "domain": "github.com",
+      "query": "stock market news"
+    },
+    {
+      "file": "github-013.txt",
+      "domain": "github.com",
+      "query": "cat videos funny"
+    },
+    {
+      "file": "github-014.txt",
+      "domain": "github.com",
+      "query": "react native vs flutter"
+    },
+    {
+      "file": "github-015.txt",
+      "domain": "github.com",
+      "query": "budget laptop 2026"
+    },
+    {
+      "file": "github-016.txt",
+      "domain": "github.com",
+      "query": "healthy meal prep"
+    },
+    {
+      "file": "github-017.txt",
+      "domain": "github.com",
+      "query": "guitar lessons beginner"
+    },
+    {
+      "file": "wikipedia-000.txt",
+      "domain": "wikipedia.org",
+      "query": "machine learning tutorials"
+    },
+    {
+      "file": "wikipedia-001.txt",
+      "domain": "wikipedia.org",
+      "query": "best pizza recipe"
+    },
+    {
+      "file": "wikipedia-002.txt",
+      "domain": "wikipedia.org",
+      "query": "kotlin coroutines guide"
+    },
+    {
+      "file": "wikipedia-003.txt",
+      "domain": "wikipedia.org",
+      "query": "android webview automation"
+    },
+    {
+      "file": "wikipedia-004.txt",
+      "domain": "wikipedia.org",
+      "query": "climate change 2026"
+    },
+    {
+      "file": "wikipedia-005.txt",
+      "domain": "wikipedia.org",
+      "query": "open source llm models"
+    },
+    {
+      "file": "wikipedia-006.txt",
+      "domain": "wikipedia.org",
+      "query": "travel to tokyo"
+    },
+    {
+      "file": "wikipedia-007.txt",
+      "domain": "wikipedia.org",
+      "query": "python data science"
+    },
+    {
+      "file": "wikipedia-008.txt",
+      "domain": "wikipedia.org",
+      "query": "home workout plan"
+    },
+    {
+      "file": "wikipedia-009.txt",
+      "domain": "wikipedia.org",
+      "query": "electric cars review"
+    },
+    {
+      "file": "wikipedia-010.txt",
+      "domain": "wikipedia.org",
+      "query": "javascript frameworks"
+    },
+    {
+      "file": "wikipedia-011.txt",
+      "domain": "wikipedia.org",
+      "query": "meditation benefits"
+    },
+    {
+      "file": "wikipedia-012.txt",
+      "domain": "wikipedia.org",
+      "query": "stock market news"
+    },
+    {
+      "file": "wikipedia-013.txt",
+      "domain": "wikipedia.org",
+      "query": "cat videos funny"
+    },
+    {
+      "file": "wikipedia-014.txt",
+      "domain": "wikipedia.org",
+      "query": "react native vs flutter"
+    },
+    {
+      "file": "wikipedia-015.txt",
+      "domain": "wikipedia.org",
+      "query": "budget laptop 2026"
+    },
+    {
+      "file": "wikipedia-016.txt",
+      "domain": "wikipedia.org",
+      "query": "healthy meal prep"
+    },
+    {
+      "file": "wikipedia-017.txt",
+      "domain": "wikipedia.org",
+      "query": "guitar lessons beginner"
+    },
+    {
+      "file": "stackoverflow-000.txt",
+      "domain": "stackoverflow.com",
+      "query": "machine learning tutorials"
+    },
+    {
+      "file": "stackoverflow-001.txt",
+      "domain": "stackoverflow.com",
+      "query": "best pizza recipe"
+    },
+    {
+      "file": "stackoverflow-002.txt",
+      "domain": "stackoverflow.com",
+      "query": "kotlin coroutines guide"
+    },
+    {
+      "file": "stackoverflow-003.txt",
+      "domain": "stackoverflow.com",
+      "query": "android webview automation"
+    },
+    {
+      "file": "stackoverflow-004.txt",
+      "domain": "stackoverflow.com",
+      "query": "climate change 2026"
+    },
+    {
+      "file": "stackoverflow-005.txt",
+      "domain": "stackoverflow.com",
+      "query": "open source llm models"
+    },
+    {
+      "file": "stackoverflow-006.txt",
+      "domain": "stackoverflow.com",
+      "query": "travel to tokyo"
+    },
+    {
+      "file": "stackoverflow-007.txt",
+      "domain": "stackoverflow.com",
+      "query": "python data science"
+    },
+    {
+      "file": "stackoverflow-008.txt",
+      "domain": "stackoverflow.com",
+      "query": "home workout plan"
+    },
+    {
+      "file": "stackoverflow-009.txt",
+      "domain": "stackoverflow.com",
+      "query": "electric cars review"
+    },
+    {
+      "file": "stackoverflow-010.txt",
+      "domain": "stackoverflow.com",
+      "query": "javascript frameworks"
+    },
+    {
+      "file": "stackoverflow-011.txt",
+      "domain": "stackoverflow.com",
+      "query": "meditation benefits"
+    },
+    {
+      "file": "stackoverflow-012.txt",
+      "domain": "stackoverflow.com",
+      "query": "stock market news"
+    },
+    {
+      "file": "stackoverflow-013.txt",
+      "domain": "stackoverflow.com",
+      "query": "cat videos funny"
+    },
+    {
+      "file": "stackoverflow-014.txt",
+      "domain": "stackoverflow.com",
+      "query": "react native vs flutter"
+    },
+    {
+      "file": "stackoverflow-015.txt",
+      "domain": "stackoverflow.com",
+      "query": "budget laptop 2026"
+    },
+    {
+      "file": "stackoverflow-016.txt",
+      "domain": "stackoverflow.com",
+      "query": "healthy meal prep"
+    },
+    {
+      "file": "stackoverflow-017.txt",
+      "domain": "stackoverflow.com",
+      "query": "guitar lessons beginner"
+    },
+    {
+      "file": "linkedin-000.txt",
+      "domain": "linkedin.com",
+      "query": "machine learning tutorials"
+    },
+    {
+      "file": "linkedin-001.txt",
+      "domain": "linkedin.com",
+      "query": "best pizza recipe"
+    },
+    {
+      "file": "linkedin-002.txt",
+      "domain": "linkedin.com",
+      "query": "kotlin coroutines guide"
+    },
+    {
+      "file": "linkedin-003.txt",
+      "domain": "linkedin.com",
+      "query": "android webview automation"
+    },
+    {
+      "file": "linkedin-004.txt",
+      "domain": "linkedin.com",
+      "query": "climate change 2026"
+    },
+    {
+      "file": "linkedin-005.txt",
+      "domain": "linkedin.com",
+      "query": "open source llm models"
+    },
+    {
+      "file": "linkedin-006.txt",
+      "domain": "linkedin.com",
+      "query": "travel to tokyo"
+    },
+    {
+      "file": "linkedin-007.txt",
+      "domain": "linkedin.com",
+      "query": "python data science"
+    },
+    {
+      "file": "linkedin-008.txt",
+      "domain": "linkedin.com",
+      "query": "home workout plan"
+    },
+    {
+      "file": "linkedin-009.txt",
+      "domain": "linkedin.com",
+      "query": "electric cars review"
+    },
+    {
+      "file": "linkedin-010.txt",
+      "domain": "linkedin.com",
+      "query": "javascript frameworks"
+    },
+    {
+      "file": "linkedin-011.txt",
+      "domain": "linkedin.com",
+      "query": "meditation benefits"
+    },
+    {
+      "file": "linkedin-012.txt",
+      "domain": "linkedin.com",
+      "query": "stock market news"
+    },
+    {
+      "file": "linkedin-013.txt",
+      "domain": "linkedin.com",
+      "query": "cat videos funny"
+    },
+    {
+      "file": "linkedin-014.txt",
+      "domain": "linkedin.com",
+      "query": "react native vs flutter"
+    },
+    {
+      "file": "linkedin-015.txt",
+      "domain": "linkedin.com",
+      "query": "budget laptop 2026"
+    },
+    {
+      "file": "linkedin-016.txt",
+      "domain": "linkedin.com",
+      "query": "healthy meal prep"
+    },
+    {
+      "file": "linkedin-017.txt",
+      "domain": "linkedin.com",
+      "query": "guitar lessons beginner"
+    },
+    {
+      "file": "booking-000.txt",
+      "domain": "booking.com",
+      "query": "machine learning tutorials"
+    },
+    {
+      "file": "booking-001.txt",
+      "domain": "booking.com",
+      "query": "best pizza recipe"
+    },
+    {
+      "file": "booking-002.txt",
+      "domain": "booking.com",
+      "query": "kotlin coroutines guide"
+    },
+    {
+      "file": "booking-003.txt",
+      "domain": "booking.com",
+      "query": "android webview automation"
+    },
+    {
+      "file": "booking-004.txt",
+      "domain": "booking.com",
+      "query": "climate change 2026"
+    },
+    {
+      "file": "booking-005.txt",
+      "domain": "booking.com",
+      "query": "open source llm models"
+    },
+    {
+      "file": "booking-006.txt",
+      "domain": "booking.com",
+      "query": "travel to tokyo"
+    },
+    {
+      "file": "booking-007.txt",
+      "domain": "booking.com",
+      "query": "python data science"
+    },
+    {
+      "file": "booking-008.txt",
+      "domain": "booking.com",
+      "query": "home workout plan"
+    },
+    {
+      "file": "booking-009.txt",
+      "domain": "booking.com",
+      "query": "electric cars review"
+    },
+    {
+      "file": "booking-010.txt",
+      "domain": "booking.com",
+      "query": "javascript frameworks"
+    },
+    {
+      "file": "booking-011.txt",
+      "domain": "booking.com",
+      "query": "meditation benefits"
+    },
+    {
+      "file": "booking-012.txt",
+      "domain": "booking.com",
+      "query": "stock market news"
+    },
+    {
+      "file": "booking-013.txt",
+      "domain": "booking.com",
+      "query": "cat videos funny"
+    },
+    {
+      "file": "booking-014.txt",
+      "domain": "booking.com",
+      "query": "react native vs flutter"
+    },
+    {
+      "file": "booking-015.txt",
+      "domain": "booking.com",
+      "query": "budget laptop 2026"
+    },
+    {
+      "file": "booking-016.txt",
+      "domain": "booking.com",
+      "query": "healthy meal prep"
+    },
+    {
+      "file": "booking-017.txt",
+      "domain": "booking.com",
+      "query": "guitar lessons beginner"
+    },
+    {
+      "file": "weather-000.txt",
+      "domain": "weather.com",
+      "query": "machine learning tutorials"
+    },
+    {
+      "file": "weather-001.txt",
+      "domain": "weather.com",
+      "query": "best pizza recipe"
+    },
+    {
+      "file": "weather-002.txt",
+      "domain": "weather.com",
+      "query": "kotlin coroutines guide"
+    },
+    {
+      "file": "weather-003.txt",
+      "domain": "weather.com",
+      "query": "android webview automation"
+    },
+    {
+      "file": "weather-004.txt",
+      "domain": "weather.com",
+      "query": "climate change 2026"
+    },
+    {
+      "file": "weather-005.txt",
+      "domain": "weather.com",
+      "query": "open source llm models"
+    },
+    {
+      "file": "weather-006.txt",
+      "domain": "weather.com",
+      "query": "travel to tokyo"
+    },
+    {
+      "file": "weather-007.txt",
+      "domain": "weather.com",
+      "query": "python data science"
+    },
+    {
+      "file": "weather-008.txt",
+      "domain": "weather.com",
+      "query": "home workout plan"
+    },
+    {
+      "file": "weather-009.txt",
+      "domain": "weather.com",
+      "query": "electric cars review"
+    },
+    {
+      "file": "weather-010.txt",
+      "domain": "weather.com",
+      "query": "javascript frameworks"
+    },
+    {
+      "file": "weather-011.txt",
+      "domain": "weather.com",
+      "query": "meditation benefits"
+    },
+    {
+      "file": "weather-012.txt",
+      "domain": "weather.com",
+      "query": "stock market news"
+    },
+    {
+      "file": "weather-013.txt",
+      "domain": "weather.com",
+      "query": "cat videos funny"
+    },
+    {
+      "file": "weather-014.txt",
+      "domain": "weather.com",
+      "query": "react native vs flutter"
+    },
+    {
+      "file": "weather-015.txt",
+      "domain": "weather.com",
+      "query": "budget laptop 2026"
+    },
+    {
+      "file": "weather-016.txt",
+      "domain": "weather.com",
+      "query": "healthy meal prep"
+    },
+    {
+      "file": "weather-017.txt",
+      "domain": "weather.com",
+      "query": "guitar lessons beginner"
+    },
+    {
+      "file": "general-000.txt",
+      "domain": "search",
+      "query": "machine learning tutorials"
+    },
+    {
+      "file": "general-001.txt",
+      "domain": "search",
+      "query": "best pizza recipe"
+    },
+    {
+      "file": "general-002.txt",
+      "domain": "search",
+      "query": "kotlin coroutines guide"
+    },
+    {
+      "file": "general-003.txt",
+      "domain": "search",
+      "query": "android webview automation"
+    },
+    {
+      "file": "general-004.txt",
+      "domain": "search",
+      "query": "climate change 2026"
+    },
+    {
+      "file": "general-005.txt",
+      "domain": "search",
+      "query": "open source llm models"
+    },
+    {
+      "file": "general-006.txt",
+      "domain": "search",
+      "query": "travel to tokyo"
+    },
+    {
+      "file": "general-007.txt",
+      "domain": "search",
+      "query": "python data science"
+    },
+    {
+      "file": "general-008.txt",
+      "domain": "search",
+      "query": "home workout plan"
+    },
+    {
+      "file": "general-009.txt",
+      "domain": "search",
+      "query": "electric cars review"
+    },
+    {
+      "file": "general-010.txt",
+      "domain": "search",
+      "query": "javascript frameworks"
+    },
+    {
+      "file": "general-011.txt",
+      "domain": "search",
+      "query": "meditation benefits"
+    },
+    {
+      "file": "general-012.txt",
+      "domain": "search",
+      "query": "stock market news"
+    },
+    {
+      "file": "general-013.txt",
+      "domain": "search",
+      "query": "cat videos funny"
+    },
+    {
+      "file": "general-014.txt",
+      "domain": "search",
+      "query": "react native vs flutter"
+    },
+    {
+      "file": "general-015.txt",
+      "domain": "search",
+      "query": "budget laptop 2026"
+    },
+    {
+      "file": "general-016.txt",
+      "domain": "search",
+      "query": "healthy meal prep"
+    },
+    {
+      "file": "general-017.txt",
+      "domain": "search",
+      "query": "guitar lessons beginner"
+    },
+    {
+      "file": "forms-000.txt",
+      "domain": "form_fill",
+      "query": "machine learning tutorials"
+    },
+    {
+      "file": "forms-001.txt",
+      "domain": "form_fill",
+      "query": "best pizza recipe"
+    },
+    {
+      "file": "forms-002.txt",
+      "domain": "form_fill",
+      "query": "kotlin coroutines guide"
+    },
+    {
+      "file": "forms-003.txt",
+      "domain": "form_fill",
+      "query": "android webview automation"
+    },
+    {
+      "file": "forms-004.txt",
+      "domain": "form_fill",
+      "query": "climate change 2026"
+    },
+    {
+      "file": "forms-005.txt",
+      "domain": "form_fill",
+      "query": "open source llm models"
+    },
+    {
+      "file": "forms-006.txt",
+      "domain": "form_fill",
+      "query": "travel to tokyo"
+    },
+    {
+      "file": "forms-007.txt",
+      "domain": "form_fill",
+      "query": "python data science"
+    },
+    {
+      "file": "forms-008.txt",
+      "domain": "form_fill",
+      "query": "home workout plan"
+    },
+    {
+      "file": "forms-009.txt",
+      "domain": "form_fill",
+      "query": "electric cars review"
+    },
+    {
+      "file": "forms-010.txt",
+      "domain": "form_fill",
+      "query": "javascript frameworks"
+    },
+    {
+      "file": "forms-011.txt",
+      "domain": "form_fill",
+      "query": "meditation benefits"
+    },
+    {
+      "file": "forms-012.txt",
+      "domain": "form_fill",
+      "query": "stock market news"
+    },
+    {
+      "file": "forms-013.txt",
+      "domain": "form_fill",
+      "query": "cat videos funny"
+    },
+    {
+      "file": "forms-014.txt",
+      "domain": "form_fill",
+      "query": "react native vs flutter"
+    },
+    {
+      "file": "forms-015.txt",
+      "domain": "form_fill",
+      "query": "budget laptop 2026"
+    },
+    {
+      "file": "forms-016.txt",
+      "domain": "form_fill",
+      "query": "healthy meal prep"
+    },
+    {
+      "file": "forms-017.txt",
+      "domain": "form_fill",
+      "query": "guitar lessons beginner"
+    },
+    {
+      "file": "research-000.txt",
+      "domain": "research",
+      "query": "machine learning tutorials"
+    },
+    {
+      "file": "research-001.txt",
+      "domain": "research",
+      "query": "best pizza recipe"
+    },
+    {
+      "file": "research-002.txt",
+      "domain": "research",
+      "query": "kotlin coroutines guide"
+    },
+    {
+      "file": "research-003.txt",
+      "domain": "research",
+      "query": "android webview automation"
+    },
+    {
+      "file": "research-004.txt",
+      "domain": "research",
+      "query": "climate change 2026"
+    },
+    {
+      "file": "research-005.txt",
+      "domain": "research",
+      "query": "open source llm models"
+    },
+    {
+      "file": "research-006.txt",
+      "domain": "research",
+      "query": "travel to tokyo"
+    },
+    {
+      "file": "research-007.txt",
+      "domain": "research",
+      "query": "python data science"
+    },
+    {
+      "file": "research-008.txt",
+      "domain": "research",
+      "query": "home workout plan"
+    },
+    {
+      "file": "research-009.txt",
+      "domain": "research",
+      "query": "electric cars review"
+    },
+    {
+      "file": "research-010.txt",
+      "domain": "research",
+      "query": "javascript frameworks"
+    },
+    {
+      "file": "research-011.txt",
+      "domain": "research",
+      "query": "meditation benefits"
+    },
+    {
+      "file": "research-012.txt",
+      "domain": "research",
+      "query": "stock market news"
+    },
+    {
+      "file": "research-013.txt",
+      "domain": "research",
+      "query": "cat videos funny"
+    },
+    {
+      "file": "research-014.txt",
+      "domain": "research",
+      "query": "react native vs flutter"
+    },
+    {
+      "file": "research-015.txt",
+      "domain": "research",
+      "query": "budget laptop 2026"
+    },
+    {
+      "file": "research-016.txt",
+      "domain": "research",
+      "query": "healthy meal prep"
+    },
+    {
+      "file": "research-017.txt",
+      "domain": "research",
+      "query": "guitar lessons beginner"
+    },
+    {
+      "file": "scrape-000.txt",
+      "domain": "extraction",
+      "query": "machine learning tutorials"
+    },
+    {
+      "file": "scrape-001.txt",
+      "domain": "extraction",
+      "query": "best pizza recipe"
+    },
+    {
+      "file": "scrape-002.txt",
+      "domain": "extraction",
+      "query": "kotlin coroutines guide"
+    },
+    {
+      "file": "scrape-003.txt",
+      "domain": "extraction",
+      "query": "android webview automation"
+    },
+    {
+      "file": "scrape-004.txt",
+      "domain": "extraction",
+      "query": "climate change 2026"
+    },
+    {
+      "file": "scrape-005.txt",
+      "domain": "extraction",
+      "query": "open source llm models"
+    },
+    {
+      "file": "scrape-006.txt",
+      "domain": "extraction",
+      "query": "travel to tokyo"
+    },
+    {
+      "file": "scrape-007.txt",
+      "domain": "extraction",
+      "query": "python data science"
+    },
+    {
+      "file": "scrape-008.txt",
+      "domain": "extraction",
+      "query": "home workout plan"
+    },
+    {
+      "file": "scrape-009.txt",
+      "domain": "extraction",
+      "query": "electric cars review"
+    },
+    {
+      "file": "scrape-010.txt",
+      "domain": "extraction",
+      "query": "javascript frameworks"
+    },
+    {
+      "file": "scrape-011.txt",
+      "domain": "extraction",
+      "query": "meditation benefits"
+    },
+    {
+      "file": "scrape-012.txt",
+      "domain": "extraction",
+      "query": "stock market news"
+    },
+    {
+      "file": "scrape-013.txt",
+      "domain": "extraction",
+      "query": "cat videos funny"
+    },
+    {
+      "file": "scrape-014.txt",
+      "domain": "extraction",
+      "query": "react native vs flutter"
+    },
+    {
+      "file": "scrape-015.txt",
+      "domain": "extraction",
+      "query": "budget laptop 2026"
+    },
+    {
+      "file": "scrape-016.txt",
+      "domain": "extraction",
+      "query": "healthy meal prep"
+    },
+    {
+      "file": "scrape-017.txt",
+      "domain": "extraction",
+      "query": "guitar lessons beginner"
+    },
+    {
+      "file": "login-000.txt",
+      "domain": "auth",
+      "query": "machine learning tutorials"
+    },
+    {
+      "file": "login-001.txt",
+      "domain": "auth",
+      "query": "best pizza recipe"
+    },
+    {
+      "file": "login-002.txt",
+      "domain": "auth",
+      "query": "kotlin coroutines guide"
+    },
+    {
+      "file": "login-003.txt",
+      "domain": "auth",
+      "query": "android webview automation"
+    },
+    {
+      "file": "login-004.txt",
+      "domain": "auth",
+      "query": "climate change 2026"
+    },
+    {
+      "file": "login-005.txt",
+      "domain": "auth",
+      "query": "open source llm models"
+    },
+    {
+      "file": "login-006.txt",
+      "domain": "auth",
+      "query": "travel to tokyo"
+    },
+    {
+      "file": "login-007.txt",
+      "domain": "auth",
+      "query": "python data science"
+    },
+    {
+      "file": "login-008.txt",
+      "domain": "auth",
+      "query": "home workout plan"
+    },
+    {
+      "file": "login-009.txt",
+      "domain": "auth",
+      "query": "electric cars review"
+    },
+    {
+      "file": "login-010.txt",
+      "domain": "auth",
+      "query": "javascript frameworks"
+    },
+    {
+      "file": "login-011.txt",
+      "domain": "auth",
+      "query": "meditation benefits"
+    },
+    {
+      "file": "login-012.txt",
+      "domain": "auth",
+      "query": "stock market news"
+    },
+    {
+      "file": "login-013.txt",
+      "domain": "auth",
+      "query": "cat videos funny"
+    },
+    {
+      "file": "login-014.txt",
+      "domain": "auth",
+      "query": "react native vs flutter"
+    },
+    {
+      "file": "login-015.txt",
+      "domain": "auth",
+      "query": "budget laptop 2026"
+    },
+    {
+      "file": "login-016.txt",
+      "domain": "auth",
+      "query": "healthy meal prep"
+    },
+    {
+      "file": "login-017.txt",
+      "domain": "auth",
+      "query": "guitar lessons beginner"
+    },
+    {
+      "file": "shop-000.txt",
+      "domain": "ecommerce",
+      "query": "machine learning tutorials"
+    },
+    {
+      "file": "shop-001.txt",
+      "domain": "ecommerce",
+      "query": "best pizza recipe"
+    },
+    {
+      "file": "shop-002.txt",
+      "domain": "ecommerce",
+      "query": "kotlin coroutines guide"
+    },
+    {
+      "file": "shop-003.txt",
+      "domain": "ecommerce",
+      "query": "android webview automation"
+    },
+    {
+      "file": "shop-004.txt",
+      "domain": "ecommerce",
+      "query": "climate change 2026"
+    },
+    {
+      "file": "shop-005.txt",
+      "domain": "ecommerce",
+      "query": "open source llm models"
+    },
+    {
+      "file": "shop-006.txt",
+      "domain": "ecommerce",
+      "query": "travel to tokyo"
+    },
+    {
+      "file": "shop-007.txt",
+      "domain": "ecommerce",
+      "query": "python data science"
+    },
+    {
+      "file": "shop-008.txt",
+      "domain": "ecommerce",
+      "query": "home workout plan"
+    },
+    {
+      "file": "shop-009.txt",
+      "domain": "ecommerce",
+      "query": "electric cars review"
+    },
+    {
+      "file": "shop-010.txt",
+      "domain": "ecommerce",
+      "query": "javascript frameworks"
+    },
+    {
+      "file": "shop-011.txt",
+      "domain": "ecommerce",
+      "query": "meditation benefits"
+    },
+    {
+      "file": "shop-012.txt",
+      "domain": "ecommerce",
+      "query": "stock market news"
+    },
+    {
+      "file": "shop-013.txt",
+      "domain": "ecommerce",
+      "query": "cat videos funny"
+    },
+    {
+      "file": "shop-014.txt",
+      "domain": "ecommerce",
+      "query": "react native vs flutter"
+    },
+    {
+      "file": "shop-015.txt",
+      "domain": "ecommerce",
+      "query": "budget laptop 2026"
+    },
+    {
+      "file": "shop-016.txt",
+      "domain": "ecommerce",
+      "query": "healthy meal prep"
+    },
+    {
+      "file": "shop-017.txt",
+      "domain": "ecommerce",
+      "query": "guitar lessons beginner"
+    }
+  ]
+}

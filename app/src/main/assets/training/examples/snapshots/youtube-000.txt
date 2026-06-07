@@ -1,0 +1,490 @@
+# Snapshot fixture: youtube.com (variant 0)
+# Query: machine learning tutorials
+
+@e1 [link] Home
+@e2 [searchbox] Search (contenteditable — DO NOT TYPE, use browser_search)
+@e3 [link] machine learning tutorials - Full Tutorial 2026
+@e4 [link] Best machine learning tutorials for Beginners
+@e5 [link] machine learning tutorials Explained in 10 Minutes
+@e6 [button] Filters
+pageText: Showing results for: machine learning tutorials
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.

@@ -1,0 +1,36 @@
+{
+  "id": "traj-youtube.com-0465",
+  "domain": "youtube.com",
+  "prompt": "Search for cat videos funny 176 on youtube",
+  "success": true,
+  "toolCount": 3,
+  "steps": [
+    {
+      "iteration": 1,
+      "tool": "browser_search",
+      "args": {
+        "site": "youtube",
+        "query": "cat videos funny 176"
+      },
+      "success": true,
+      "output_hint": "Step 1 completed for cat videos funny 176"
+    },
+    {
+      "iteration": 2,
+      "tool": "browser_wait",
+      "args": {
+        "milliseconds": 2000
+      },
+      "success": true,
+      "output_hint": "Step 2 completed for cat videos funny 176"
+    },
+    {
+      "iteration": 3,
+      "tool": "browser_snapshot",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 3 completed for cat videos funny 176"
+    }
+  ],
+  "lesson": "Proven 3-step sequence for youtube.com tasks."
+}

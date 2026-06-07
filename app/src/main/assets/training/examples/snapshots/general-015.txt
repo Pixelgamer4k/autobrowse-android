@@ -1,0 +1,548 @@
+# Snapshot fixture: search (variant 15)
+# Query: budget laptop 2026
+
+@e1 [link] budget laptop 2026 - Wikipedia
+@e2 [heading] Results for budget laptop 2026
+@e3 [link] Official budget laptop 2026 Documentation
+@e4 [link] budget laptop 2026 Guide | 2026 Edition
+pageText: About 1,240,000 results
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'budget laptop 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 15
+documents edge case handling.

@@ -1,0 +1,36 @@
+{
+  "id": "traj-google.com-0022",
+  "domain": "google.com",
+  "prompt": "Search for android webview automation on google",
+  "success": true,
+  "toolCount": 3,
+  "steps": [
+    {
+      "iteration": 1,
+      "tool": "browser_search",
+      "args": {
+        "site": "google",
+        "query": "android webview automation"
+      },
+      "success": true,
+      "output_hint": "Step 1 completed for android webview automation"
+    },
+    {
+      "iteration": 2,
+      "tool": "browser_wait",
+      "args": {
+        "milliseconds": 2000
+      },
+      "success": true,
+      "output_hint": "Step 2 completed for android webview automation"
+    },
+    {
+      "iteration": 3,
+      "tool": "browser_snapshot",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 3 completed for android webview automation"
+    }
+  ],
+  "lesson": "Proven 3-step sequence for google.com tasks."
+}

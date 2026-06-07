@@ -1,0 +1,41 @@
+{
+  "id": "traj-research-0231",
+  "domain": "research",
+  "prompt": "Search for react native vs flutter on research",
+  "success": true,
+  "toolCount": 4,
+  "steps": [
+    {
+      "iteration": 1,
+      "tool": "browser_tab_open",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 1 completed for react native vs flutter"
+    },
+    {
+      "iteration": 2,
+      "tool": "browser_search",
+      "args": {
+        "site": "research",
+        "query": "react native vs flutter"
+      },
+      "success": true,
+      "output_hint": "Step 2 completed for react native vs flutter"
+    },
+    {
+      "iteration": 3,
+      "tool": "web_fetch",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 3 completed for react native vs flutter"
+    },
+    {
+      "iteration": 4,
+      "tool": "summarize",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 4 completed for react native vs flutter"
+    }
+  ],
+  "lesson": "Proven 4-step sequence for research tasks."
+}

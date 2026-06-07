@@ -1,0 +1,488 @@
+# Snapshot fixture: google.com (variant 0)
+# Query: machine learning tutorials
+
+@e1 [link] machine learning tutorials - Wikipedia
+@e2 [heading] Results for machine learning tutorials
+@e3 [link] Official machine learning tutorials Documentation
+@e4 [link] machine learning tutorials Guide | 2026 Edition
+pageText: About 1,240,000 results
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.

@@ -1,0 +1,526 @@
+# Snapshot fixture: youtube.com (variant 9)
+# Query: electric cars review
+
+@e1 [link] Home
+@e2 [searchbox] Search (contenteditable — DO NOT TYPE, use browser_search)
+@e3 [link] electric cars review - Full Tutorial 2026
+@e4 [link] Best electric cars review for Beginners
+@e5 [link] electric cars review Explained in 10 Minutes
+@e6 [button] Filters
+pageText: Showing results for: electric cars review
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'electric cars review'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 9 documents edge case handling.

@@ -1,6 +1,8 @@
 package com.autobrowse.android.agent.core
 
 import com.autobrowse.android.agent.memory.MemoryManager
+import com.autobrowse.android.agent.training.TrainingCorpusLoader
+import com.autobrowse.android.agent.trajectory.TrajectoryStore
 import com.autobrowse.android.data.repository.AutobrowseRepository
 import com.autobrowse.android.domain.model.LearnedStrategy
 import com.autobrowse.android.skills.SkillStore
@@ -13,6 +15,8 @@ class PromptBuilder(
     private val repository: AutobrowseRepository,
     private val memoryManager: MemoryManager,
     private val skillStore: SkillStore? = null,
+    private val trainingCorpus: TrainingCorpusLoader? = null,
+    private val trajectoryStore: TrajectoryStore? = null,
 ) {
     suspend fun build(
         prefetchedMemory: String,
@@ -24,10 +28,11 @@ class PromptBuilder(
         val stable = buildStableTier(enabledToolNames)
         val searchPlaybook = buildSearchPlaybook()
         val hints = buildInternalHintsTier(userPrompt)
-        val context = buildContextTier(prefetchedMemory, strategies)
+        val training = buildTrainingTier(userPrompt)
+        val context = buildContextTier(prefetchedMemory, strategies, userPrompt)
         val skills = buildSkillsTier(userPrompt)
         val volatile = buildVolatileTier(pageUrl)
-        return listOf(stable, searchPlaybook, hints, context, skills, volatile)
+        return listOf(stable, searchPlaybook, hints, training, context, skills, volatile)
             .filter { it.isNotBlank() }
             .joinToString("\n\n")
     }
@@ -103,9 +108,17 @@ class PromptBuilder(
         }.trim()
     }
 
+    private suspend fun buildTrainingTier(userPrompt: String): String {
+        val loader = trainingCorpus ?: return ""
+        val block = loader.buildTrainingContext(userPrompt)
+        if (block.isBlank()) return ""
+        return "## Training Corpus (gold trajectories + anti-patterns)\n$block"
+    }
+
     private suspend fun buildContextTier(
         prefetchedMemory: String,
         strategies: List<LearnedStrategy>,
+        userPrompt: String,
     ): String = buildString {
         val userBlock = memoryManager.getUserProfileBlock()
         val memoryBlock = memoryManager.getMemoryBlock()
@@ -125,6 +138,14 @@ class PromptBuilder(
         if (strategies.isNotEmpty()) {
             appendLine("## Learned Strategies (proven heuristics — follow these)")
             strategies.forEach { appendLine("- [${it.domain}] ${it.heuristic}") }
+        }
+        val failures = trajectoryStore?.getRecentFailures(3).orEmpty()
+        if (failures.isNotEmpty()) {
+            appendLine()
+            appendLine("## Recent failures (do NOT repeat)")
+            failures.forEach { f ->
+                appendLine("- \"${f.prompt.take(60)}\" → ${f.reflection ?: "failed trajectory"}")
+            }
         }
     }.trim()
 

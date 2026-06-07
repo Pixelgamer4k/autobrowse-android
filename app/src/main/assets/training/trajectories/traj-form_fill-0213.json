@@ -1,0 +1,38 @@
+{
+  "id": "traj-form_fill-0213",
+  "domain": "form_fill",
+  "prompt": "Search for react native vs flutter on forms",
+  "success": true,
+  "toolCount": 4,
+  "steps": [
+    {
+      "iteration": 1,
+      "tool": "browser_snapshot",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 1 completed for react native vs flutter"
+    },
+    {
+      "iteration": 2,
+      "tool": "browser_type",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 2 completed for react native vs flutter"
+    },
+    {
+      "iteration": 3,
+      "tool": "browser_press",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 3 completed for react native vs flutter"
+    },
+    {
+      "iteration": 4,
+      "tool": "browser_snapshot",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 4 completed for react native vs flutter"
+    }
+  ],
+  "lesson": "Proven 4-step sequence for form_fill tasks."
+}

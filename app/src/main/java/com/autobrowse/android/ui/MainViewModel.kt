@@ -21,6 +21,7 @@ import com.autobrowse.android.domain.model.BrowserWindowLayout
 import com.autobrowse.android.domain.model.withFrame
 import com.autobrowse.android.domain.model.ChatMessage
 import com.autobrowse.android.domain.model.LearnedStrategy
+import com.autobrowse.android.data.local.ModelDownloadProgress
 import com.autobrowse.android.domain.model.LlmConfig
 import com.autobrowse.android.domain.model.LlmProvider
 import com.autobrowse.android.domain.model.LocalLlmModel
@@ -51,6 +52,13 @@ data class LlmConnectionTestState(
     val isSuccess: Boolean? = null,
 )
 
+data class ModelDownloadState(
+    val isDownloading: Boolean = false,
+    val model: LocalLlmModel? = null,
+    val progress: ModelDownloadProgress = ModelDownloadProgress(),
+    val error: String? = null,
+)
+
 data class MainUiState(
     val session: Session? = null,
     val sessions: List<Session> = emptyList(),
@@ -73,6 +81,7 @@ data class MainUiState(
     val showLlmSetup: Boolean = false,
     val llmSetupFromSettings: Boolean = false,
     val llmConnectionTest: LlmConnectionTestState = LlmConnectionTestState(),
+    val modelDownload: ModelDownloadState = ModelDownloadState(),
     val error: String? = null,
 )
 
@@ -92,11 +101,12 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val activeSessionId = MutableStateFlow<String?>(null)
     private val persistJobs = mutableMapOf<String, Job>()
     private var agentJob: Job? = null
+    private var modelDownloadJob: Job? = null
 
     init {
         wireTabManager()
         viewModelScope.launch {
-            val session = repository.getOrCreateActiveSession()
+            val session = repository.createNewSession()
             val llmConfig = repository.getLlmConfig()
             _uiState.update {
                 it.copy(
@@ -629,6 +639,78 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                     error = setupBannerMessage(config),
                 )
             }
+        }
+    }
+
+    fun downloadLocalModel(model: LocalLlmModel) {
+        modelDownloadJob?.cancel()
+        modelDownloadJob = viewModelScope.launch {
+            _uiState.update {
+                it.copy(
+                    modelDownload = ModelDownloadState(
+                        isDownloading = true,
+                        model = model,
+                        progress = ModelDownloadProgress(message = "Connecting…"),
+                    ),
+                )
+            }
+            try {
+                val path = app.modelFileManager.downloadModel(model) { progress ->
+                    _uiState.update { state ->
+                        state.copy(
+                            modelDownload = state.modelDownload.copy(
+                                isDownloading = true,
+                                model = model,
+                                progress = progress,
+                            ),
+                        )
+                    }
+                }
+                val updatedConfig = _uiState.value.llmConfig.copy(
+                    provider = LlmProvider.LOCAL,
+                    localModel = model,
+                    localModelPath = path,
+                )
+                repository.saveLlmConfig(updatedConfig)
+                _uiState.update {
+                    it.copy(
+                        llmConfig = updatedConfig,
+                        modelDownload = ModelDownloadState(
+                            isDownloading = false,
+                            model = model,
+                            progress = ModelDownloadProgress(
+                                percent = 1f,
+                                message = "Saved to phone storage.",
+                            ),
+                        ),
+                        llmConnectionTest = LlmConnectionTestState(
+                            message = "Downloaded ${path.substringAfterLast('/')}",
+                            isSuccess = true,
+                        ),
+                        error = null,
+                    )
+                }
+            } catch (e: Exception) {
+                _uiState.update {
+                    it.copy(
+                        modelDownload = ModelDownloadState(
+                            isDownloading = false,
+                            model = model,
+                            error = e.message ?: "Download failed.",
+                        ),
+                    )
+                }
+            } finally {
+                modelDownloadJob = null
+            }
+        }
+    }
+
+    fun cancelModelDownload() {
+        modelDownloadJob?.cancel()
+        modelDownloadJob = null
+        _uiState.update {
+            it.copy(modelDownload = ModelDownloadState(model = it.modelDownload.model))
         }
     }
 

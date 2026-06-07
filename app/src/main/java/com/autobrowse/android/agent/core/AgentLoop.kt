@@ -229,29 +229,60 @@ class AgentLoop(
                 )
 
                 val toolResults = mutableListOf<ToolResult>()
-                coroutineScope {
-                    toolCalls.map { call ->
-                        async {
-                            ensureNotCancelled()
-                            _progress.value = AgentProgress(
-                                phase = AgentPhase.EXECUTING_TOOL,
-                                iteration = iteration,
-                                maxIterations = maxIterations,
-                                currentTool = call.name,
-                                message = "Running ${call.name}…",
-                            )
-                            val args = parseToolArgs(call.argumentsJson)
-                            val result = toolRegistry.dispatch(call.name, args, toolContext)
-                            call to result
-                        }
-                    }.awaitAll().forEach { (call, result) ->
-                        toolResults += ToolResult(call.id, call.name, result.output, result.success)
+                val priorToolNames = turns.flatMap { it.toolCalls }.map { it.name }
+                val browserFirst = SmartExecutionAdvisor.shouldSerializeBrowserTools(toolCalls)
+                val orderedCalls = if (browserFirst) {
+                    toolCalls.sortedBy { if (it.name.startsWith("browser_")) 0 else 1 }
+                } else {
+                    toolCalls
+                }
+
+                suspend fun executeOne(call: ToolCall): Pair<ToolCall, ToolResult> {
+                    ensureNotCancelled()
+                    _progress.value = AgentProgress(
+                        phase = AgentPhase.EXECUTING_TOOL,
+                        iteration = iteration,
+                        maxIterations = maxIterations,
+                        currentTool = call.name,
+                        message = "Running ${call.name}…",
+                    )
+                    val args = parseToolArgs(call.argumentsJson)
+                    val raw = toolRegistry.dispatch(call.name, args, toolContext)
+                    val output = SmartExecutionAdvisor.augmentToolOutput(
+                        call = call,
+                        result = ToolResult(call.id, call.name, raw.output, raw.success),
+                        context = toolContext,
+                        userPrompt = rawPrompt,
+                        iteration = iteration,
+                        priorToolNames = priorToolNames,
+                    )
+                    return call to ToolResult(call.id, call.name, output, raw.success)
+                }
+
+                if (browserFirst) {
+                    orderedCalls.forEach { call ->
+                        val (c, result) = executeOne(call)
+                        toolResults += result
                         loopMessages += ChatMessageDto(
                             role = "tool",
                             content = result.output,
-                            toolCallId = call.id,
-                            name = call.name,
+                            toolCallId = c.id,
+                            name = c.name,
                         )
+                    }
+                } else {
+                    coroutineScope {
+                        orderedCalls.map { call ->
+                            async { executeOne(call) }
+                        }.awaitAll().forEach { (call, result) ->
+                            toolResults += result
+                            loopMessages += ChatMessageDto(
+                                role = "tool",
+                                content = result.output,
+                                toolCallId = call.id,
+                                name = call.name,
+                            )
+                        }
                     }
                 }
 
@@ -298,7 +329,7 @@ class AgentLoop(
                 sessionId = request.sessionId,
                 taskId = taskId,
                 prompt = request.prompt,
-                success = true,
+                success = taskSuccess,
                 turns = turns,
             )
 

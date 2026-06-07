@@ -1,0 +1,43 @@
+{
+  "id": "traj-wikipedia.org-0101",
+  "domain": "wikipedia.org",
+  "prompt": "Search for javascript frameworks on wikipedia",
+  "success": true,
+  "toolCount": 4,
+  "steps": [
+    {
+      "iteration": 1,
+      "tool": "browser_search",
+      "args": {
+        "site": "wikipedia",
+        "query": "javascript frameworks"
+      },
+      "success": true,
+      "output_hint": "Step 1 completed for javascript frameworks"
+    },
+    {
+      "iteration": 2,
+      "tool": "browser_wait",
+      "args": {
+        "milliseconds": 2000
+      },
+      "success": true,
+      "output_hint": "Step 2 completed for javascript frameworks"
+    },
+    {
+      "iteration": 3,
+      "tool": "browser_snapshot",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 3 completed for javascript frameworks"
+    },
+    {
+      "iteration": 4,
+      "tool": "extract_data",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 4 completed for javascript frameworks"
+    }
+  ],
+  "lesson": "Proven 4-step sequence for wikipedia.org tasks."
+}

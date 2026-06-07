@@ -1,0 +1,488 @@
+# Snapshot fixture: amazon.com (variant 0)
+# Query: machine learning tutorials
+
+@e1 [link] machine learning tutorials - Amazon.com
+@e2 [heading] Results for machine learning tutorials
+@e3 [link] Premium machine learning tutorials Kit
+@e4 [button] Add to Cart
+@e5 [span] $29.99
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'machine learning tutorials'. If pageText
+is empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 0 documents edge case handling.

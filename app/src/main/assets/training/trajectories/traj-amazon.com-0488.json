@@ -1,0 +1,43 @@
+{
+  "id": "traj-amazon.com-0488",
+  "domain": "amazon.com",
+  "prompt": "Search for home workout plan 199 on amazon",
+  "success": true,
+  "toolCount": 4,
+  "steps": [
+    {
+      "iteration": 1,
+      "tool": "browser_search",
+      "args": {
+        "site": "amazon",
+        "query": "home workout plan 199"
+      },
+      "success": true,
+      "output_hint": "Step 1 completed for home workout plan 199"
+    },
+    {
+      "iteration": 2,
+      "tool": "browser_wait",
+      "args": {
+        "milliseconds": 2000
+      },
+      "success": true,
+      "output_hint": "Step 2 completed for home workout plan 199"
+    },
+    {
+      "iteration": 3,
+      "tool": "browser_snapshot",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 3 completed for home workout plan 199"
+    },
+    {
+      "iteration": 4,
+      "tool": "browser_click",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 4 completed for home workout plan 199"
+    }
+  ],
+  "lesson": "Proven 4-step sequence for amazon.com tasks."
+}

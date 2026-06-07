@@ -24,42 +24,43 @@ class SelfImprovementEngine(
         pageUrl: String?,
     ): Int = withContext(Dispatchers.IO) {
         val config = repository.getLlmConfig()
-        if (config.apiKey.isBlank()) return@withContext 0
-
         val turnSummary = turns.joinToString("\n") { turn ->
             val tools = turn.toolCalls.joinToString { it.name }
             val results = turn.toolResults.joinToString { "${it.name}:${it.success}" }
             "iter ${turn.iteration} tools=[$tools] results=[$results]"
         }
 
-        val reflection = runCatching {
-            llmApi.chat(
-                config = config,
-                systemPrompt = """
-                    You are a self-improvement engine for a browser agent.
-                    Analyze the task trajectory and produce:
-                    1. One sentence: what went right or wrong
-                    2. One reusable heuristic for similar future tasks
-                    Format:
-                    ANALYSIS: ...
-                    HEURISTIC: ...
-                """.trimIndent(),
-                userPrompt = """
-                    Task: $prompt
-                    Success: $success
-                    Page: ${pageUrl ?: "unknown"}
-                    Trajectory:
-                    $turnSummary
-                """.trimIndent(),
-            )
-        }.getOrNull() ?: return@withContext 0
-
-        val heuristic = reflection.substringAfter("HEURISTIC:", "")
-            .trim()
-            .lineSequence()
-            .firstOrNull()
-            .orEmpty()
-            .ifBlank { reflection.take(200) }
+        val heuristic = if (config.apiKey.isNotBlank()) {
+            val reflection = runCatching {
+                llmApi.chat(
+                    config = config,
+                    systemPrompt = """
+                        You are a self-improvement engine for a browser agent.
+                        Analyze the task trajectory and produce:
+                        1. One sentence: what went right or wrong
+                        2. One reusable heuristic for similar future tasks
+                        Format:
+                        ANALYSIS: ...
+                        HEURISTIC: ...
+                    """.trimIndent(),
+                    userPrompt = """
+                        Task: $prompt
+                        Success: $success
+                        Page: ${pageUrl ?: "unknown"}
+                        Trajectory:
+                        $turnSummary
+                    """.trimIndent(),
+                )
+            }.getOrNull()
+            reflection?.substringAfter("HEURISTIC:", "")
+                ?.trim()
+                ?.lineSequence()
+                ?.firstOrNull()
+                .orEmpty()
+                .ifBlank { reflection?.take(200).orEmpty() }
+        } else {
+            buildHeuristicFallback(prompt, success, turns, pageUrl)
+        }
 
         if (heuristic.isBlank()) return@withContext 0
 
@@ -121,6 +122,21 @@ class SelfImprovementEngine(
         val total = successes + failures
         if (total == 0) return 0.5f
         return (successes.toFloat() / total).coerceIn(0.1f, 0.99f)
+    }
+
+    private fun buildHeuristicFallback(
+        prompt: String,
+        success: Boolean,
+        turns: List<AgentTurn>,
+        pageUrl: String?,
+    ): String {
+        val tools = turns.flatMap { it.toolCalls }.joinToString(" → ") { it.name }
+        val domain = inferDomain(prompt, pageUrl)
+        return if (success) {
+            "For $domain tasks like \"$prompt\", replicate: $tools — then verify snapshot and stop."
+        } else {
+            "Avoid repeating failed $domain sequence ($tools). Prefer browser_search over browser_type."
+        }
     }
 
     private fun inferDomain(prompt: String, pageUrl: String?): String {

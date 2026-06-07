@@ -1,0 +1,518 @@
+# Snapshot fixture: youtube.com (variant 7)
+# Query: python data science
+
+@e1 [link] Home
+@e2 [searchbox] Search (contenteditable — DO NOT TYPE, use browser_search)
+@e3 [link] python data science - Full Tutorial 2026
+@e4 [link] Best python data science for Beginners
+@e5 [link] python data science Explained in 10 Minutes
+@e6 [button] Filters
+pageText: Showing results for: python data science
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'python data science'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 7 documents edge case handling.

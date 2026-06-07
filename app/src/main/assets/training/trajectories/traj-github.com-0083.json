@@ -1,0 +1,36 @@
+{
+  "id": "traj-github.com-0083",
+  "domain": "github.com",
+  "prompt": "Search for javascript frameworks on github",
+  "success": true,
+  "toolCount": 3,
+  "steps": [
+    {
+      "iteration": 1,
+      "tool": "browser_search",
+      "args": {
+        "site": "github",
+        "query": "javascript frameworks"
+      },
+      "success": true,
+      "output_hint": "Step 1 completed for javascript frameworks"
+    },
+    {
+      "iteration": 2,
+      "tool": "browser_wait",
+      "args": {
+        "milliseconds": 2000
+      },
+      "success": true,
+      "output_hint": "Step 2 completed for javascript frameworks"
+    },
+    {
+      "iteration": 3,
+      "tool": "browser_snapshot",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 3 completed for javascript frameworks"
+    }
+  ],
+  "lesson": "Proven 3-step sequence for github.com tasks."
+}

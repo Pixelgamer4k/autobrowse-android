@@ -1,0 +1,40 @@
+{
+  "id": "traj-auth-0413",
+  "domain": "auth",
+  "prompt": "Search for kotlin coroutines guide 124 on login",
+  "success": true,
+  "toolCount": 4,
+  "steps": [
+    {
+      "iteration": 1,
+      "tool": "browser_navigate",
+      "args": {
+        "url": "https://www.auth"
+      },
+      "success": true,
+      "output_hint": "Step 1 completed for kotlin coroutines guide 124"
+    },
+    {
+      "iteration": 2,
+      "tool": "browser_snapshot",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 2 completed for kotlin coroutines guide 124"
+    },
+    {
+      "iteration": 3,
+      "tool": "browser_type",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 3 completed for kotlin coroutines guide 124"
+    },
+    {
+      "iteration": 4,
+      "tool": "browser_click",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 4 completed for kotlin coroutines guide 124"
+    }
+  ],
+  "lesson": "Proven 4-step sequence for auth tasks."
+}

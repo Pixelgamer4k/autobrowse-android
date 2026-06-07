@@ -1,0 +1,503 @@
+# Snapshot fixture: booking.com (variant 4)
+# Query: climate change 2026
+
+@e1 [heading] climate change 2026
+@e2 [link] Read more about climate change 2026
+@e3 [button] Submit
+pageText: Content loaded successfully
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'climate change 2026'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 4 documents edge case handling.

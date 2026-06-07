@@ -1,0 +1,487 @@
+# Snapshot fixture: auth (variant 0)
+# Query: machine learning tutorials
+
+@e1 [heading] machine learning tutorials
+@e2 [link] Read more about machine learning tutorials
+@e3 [button] Submit
+pageText: Content loaded successfully
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.
+Automation notes for auth: always verify snapshot contains expected
+keywords related to 'machine learning tutorials'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 0
+documents edge case handling.

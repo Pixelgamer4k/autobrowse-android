@@ -1,0 +1,43 @@
+{
+  "id": "traj-wikipedia.org-0091",
+  "domain": "wikipedia.org",
+  "prompt": "Search for machine learning tutorials on wikipedia",
+  "success": true,
+  "toolCount": 4,
+  "steps": [
+    {
+      "iteration": 1,
+      "tool": "browser_search",
+      "args": {
+        "site": "wikipedia",
+        "query": "machine learning tutorials"
+      },
+      "success": true,
+      "output_hint": "Step 1 completed for machine learning tutorials"
+    },
+    {
+      "iteration": 2,
+      "tool": "browser_wait",
+      "args": {
+        "milliseconds": 2000
+      },
+      "success": true,
+      "output_hint": "Step 2 completed for machine learning tutorials"
+    },
+    {
+      "iteration": 3,
+      "tool": "browser_snapshot",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 3 completed for machine learning tutorials"
+    },
+    {
+      "iteration": 4,
+      "tool": "extract_data",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 4 completed for machine learning tutorials"
+    }
+  ],
+  "lesson": "Proven 4-step sequence for wikipedia.org tasks."
+}

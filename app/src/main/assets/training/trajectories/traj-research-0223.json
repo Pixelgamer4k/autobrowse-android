@@ -1,0 +1,41 @@
+{
+  "id": "traj-research-0223",
+  "domain": "research",
+  "prompt": "Search for travel to tokyo on research",
+  "success": true,
+  "toolCount": 4,
+  "steps": [
+    {
+      "iteration": 1,
+      "tool": "browser_tab_open",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 1 completed for travel to tokyo"
+    },
+    {
+      "iteration": 2,
+      "tool": "browser_search",
+      "args": {
+        "site": "research",
+        "query": "travel to tokyo"
+      },
+      "success": true,
+      "output_hint": "Step 2 completed for travel to tokyo"
+    },
+    {
+      "iteration": 3,
+      "tool": "web_fetch",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 3 completed for travel to tokyo"
+    },
+    {
+      "iteration": 4,
+      "tool": "summarize",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 4 completed for travel to tokyo"
+    }
+  ],
+  "lesson": "Proven 4-step sequence for research tasks."
+}

@@ -1,0 +1,41 @@
+{
+  "id": "traj-research-0222",
+  "domain": "research",
+  "prompt": "Search for open source llm models on research",
+  "success": true,
+  "toolCount": 4,
+  "steps": [
+    {
+      "iteration": 1,
+      "tool": "browser_tab_open",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 1 completed for open source llm models"
+    },
+    {
+      "iteration": 2,
+      "tool": "browser_search",
+      "args": {
+        "site": "research",
+        "query": "open source llm models"
+      },
+      "success": true,
+      "output_hint": "Step 2 completed for open source llm models"
+    },
+    {
+      "iteration": 3,
+      "tool": "web_fetch",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 3 completed for open source llm models"
+    },
+    {
+      "iteration": 4,
+      "tool": "summarize",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 4 completed for open source llm models"
+    }
+  ],
+  "lesson": "Proven 4-step sequence for research tasks."
+}

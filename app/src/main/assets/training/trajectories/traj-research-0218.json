@@ -1,0 +1,41 @@
+{
+  "id": "traj-research-0218",
+  "domain": "research",
+  "prompt": "Search for best pizza recipe on research",
+  "success": true,
+  "toolCount": 4,
+  "steps": [
+    {
+      "iteration": 1,
+      "tool": "browser_tab_open",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 1 completed for best pizza recipe"
+    },
+    {
+      "iteration": 2,
+      "tool": "browser_search",
+      "args": {
+        "site": "research",
+        "query": "best pizza recipe"
+      },
+      "success": true,
+      "output_hint": "Step 2 completed for best pizza recipe"
+    },
+    {
+      "iteration": 3,
+      "tool": "web_fetch",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 3 completed for best pizza recipe"
+    },
+    {
+      "iteration": 4,
+      "tool": "summarize",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 4 completed for best pizza recipe"
+    }
+  ],
+  "lesson": "Proven 4-step sequence for research tasks."
+}

@@ -1,0 +1,495 @@
+# Snapshot fixture: extraction (variant 2)
+# Query: kotlin coroutines guide
+
+@e1 [heading] kotlin coroutines guide
+@e2 [link] Read more about kotlin coroutines guide
+@e3 [button] Submit
+pageText: Content loaded successfully
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for extraction: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.

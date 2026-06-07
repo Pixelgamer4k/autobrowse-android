@@ -1,0 +1,544 @@
+# Snapshot fixture: search (variant 14)
+# Query: react native vs flutter
+
+@e1 [link] react native vs flutter - Wikipedia
+@e2 [heading] Results for react native vs flutter
+@e3 [link] Official react native vs flutter Documentation
+@e4 [link] react native vs flutter Guide | 2026 Edition
+pageText: About 1,240,000 results
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.
+Automation notes for search: always verify snapshot contains expected
+keywords related to 'react native vs flutter'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 14
+documents edge case handling.

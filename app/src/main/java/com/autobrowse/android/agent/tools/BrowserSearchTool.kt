@@ -10,11 +10,11 @@ class BrowserSearchTool(
     override val name = "browser_search"
     override val description =
         "Search a website using direct search URLs (RELIABLE). Prefer this over typing in search boxes. " +
-            "Sites: youtube, google, bing, duckduckgo, reddit, amazon, twitter."
+            "Sites: youtube, google, bing, duckduckgo, reddit, amazon, twitter, github, wikipedia, stackoverflow, linkedin, ebay, imdb, npm, scholar, news."
     override val parametersJson = """
         {"type":"object","properties":{
             "query":{"type":"string","description":"Search query"},
-            "site":{"type":"string","description":"youtube, google, bing, duckduckgo, reddit, amazon, twitter (default: google)"},
+            "site":{"type":"string","description":"youtube, google, bing, duckduckgo, reddit, amazon, twitter, github, wikipedia, stackoverflow, linkedin, ebay, imdb, npm, scholar, news (default: google)"},
             "tab_id":{"type":"string"}
         },"required":["query"]}
     """.trimIndent()
@@ -50,6 +50,18 @@ class BrowserSearchTool(
                 "reddit" -> "https://www.reddit.com/search/?q=$encoded"
                 "amazon" -> "https://www.amazon.com/s?k=$encoded"
                 "twitter", "x" -> "https://x.com/search?q=$encoded&src=typed_query"
+                "github", "gh" -> "https://github.com/search?q=$encoded&type=repositories"
+                "wikipedia", "wiki" -> "https://en.wikipedia.org/wiki/Special:Search?search=$encoded"
+                "stackoverflow", "so" -> "https://stackoverflow.com/search?q=$encoded"
+                "linkedin" -> "https://www.linkedin.com/search/results/all/?keywords=$encoded"
+                "ebay" -> "https://www.ebay.com/sch/i.html?_nkw=$encoded"
+                "imdb" -> "https://www.imdb.com/find/?q=$encoded"
+                "npm" -> "https://www.npmjs.com/search?q=$encoded"
+                "pypi" -> "https://pypi.org/search/?q=$encoded"
+                "scholar" -> "https://scholar.google.com/scholar?q=$encoded"
+                "news" -> "https://news.google.com/search?q=$encoded"
+                "maps" -> "https://www.google.com/maps/search/$encoded"
+                "yelp" -> "https://www.yelp.com/search?find_desc=$encoded"
                 else -> "https://www.google.com/search?q=$encoded"
             }
         }

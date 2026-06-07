@@ -1,0 +1,504 @@
+# Snapshot fixture: ecommerce (variant 4)
+# Query: climate change 2026
+
+@e1 [link] climate change 2026 - Amazon.com
+@e2 [heading] Results for climate change 2026
+@e3 [link] Premium climate change 2026 Kit
+@e4 [button] Add to Cart
+@e5 [span] $29.99
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.
+Automation notes for ecommerce: always verify snapshot contains expected
+keywords related to 'climate change 2026'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 4
+documents edge case handling.

@@ -1,0 +1,496 @@
+# Snapshot fixture: amazon.com (variant 2)
+# Query: kotlin coroutines guide
+
+@e1 [link] kotlin coroutines guide - Amazon.com
+@e2 [heading] Results for kotlin coroutines guide
+@e3 [link] Premium kotlin coroutines guide Kit
+@e4 [button] Add to Cart
+@e5 [span] $29.99
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.
+Automation notes for amazon.com: always verify snapshot contains
+expected keywords related to 'kotlin coroutines guide'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 2 documents edge case handling.

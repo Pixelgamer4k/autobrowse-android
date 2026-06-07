@@ -1,0 +1,43 @@
+{
+  "id": "traj-amazon.com-0046",
+  "domain": "amazon.com",
+  "prompt": "Search for electric cars review on amazon",
+  "success": true,
+  "toolCount": 4,
+  "steps": [
+    {
+      "iteration": 1,
+      "tool": "browser_search",
+      "args": {
+        "site": "amazon",
+        "query": "electric cars review"
+      },
+      "success": true,
+      "output_hint": "Step 1 completed for electric cars review"
+    },
+    {
+      "iteration": 2,
+      "tool": "browser_wait",
+      "args": {
+        "milliseconds": 2000
+      },
+      "success": true,
+      "output_hint": "Step 2 completed for electric cars review"
+    },
+    {
+      "iteration": 3,
+      "tool": "browser_snapshot",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 3 completed for electric cars review"
+    },
+    {
+      "iteration": 4,
+      "tool": "browser_click",
+      "args": {},
+      "success": true,
+      "output_hint": "Step 4 completed for electric cars review"
+    }
+  ],
+  "lesson": "Proven 4-step sequence for amazon.com tasks."
+}

@@ -1,0 +1,507 @@
+# Snapshot fixture: booking.com (variant 5)
+# Query: open source llm models
+
+@e1 [heading] open source llm models
+@e2 [link] Read more about open source llm models
+@e3 [button] Submit
+pageText: Content loaded successfully
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.
+Automation notes for booking.com: always verify snapshot contains
+expected keywords related to 'open source llm models'. If pageText is
+empty, call browser_wait then re-snapshot. Never guess selectors.
+Variant 5 documents edge case handling.

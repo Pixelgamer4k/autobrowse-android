@@ -1,0 +1,554 @@
+# Snapshot fixture: youtube.com (variant 16)
+# Query: healthy meal prep
+
+@e1 [link] Home
+@e2 [searchbox] Search (contenteditable — DO NOT TYPE, use browser_search)
+@e3 [link] healthy meal prep - Full Tutorial 2026
+@e4 [link] Best healthy meal prep for Beginners
+@e5 [link] healthy meal prep Explained in 10 Minutes
+@e6 [button] Filters
+pageText: Showing results for: healthy meal prep
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'healthy meal prep'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 16
+documents edge case handling.

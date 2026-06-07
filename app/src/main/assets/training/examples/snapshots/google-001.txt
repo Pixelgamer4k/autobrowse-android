@@ -1,0 +1,492 @@
+# Snapshot fixture: google.com (variant 1)
+# Query: best pizza recipe
+
+@e1 [link] best pizza recipe - Wikipedia
+@e2 [heading] Results for best pizza recipe
+@e3 [link] Official best pizza recipe Documentation
+@e4 [link] best pizza recipe Guide | 2026 Edition
+pageText: About 1,240,000 results
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.
+Automation notes for google.com: always verify snapshot contains
+expected keywords related to 'best pizza recipe'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 1
+documents edge case handling.

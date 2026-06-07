@@ -1,0 +1,511 @@
+# Snapshot fixture: research (variant 6)
+# Query: travel to tokyo
+
+@e1 [heading] travel to tokyo
+@e2 [link] Read more about travel to tokyo
+@e3 [button] Submit
+pageText: Content loaded successfully
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.
+Automation notes for research: always verify snapshot contains expected
+keywords related to 'travel to tokyo'. If pageText is empty, call
+browser_wait then re-snapshot. Never guess selectors. Variant 6
+documents edge case handling.

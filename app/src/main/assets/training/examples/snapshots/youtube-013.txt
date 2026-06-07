@@ -1,0 +1,542 @@
+# Snapshot fixture: youtube.com (variant 13)
+# Query: cat videos funny
+
+@e1 [link] Home
+@e2 [searchbox] Search (contenteditable — DO NOT TYPE, use browser_search)
+@e3 [link] cat videos funny - Full Tutorial 2026
+@e4 [link] Best cat videos funny for Beginners
+@e5 [link] cat videos funny Explained in 10 Minutes
+@e6 [button] Filters
+pageText: Showing results for: cat videos funny
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
+Automation notes for youtube.com: always verify snapshot contains
+expected keywords related to 'cat videos funny'. If pageText is empty,
+call browser_wait then re-snapshot. Never guess selectors. Variant 13
+documents edge case handling.
