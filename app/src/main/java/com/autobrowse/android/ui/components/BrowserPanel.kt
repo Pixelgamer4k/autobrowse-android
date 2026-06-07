@@ -59,7 +59,6 @@ fun BrowserPanel(
     onNavigate: (String) -> Unit,
     onRefreshTab: (String) -> Unit,
     onToggleMaximizeTab: (String) -> Unit,
-    onMinimizeTab: (String) -> Unit,
     onCloseTab: (String) -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -117,7 +116,6 @@ fun BrowserPanel(
                         onCommitGeometry = { layout -> onCommitGeometry(tab.id, layout) },
                         onRefresh = { onRefreshTab(tab.id) },
                         onToggleMaximize = { onToggleMaximizeTab(tab.id) },
-                        onMinimize = { onMinimizeTab(tab.id) },
                         onClose = { onCloseTab(tab.id) },
                         modifier = Modifier,
                     )

@@ -90,7 +90,6 @@ private fun MainContent(
                     onNavigate = viewModel::navigateActiveTab,
                     onRefreshTab = viewModel::refreshTab,
                     onToggleMaximizeTab = viewModel::toggleMaximizeTab,
-                    onMinimizeTab = viewModel::minimizeTab,
                     onCloseTab = viewModel::closeTab,
                     modifier = Modifier.fillMaxSize(),
                 )

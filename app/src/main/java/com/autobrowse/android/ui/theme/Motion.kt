@@ -22,15 +22,15 @@ object Motion {
         stiffness = 340f,
     )
 
-    /** iOS-like window move/resize settle — slight overshoot, responsive. */
+    /** Window move settle — responsive tracking with a light iOS bounce. */
     val springWindow = spring<Float>(
-        dampingRatio = 0.78f,
-        stiffness = 380f,
+        dampingRatio = 0.68f,
+        stiffness = 520f,
     )
 
     val springWindowSettle = spring<Float>(
-        dampingRatio = Spring.DampingRatioMediumBouncy,
-        stiffness = 420f,
+        dampingRatio = 0.62f,
+        stiffness = 480f,
     )
 
     val springSmoothOffset = spring<IntOffset>(

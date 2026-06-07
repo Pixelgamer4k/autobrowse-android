@@ -15,7 +15,7 @@ data class BrowserWindowLayout(
     companion object {
         const val MIN_FRACTION = 0.10f
         const val MAX_FRACTION = 1f
-        const val TITLE_BAR_HEIGHT_DP = 36f
+        const val TITLE_BAR_HEIGHT_DP = 0f
         const val CONTENT_ASPECT_RATIO = 4f / 3f
 
         fun contentHeightPx(widthPx: Float): Float = widthPx / CONTENT_ASPECT_RATIO
