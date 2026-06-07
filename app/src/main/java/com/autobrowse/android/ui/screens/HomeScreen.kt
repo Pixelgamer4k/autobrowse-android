@@ -10,11 +10,8 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -24,7 +21,7 @@ import androidx.compose.ui.zIndex
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.autobrowse.android.ui.MainViewModel
 import com.autobrowse.android.ui.components.BrowserPanel
-import com.autobrowse.android.ui.components.ChatBar
+import com.autobrowse.android.ui.components.ChatPanel
 import com.autobrowse.android.ui.components.SessionsLauncherButton
 import com.autobrowse.android.ui.components.SessionsPanelOverlay
 import com.autobrowse.android.ui.theme.Motion
@@ -71,13 +68,12 @@ private fun MainContent(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .statusBarsPadding()
-            .navigationBarsPadding(),
+            .statusBarsPadding(),
     ) {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .weight(1f),
+                .weight(0.56f),
         ) {
             BrowserPanel(
                 tabs = state.tabs,
@@ -114,7 +110,10 @@ private fun MainContent(
             )
         }
 
-        ChatBar(
+        ChatPanel(
+            messages = state.messages,
+            isAgentThinking = state.isAgentThinking,
+            agentProgress = state.agentProgress,
             value = state.chatInput,
             onValueChange = viewModel::updateChatInput,
             attachments = state.pendingAttachments,
@@ -122,21 +121,10 @@ private fun MainContent(
             onRemoveAttachment = viewModel::removeAttachment,
             onSend = viewModel::sendMessage,
             onSettings = { viewModel.toggleSettings(true) },
-            isSending = state.isAgentThinking,
+            error = state.error,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 12.dp, vertical = 8.dp),
+                .weight(0.44f),
         )
-
-        state.error?.let { error ->
-            Text(
-                text = error,
-                color = MaterialTheme.colorScheme.error,
-                style = MaterialTheme.typography.bodySmall,
-                modifier = Modifier
-                    .padding(horizontal = 16.dp)
-                    .padding(bottom = 6.dp),
-            )
-        }
     }
 }

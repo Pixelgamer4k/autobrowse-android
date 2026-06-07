@@ -1,6 +1,11 @@
 package com.autobrowse.android.ui.components
 
+import android.Manifest
+import android.app.Activity
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
+import android.speech.RecognizerIntent
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.AnimatedContent
@@ -14,11 +19,13 @@ import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
 import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyRow
@@ -26,12 +33,12 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.Send
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.ArrowUpward
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Image
+import androidx.compose.material.icons.filled.Mic
 import androidx.compose.material.icons.filled.PictureAsPdf
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Videocam
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -55,6 +62,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.core.content.ContextCompat
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.autobrowse.android.domain.model.AttachmentType
@@ -70,7 +78,29 @@ fun ChatBar(
     onAddAttachment: (PendingAttachment) -> Unit,
     onRemoveAttachment: (String) -> Unit,
     onSend: () -> Unit,
-    onSettings: () -> Unit,
+    isSending: Boolean,
+    modifier: Modifier = Modifier,
+) {
+    ChatComposer(
+        value = value,
+        onValueChange = onValueChange,
+        attachments = attachments,
+        onAddAttachment = onAddAttachment,
+        onRemoveAttachment = onRemoveAttachment,
+        onSend = onSend,
+        isSending = isSending,
+        modifier = modifier,
+    )
+}
+
+@Composable
+fun ChatComposer(
+    value: String,
+    onValueChange: (String) -> Unit,
+    attachments: List<PendingAttachment>,
+    onAddAttachment: (PendingAttachment) -> Unit,
+    onRemoveAttachment: (String) -> Unit,
+    onSend: () -> Unit,
     isSending: Boolean,
     modifier: Modifier = Modifier,
 ) {
@@ -87,14 +117,58 @@ fun ChatBar(
         uri?.let { addFromUri(context, it, AttachmentType.VIDEO, onAddAttachment) }
     }
 
+    val speechLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.StartActivityForResult(),
+    ) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val spoken = result.data
+                ?.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
+                ?.firstOrNull()
+                ?.trim()
+            if (!spoken.isNullOrBlank()) {
+                onValueChange(
+                    if (value.isBlank()) spoken else "$value $spoken",
+                )
+            }
+        }
+    }
+
+    fun launchSpeechRecognizer() {
+        val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).apply {
+            putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
+            putExtra(RecognizerIntent.EXTRA_PROMPT, "Speak your message")
+        }
+        runCatching { speechLauncher.launch(intent) }
+    }
+
+    val micPermissionLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.RequestPermission(),
+    ) { granted ->
+        if (granted) launchSpeechRecognizer()
+    }
+
+    fun onMicClick() {
+        when {
+            ContextCompat.checkSelfPermission(context, Manifest.permission.RECORD_AUDIO) ==
+                PackageManager.PERMISSION_GRANTED -> launchSpeechRecognizer()
+            else -> micPermissionLauncher.launch(Manifest.permission.RECORD_AUDIO)
+        }
+    }
+
     val canSend = (value.isNotBlank() || attachments.isNotEmpty()) && !isSending
+    val showSend = value.isNotBlank() || attachments.isNotEmpty()
     val sendScale by animateFloatAsState(
         targetValue = if (canSend) 1f else 0.85f,
         animationSpec = Motion.springSnappy,
         label = "sendScale",
     )
 
-    Column(modifier = modifier.fillMaxWidth()) {
+    Column(
+        modifier = modifier
+            .fillMaxWidth()
+            .navigationBarsPadding()
+            .padding(horizontal = 12.dp, vertical = 8.dp),
+    ) {
         AttachmentPickerSheet(
             visible = showPicker,
             onDismiss = { showPicker = false },
@@ -111,7 +185,7 @@ fun ChatBar(
             LazyRow(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 4.dp, vertical = 6.dp),
+                    .padding(bottom = 8.dp),
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
             ) {
                 items(attachments, key = { it.id }) { attachment ->
@@ -124,22 +198,23 @@ fun ChatBar(
         }
 
         Surface(
-            modifier = Modifier.fillMaxWidth(),
-            shape = RoundedCornerShape(22.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .border(
+                    width = 1.dp,
+                    color = MaterialTheme.colorScheme.outline.copy(alpha = 0.22f),
+                    shape = RoundedCornerShape(28.dp),
+                ),
+            shape = RoundedCornerShape(28.dp),
             color = MaterialTheme.colorScheme.surface,
-            tonalElevation = 6.dp,
-            shadowElevation = 4.dp,
+            tonalElevation = 2.dp,
         ) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 4.dp, vertical = 6.dp),
+                    .padding(start = 4.dp, end = 6.dp, top = 4.dp, bottom = 4.dp),
                 verticalAlignment = Alignment.Bottom,
             ) {
-                IconButton(onClick = onSettings) {
-                    Icon(Icons.Default.Settings, contentDescription = "Settings")
-                }
-
                 AnimatedContent(
                     targetState = showPicker,
                     transitionSpec = {
@@ -148,12 +223,19 @@ fun ChatBar(
                     },
                     label = "attachIcon",
                 ) { expanded ->
-                    IconButton(onClick = { showPicker = !expanded }) {
+                    IconButton(
+                        onClick = { showPicker = !expanded },
+                        modifier = Modifier.size(40.dp),
+                    ) {
                         Icon(
                             imageVector = Icons.Default.Add,
                             contentDescription = "Attach file",
                             modifier = Modifier.scale(if (expanded) 0.92f else 1f),
-                            tint = if (expanded) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface,
+                            tint = if (expanded) {
+                                MaterialTheme.colorScheme.primary
+                            } else {
+                                MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f)
+                            },
                         )
                     }
                 }
@@ -164,44 +246,75 @@ fun ChatBar(
                     modifier = Modifier.weight(1f),
                     placeholder = {
                         Text(
-                            if (attachments.isEmpty()) "Ask the agent to browse, research, or automate…"
+                            text = if (attachments.isEmpty()) "Ask anything…"
                             else "Add a message about your attachment…",
                             style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.45f),
                         )
                     },
                     shape = RoundedCornerShape(20.dp),
                     maxLines = 4,
                     enabled = !isSending,
                     colors = TextFieldDefaults.colors(
-                        focusedContainerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.35f),
-                        unfocusedContainerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.2f),
+                        focusedContainerColor = Color.Transparent,
+                        unfocusedContainerColor = Color.Transparent,
+                        disabledContainerColor = Color.Transparent,
                         focusedIndicatorColor = Color.Transparent,
                         unfocusedIndicatorColor = Color.Transparent,
+                        disabledIndicatorColor = Color.Transparent,
                     ),
                 )
 
-                IconButton(
-                    onClick = onSend,
-                    enabled = canSend,
-                    modifier = Modifier.scale(sendScale),
-                ) {
-                    Box(
-                        modifier = Modifier
-                            .size(40.dp)
-                            .clip(CircleShape)
-                            .background(
-                                if (canSend) MaterialTheme.colorScheme.primary
-                                else MaterialTheme.colorScheme.surfaceVariant,
-                            ),
-                        contentAlignment = Alignment.Center,
-                    ) {
-                        Icon(
-                            Icons.AutoMirrored.Filled.Send,
-                            contentDescription = "Send",
-                            tint = if (canSend) MaterialTheme.colorScheme.onPrimary
-                            else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.4f),
-                            modifier = Modifier.size(20.dp),
-                        )
+                AnimatedContent(
+                    targetState = showSend,
+                    transitionSpec = {
+                        fadeIn(Motion.tweenQuick) + scaleIn(Motion.springBouncy) togetherWith
+                            fadeOut(Motion.tweenQuick) + scaleOut(Motion.tweenQuick)
+                    },
+                    label = "micSendToggle",
+                ) { sending ->
+                    if (sending) {
+                        IconButton(
+                            onClick = onSend,
+                            enabled = canSend,
+                            modifier = Modifier
+                                .size(40.dp)
+                                .scale(sendScale),
+                        ) {
+                            Box(
+                                modifier = Modifier
+                                    .size(32.dp)
+                                    .clip(CircleShape)
+                                    .background(
+                                        if (canSend) MaterialTheme.colorScheme.primary
+                                        else MaterialTheme.colorScheme.surfaceVariant,
+                                    ),
+                                contentAlignment = Alignment.Center,
+                            ) {
+                                Icon(
+                                    Icons.Default.ArrowUpward,
+                                    contentDescription = "Send",
+                                    tint = if (canSend) {
+                                        MaterialTheme.colorScheme.onPrimary
+                                    } else {
+                                        MaterialTheme.colorScheme.onSurface.copy(alpha = 0.4f)
+                                    },
+                                    modifier = Modifier.size(18.dp),
+                                )
+                            }
+                        }
+                    } else {
+                        IconButton(
+                            onClick = { onMicClick() },
+                            enabled = !isSending,
+                            modifier = Modifier.size(40.dp),
+                        ) {
+                            Icon(
+                                Icons.Default.Mic,
+                                contentDescription = "Voice input",
+                                tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+                            )
+                        }
                     }
                 }
             }
