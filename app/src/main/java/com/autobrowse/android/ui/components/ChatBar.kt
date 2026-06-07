@@ -46,7 +46,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.ArrowUpward
 import androidx.compose.material.icons.filled.Close
-import androidx.compose.material.icons.filled.GraphicEq
 import androidx.compose.material.icons.filled.Image
 import androidx.compose.material.icons.filled.Mic
 import androidx.compose.material.icons.filled.PictureAsPdf
@@ -72,7 +71,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
@@ -208,7 +206,7 @@ fun ChatComposer(
         SectionSeparator()
 
         Column(
-            modifier = Modifier.padding(horizontal = 12.dp, vertical = 7.dp),
+            modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp),
         ) {
         AttachmentPickerSheet(
             visible = showPicker,
@@ -226,7 +224,7 @@ fun ChatComposer(
             LazyRow(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = 10.dp),
+                    .padding(bottom = 8.dp),
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
             ) {
                 items(attachments, key = { it.id }) { attachment ->
@@ -238,40 +236,71 @@ fun ChatComposer(
             }
         }
 
-        Box(
+        val trailingMode = when {
+            isSending -> ComposerTrailingMode.STOP
+            showSend -> ComposerTrailingMode.SEND
+            else -> ComposerTrailingMode.MIC
+        }
+        val placeholder = when {
+            isSending -> "Agent running…"
+            attachments.isNotEmpty() -> "Add a note (optional)…"
+            isFocused -> "Ask anything"
+            else -> "Ask or tap mic"
+        }
+
+        Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .heightIn(min = 44.dp)
-                .clip(RoundedCornerShape(18.dp))
+                .heightIn(min = 42.dp)
+                .clip(RoundedCornerShape(22.dp))
                 .background(ComposerInputBg)
                 .border(
                     width = 1.dp,
-                    color = if (isFocused) {
-                        MaterialTheme.colorScheme.onSurface.copy(alpha = 0.22f)
-                    } else {
-                        ComposerBorder.copy(alpha = 0.55f)
+                    color = when {
+                        isSending -> MaterialTheme.colorScheme.error.copy(alpha = 0.25f)
+                        isFocused -> MaterialTheme.colorScheme.onSurface.copy(alpha = 0.22f)
+                        else -> ComposerBorder.copy(alpha = 0.55f)
                     },
-                    shape = RoundedCornerShape(18.dp),
+                    shape = RoundedCornerShape(22.dp),
                 )
-                .padding(horizontal = 3.dp, vertical = 1.dp),
+                .padding(horizontal = 4.dp, vertical = 2.dp),
+            verticalAlignment = Alignment.CenterVertically,
         ) {
+            IconButton(
+                onClick = { if (!isSending) showPicker = !showPicker },
+                enabled = !isSending,
+                modifier = Modifier.size(34.dp),
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Add,
+                    contentDescription = "Attach file",
+                    tint = when {
+                        showPicker -> MaterialTheme.colorScheme.primary
+                        isSending -> MaterialTheme.colorScheme.onSurface.copy(alpha = 0.3f)
+                        else -> MaterialTheme.colorScheme.onSurface.copy(alpha = 0.82f)
+                    },
+                    modifier = Modifier.size(20.dp),
+                )
+            }
+
             TextField(
                 value = value,
                 onValueChange = onValueChange,
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.weight(1f),
                 placeholder = {
                     Text(
-                        text = if (attachments.isEmpty()) "Ask anything"
-                        else "Add a message about your attachment…",
+                        text = placeholder,
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.42f),
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
                     )
                 },
                 textStyle = MaterialTheme.typography.bodySmall.copy(
                     color = MaterialTheme.colorScheme.onSurface,
                 ),
-                shape = RoundedCornerShape(16.dp),
-                maxLines = 6,
+                shape = RoundedCornerShape(0.dp),
+                maxLines = if (isFocused) 4 else 1,
                 enabled = !isSending,
                 interactionSource = interactionSource,
                 colors = TextFieldDefaults.colors(
@@ -284,75 +313,59 @@ fun ChatComposer(
                     cursorColor = MaterialTheme.colorScheme.onSurface,
                 ),
             )
-        }
 
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 7.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween,
-        ) {
             AnimatedContent(
-                targetState = showPicker,
+                targetState = trailingMode,
                 transitionSpec = {
                     fadeIn(Motion.tweenQuick) + scaleIn(Motion.springBouncy) togetherWith
                         fadeOut(Motion.tweenQuick) + scaleOut(Motion.tweenQuick)
                 },
-                label = "attachIcon",
-            ) { expanded ->
-                Surface(
-                    onClick = { showPicker = !expanded },
-                    shape = CircleShape,
-                    color = if (expanded) {
-                        MaterialTheme.colorScheme.onSurface.copy(alpha = 0.18f)
-                    } else {
-                        ComposerButtonBg
-                    },
-                    modifier = Modifier.size(34.dp),
-                ) {
-                    Box(contentAlignment = Alignment.Center) {
-                    Icon(
-                        imageVector = Icons.Default.Add,
-                        contentDescription = "Attach file",
-                        tint = Color.White,
-                        modifier = Modifier.size(18.dp),
-                    )
-                    }
-                }
-            }
-
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(6.dp),
-            ) {
-                if (isSending) {
-                    Surface(
-                        onClick = onStop,
-                        shape = RoundedCornerShape(20.dp),
-                        color = MaterialTheme.colorScheme.error.copy(alpha = 0.2f),
-                    ) {
-                        Row(
-                            modifier = Modifier.padding(horizontal = 12.dp, vertical = 7.dp),
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.spacedBy(5.dp),
+                label = "composerTrailing",
+            ) { mode ->
+                when (mode) {
+                    ComposerTrailingMode.STOP -> {
+                        IconButton(
+                            onClick = onStop,
+                            modifier = Modifier.size(34.dp),
                         ) {
                             Icon(
                                 Icons.Default.Stop,
                                 contentDescription = "Stop",
                                 tint = MaterialTheme.colorScheme.error,
-                                modifier = Modifier.size(16.dp),
-                            )
-                            Text(
-                                text = "Stop",
-                                style = MaterialTheme.typography.labelSmall,
-                                fontWeight = FontWeight.SemiBold,
-                                color = MaterialTheme.colorScheme.error,
+                                modifier = Modifier.size(20.dp),
                             )
                         }
                     }
-                } else {
-                    if (!showSend) {
+                    ComposerTrailingMode.SEND -> {
+                        Surface(
+                            onClick = onSend,
+                            enabled = canSend,
+                            shape = CircleShape,
+                            color = if (canSend) {
+                                MaterialTheme.colorScheme.primary
+                            } else {
+                                ComposerButtonBg
+                            },
+                            modifier = Modifier
+                                .size(32.dp)
+                                .scale(sendScale)
+                                .padding(end = 2.dp),
+                        ) {
+                            Box(contentAlignment = Alignment.Center) {
+                                Icon(
+                                    Icons.Default.ArrowUpward,
+                                    contentDescription = "Send",
+                                    tint = if (canSend) {
+                                        MaterialTheme.colorScheme.onPrimary
+                                    } else {
+                                        MaterialTheme.colorScheme.onSurface.copy(alpha = 0.35f)
+                                    },
+                                    modifier = Modifier.size(17.dp),
+                                )
+                            }
+                        }
+                    }
+                    ComposerTrailingMode.MIC -> {
                         IconButton(
                             onClick = { onMicClick() },
                             modifier = Modifier.size(34.dp),
@@ -365,74 +378,17 @@ fun ChatComposer(
                             )
                         }
                     }
-
-                    AnimatedContent(
-                        targetState = showSend,
-                        transitionSpec = {
-                            fadeIn(Motion.tweenQuick) + scaleIn(Motion.springBouncy) togetherWith
-                                fadeOut(Motion.tweenQuick) + scaleOut(Motion.tweenQuick)
-                        },
-                        label = "micSendToggle",
-                    ) { sending ->
-                        if (sending) {
-                            Surface(
-                                onClick = onSend,
-                                enabled = canSend,
-                                shape = CircleShape,
-                                color = if (canSend) {
-                                    MaterialTheme.colorScheme.primary
-                                } else {
-                                    ComposerButtonBg
-                                },
-                                modifier = Modifier
-                                    .size(34.dp)
-                                    .scale(sendScale),
-                            ) {
-                                Box(contentAlignment = Alignment.Center) {
-                                    Icon(
-                                        Icons.Default.ArrowUpward,
-                                        contentDescription = "Send",
-                                        tint = if (canSend) {
-                                            MaterialTheme.colorScheme.onPrimary
-                                        } else {
-                                            MaterialTheme.colorScheme.onSurface.copy(alpha = 0.35f)
-                                        },
-                                        modifier = Modifier.size(18.dp),
-                                    )
-                                }
-                            }
-                        } else {
-                            Surface(
-                                onClick = { onMicClick() },
-                                shape = RoundedCornerShape(20.dp),
-                                color = MaterialTheme.colorScheme.primary,
-                            ) {
-                                Row(
-                                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 7.dp),
-                                    verticalAlignment = Alignment.CenterVertically,
-                                    horizontalArrangement = Arrangement.spacedBy(5.dp),
-                                ) {
-                                    Icon(
-                                        Icons.Default.GraphicEq,
-                                        contentDescription = null,
-                                        tint = MaterialTheme.colorScheme.onPrimary,
-                                        modifier = Modifier.size(16.dp),
-                                    )
-                                    Text(
-                                        text = "Speak",
-                                        style = MaterialTheme.typography.labelSmall,
-                                        fontWeight = FontWeight.SemiBold,
-                                        color = MaterialTheme.colorScheme.onPrimary,
-                                    )
-                                }
-                            }
-                        }
-                    }
                 }
             }
         }
         }
     }
+}
+
+private enum class ComposerTrailingMode {
+    MIC,
+    SEND,
+    STOP,
 }
 
 @Composable
