@@ -33,6 +33,7 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
+import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -62,10 +63,14 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import com.autobrowse.android.domain.model.LocalLlmCatalog
+import com.autobrowse.android.domain.model.LocalLlmModelInfo
+import com.autobrowse.android.domain.model.LocalLlmSource
 import com.autobrowse.android.domain.model.LlmBackend
 import com.autobrowse.android.domain.model.LlmConfig
 import com.autobrowse.android.domain.model.LlmProvider
 import com.autobrowse.android.domain.model.LocalLlmModel
+import com.autobrowse.android.domain.model.ToolCallingLevel
+import com.autobrowse.android.domain.model.VisionLevel
 import com.autobrowse.android.ui.LlmConnectionTestState
 import com.autobrowse.android.ui.ModelDownloadState
 
@@ -354,31 +359,49 @@ private fun LocalLlmSection(
 ) {
     Card(
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.35f),
+            containerColor = MaterialTheme.colorScheme.errorContainer.copy(alpha = 0.45f),
         ),
         modifier = Modifier.fillMaxWidth(),
     ) {
         Column(modifier = Modifier.padding(14.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
             Text(
-                "LiteRT on-device inference",
+                "Experimental — expect 6–10 min per response",
                 style = MaterialTheme.typography.titleSmall,
-                color = MaterialTheme.colorScheme.primary,
+                color = MaterialTheme.colorScheme.error,
             )
             Text(
-                "Gemma 4 runs via Google LiteRT-LM with native tool calling, vision, and up to 32K context. " +
-                    "GPU is recommended on supported devices.",
+                "Local models run fully on your phone. Cloud API is faster and more reliable for browser agents.",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.85f),
             )
         }
     }
 
+    Card(
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.35f),
+        ),
+        modifier = Modifier.fillMaxWidth(),
+    ) {
+        Column(modifier = Modifier.padding(14.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+            Text(
+                "What Autobrowse needs from a local model",
+                style = MaterialTheme.typography.titleSmall,
+                color = MaterialTheme.colorScheme.primary,
+            )
+            Text(
+                "Tool calling is required — the agent must invoke browser tools (navigate, tap, type, scroll). " +
+                    "Vision is strongly recommended so the model can read screenshots and page images in the same " +
+                    ".litertlm bundle (no separate projector). GPU backend is recommended.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.85f),
+            )
+        }
+    }
+
+    Text("Official models (litert-community)", style = MaterialTheme.typography.titleMedium)
     Text(
-        "LiteRT Gemma models",
-        style = MaterialTheme.typography.titleMedium,
-    )
-    Text(
-        "Downloads a single .litertlm bundle. No separate vision projector required.",
+        "Published by Google's LiteRT-LM Hugging Face org. Best starting point for tool calling and vision.",
         style = MaterialTheme.typography.bodySmall,
         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
     )
@@ -408,7 +431,7 @@ private fun LocalLlmSection(
         }
     }
 
-    LocalLlmCatalog.models.forEach { info ->
+    LocalLlmCatalog.officialModels.forEach { info ->
         LocalModelCard(
             info = info,
             selected = localModel == info.model,
@@ -421,6 +444,52 @@ private fun LocalLlmSection(
             onOpenPage = { onOpenUrl(info.pageUrl) },
         )
     }
+
+    Card(
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.tertiaryContainer.copy(alpha = 0.4f),
+        ),
+        modifier = Modifier.fillMaxWidth(),
+    ) {
+        Column(modifier = Modifier.padding(14.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+            Text(
+                "Community models — use at your own risk",
+                style = MaterialTheme.typography.titleSmall,
+                color = MaterialTheme.colorScheme.tertiary,
+            )
+            Text(
+                "These are third-party conversions or fine-tunes not published by Google. We do not verify " +
+                    "weights, safety filters, tool-calling behavior, or long-term compatibility with LiteRT-LM " +
+                    "updates. Test thoroughly before relying on them for automation.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.85f),
+            )
+        }
+    }
+
+    Text("Community models", style = MaterialTheme.typography.titleMedium)
+    Text(
+        "Alternative tunings and specialist builds. May differ from official Gemma behavior.",
+        style = MaterialTheme.typography.bodySmall,
+        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+    )
+
+    LocalLlmCatalog.communityModels.forEach { info ->
+        LocalModelCard(
+            info = info,
+            selected = localModel == info.model,
+            isDownloading = modelDownload.isDownloading && modelDownload.model == info.model,
+            onSelect = { onLocalModelChange(info.model) },
+            onDownload = {
+                onDownload(info.model)
+                onPathReady("")
+            },
+            onOpenPage = { onOpenUrl(info.pageUrl) },
+        )
+    }
+
+    val selectedInfo = LocalLlmCatalog.infoFor(localModel)
+    SelectedModelWarnings(info = selectedInfo)
 
     Text("Inference backend", style = MaterialTheme.typography.titleSmall)
     FlowRow(
@@ -476,8 +545,56 @@ private fun LocalLlmSection(
 }
 
 @Composable
+private fun SelectedModelWarnings(info: LocalLlmModelInfo) {
+    val warnings = buildList {
+        if (info.isCommunity) {
+            add(
+                "Community model: unofficial build — ${info.communityNote ?: "verify tool calling and safety on your device."}",
+            )
+        }
+        if (info.vision == VisionLevel.NONE) {
+            add("No vision: this model cannot interpret screenshots — browser automation quality will be limited.")
+        }
+        when (info.toolCalling) {
+            ToolCallingLevel.UNVERIFIED ->
+                add("Unverified tool calling: browser tools may fail or behave inconsistently — test before use.")
+            ToolCallingLevel.NONE ->
+                add("No tool calling: not suitable as an Autobrowse agent model.")
+            ToolCallingLevel.SPECIALIST ->
+                add("Specialist tool caller: excellent function accuracy but text-only and short context.")
+            ToolCallingLevel.NATIVE -> Unit
+        }
+    }
+    if (warnings.isEmpty()) return
+
+    Card(
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.secondaryContainer.copy(alpha = 0.45f),
+        ),
+        modifier = Modifier.fillMaxWidth(),
+    ) {
+        Column(
+            modifier = Modifier.padding(14.dp),
+            verticalArrangement = Arrangement.spacedBy(6.dp),
+        ) {
+            Text(
+                "Selected: ${info.displayName}",
+                style = MaterialTheme.typography.titleSmall,
+            )
+            warnings.forEach { warning ->
+                Text(
+                    text = "• $warning",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.85f),
+                )
+            }
+        }
+    }
+}
+
+@Composable
 private fun LocalModelCard(
-    info: com.autobrowse.android.domain.model.LocalLlmModelInfo,
+    info: LocalLlmModelInfo,
     selected: Boolean,
     isDownloading: Boolean,
     onSelect: () -> Unit,
@@ -513,8 +630,18 @@ private fun LocalModelCard(
                     .padding(start = 8.dp),
                 verticalArrangement = Arrangement.spacedBy(4.dp),
             ) {
-                Text(info.displayName, style = MaterialTheme.typography.titleSmall)
+                Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                    Text(info.displayName, style = MaterialTheme.typography.titleSmall)
+                    if (info.source == LocalLlmSource.COMMUNITY) {
+                        Text(
+                            "Community",
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.tertiary,
+                        )
+                    }
+                }
                 Text(info.description, style = MaterialTheme.typography.bodySmall)
+                CapabilityChips(info = info)
                 Text("Size: ${info.sizeLabel}", style = MaterialTheme.typography.bodySmall)
                 Text(
                     text = info.modelFileName,
@@ -538,5 +665,59 @@ private fun LocalModelCard(
                 )
             }
         }
+    }
+}
+
+@OptIn(ExperimentalLayoutApi::class)
+@Composable
+private fun CapabilityChips(info: LocalLlmModelInfo) {
+    FlowRow(
+        horizontalArrangement = Arrangement.spacedBy(6.dp),
+        verticalArrangement = Arrangement.spacedBy(4.dp),
+    ) {
+        val toolColor = when (info.toolCalling) {
+            ToolCallingLevel.NATIVE, ToolCallingLevel.SPECIALIST -> MaterialTheme.colorScheme.primary
+            ToolCallingLevel.UNVERIFIED -> MaterialTheme.colorScheme.tertiary
+            ToolCallingLevel.NONE -> MaterialTheme.colorScheme.error
+        }
+        val visionColor = when (info.vision) {
+            VisionLevel.MULTIMODAL -> MaterialTheme.colorScheme.primary
+            VisionLevel.NONE -> MaterialTheme.colorScheme.onSurface.copy(alpha = 0.55f)
+        }
+        FilterChip(
+            selected = false,
+            onClick = {},
+            enabled = false,
+            label = {
+                Text(
+                    when (info.toolCalling) {
+                        ToolCallingLevel.NATIVE -> "Tools: native"
+                        ToolCallingLevel.SPECIALIST -> "Tools: specialist"
+                        ToolCallingLevel.UNVERIFIED -> "Tools: unverified"
+                        ToolCallingLevel.NONE -> "Tools: none"
+                    },
+                    style = MaterialTheme.typography.labelSmall,
+                )
+            },
+            colors = FilterChipDefaults.filterChipColors(
+                disabledContainerColor = toolColor.copy(alpha = 0.12f),
+                disabledLabelColor = toolColor,
+            ),
+        )
+        FilterChip(
+            selected = false,
+            onClick = {},
+            enabled = false,
+            label = {
+                Text(
+                    if (info.vision == VisionLevel.MULTIMODAL) "Vision: yes" else "Vision: no",
+                    style = MaterialTheme.typography.labelSmall,
+                )
+            },
+            colors = FilterChipDefaults.filterChipColors(
+                disabledContainerColor = visionColor.copy(alpha = 0.12f),
+                disabledLabelColor = visionColor,
+            ),
+        )
     }
 }
