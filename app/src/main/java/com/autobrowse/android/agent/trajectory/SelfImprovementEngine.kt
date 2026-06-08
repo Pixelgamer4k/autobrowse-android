@@ -17,52 +17,30 @@ class SelfImprovementEngine(
     private val llmApi: LlmApiService,
     private val memoryManager: MemoryManager,
 ) {
-    suspend fun reflectAndImprove(
+    suspend fun reflectFast(
         prompt: String,
         success: Boolean,
         turns: List<AgentTurn>,
         pageUrl: String?,
     ): Int = withContext(Dispatchers.IO) {
-        val config = repository.getLlmConfig()
-        val turnSummary = turns.joinToString("\n") { turn ->
-            val tools = turn.toolCalls.joinToString { it.name }
-            val results = turn.toolResults.joinToString { "${it.name}:${it.success}" }
-            "iter ${turn.iteration} tools=[$tools] results=[$results]"
-        }
-
-        val heuristic = if (config.apiKey.isNotBlank()) {
-            val reflection = runCatching {
-                llmApi.chat(
-                    config = config,
-                    systemPrompt = """
-                        You are a self-improvement engine for a browser agent.
-                        Analyze the task trajectory and produce:
-                        1. One sentence: what went right or wrong
-                        2. One reusable heuristic for similar future tasks
-                        Format:
-                        ANALYSIS: ...
-                        HEURISTIC: ...
-                    """.trimIndent(),
-                    userPrompt = """
-                        Task: $prompt
-                        Success: $success
-                        Page: ${pageUrl ?: "unknown"}
-                        Trajectory:
-                        $turnSummary
-                    """.trimIndent(),
-                )
-            }.getOrNull()
-            reflection?.substringAfter("HEURISTIC:", "")
-                ?.trim()
-                ?.lineSequence()
-                ?.firstOrNull()
-                .orEmpty()
-                .ifBlank { reflection?.take(200).orEmpty() }
-        } else {
-            buildHeuristicFallback(prompt, success, turns, pageUrl)
-        }
-
+        val heuristic = buildHeuristicFallback(prompt, success, turns, pageUrl)
         if (heuristic.isBlank()) return@withContext 0
+        persistHeuristic(heuristic, prompt, success, pageUrl)
+    }
+
+    suspend fun reflectAndImprove(
+        prompt: String,
+        success: Boolean,
+        turns: List<AgentTurn>,
+        pageUrl: String?,
+    ): Int = reflectFast(prompt, success, turns, pageUrl)
+
+    private suspend fun persistHeuristic(
+        heuristic: String,
+        prompt: String,
+        success: Boolean,
+        pageUrl: String?,
+    ): Int {
 
         val domain = inferDomain(prompt, pageUrl)
         val existing = strategyDao.findByHeuristic(heuristic)
@@ -103,7 +81,7 @@ class SelfImprovementEngine(
             source = "self_improvement",
         )
 
-        1
+        return 1
     }
 
     suspend fun getRelevantStrategies(prompt: String, pageUrl: String?, limit: Int = 5): List<LearnedStrategy> =

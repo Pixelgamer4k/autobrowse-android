@@ -91,20 +91,18 @@ class MemoryManager(
         }.trim()
     }
 
-    suspend fun syncTurn(
-        sessionId: String,
+    suspend fun syncTurnFast(
         userMessage: String,
         assistantMessage: String,
     ): Int = withContext(Dispatchers.IO) {
-        val config = repository.getLlmConfig()
-        val extracted = extractor.extractFromTurn(config, userMessage, assistantMessage)
+        val extracted = extractFastPatterns(userMessage, assistantMessage)
         extracted.forEach { item ->
             remember(
                 key = item.key,
                 value = item.value,
                 category = item.category,
                 importance = item.importance,
-                source = "extraction",
+                source = "fast_extraction",
             )
         }
         remember(
@@ -115,6 +113,42 @@ class MemoryManager(
             source = "sync_turn",
         )
         extracted.size
+    }
+
+    suspend fun syncTurn(
+        sessionId: String,
+        userMessage: String,
+        assistantMessage: String,
+    ): Int = syncTurnFast(userMessage, assistantMessage)
+
+    private fun extractFastPatterns(
+        userMessage: String,
+        assistantMessage: String,
+    ): List<ExtractedMemory> {
+        val results = mutableListOf<ExtractedMemory>()
+        val text = "$userMessage $assistantMessage"
+
+        Regex("""(?i)remember(?:\s+that)?\s+(.+?)[\.\!\?]?\s*$""")
+            .find(userMessage)?.groupValues?.getOrNull(1)?.trim()?.takeIf { it.length > 3 }?.let {
+                results += ExtractedMemory("user_remember", it.take(200), "MEMORY", 8)
+            }
+
+        Regex("""(?i)my name is\s+([A-Za-z][A-Za-z\s'-]{1,40})""")
+            .find(text)?.groupValues?.getOrNull(1)?.trim()?.let {
+                results += ExtractedMemory("user_name", it, "USER", 9)
+            }
+
+        Regex("""(?i)I prefer\s+(.+?)[\.\!\?]?\s*$""")
+            .find(userMessage)?.groupValues?.getOrNull(1)?.trim()?.takeIf { it.length > 3 }?.let {
+                results += ExtractedMemory("preference_${it.hashCode()}", it.take(160), "PREFERENCE", 7)
+            }
+
+        Regex("""(?i)always\s+(.+?)[\.\!\?]?\s*$""")
+            .find(userMessage)?.groupValues?.getOrNull(1)?.trim()?.takeIf { it.length > 5 }?.let {
+                results += ExtractedMemory("habit_${it.hashCode()}", it.take(160), "PREFERENCE", 6)
+            }
+
+        return results.distinctBy { it.key }
     }
 
     suspend fun searchSessions(query: String, sessionId: String, limit: Int): List<String> =

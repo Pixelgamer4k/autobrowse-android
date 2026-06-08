@@ -13,7 +13,7 @@ class PostTaskSkillLearner(
     private val repository: AutobrowseRepository,
     private val llmApi: LlmApiService,
 ) {
-    suspend fun learnFromTask(
+    suspend fun learnFast(
         prompt: String,
         success: Boolean,
         turns: List<AgentTurn>,
@@ -29,9 +29,7 @@ class PostTaskSkillLearner(
         val triggers = extractTriggers(prompt, domain)
         val skillName = resolveSkillName(prompt, domain, triggers)
         val description = "Learned playbook for: ${prompt.take(96)}"
-
-        val heuristicBody = buildHeuristicPlaybook(prompt, toolCalls, turns, pageUrl, domain)
-        val body = maybePolishWithLlm(heuristicBody, prompt, toolSequence)
+        val body = buildHeuristicPlaybook(prompt, toolCalls, turns, pageUrl, domain)
 
         skillStore.upsertLearnedFromTask(
             name = skillName,
@@ -44,30 +42,12 @@ class PostTaskSkillLearner(
         1
     }
 
-    private suspend fun maybePolishWithLlm(
-        heuristicBody: String,
+    suspend fun learnFromTask(
         prompt: String,
-        toolSequence: List<String>,
-    ): String {
-        val config = repository.getLlmConfig()
-        if (config.apiKey.isBlank()) return heuristicBody
-
-        return runCatching {
-            llmApi.chat(
-                config = config,
-                systemPrompt = """
-                    Compress a successful browser automation run into a reusable SKILL.md body (markdown only, no frontmatter).
-                    Include: when to use, step-by-step tool sequence, pitfalls, success criteria. Max 400 words.
-                """.trimIndent(),
-                userPrompt = """
-                    Task: $prompt
-                    Tool sequence: ${toolSequence.joinToString(" → ")}
-                    Draft:
-                    $heuristicBody
-                """.trimIndent(),
-            ).trim().ifBlank { heuristicBody }
-        }.getOrDefault(heuristicBody)
-    }
+        success: Boolean,
+        turns: List<AgentTurn>,
+        pageUrl: String?,
+    ): Int = learnFast(prompt, success, turns, pageUrl)
 
     private fun buildHeuristicPlaybook(
         prompt: String,

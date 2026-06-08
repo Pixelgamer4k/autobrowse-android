@@ -5,6 +5,7 @@ import androidx.work.Configuration
 import com.autobrowse.android.agent.NavigationAgent
 import com.autobrowse.android.agent.core.AgentLoop
 import com.autobrowse.android.agent.core.ContextCompressor
+import com.autobrowse.android.agent.core.PostTaskLearning
 import com.autobrowse.android.agent.core.PromptBuilder
 import com.autobrowse.android.agent.memory.MemoryManager
 import com.autobrowse.android.agent.orchestration.TaskOrchestrator
@@ -178,6 +179,14 @@ class AutobrowseApplication : Application(), Configuration.Provider {
             llmApi = llmApi,
         )
 
+        val postTaskLearning = PostTaskLearning(
+            scope = appScope,
+            memoryManager = memoryManager,
+            selfImprovementEngine = selfImprovementEngine,
+            postTaskSkillLearner = postTaskSkillLearner,
+            trajectoryStore = trajectoryStore,
+        )
+
         toolRegistry = ToolRegistry(
             tools = listOf(
                 BrowserSearchTool(browserController),
@@ -236,7 +245,7 @@ class AutobrowseApplication : Application(), Configuration.Provider {
             contextCompressor = ContextCompressor(llmApi),
             trajectoryStore = trajectoryStore,
             selfImprovementEngine = selfImprovementEngine,
-            postTaskSkillLearner = postTaskSkillLearner,
+            postTaskLearning = postTaskLearning,
             tabManager = tabManager,
             windowManager = windowManager,
         )

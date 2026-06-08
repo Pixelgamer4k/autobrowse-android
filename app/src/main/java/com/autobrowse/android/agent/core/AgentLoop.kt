@@ -7,7 +7,6 @@ import com.autobrowse.android.agent.tools.parseToolArgs
 import com.autobrowse.android.browser.TabManager
 import com.autobrowse.android.browser.WindowManager
 import com.autobrowse.android.domain.model.AttachmentPayload
-import com.autobrowse.android.agent.training.PostTaskSkillLearner
 import com.autobrowse.android.agent.trajectory.SelfImprovementEngine
 import com.autobrowse.android.agent.trajectory.TrajectoryStore
 import com.autobrowse.android.data.remote.ChatMessageDto
@@ -47,7 +46,7 @@ class AgentLoop(
     private val contextCompressor: ContextCompressor,
     private val trajectoryStore: TrajectoryStore,
     private val selfImprovementEngine: SelfImprovementEngine,
-    private val postTaskSkillLearner: PostTaskSkillLearner? = null,
+    private val postTaskLearning: PostTaskLearning,
     private val tabManager: TabManager? = null,
     private val windowManager: WindowManager? = null,
     private val maxIterations: Int = 20,
@@ -365,34 +364,23 @@ class AgentLoop(
             )
             repository.saveChatMessage(agentMessage)
 
-            _progress.value = AgentProgress(AgentPhase.REFLECTING, budget.used(), maxIterations, message = "Learning…")
             val taskSuccess = turns.none { turn -> turn.toolResults.any { !it.success } }
-            val memoriesLearned = memoryManager.syncTurn(request.sessionId, request.prompt, finalResponse)
-            val strategiesUpdated = selfImprovementEngine.reflectAndImprove(
-                prompt = request.prompt,
-                success = taskSuccess,
-                turns = turns,
-                pageUrl = browserContext.pageUrl,
-            )
-            val skillsLearned = postTaskSkillLearner?.learnFromTask(
-                prompt = rawPrompt,
-                success = taskSuccess,
-                turns = turns,
-                pageUrl = browserContext.pageUrl,
-            ) ?: 0
-            trajectoryStore.save(
-                sessionId = request.sessionId,
-                taskId = taskId,
-                prompt = request.prompt,
-                success = taskSuccess,
-                turns = turns,
-            )
-
             repository.updateTask(
                 task.copy(status = TaskStatus.COMPLETED, progress = 1f),
                 request.sessionId,
             )
             _progress.value = AgentProgress(AgentPhase.IDLE, budget.used(), maxIterations)
+
+            postTaskLearning.schedule(
+                sessionId = request.sessionId,
+                taskId = taskId,
+                prompt = request.prompt,
+                rawPrompt = rawPrompt,
+                finalResponse = finalResponse,
+                taskSuccess = taskSuccess,
+                turns = turns,
+                pageUrl = browserContext.pageUrl,
+            )
 
             AgentConversationResult(
                 success = true,
@@ -401,9 +389,6 @@ class AgentLoop(
                 actions = toolContext.browserActions,
                 extractedData = toolContext.extractedData,
                 iterationsUsed = budget.used(),
-                memoriesLearned = memoriesLearned,
-                strategiesUpdated = strategiesUpdated,
-                skillsLearned = skillsLearned,
             )
         }.getOrElse { error ->
             trajectoryStore.save(
