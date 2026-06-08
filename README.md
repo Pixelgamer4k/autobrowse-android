@@ -39,7 +39,7 @@ On top of that sits a **browser automation agent**: describe a task in natural l
 | **Corner resize grip** | Minimal arc handle, slightly outside the frame |
 | **3-dot window chrome** | Tap to drag; menu for refresh / maximize / close |
 | **Agent chat bar** | Voice or text — "open 4 affordable sneakers on Amazon" |
-| **Cloud or local LLM** | OpenRouter-compatible API or on-device GGUF models |
+| **Cloud or local LLM** | OpenRouter-compatible API or on-device LiteRT-LM (Gemma 4) |
 | **Skills & memory** | Reusable playbooks that improve over time |
 
 ---
@@ -146,12 +146,20 @@ Use **Test** to verify connectivity, then **Save**.
 
 ### 5. LLM setup — Local on-device (experimental)
 
-For offline or privacy-focused use, download a **GGUF model** directly to your phone. The local path supports CPU/GPU inference backends and HuggingFace downloads (e.g. Gemma variants with vision + tools).
+For offline or privacy-focused use, download a **LiteRT-LM** model (`.litertlm`) directly to your phone. The catalog includes **Gemma 4 E2B** (~2.6 GB, fast) and **Gemma 4 E4B** (~3.7 GB, stronger reasoning) — both support native tool calling and multimodal vision.
 
-> Local models are experimental on mobile — slower and more resource-intensive. Cloud API is strongly recommended for production agent runs.
+| Feature | Detail |
+|---------|--------|
+| Download | One-tap fetch from Hugging Face |
+| Import | Bring your own `.litertlm` file |
+| Context | RAM-aware defaults with slider up to 128K |
+| Backends | CPU (compatible) or GPU (faster) |
+| Storage | Delete downloaded models when done |
+
+> Local models are experimental on mobile — expect slower agent runs than cloud API. A loading indicator appears during download, import, and engine warmup.
 
 <p align="center">
-  <img src="docs/mockups/llm_setup_local.jpg" alt="LLM Setup — Local GGUF model download" width="480"/>
+  <img src="docs/mockups/localllm.jpg" alt="LLM Setup — Local LiteRT-LM Gemma 4 download" width="480"/>
 </p>
 
 ---
@@ -262,10 +270,11 @@ Works with any **OpenAI-compatible** endpoint — OpenRouter, OpenAI, local Lite
 
 ### Local models (experimental)
 
-1. Select **Local (experimental)**.
-2. Pick a model card or **Import .gguf file**.
-3. Choose **CPU** or **GPU** inference backend.
-4. Download, test, and save.
+1. Select **Local**.
+2. Pick **Gemma 4 E2B** or **Gemma 4 E4B**, or **Import** a `.litertlm` file.
+3. Download (or import) and wait for the loading indicator to finish.
+4. Adjust context window and **CPU** / **GPU** backend if needed.
+5. Tap **Test**, then **Continue**.
 
 ---
 
@@ -283,7 +292,7 @@ Install the signed release APK from the [**Releases**](https://github.com/Pixelg
 | `Multiwindow-Autobrowser-debug.apk` | Debug build — testing only |
 | `SHA256SUMS.txt` | Checksums |
 
-Current release: [**v1.1.10**](https://github.com/Pixelgamer4k/autobrowse-android/releases/tag/v1.1.10)
+Current release: [**v1.1.15**](https://github.com/Pixelgamer4k/autobrowse-android/releases/tag/v1.1.15)
 
 ### Latest CI debug build
 
@@ -364,7 +373,7 @@ Prompt assembly follows a **tiered Hermes-inspired structure**: stable identity 
 | Database | Room |
 | Background work | WorkManager |
 | LLM (cloud) | OpenAI-compatible REST |
-| LLM (local) | GGUF via on-device inference |
+| LLM (local) | LiteRT-LM (`litertlm-android`) — Gemma 4 `.litertlm` |
 | CI | GitHub Actions → `assembleDebug` |
 
 ---
@@ -375,7 +384,8 @@ Prompt assembly follows a **tiered Hermes-inspired structure**: stable identity 
 - [ ] Window snap guides and grid alignment
 - [ ] Split-screen preset layouts (2-up, 3-up, 4-up)
 - [ ] Per-window agent focus ("work in this window only")
-- [ ] Improved local model performance on flagship SoCs
+- [ ] Broader LiteRT model catalog beyond Gemma 4
+- [ ] Improved local inference speed on mid-range SoCs
 
 ---
 

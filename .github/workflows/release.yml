@@ -9,7 +9,7 @@ on:
       tag:
         description: "Release tag (e.g. v1.1.11)"
         required: true
-        default: "v1.1.10"
+        default: "v1.1.15"
 
 permissions:
   contents: write
@@ -89,7 +89,11 @@ jobs:
       - name: Write release notes
         run: |
           VERSION="${{ steps.meta.outputs.version }}"
-          cat > release/RELEASE_NOTES.md <<EOF
+          NOTES_FILE=".github/RELEASE_v${VERSION}.md"
+          if [ -f "$NOTES_FILE" ]; then
+            cp "$NOTES_FILE" release/RELEASE_NOTES.md
+          else
+            cat > release/RELEASE_NOTES.md <<EOF
           ## Multiwindow Autobrowser ${VERSION}
 
           Floating multi-window mobile browser with an integrated LLM automation agent.
@@ -107,7 +111,7 @@ jobs:
 
           - Android 8.0+ (API 26+)
           - Internet access for cloud LLM mode
-          - ~500 MB free storage if using local on-device models
+          - ~3–4 GB free storage for optional local Gemma 4 models
 
           ### Install
 
@@ -133,6 +137,7 @@ jobs:
 
           > APKs are built in CI — no local Gradle build required on your device.
           EOF
+          fi
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
