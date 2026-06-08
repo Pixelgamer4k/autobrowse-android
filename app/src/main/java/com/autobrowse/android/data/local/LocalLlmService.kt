@@ -240,7 +240,7 @@ class LocalLlmService(
     }
 
     private fun contextTokens(config: LlmConfig): Int =
-        config.maxTokens.coerceIn(4096, LocalLlmCatalog.MAX_CONTEXT_TOKENS)
+        LocalLlmCatalog.coerceContextTokens(config.localModel, config.maxTokens)
 
     private fun visionBackend(backend: LlmBackend): Backend? = when (backend) {
         LlmBackend.GPU -> Backend.GPU()

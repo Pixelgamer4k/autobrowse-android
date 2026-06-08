@@ -7,16 +7,17 @@ import androidx.security.crypto.MasterKey
 import com.autobrowse.android.domain.model.LlmBackend
 import com.autobrowse.android.domain.model.LlmConfig
 import com.autobrowse.android.domain.model.LlmProvider
+import com.autobrowse.android.domain.model.DeviceContextDefaults
 import com.autobrowse.android.domain.model.LocalLlmCatalog
 import com.autobrowse.android.domain.model.LocalLlmModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class SecureSettingsStore(context: Context) {
+class SecureSettingsStore(private val appContext: Context) {
     private val prefs: SharedPreferences = EncryptedSharedPreferences.create(
-        context,
+        appContext,
         "autobrowse_secure_prefs",
-        MasterKey.Builder(context)
+        MasterKey.Builder(appContext)
             .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
             .build(),
         EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
@@ -24,6 +25,14 @@ class SecureSettingsStore(context: Context) {
     )
 
     suspend fun getLlmConfig(): LlmConfig = withContext(Dispatchers.IO) {
+        val localModel = migrateLocalModel(
+            prefs.getString(KEY_LOCAL_MODEL, LocalLlmModel.GEMMA_4_E2B.name),
+        )
+        val savedTokens = if (prefs.contains(KEY_MAX_TOKENS)) {
+            prefs.getInt(KEY_MAX_TOKENS, LocalLlmCatalog.DEFAULT_CONTEXT_TOKENS)
+        } else {
+            DeviceContextDefaults.defaultContextTokens(appContext, localModel)
+        }
         LlmConfig(
             provider = LlmProvider.valueOf(
                 prefs.getString(KEY_PROVIDER, LlmProvider.REMOTE.name) ?: LlmProvider.REMOTE.name,
@@ -31,16 +40,13 @@ class SecureSettingsStore(context: Context) {
             apiKey = prefs.getString(KEY_API_KEY, "") ?: "",
             apiUrl = prefs.getString(KEY_API_URL, DEFAULT_API_URL) ?: DEFAULT_API_URL,
             modelId = prefs.getString(KEY_MODEL_ID, DEFAULT_MODEL) ?: DEFAULT_MODEL,
-            localModel = migrateLocalModel(
-                prefs.getString(KEY_LOCAL_MODEL, LocalLlmModel.GEMMA_4_E2B.name),
-            ),
+            localModel = localModel,
             backend = migrateBackend(prefs.getString(KEY_BACKEND, LlmBackend.GPU.name)),
             localModelPath = migrateLocalModelPath(
                 prefs.getString(KEY_LOCAL_MODEL_PATH, "") ?: "",
             ),
             temperature = prefs.getFloat(KEY_TEMPERATURE, 0.7f),
-            maxTokens = prefs.getInt(KEY_MAX_TOKENS, LocalLlmCatalog.DEFAULT_CONTEXT_TOKENS)
-                .coerceIn(4096, LocalLlmCatalog.MAX_CONTEXT_TOKENS),
+            maxTokens = LocalLlmCatalog.coerceContextTokens(localModel, savedTokens),
         )
     }
 
@@ -54,7 +60,10 @@ class SecureSettingsStore(context: Context) {
             .putString(KEY_BACKEND, config.backend.name)
             .putString(KEY_LOCAL_MODEL_PATH, config.localModelPath)
             .putFloat(KEY_TEMPERATURE, config.temperature)
-            .putInt(KEY_MAX_TOKENS, config.maxTokens.coerceIn(4096, LocalLlmCatalog.MAX_CONTEXT_TOKENS))
+            .putInt(
+                KEY_MAX_TOKENS,
+                LocalLlmCatalog.coerceContextTokens(config.localModel, config.maxTokens),
+            )
             .apply()
     }
 

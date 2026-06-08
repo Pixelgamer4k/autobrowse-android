@@ -1,6 +1,7 @@
 package com.autobrowse.android.ui.screens
 
 import android.net.Uri
+import androidx.compose.ui.platform.LocalContext
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.BorderStroke
@@ -44,6 +45,7 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Slider
 import androidx.compose.material3.SingleChoiceSegmentedButtonRow
 import androidx.compose.material3.SegmentedButton
 import androidx.compose.material3.SegmentedButtonDefaults
@@ -68,6 +70,8 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import kotlin.math.roundToInt
+import com.autobrowse.android.domain.model.DeviceContextDefaults
 import com.autobrowse.android.domain.model.LocalLlmCatalog
 import com.autobrowse.android.domain.model.LocalLlmModelInfo
 
@@ -101,11 +105,22 @@ fun LlmSetupScreen(
     var localModel by remember(llmConfig) { mutableStateOf(llmConfig.localModel) }
     var backend by remember(llmConfig) { mutableStateOf(llmConfig.backend) }
     var localModelPath by remember(llmConfig) { mutableStateOf(llmConfig.localModelPath) }
+    var contextTokens by remember(llmConfig) {
+        mutableStateOf(
+            LocalLlmCatalog.coerceContextTokens(llmConfig.localModel, llmConfig.maxTokens),
+        )
+    }
+    val appContext = LocalContext.current
+    val deviceRamGb = remember { DeviceContextDefaults.totalRamGb(appContext) }
 
     LaunchedEffect(llmConfig.localModelPath) {
         if (llmConfig.localModelPath.isNotBlank()) {
             localModelPath = llmConfig.localModelPath
         }
+    }
+
+    LaunchedEffect(llmConfig.localModel, llmConfig.maxTokens) {
+        contextTokens = LocalLlmCatalog.coerceContextTokens(llmConfig.localModel, llmConfig.maxTokens)
     }
 
     val importLauncher = rememberLauncherForActivityResult(
@@ -124,7 +139,7 @@ fun LlmSetupScreen(
         localModel = localModel,
         backend = backend,
         localModelPath = localModelPath,
-        maxTokens = LocalLlmCatalog.infoFor(localModel).contextTokens,
+        maxTokens = LocalLlmCatalog.coerceContextTokens(localModel, contextTokens),
     )
 
     val canSubmit = when (provider) {
@@ -209,12 +224,16 @@ fun LlmSetupScreen(
                     localModel = localModel,
                     backend = backend,
                     localModelPath = localModelPath,
+                    contextTokens = contextTokens,
+                    deviceRamGb = deviceRamGb,
                     modelDownload = modelDownload,
                     onLocalModelChange = {
                         localModel = it
                         localModelPath = ""
+                        contextTokens = DeviceContextDefaults.defaultContextTokens(appContext, it)
                     },
                     onBackendChange = { backend = it },
+                    onContextTokensChange = { contextTokens = it },
                     onImport = { importLauncher.launch(arrayOf("*/*")) },
                     onDownload = onDownloadModel,
                     onCancelDownload = onCancelModelDownload,
@@ -356,9 +375,12 @@ private fun LocalLlmSection(
     localModel: LocalLlmModel,
     backend: LlmBackend,
     localModelPath: String,
+    contextTokens: Int,
+    deviceRamGb: Int,
     modelDownload: ModelDownloadState,
     onLocalModelChange: (LocalLlmModel) -> Unit,
     onBackendChange: (LlmBackend) -> Unit,
+    onContextTokensChange: (Int) -> Unit,
     onImport: () -> Unit,
     onDownload: (LocalLlmModel) -> Unit,
     onCancelDownload: () -> Unit,
@@ -427,6 +449,13 @@ private fun LocalLlmSection(
 
         SelectedModelNote(info = selectedInfo)
 
+        ContextWindowControl(
+            model = localModel,
+            contextTokens = contextTokens,
+            deviceRamGb = deviceRamGb,
+            onContextTokensChange = onContextTokensChange,
+        )
+
         HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f))
 
         Row(
@@ -464,7 +493,7 @@ private fun LocalLlmSection(
         }
         val statusText = when {
             localModelPath.isNotBlank() -> {
-                val ctx = selectedInfo.contextTokens / 1024
+                val ctx = contextTokens / 1024
                 "Ready · ${localModelPath.substringAfterLast('/')} · ${ctx}K context"
             }
             else -> "No model downloaded for ${selectedInfo.displayName}"
@@ -476,6 +505,72 @@ private fun LocalLlmSection(
             maxLines = 2,
             overflow = TextOverflow.Ellipsis,
         )
+    }
+}
+
+@Composable
+private fun ContextWindowControl(
+    model: LocalLlmModel,
+    contextTokens: Int,
+    deviceRamGb: Int,
+    onContextTokensChange: (Int) -> Unit,
+) {
+    val bounds = LocalLlmCatalog.contextBounds(model)
+    val recommended = DeviceContextDefaults.defaultContextTokens(deviceRamGb, model)
+    val minK = bounds.first / 1024f
+    val maxK = bounds.last / 1024f
+    val steps = ((bounds.last - bounds.first) / LocalLlmCatalog.CONTEXT_STEP_TOKENS) - 1
+
+    Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Text("Context window", style = MaterialTheme.typography.labelLarge)
+            Text(
+                text = "${contextTokens / 1024}K",
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.primary,
+            )
+        }
+        Slider(
+            value = (contextTokens / 1024f).coerceIn(minK, maxK),
+            onValueChange = { valueK ->
+                onContextTokensChange(
+                    LocalLlmCatalog.coerceContextTokens(
+                        model,
+                        (valueK.roundToInt()) * 1024,
+                    ),
+                )
+            },
+            valueRange = minK..maxK,
+            steps = steps.coerceAtLeast(0),
+        )
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+        ) {
+            Text(
+                text = "${bounds.first / 1024}K",
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            Text(
+                text = "${bounds.last / 1024}K",
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+        CatalogHintLine(
+            text = "Recommended ${recommended / 1024}K for ${deviceRamGb}GB RAM · up to ${bounds.last / 1024}K",
+        )
+        TextButton(
+            onClick = { onContextTokensChange(recommended) },
+            modifier = Modifier.align(Alignment.End),
+        ) {
+            Text("Use recommended", style = MaterialTheme.typography.labelSmall)
+        }
     }
 }
 

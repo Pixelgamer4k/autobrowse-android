@@ -96,14 +96,8 @@ enum class LocalLlmModel {
     GEMMA_4_E2B,
     GEMMA_4_E4B,
     FUNCTIONGEMMA_270M,
-    QWEN3_0_6B,
-    QWEN2_5_1_5B,
-    AGENT_GEMMA,
-    MINICPM5_1B,
-    LOCOOPERATOR_4B,
-    GEMMA4_E2B_UNCENSORED,
-    GEMMA4_VISION_CROP,
-    GEMMA4_KOREAN_AUDIO,
+    QWEN3_5_0_8B,
+    QWEN3_5_2B,
 }
 
 enum class LlmBackend {
@@ -120,7 +114,7 @@ data class LlmConfig(
     val backend: LlmBackend = LlmBackend.GPU,
     val localModelPath: String = "",
     val temperature: Float = 0.7f,
-    val maxTokens: Int = LocalLlmCatalog.DEFAULT_CONTEXT_TOKENS,
+    val maxTokens: Int = LocalLlmCatalog.DEFAULT_CONTEXT_TOKENS, // overridden at runtime by RAM defaults
 ) {
     fun isConfigured(): Boolean = when (provider) {
         LlmProvider.REMOTE ->

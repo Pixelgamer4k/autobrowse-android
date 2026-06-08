@@ -29,6 +29,7 @@ import com.autobrowse.android.domain.model.LearnedStrategy
 import com.autobrowse.android.data.local.ModelDownloadProgress
 import com.autobrowse.android.domain.model.LlmConfig
 import com.autobrowse.android.domain.model.LlmProvider
+import com.autobrowse.android.domain.model.DeviceContextDefaults
 import com.autobrowse.android.domain.model.LocalLlmModel
 import com.autobrowse.android.domain.model.MemoryEntry
 import com.autobrowse.android.domain.model.PendingAttachment
@@ -838,7 +839,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                     provider = LlmProvider.LOCAL,
                     localModel = model,
                     localModelPath = modelPath,
-                    maxTokens = com.autobrowse.android.domain.model.LocalLlmCatalog.infoFor(model).contextTokens,
+                    maxTokens = DeviceContextDefaults.defaultContextTokens(getApplication(), model),
                 )
                 repository.saveLlmConfig(updatedConfig)
                 _uiState.update {
@@ -1009,7 +1010,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                             provider = LlmProvider.LOCAL,
                             localModel = model,
                             localModelPath = modelPath,
-                            maxTokens = com.autobrowse.android.domain.model.LocalLlmCatalog.infoFor(model).contextTokens,
+                            maxTokens = DeviceContextDefaults.defaultContextTokens(getApplication(), model),
                         ),
                         llmConnectionTest = LlmConnectionTestState(
                             message = "Imported ${modelPath.substringAfterLast('/')}",
