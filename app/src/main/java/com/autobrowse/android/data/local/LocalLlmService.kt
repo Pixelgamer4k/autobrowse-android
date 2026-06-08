@@ -221,7 +221,7 @@ class LocalLlmService(
             block(engine)
         }
 
-    private fun primeEngine(config: LlmConfig) {
+    private suspend fun primeEngine(config: LlmConfig) {
         val key = engineCacheKey(config)
         if (primedConfigKey == key) return
         runCatching {
@@ -308,7 +308,7 @@ class LocalLlmService(
                     arguments = parseToolArgs(call.function.arguments),
                 )
             }
-            val contents = dto.content?.takeIf { it.isNotBlank() }?.let { Contents.of(it) } ?: Contents.empty()
+            val contents = dto.content?.takeIf { it.isNotBlank() }?.let { Contents.of(it) } ?: Contents.of("")
             Message.model(contents = contents, toolCalls = toolCalls)
         }
         "tool" -> Message.tool(
