@@ -75,9 +75,14 @@ class SecureSettingsStore(private val appContext: Context) {
         prefs.edit().putStringSet(KEY_ENABLED_SKILLS, skills).apply()
     }
 
-    private fun migrateLocalModel(raw: String?): LocalLlmModel =
-        runCatching { LocalLlmModel.valueOf(raw ?: LocalLlmModel.GEMMA_4_E2B.name) }
-            .getOrDefault(LocalLlmModel.GEMMA_4_E2B)
+    private fun migrateLocalModel(raw: String?): LocalLlmModel {
+        val parsed = runCatching { LocalLlmModel.valueOf(raw ?: "") }.getOrNull()
+        return if (parsed != null && LocalLlmCatalog.models.any { it.model == parsed }) {
+            parsed
+        } else {
+            LocalLlmModel.GEMMA_4_E2B
+        }
+    }
 
     private fun migrateBackend(raw: String?): LlmBackend {
         if (raw.equals("NPU", ignoreCase = true)) return LlmBackend.GPU

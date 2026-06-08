@@ -21,14 +21,11 @@ object DeviceContextDefaults {
 
     fun defaultContextTokens(ramGb: Int, model: LocalLlmModel): Int {
         val bounds = LocalLlmCatalog.contextBounds(model)
-        val recommended = when (model) {
-            LocalLlmModel.FUNCTIONGEMMA_270M -> 8_192
-            else -> when {
-                ramGb >= 24 -> 24_576
-                ramGb >= 16 -> 16_384
-                ramGb >= 12 -> 12_288
-                else -> 8_192
-            }
+        val recommended = when {
+            ramGb >= 24 -> 24_576
+            ramGb >= 16 -> 16_384
+            ramGb >= 12 -> 12_288
+            else -> 8_192
         }
         return recommended.coerceIn(bounds.first, bounds.last)
     }

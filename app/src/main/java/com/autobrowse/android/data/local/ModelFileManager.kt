@@ -139,6 +139,19 @@ class ModelFileManager(private val context: Context) {
     fun isModelDownloaded(model: LocalLlmModel): Boolean =
         modelFileExists(pathFor(model))
 
+    fun deleteModel(model: LocalLlmModel): Boolean {
+        val destination = File(pathFor(model))
+        val partial = File(modelsDir(), "${destination.name}.partial")
+        partial.delete()
+        return destination.delete()
+    }
+
+    fun downloadedModels(): Set<LocalLlmModel> =
+        LocalLlmCatalog.models
+            .map { it.model }
+            .filter { isModelDownloaded(it) }
+            .toSet()
+
     private fun modelsDir(): File = File(context.filesDir, "models").apply { mkdirs() }
 
     private fun formatProgress(downloaded: Long, total: Long?): String {

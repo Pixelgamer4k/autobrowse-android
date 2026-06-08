@@ -30,6 +30,7 @@ import com.autobrowse.android.data.local.ModelDownloadProgress
 import com.autobrowse.android.domain.model.LlmConfig
 import com.autobrowse.android.domain.model.LlmProvider
 import com.autobrowse.android.domain.model.DeviceContextDefaults
+import com.autobrowse.android.domain.model.LocalLlmCatalog
 import com.autobrowse.android.domain.model.LocalLlmModel
 import com.autobrowse.android.domain.model.MemoryEntry
 import com.autobrowse.android.domain.model.PendingAttachment
@@ -67,6 +68,11 @@ data class ModelDownloadState(
     val error: String? = null,
 )
 
+data class LocalModelBusyState(
+    val isBusy: Boolean = false,
+    val message: String? = null,
+)
+
 data class SkillTransferState(
     val message: String? = null,
     val isSuccess: Boolean? = null,
@@ -95,6 +101,8 @@ data class MainUiState(
     val llmSetupFromSettings: Boolean = false,
     val llmConnectionTest: LlmConnectionTestState = LlmConnectionTestState(),
     val modelDownload: ModelDownloadState = ModelDownloadState(),
+    val localModelBusy: LocalModelBusyState = LocalModelBusyState(),
+    val downloadedLocalModels: Set<LocalLlmModel> = emptySet(),
     val skillTransfer: SkillTransferState = SkillTransferState(),
     val error: String? = null,
 )
@@ -130,6 +138,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                     skillConfigs = app.skillRegistry.allSkillConfigs(),
                     enabledSkills = repository.getEnabledSkills(),
                     showLlmSetup = !llmConfig.isConfigured(),
+                    downloadedLocalModels = app.modelFileManager.downloadedModels(),
                     error = setupBannerMessage(llmConfig),
                 )
             }
@@ -793,7 +802,17 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     fun saveLlmConfig(config: LlmConfig) {
         viewModelScope.launch {
-            repository.saveLlmConfig(config)
+            if (config.provider == LlmProvider.LOCAL && config.localModelPath.isNotBlank()) {
+                setLocalModelBusy(true, "Loading model…")
+                try {
+                    repository.saveLlmConfig(config)
+                    llmApi.warmUpLocalModel(config)
+                } finally {
+                    setLocalModelBusy(false)
+                }
+            } else {
+                repository.saveLlmConfig(config)
+            }
             val fromSettings = _uiState.value.llmSetupFromSettings
             _uiState.update {
                 it.copy(
@@ -802,11 +821,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                     showSettings = fromSettings && config.isConfigured(),
                     llmSetupFromSettings = false,
                     llmConnectionTest = LlmConnectionTestState(),
+                    downloadedLocalModels = app.modelFileManager.downloadedModels(),
                     error = setupBannerMessage(config),
                 )
-            }
-            if (config.isConfigured()) {
-                llmApi.warmUpLocalModel(config)
             }
         }
     }
@@ -853,6 +870,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                                 message = "Saved to phone storage.",
                             ),
                         ),
+                        downloadedLocalModels = app.modelFileManager.downloadedModels(),
                         llmConnectionTest = LlmConnectionTestState(
                             message = "Downloaded ${modelPath.substringAfterLast('/')}",
                             isSuccess = true,
@@ -1002,18 +1020,24 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     fun importLocalModel(uri: Uri, model: LocalLlmModel) {
         viewModelScope.launch {
+            setLocalModelBusy(true, "Importing model…")
             try {
                 val modelPath = app.modelFileManager.importModel(uri, model)
+                val updatedConfig = _uiState.value.llmConfig.copy(
+                    provider = LlmProvider.LOCAL,
+                    localModel = model,
+                    localModelPath = modelPath,
+                    maxTokens = DeviceContextDefaults.defaultContextTokens(getApplication(), model),
+                )
+                setLocalModelBusy(true, "Loading model…")
+                llmApi.prepareLocalEngine(updatedConfig)
+                repository.saveLlmConfig(updatedConfig)
                 _uiState.update {
                     it.copy(
-                        llmConfig = it.llmConfig.copy(
-                            provider = LlmProvider.LOCAL,
-                            localModel = model,
-                            localModelPath = modelPath,
-                            maxTokens = DeviceContextDefaults.defaultContextTokens(getApplication(), model),
-                        ),
+                        llmConfig = updatedConfig,
+                        downloadedLocalModels = app.modelFileManager.downloadedModels(),
                         llmConnectionTest = LlmConnectionTestState(
-                            message = "Imported ${modelPath.substringAfterLast('/')}",
+                            message = "Ready · ${modelPath.substringAfterLast('/')}",
                             isSuccess = true,
                         ),
                     )
@@ -1028,6 +1052,38 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                         ),
                     )
                 }
+            } finally {
+                setLocalModelBusy(false)
+            }
+        }
+    }
+
+    fun deleteLocalModel(model: LocalLlmModel) {
+        viewModelScope.launch {
+            app.modelFileManager.deleteModel(model)
+            val current = _uiState.value.llmConfig
+            val clearedPath = if (
+                current.localModel == model &&
+                current.localModelPath.isNotBlank()
+            ) {
+                app.localLlmService.close()
+                ""
+            } else {
+                current.localModelPath
+            }
+            val updated = current.copy(localModelPath = clearedPath)
+            repository.saveLlmConfig(updated)
+            _uiState.update {
+                it.copy(
+                    llmConfig = updated,
+                    downloadedLocalModels = app.modelFileManager.downloadedModels(),
+                    llmConnectionTest = LlmConnectionTestState(
+                        message = "Deleted ${LocalLlmCatalog.infoFor(model).displayName}",
+                        isSuccess = true,
+                    ),
+                    error = if (updated.isConfigured()) null else setupBannerMessage(updated),
+                    showLlmSetup = !updated.isConfigured(),
+                )
             }
         }
     }
@@ -1071,9 +1127,12 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     fun testLlmConnection(config: LlmConfig) {
         viewModelScope.launch {
             val testingMessage = if (config.provider == LlmProvider.LOCAL) {
-                "Loading model and testing ${config.backend.name} backend…"
+                "Loading model…"
             } else {
                 "Testing connection…"
+            }
+            if (config.provider == LlmProvider.LOCAL) {
+                setLocalModelBusy(true, testingMessage)
             }
             _uiState.update {
                 it.copy(
@@ -1105,7 +1164,22 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                         ),
                     )
                 }
+            } finally {
+                if (config.provider == LlmProvider.LOCAL) {
+                    setLocalModelBusy(false)
+                }
             }
+        }
+    }
+
+    private fun setLocalModelBusy(isBusy: Boolean, message: String? = null) {
+        _uiState.update {
+            it.copy(
+                localModelBusy = LocalModelBusyState(
+                    isBusy = isBusy,
+                    message = if (isBusy) message else null,
+                ),
+            )
         }
     }
 

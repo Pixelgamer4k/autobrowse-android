@@ -13,13 +13,14 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-
 import androidx.compose.foundation.relocation.BringIntoViewRequester
 import androidx.compose.foundation.relocation.bringIntoViewRequester
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -28,6 +29,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Download
 import androidx.compose.material.icons.filled.FolderOpen
 import androidx.compose.material.icons.filled.OpenInNew
@@ -37,7 +39,6 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -74,15 +75,14 @@ import kotlin.math.roundToInt
 import com.autobrowse.android.domain.model.DeviceContextDefaults
 import com.autobrowse.android.domain.model.LocalLlmCatalog
 import com.autobrowse.android.domain.model.LocalLlmModelInfo
-
 import com.autobrowse.android.domain.model.LlmBackend
 import com.autobrowse.android.domain.model.LlmConfig
 import com.autobrowse.android.domain.model.LlmProvider
 import com.autobrowse.android.domain.model.LocalLlmModel
-import com.autobrowse.android.domain.model.ToolCallingLevel
-import com.autobrowse.android.domain.model.VisionLevel
 import com.autobrowse.android.ui.LlmConnectionTestState
+import com.autobrowse.android.ui.LocalModelBusyState
 import com.autobrowse.android.ui.ModelDownloadState
+import java.io.File
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class, ExperimentalFoundationApi::class)
 @Composable
@@ -93,8 +93,11 @@ fun LlmSetupScreen(
     onSave: (LlmConfig) -> Unit,
     onImportModel: (Uri, LocalLlmModel) -> Unit,
     onDownloadModel: (LocalLlmModel) -> Unit,
+    onDeleteModel: (LocalLlmModel) -> Unit,
     onCancelModelDownload: () -> Unit,
     modelDownload: ModelDownloadState,
+    localModelBusy: LocalModelBusyState,
+    downloadedModels: Set<LocalLlmModel>,
     onOpenUrl: (String) -> Unit,
     onBack: (() -> Unit)? = null,
 ) {
@@ -113,13 +116,9 @@ fun LlmSetupScreen(
     val appContext = LocalContext.current
     val deviceRamGb = remember { DeviceContextDefaults.totalRamGb(appContext) }
 
-    LaunchedEffect(llmConfig.localModelPath) {
-        if (llmConfig.localModelPath.isNotBlank()) {
-            localModelPath = llmConfig.localModelPath
-        }
-    }
-
-    LaunchedEffect(llmConfig.localModel, llmConfig.maxTokens) {
+    LaunchedEffect(llmConfig.localModel, llmConfig.localModelPath, llmConfig.maxTokens) {
+        localModel = llmConfig.localModel
+        localModelPath = llmConfig.localModelPath
         contextTokens = LocalLlmCatalog.coerceContextTokens(llmConfig.localModel, llmConfig.maxTokens)
     }
 
@@ -149,6 +148,10 @@ fun LlmSetupScreen(
             localModelPath.isNotBlank()
     }
 
+    val isLocalBusy = localModelBusy.isBusy ||
+        modelDownload.isDownloading ||
+        (connectionTest.isTesting && provider == LlmProvider.LOCAL)
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -175,74 +178,112 @@ fun LlmSetupScreen(
                 .padding(padding)
                 .navigationBarsPadding()
                 .imePadding()
-                .padding(horizontal = 24.dp, vertical = 16.dp)
-                .verticalScroll(scrollState),
-            verticalArrangement = Arrangement.spacedBy(16.dp),
+                .padding(horizontal = 20.dp, vertical = 12.dp),
         ) {
-            Text(
-                "Cloud API is recommended for fast, reliable agent runs. Local on-device models are experimental.",
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.75f),
-            )
-
             SingleChoiceSegmentedButtonRow(modifier = Modifier.fillMaxWidth()) {
                 SegmentedButton(
                     selected = provider == LlmProvider.REMOTE,
                     onClick = { provider = LlmProvider.REMOTE },
                     shape = SegmentedButtonDefaults.itemShape(index = 0, count = 2),
                 ) {
-                    Text("Cloud API (recommended)")
+                    Text("Cloud API", style = MaterialTheme.typography.labelLarge)
                 }
                 SegmentedButton(
                     selected = provider == LlmProvider.LOCAL,
                     onClick = { provider = LlmProvider.LOCAL },
                     shape = SegmentedButtonDefaults.itemShape(index = 1, count = 2),
                 ) {
-                    Text("Local (experimental)")
+                    Text("Local", style = MaterialTheme.typography.labelLarge)
                 }
             }
 
+            Spacer(modifier = Modifier.height(12.dp))
+
             when (provider) {
-                LlmProvider.REMOTE -> RemoteLlmSection(
-                    apiKey = apiKey,
-                    apiUrl = apiUrl,
-                    modelId = modelId,
-                    connectionTest = connectionTest,
-                    canSubmit = canSubmit,
-                    onApiKeyChange = { apiKey = it },
-                    onApiUrlChange = { apiUrl = it },
-                    onModelIdChange = { modelId = it },
-                    onTest = { onTestConnection(currentConfig()) },
-                    apiKeyBringIntoView = apiKeyBringIntoView,
-                    apiUrlBringIntoView = apiUrlBringIntoView,
-                    modelIdBringIntoView = modelIdBringIntoView,
-                    onFocused = { requester ->
-                        scope.launch { requester.bringIntoView() }
-                    },
-                )
-                LlmProvider.LOCAL -> LocalLlmSection(
-                    localModel = localModel,
-                    backend = backend,
-                    localModelPath = localModelPath,
-                    contextTokens = contextTokens,
-                    deviceRamGb = deviceRamGb,
-                    modelDownload = modelDownload,
-                    onLocalModelChange = {
-                        localModel = it
-                        localModelPath = ""
-                        contextTokens = DeviceContextDefaults.defaultContextTokens(appContext, it)
-                    },
-                    onBackendChange = { backend = it },
-                    onContextTokensChange = { contextTokens = it },
-                    onImport = { importLauncher.launch(arrayOf("*/*")) },
-                    onDownload = onDownloadModel,
-                    onCancelDownload = onCancelModelDownload,
-                    onOpenUrl = onOpenUrl,
-                    onPathReady = { localModelPath = "" },
+                LlmProvider.REMOTE -> {
+                    Column(
+                        modifier = Modifier
+                            .weight(1f)
+                            .verticalScroll(scrollState),
+                        verticalArrangement = Arrangement.spacedBy(12.dp),
+                    ) {
+                        Text(
+                            "OpenAI-compatible endpoint — credentials stored encrypted on device.",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+                        )
+                        RemoteLlmSection(
+                            apiKey = apiKey,
+                            apiUrl = apiUrl,
+                            modelId = modelId,
+                            connectionTest = connectionTest,
+                            canSubmit = canSubmit,
+                            onApiKeyChange = { apiKey = it },
+                            onApiUrlChange = { apiUrl = it },
+                            onModelIdChange = { modelId = it },
+                            onTest = { onTestConnection(currentConfig()) },
+                            apiKeyBringIntoView = apiKeyBringIntoView,
+                            apiUrlBringIntoView = apiUrlBringIntoView,
+                            modelIdBringIntoView = modelIdBringIntoView,
+                            onFocused = { requester ->
+                                scope.launch { requester.bringIntoView() }
+                            },
+                        )
+                    }
+                }
+                LlmProvider.LOCAL -> {
+                    LocalLlmSection(
+                        modifier = Modifier.weight(1f),
+                        localModel = localModel,
+                        backend = backend,
+                        localModelPath = localModelPath,
+                        contextTokens = contextTokens,
+                        deviceRamGb = deviceRamGb,
+                        modelDownload = modelDownload,
+                        localModelBusy = localModelBusy,
+                        downloadedModels = downloadedModels,
+                        onLocalModelChange = { model ->
+                            localModel = model
+                            localModelPath = if (downloadedModels.contains(model)) {
+                                File(appContext.filesDir, "models/${LocalLlmCatalog.infoFor(model).modelFileName}")
+                                    .takeIf { it.isFile }
+                                    ?.absolutePath
+                                    .orEmpty()
+                            } else {
+                                ""
+                            }
+                            contextTokens = DeviceContextDefaults.defaultContextTokens(appContext, model)
+                        },
+                        onBackendChange = { backend = it },
+                        onContextTokensChange = { contextTokens = it },
+                        onImport = { importLauncher.launch(arrayOf("*/*")) },
+                        onDownload = { model ->
+                            onDownloadModel(model)
+                            localModelPath = ""
+                        },
+                        onDelete = onDeleteModel,
+                        onCancelDownload = onCancelModelDownload,
+                        onOpenUrl = onOpenUrl,
+                        onPathReady = { path -> localModelPath = path },
+                    )
+                }
+            }
+
+            if (provider == LlmProvider.LOCAL && isLocalBusy) {
+                LocalBusyBanner(
+                    message = when {
+                        localModelBusy.isBusy -> localModelBusy.message
+                        modelDownload.isDownloading -> "Downloading ${modelDownload.model?.name ?: "model"}…"
+                        else -> connectionTest.message
+                    } ?: "Loading model…",
+                    showProgress = modelDownload.isDownloading,
+                    downloadProgress = modelDownload.progress.percent,
                 )
             }
 
-            connectionTest.message?.let { message ->
+            connectionTest.message?.takeIf {
+                provider == LlmProvider.REMOTE || !isLocalBusy
+            }?.let { message ->
                 Text(
                     text = message,
                     style = MaterialTheme.typography.bodySmall,
@@ -251,8 +292,12 @@ fun LlmSetupScreen(
                         false -> MaterialTheme.colorScheme.error
                         null -> MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f)
                     },
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
                 )
             }
+
+            Spacer(modifier = Modifier.height(8.dp))
 
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -260,7 +305,7 @@ fun LlmSetupScreen(
             ) {
                 OutlinedButton(
                     onClick = { onTestConnection(currentConfig()) },
-                    enabled = canSubmit && !connectionTest.isTesting,
+                    enabled = canSubmit && !connectionTest.isTesting && !isLocalBusy,
                     modifier = Modifier.weight(1f),
                 ) {
                     if (connectionTest.isTesting) {
@@ -275,11 +320,49 @@ fun LlmSetupScreen(
                 }
                 Button(
                     onClick = { onSave(currentConfig()) },
-                    enabled = canSubmit,
+                    enabled = canSubmit && !isLocalBusy,
                     modifier = Modifier.weight(1f),
                 ) {
                     Text(if (onBack == null) "Continue" else "Save")
                 }
+            }
+        }
+    }
+}
+
+@Composable
+private fun LocalBusyBanner(
+    message: String,
+    showProgress: Boolean,
+    downloadProgress: Float,
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 6.dp)
+            .clip(RoundedCornerShape(8.dp))
+            .background(MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.45f))
+            .padding(horizontal = 12.dp, vertical = 10.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(10.dp),
+    ) {
+        CircularProgressIndicator(
+            modifier = Modifier.size(20.dp),
+            strokeWidth = 2.dp,
+        )
+        Column(modifier = Modifier.weight(1f)) {
+            Text(
+                text = message,
+                style = MaterialTheme.typography.labelMedium,
+                fontWeight = FontWeight.Medium,
+            )
+            if (showProgress && downloadProgress > 0f) {
+                LinearProgressIndicator(
+                    progress = { downloadProgress },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 6.dp),
+                )
             }
         }
     }
@@ -302,11 +385,6 @@ private fun RemoteLlmSection(
     modelIdBringIntoView: BringIntoViewRequester,
     onFocused: (BringIntoViewRequester) -> Unit,
 ) {
-    Text(
-        "OpenAI-compatible endpoint — best experience on mobile. Credentials are stored encrypted on device.",
-        style = MaterialTheme.typography.bodySmall,
-        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
-    )
     FlowRow(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
@@ -367,103 +445,126 @@ private fun RemoteLlmSection(
     }
 }
 
-private enum class ModelCatalogTab { OFFICIAL, COMMUNITY }
-
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun LocalLlmSection(
+    modifier: Modifier = Modifier,
     localModel: LocalLlmModel,
     backend: LlmBackend,
     localModelPath: String,
     contextTokens: Int,
     deviceRamGb: Int,
     modelDownload: ModelDownloadState,
+    localModelBusy: LocalModelBusyState,
+    downloadedModels: Set<LocalLlmModel>,
     onLocalModelChange: (LocalLlmModel) -> Unit,
     onBackendChange: (LlmBackend) -> Unit,
     onContextTokensChange: (Int) -> Unit,
     onImport: () -> Unit,
     onDownload: (LocalLlmModel) -> Unit,
+    onDelete: (LocalLlmModel) -> Unit,
     onCancelDownload: () -> Unit,
     onOpenUrl: (String) -> Unit,
     onPathReady: (String) -> Unit,
 ) {
     val selectedInfo = LocalLlmCatalog.infoFor(localModel)
-    var catalogTab by remember(localModel) {
-        mutableStateOf(
-            if (selectedInfo.isCommunity) ModelCatalogTab.COMMUNITY else ModelCatalogTab.OFFICIAL,
+    val recommended = DeviceContextDefaults.defaultContextTokens(deviceRamGb, localModel)
+    val bounds = LocalLlmCatalog.contextBounds(localModel)
+
+    Column(
+        modifier = modifier.fillMaxWidth(),
+        verticalArrangement = Arrangement.spacedBy(10.dp),
+    ) {
+        Text(
+            "On-device Gemma 4 · experimental · cloud API recommended",
+            style = MaterialTheme.typography.labelSmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            lineHeight = 14.sp,
         )
-    }
-    val visibleModels = when (catalogTab) {
-        ModelCatalogTab.OFFICIAL -> LocalLlmCatalog.officialModels
-        ModelCatalogTab.COMMUNITY -> LocalLlmCatalog.communityModels
-    }
 
-    Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-        CatalogHintLine("Experimental · ~6–10 min/response · cloud API recommended")
-        CatalogHintLine("Needs tool calling · vision recommended · single .litertlm file")
-
-        SingleChoiceSegmentedButtonRow(modifier = Modifier.fillMaxWidth()) {
-            SegmentedButton(
-                selected = catalogTab == ModelCatalogTab.OFFICIAL,
-                onClick = { catalogTab = ModelCatalogTab.OFFICIAL },
-                shape = SegmentedButtonDefaults.itemShape(index = 0, count = 2),
-            ) {
-                Text("Official", style = MaterialTheme.typography.labelLarge)
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            LocalLlmCatalog.models.forEach { info ->
+                CompactModelCard(
+                    info = info,
+                    selected = localModel == info.model,
+                    downloaded = downloadedModels.contains(info.model),
+                    isDownloading = modelDownload.isDownloading && modelDownload.model == info.model,
+                    modifier = Modifier.weight(1f),
+                    onSelect = { onLocalModelChange(info.model) },
+                    onDownload = {
+                        onDownload(info.model)
+                        onPathReady("")
+                    },
+                    onDelete = { onDelete(info.model) },
+                    onOpenPage = { onOpenUrl(info.pageUrl) },
+                )
             }
-            SegmentedButton(
-                selected = catalogTab == ModelCatalogTab.COMMUNITY,
-                onClick = { catalogTab = ModelCatalogTab.COMMUNITY },
-                shape = SegmentedButtonDefaults.itemShape(index = 1, count = 2),
-            ) {
-                Text("Community", style = MaterialTheme.typography.labelLarge)
-            }
-        }
-
-        if (catalogTab == ModelCatalogTab.COMMUNITY) {
-            CatalogHintLine(
-                text = "Third-party builds — unverified weights, safety, and tool behavior.",
-                color = MaterialTheme.colorScheme.tertiary,
-            )
         }
 
         if (modelDownload.isDownloading) {
-            DownloadProgressBlock(
-                modelDownload = modelDownload,
-                onCancelDownload = onCancelDownload,
-            )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text(
+                    modelDownload.progress.message,
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    modifier = Modifier.weight(1f),
+                )
+                TextButton(onClick = onCancelDownload) {
+                    Text("Cancel", style = MaterialTheme.typography.labelSmall)
+                }
+            }
         }
-
-        visibleModels.forEach { info ->
-            LocalModelCard(
-                info = info,
-                selected = localModel == info.model,
-                isDownloading = modelDownload.isDownloading && modelDownload.model == info.model,
-                onSelect = { onLocalModelChange(info.model) },
-                onDownload = {
-                    onDownload(info.model)
-                    onPathReady("")
-                },
-                onOpenPage = { onOpenUrl(info.pageUrl) },
-            )
-        }
-
-        SelectedModelNote(info = selectedInfo)
-
-        ContextWindowControl(
-            model = localModel,
-            contextTokens = contextTokens,
-            deviceRamGb = deviceRamGb,
-            onContextTokensChange = onContextTokensChange,
-        )
-
-        HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f))
 
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            Text("Backend", style = MaterialTheme.typography.labelLarge)
+            Text("Context", style = MaterialTheme.typography.labelMedium)
+            Text(
+                "${contextTokens / 1024}K",
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.primary,
+            )
+        }
+        Slider(
+            value = (contextTokens / 1024f).coerceIn(
+                bounds.first / 1024f,
+                bounds.last / 1024f,
+            ),
+            onValueChange = { valueK ->
+                onContextTokensChange(
+                    LocalLlmCatalog.coerceContextTokens(
+                        localModel,
+                        valueK.roundToInt() * 1024,
+                    ),
+                )
+            },
+            valueRange = (bounds.first / 1024f)..(bounds.last / 1024f),
+            steps = (((bounds.last - bounds.first) / LocalLlmCatalog.CONTEXT_STEP_TOKENS) - 1)
+                .coerceAtLeast(0),
+        )
+        Text(
+            "Recommended ${recommended / 1024}K · ${deviceRamGb}GB RAM",
+            style = MaterialTheme.typography.labelSmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Text("Backend", style = MaterialTheme.typography.labelMedium)
             FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                 LlmBackend.entries.forEach { option ->
                     FilterChip(
@@ -474,188 +575,66 @@ private fun LocalLlmSection(
                 }
             }
         }
-        CatalogHintLine(
-            when (backend) {
-                LlmBackend.CPU -> "CPU — widest compatibility"
-                LlmBackend.GPU -> "GPU — fastest (recommended)"
-            },
-        )
 
-        OutlinedButton(onClick = onImport, modifier = Modifier.fillMaxWidth()) {
-            Icon(Icons.Default.FolderOpen, contentDescription = null, modifier = Modifier.size(18.dp))
-            Text("Import .litertlm", modifier = Modifier.padding(start = 8.dp))
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            OutlinedButton(
+                onClick = onImport,
+                enabled = !localModelBusy.isBusy && !modelDownload.isDownloading,
+                modifier = Modifier.weight(1f),
+            ) {
+                Icon(Icons.Default.FolderOpen, contentDescription = null, modifier = Modifier.size(16.dp))
+                Text("Import", modifier = Modifier.padding(start = 6.dp), style = MaterialTheme.typography.labelMedium)
+            }
+            if (downloadedModels.contains(localModel)) {
+                OutlinedButton(
+                    onClick = { onDelete(localModel) },
+                    enabled = !localModelBusy.isBusy && !modelDownload.isDownloading,
+                    modifier = Modifier.weight(1f),
+                ) {
+                    Icon(Icons.Default.Delete, contentDescription = null, modifier = Modifier.size(16.dp))
+                    Text("Delete", modifier = Modifier.padding(start = 6.dp), style = MaterialTheme.typography.labelMedium)
+                }
+            }
         }
 
-        val statusColor = if (localModelPath.isNotBlank()) {
-            MaterialTheme.colorScheme.primary
-        } else {
-            MaterialTheme.colorScheme.onSurfaceVariant
-        }
         val statusText = when {
             localModelPath.isNotBlank() -> {
-                val ctx = contextTokens / 1024
-                "Ready · ${localModelPath.substringAfterLast('/')} · ${ctx}K context"
+                "Ready · ${selectedInfo.displayName} · ${contextTokens / 1024}K"
             }
-            else -> "No model downloaded for ${selectedInfo.displayName}"
+            downloadedModels.contains(localModel) -> {
+                "Downloaded · tap Test to load"
+            }
+            else -> "No model for ${selectedInfo.displayName}"
         }
         Text(
             text = statusText,
             style = MaterialTheme.typography.labelSmall,
-            color = statusColor,
-            maxLines = 2,
+            color = if (localModelPath.isNotBlank()) {
+                MaterialTheme.colorScheme.primary
+            } else {
+                MaterialTheme.colorScheme.onSurfaceVariant
+            },
+            maxLines = 1,
             overflow = TextOverflow.Ellipsis,
         )
+
+        Spacer(modifier = Modifier.weight(1f))
     }
 }
 
 @Composable
-private fun ContextWindowControl(
-    model: LocalLlmModel,
-    contextTokens: Int,
-    deviceRamGb: Int,
-    onContextTokensChange: (Int) -> Unit,
-) {
-    val bounds = LocalLlmCatalog.contextBounds(model)
-    val recommended = DeviceContextDefaults.defaultContextTokens(deviceRamGb, model)
-    val minK = bounds.first / 1024f
-    val maxK = bounds.last / 1024f
-    val steps = ((bounds.last - bounds.first) / LocalLlmCatalog.CONTEXT_STEP_TOKENS) - 1
-
-    Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            Text("Context window", style = MaterialTheme.typography.labelLarge)
-            Text(
-                text = "${contextTokens / 1024}K",
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.primary,
-            )
-        }
-        Slider(
-            value = (contextTokens / 1024f).coerceIn(minK, maxK),
-            onValueChange = { valueK ->
-                onContextTokensChange(
-                    LocalLlmCatalog.coerceContextTokens(
-                        model,
-                        (valueK.roundToInt()) * 1024,
-                    ),
-                )
-            },
-            valueRange = minK..maxK,
-            steps = steps.coerceAtLeast(0),
-        )
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween,
-        ) {
-            Text(
-                text = "${bounds.first / 1024}K",
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-            Text(
-                text = "${bounds.last / 1024}K",
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-        }
-        CatalogHintLine(
-            text = "Recommended ${recommended / 1024}K for ${deviceRamGb}GB RAM · up to ${bounds.last / 1024}K",
-        )
-        TextButton(
-            onClick = { onContextTokensChange(recommended) },
-            modifier = Modifier.align(Alignment.End),
-        ) {
-            Text("Use recommended", style = MaterialTheme.typography.labelSmall)
-        }
-    }
-}
-
-@Composable
-private fun CatalogHintLine(
-    text: String,
-    color: Color = MaterialTheme.colorScheme.onSurfaceVariant,
-) {
-    Text(
-        text = text,
-        style = MaterialTheme.typography.labelSmall,
-        color = color,
-        lineHeight = 14.sp,
-    )
-}
-
-@Composable
-private fun DownloadProgressBlock(
-    modelDownload: ModelDownloadState,
-    onCancelDownload: () -> Unit,
-) {
-    Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-        Text(
-            text = "Downloading ${modelDownload.model?.name ?: "model"}…",
-            style = MaterialTheme.typography.labelSmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
-        if (modelDownload.progress.percent > 0f) {
-            LinearProgressIndicator(
-                progress = { modelDownload.progress.percent },
-                modifier = Modifier.fillMaxWidth(),
-            )
-        } else {
-            LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
-        }
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            Text(
-                modelDownload.progress.message,
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-                modifier = Modifier.weight(1f),
-            )
-            TextButton(onClick = onCancelDownload) {
-                Text("Cancel", style = MaterialTheme.typography.labelSmall)
-            }
-        }
-    }
-}
-
-@Composable
-private fun SelectedModelNote(info: LocalLlmModelInfo) {
-    val notes = buildList {
-        if (info.isCommunity) add("Community")
-        if (info.vision == VisionLevel.NONE) add("No vision")
-        when (info.toolCalling) {
-            ToolCallingLevel.UNVERIFIED -> add("Tools unverified")
-            ToolCallingLevel.NONE -> add("No tools")
-            ToolCallingLevel.SPECIALIST -> add("Text-only specialist")
-            ToolCallingLevel.NATIVE -> Unit
-        }
-    }
-    if (notes.isEmpty()) return
-
-    Text(
-        text = "${info.displayName} · ${notes.joinToString(" · ")}",
-        style = MaterialTheme.typography.labelSmall,
-        color = MaterialTheme.colorScheme.tertiary,
-        maxLines = 2,
-        overflow = TextOverflow.Ellipsis,
-    )
-}
-
-@Composable
-private fun LocalModelCard(
+private fun CompactModelCard(
     info: LocalLlmModelInfo,
     selected: Boolean,
+    downloaded: Boolean,
     isDownloading: Boolean,
+    modifier: Modifier = Modifier,
     onSelect: () -> Unit,
     onDownload: () -> Unit,
+    onDelete: () -> Unit,
     onOpenPage: () -> Unit,
 ) {
     val borderColor = if (selected) {
@@ -664,126 +643,95 @@ private fun LocalModelCard(
         MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.6f)
     }
     val containerColor = if (selected) {
-        MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.22f)
+        MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.28f)
     } else {
         MaterialTheme.colorScheme.surface
     }
 
     OutlinedCard(
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable(onClick = onSelect),
+        modifier = modifier.clickable(onClick = onSelect),
         border = BorderStroke(if (selected) 1.5.dp else 1.dp, borderColor),
         colors = CardDefaults.outlinedCardColors(containerColor = containerColor),
     ) {
-        Row(
+        Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 12.dp, vertical = 10.dp),
-            verticalAlignment = Alignment.CenterVertically,
+                .padding(horizontal = 10.dp, vertical = 8.dp),
+            verticalArrangement = Arrangement.spacedBy(4.dp),
         ) {
-            Column(
-                modifier = Modifier.weight(1f),
-                verticalArrangement = Arrangement.spacedBy(4.dp),
-            ) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Text(
-                        text = info.displayName,
-                        style = MaterialTheme.typography.bodyMedium,
-                        fontWeight = if (selected) FontWeight.SemiBold else FontWeight.Medium,
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
-                        modifier = Modifier.weight(1f, fill = false),
-                    )
-                    Text(
-                        text = info.sizeLabel,
-                        style = MaterialTheme.typography.labelSmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        modifier = Modifier.padding(start = 8.dp),
-                    )
-                }
+            Text(
+                text = info.displayName,
+                style = MaterialTheme.typography.labelLarge,
+                fontWeight = if (selected) FontWeight.SemiBold else FontWeight.Medium,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
+            Text(
+                text = info.sizeLabel,
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            Text(
+                text = info.description,
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
+            if (downloaded) {
                 Text(
-                    text = info.description,
+                    text = "On device",
                     style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
+                    color = MaterialTheme.colorScheme.primary,
+                    fontSize = 10.sp,
                 )
-                CapabilityBadges(info = info)
             }
-            IconButton(
-                onClick = onDownload,
-                enabled = !isDownloading,
-                modifier = Modifier.size(36.dp),
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.End,
+                verticalAlignment = Alignment.CenterVertically,
             ) {
-                if (isDownloading) {
-                    CircularProgressIndicator(modifier = Modifier.size(18.dp), strokeWidth = 2.dp)
-                } else {
+                if (downloaded) {
+                    IconButton(
+                        onClick = onDelete,
+                        enabled = !isDownloading,
+                        modifier = Modifier.size(28.dp),
+                    ) {
+                        Icon(
+                            Icons.Default.Delete,
+                            contentDescription = "Delete ${info.displayName}",
+                            modifier = Modifier.size(16.dp),
+                            tint = MaterialTheme.colorScheme.error,
+                        )
+                    }
+                }
+                IconButton(
+                    onClick = onDownload,
+                    enabled = !isDownloading,
+                    modifier = Modifier.size(28.dp),
+                ) {
+                    if (isDownloading) {
+                        CircularProgressIndicator(modifier = Modifier.size(14.dp), strokeWidth = 2.dp)
+                    } else {
+                        Icon(
+                            Icons.Default.Download,
+                            contentDescription = "Download ${info.displayName}",
+                            modifier = Modifier.size(16.dp),
+                        )
+                    }
+                }
+                IconButton(
+                    onClick = onOpenPage,
+                    modifier = Modifier.size(28.dp),
+                ) {
                     Icon(
-                        Icons.Default.Download,
-                        contentDescription = "Download ${info.displayName}",
-                        modifier = Modifier.size(20.dp),
+                        Icons.Default.OpenInNew,
+                        contentDescription = "Open on Hugging Face",
+                        modifier = Modifier.size(14.dp),
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
                 }
-            }
-            IconButton(
-                onClick = onOpenPage,
-                modifier = Modifier.size(36.dp),
-            ) {
-                Icon(
-                    Icons.Default.OpenInNew,
-                    contentDescription = "Open on Hugging Face",
-                    modifier = Modifier.size(18.dp),
-                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
             }
         }
     }
-}
-
-@Composable
-private fun CapabilityBadges(info: LocalLlmModelInfo) {
-    Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-        CapabilityBadge(
-            label = when (info.toolCalling) {
-                ToolCallingLevel.NATIVE -> "Tools"
-                ToolCallingLevel.SPECIALIST -> "Tools+"
-                ToolCallingLevel.UNVERIFIED -> "Tools?"
-                ToolCallingLevel.NONE -> "No tools"
-            },
-            tint = when (info.toolCalling) {
-                ToolCallingLevel.NATIVE, ToolCallingLevel.SPECIALIST -> MaterialTheme.colorScheme.primary
-                ToolCallingLevel.UNVERIFIED -> MaterialTheme.colorScheme.tertiary
-                ToolCallingLevel.NONE -> MaterialTheme.colorScheme.error
-            },
-        )
-        CapabilityBadge(
-            label = if (info.vision == VisionLevel.MULTIMODAL) "Vision" else "Text only",
-            tint = if (info.vision == VisionLevel.MULTIMODAL) {
-                MaterialTheme.colorScheme.primary
-            } else {
-                MaterialTheme.colorScheme.onSurfaceVariant
-            },
-        )
-    }
-}
-
-@Composable
-private fun CapabilityBadge(
-    label: String,
-    tint: Color,
-) {
-    Text(
-        text = label,
-        style = MaterialTheme.typography.labelSmall.copy(fontSize = 10.sp),
-        color = tint,
-        modifier = Modifier
-            .clip(RoundedCornerShape(4.dp))
-            .background(tint.copy(alpha = 0.12f))
-            .padding(horizontal = 6.dp, vertical = 2.dp),
-    )
 }

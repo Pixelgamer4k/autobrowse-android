@@ -50,8 +50,11 @@ fun HomeScreen(viewModel: MainViewModel) {
                 onSave = viewModel::saveLlmConfig,
                 onImportModel = viewModel::importLocalModel,
                 onDownloadModel = viewModel::downloadLocalModel,
+                onDeleteModel = viewModel::deleteLocalModel,
                 onCancelModelDownload = viewModel::cancelModelDownload,
                 modelDownload = state.modelDownload,
+                localModelBusy = state.localModelBusy,
+                downloadedModels = state.downloadedLocalModels,
                 onOpenUrl = viewModel::openUrl,
                 onBack = if (state.llmSetupFromSettings) viewModel::closeLlmSetup else null,
             )

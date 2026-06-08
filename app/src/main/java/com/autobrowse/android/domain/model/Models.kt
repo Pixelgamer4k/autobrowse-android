@@ -95,9 +95,6 @@ enum class LlmProvider {
 enum class LocalLlmModel {
     GEMMA_4_E2B,
     GEMMA_4_E4B,
-    FUNCTIONGEMMA_270M,
-    QWEN3_5_0_8B,
-    QWEN3_5_2B,
 }
 
 enum class LlmBackend {
