@@ -12,6 +12,8 @@
 [![Android](https://img.shields.io/badge/Platform-Android%2026%2B-3DDC84?logo=android&logoColor=white)](https://developer.android.com)
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.1-7F52FF?logo=kotlin&logoColor=white)](https://kotlinlang.org)
 [![Jetpack Compose](https://img.shields.io/badge/UI-Jetpack%20Compose-4285F4?logo=jetpackcompose&logoColor=white)](https://developer.android.com/jetpack/compose)
+[![Open Source](https://img.shields.io/badge/Distribution-GitHub%20Releases-181717?logo=github&logoColor=white)](#-roadmap)
+[![Target](https://img.shields.io/badge/Hardware-Flagship%20%26%20Foldables-FF6F00)](#-roadmap)
 
 *A hybrid mobile browser where every tab is a draggable, resizable floating window — powered by an LLM agent that can browse, research, and automate the web for you.*
 
@@ -21,7 +23,7 @@
 
 <br/>
 
-[Features](#-features) · [Screenshots](#-screenshots--walkthrough) · [Architecture](#-architecture) · [LLM Setup](#-llm-setup) · [Build](#-build-from-source) · [Download](#-download)
+[Features](#-features) · [Screenshots](#-screenshots--walkthrough) · [Roadmap](#-roadmap) · [Architecture](#-architecture) · [LLM Setup](#-llm-setup) · [Download](#-download)
 
 </div>
 
@@ -41,6 +43,21 @@ On top of that sits a **browser automation agent**: describe a task in natural l
 | **Agent chat bar** | Voice or text — "open 4 affordable sneakers on Amazon" |
 | **Cloud or local LLM** | OpenRouter-compatible API or on-device LiteRT-LM (Gemma 4) |
 | **Skills & memory** | Reusable playbooks that improve over time |
+
+### Where we're headed
+
+**Open source forever** — APKs on GitHub, no Play Store. **Flagship phones, foldables, and tablets** only: enough RAM for many live WebViews plus optional on-device Gemma 4.
+
+The project is building toward a **desktop-class canvas on mobile**: saved desks, parallel agents per window, cross-window compare, vision over the full canvas, mission verticals (shopping war room, literature lab, travel board), voice control, headless APIs, and community skill packs — not a slimmed-down browser for low-end hardware.
+
+| Horizon | Examples |
+|---------|----------|
+| **Near** | Snap grid, mission layouts, per-window agent scope, trajectory replay, scheduled missions |
+| **Mid** | Canvas vision, research brief export, skill registry, shopping/travel/job verticals, push-to-talk |
+| **Far** | Headless API, MCP bridge, DeX desks, isolated cookie jars, contributor playbook CI |
+| **Moonshot** | Swarm windows, generative desk layouts, agent debates, time-travel browsing |
+
+See the [full roadmap](#-roadmap) (~90 items) — a living map, not a dated promise.
 
 ---
 
@@ -380,18 +397,214 @@ Prompt assembly follows a **tiered Hermes-inspired structure**: stable identity 
 
 ## Roadmap
 
-- [ ] Release signing & Play Store listing
-- [ ] Window snap guides and grid alignment
-- [ ] Split-screen preset layouts (2-up, 3-up, 4-up)
-- [ ] Per-window agent focus ("work in this window only")
-- [ ] Broader LiteRT model catalog beyond Gemma 4
-- [ ] Improved local inference speed on mid-range SoCs
+**Open source forever** — GitHub releases, no Play Store gatekeeping. Built for **flagship phones, foldables, and tablets** with the RAM to run many WebViews plus optional on-device Gemma 4. This is a living map, not a promise schedule. Plain-text copy: [`docs/ROADMAP.md`](docs/ROADMAP.md).
+
+| Horizon | Meaning |
+|---------|---------|
+| **Near** | Next major releases — polish what exists, ship high-impact UX |
+| **Mid** | New subsystems — multi-agent, canvas intelligence, creative outputs |
+| **Far** | Platform bets — APIs, community scale, hardware-specific depth |
+| **Moonshot** | Speculative — worth designing toward, not committing dates |
+
+<details open>
+<summary><b>Near — canvas & window orchestration</b> (12 items)</summary>
+
+<br/>
+
+- [ ] **Snap guides & magnetic grid** — windows align to edges and each other like a desktop WM
+- [ ] **Mission layouts** — one-tap presets (2-up compare, 3-up research, 4-up shop grid) the agent can spawn and fill
+- [ ] **Per-window agent scope** — pin the agent to one window; others stay visible but untouched
+- [ ] **Canvas overview** — bird's-eye minimap of all live windows; tap to focus or drag to rearrange
+- [ ] **Saved workspaces ("desks")** — freeze arrangement + URLs + scroll positions + agent session
+- [ ] **Window groups** — color-coded clusters the agent treats as one mission (e.g. "sources", "candidates", "checkout")
+- [ ] **Z-order lanes** — auto-layer windows by role: foreground work, reference strip, pinned notes
+- [ ] **Corner & edge snap presets** — quarter-screen, half-screen, pillarbox reference column
+- [ ] **Window thumbnails on hover** — peek page content without raising the window
+- [ ] **Session restore on crash** — resurrect every window exactly where you left off
+- [ ] **Foldable inner/outer canvas** — span windows across hinge or dedicate one screen to chat
+- [ ] **Stylus precision mode** — fine click targets and lasso-select regions for the agent to read
+
+</details>
+
+<details>
+<summary><b>Near — agent core upgrades</b> (12 items)</summary>
+
+<br/>
+
+- [ ] **Parallel window agents** — independent sub-agents per window with a coordinator merge step
+- [ ] **Cross-window compare mode** — structured diff table or verdict across N product/article windows
+- [ ] **Action macros → skills** — record taps/scrolls/type paths; export as skill JSON
+- [ ] **Trajectory replay** — scrub agent runs on the canvas with click highlights per step
+- [ ] **Mission templates** — price hunt, literature review, form marathon, competitor scan, job sweep
+- [ ] **Scheduled missions** — WorkManager opens windows, runs agent, pushes notification on completion
+- [ ] **Clarify-on-canvas** — agent points at the exact window/element it needs help with
+- [ ] **Confidence gates** — pause and ask before irreversible actions (purchase, submit, delete)
+- [ ] **Turn budget presets** — "quick glance" vs "deep research" iteration limits per mission
+- [ ] **Smart retry policies** — site-specific backoff when rate-limited or layout-shifted
+- [ ] **Human-in-the-loop checkpoints** — approve next N steps before agent continues
+- [ ] **Multi-session branching** — fork a chat mid-mission without losing the original thread
+
+</details>
+
+<details>
+<summary><b>Mid — multimodal canvas intelligence</b> (11 items)</summary>
+
+<br/>
+
+- [ ] **Vision across windows** — screenshot the full canvas; reason over spatial layout, not one DOM at a time
+- [ ] **Element spotlight** — agent draws transient overlays on what it intends to click
+- [ ] **Before/after capture** — auto snapshot after each tool call for audit and replay
+- [ ] **Video frame strip** — sample keyframes from video tabs into the research brief
+- [ ] **Attachment-aware missions** — drop a PDF/image; agent opens corroborating windows automatically
+- [ ] **OCR fusion** — merge DOM text + vision OCR when sites hide content in canvases or images
+- [ ] **Live synthesis panel** — running notes, citations, price tracker updating as windows change
+- [ ] **Research brief export** — PDF/Markdown dossier from a multi-window session
+- [ ] **Chart & doc pipeline** — tables → matplotlib charts → downloadable artifacts in-app
+- [ ] **Citation graph** — which window supported which claim in the final summary
+- [ ] **Audio briefings** — TTS readout of mission results while you scan windows visually
+
+</details>
+
+<details>
+<summary><b>Mid — skills, memory & self-improvement</b> (11 items)</summary>
+
+<br/>
+
+- [ ] **Skill pack registry** — install community playbooks from GitHub URLs (no account)
+- [ ] **Skill marketplace index** — curated open-source list in-repo, verified by CI smoke tests
+- [ ] **Skill versioning & diff** — upgrade a playbook without breaking learned heuristics
+- [ ] **Strategy tournaments** — A/B two heuristics on the same site; promote the winner automatically
+- [ ] **Site DNA profiles** — auto-built fingerprints per domain (login walls, cookie patterns, search boxes)
+- [ ] **Failure museum** — gallery of past mistakes with "don't do this again" injected into prompts
+- [ ] **Cross-install skill sync** — export/import via QR, file, or local network (no cloud)
+- [ ] **Long-horizon memory** — user prefs, accounts (non-secret), shopping sizes, research topics across months
+- [ ] **Memory inspector** — see what the agent remembers; pin, edit, or forget entries
+- [ ] **Autonomous skill authoring** — post-mission distillation into SKILL.md with human approve step
+- [ ] **Playbook hot-reload** — edit bundled skills on device for power users
+
+</details>
+
+<details>
+<summary><b>Mid — mission verticals</b> (10 items)</summary>
+
+<br/>
+
+- [ ] **Shopping war room** — track price, rating, shipping, return policy across windows; pick a winner
+- [ ] **Literature lab** — abstract → sources → counter-sources → synthesis desk layout
+- [ ] **Travel board** — flights, hotels, maps, reviews tiled; agent negotiates tradeoffs out loud
+- [ ] **Job hunt dashboard** — listings, company research, application forms in grouped windows
+- [ ] **Competitive intel** — feature matrix scraped from rival sites into a living table
+- [ ] **Form bureaucracy mode** — government/visa/insurance multi-page flows with field memory
+- [ ] **Bug repro theater** — reproduce issue in one window, docs/GitHub in others; export repro script
+- [ ] **Recipe & meal planner** — ingredients from multiple stores compared side by side
+- [ ] **Real estate sweep** — listings + map + school data + commute windows
+- [ ] **Election / policy tracker** — news, primary sources, fact-check windows with stance summary
+
+</details>
+
+<details>
+<summary><b>Mid — voice, gestures & ambient control</b> (8 items)</summary>
+
+<br/>
+
+- [ ] **Push-to-talk agent** — hold to speak a mission while hands stay on window drags
+- [ ] **Voice window targeting** — "in the left Amazon window, sort by rating"
+- [ ] **Gesture chords** — two-finger swipe to tile; pinch overview; long-press record macro
+- [ ] **Quick mission launcher** — Android shortcut / widget: "open research desk on {topic}"
+- [ ] **Notification actions** — approve, pause, or steer agent from shade without opening app
+- [ ] **Ambient progress** — persistent notification with step label and ETA during long missions
+- [ ] **Wear OS companion** — pause/resume, voice nudge, haptic checkpoint approvals
+- [ ] **Shake to panic-stop** — instant agent halt and network hold
+
+</details>
+
+<details>
+<summary><b>Far — platform & integrations</b> (9 items)</summary>
+
+<br/>
+
+- [ ] **Headless agent API** — local HTTP/WebSocket for scripts, Tasker, Home Assistant
+- [ ] **Webhook ingress** — "price dropped" URL opens comparison desk and runs agent
+- [ ] **Exportable workspace bundles** — desk + skills + strategies as one JSON archive
+- [ ] **MCP tool bridge** — expose browser tools to external MCP clients on LAN
+- [ ] **OpenAI-compatible local shim** — route other apps' tool calls through Autobrowse windows
+- [ ] **RSS / calendar triggers** — scheduled fetches become morning briefing windows
+- [ ] **Clipboard canvas** — paste a list of URLs; agent spawns and processes each in its own window
+- [ ] **Share-target receiver** — share from Chrome → Autobrowse opens a new window in current desk
+- [ ] **Kotlin embedding SDK** — drop floating browser agent into other open-source Android apps
+
+</details>
+
+<details>
+<summary><b>Far — browser engine & site power</b> (9 items)</summary>
+
+<br/>
+
+- [ ] **Per-window user-agent & locale** — same site, different regions side by side
+- [ ] **Isolated cookie jars per desk** — personal vs work vs research identities
+- [ ] **Reader + snapshot hybrid** — clean article view feeding the agent when DOM is noisy
+- [ ] **PDF tab type** — native in-canvas PDF with highlight tools for agent citation
+- [ ] **Custom CSS injector per site** — strip clutter before agent snapshot (user-toggleable)
+- [ ] **Network log per window** — see XHR failures the agent might miss
+- [ ] **JavaScript console bridge** — agent runs guarded JS snippets for stubborn SPAs
+- [ ] **Download manager desk** — files land in a window; agent summarizes archives
+- [ ] **Tor / proxy per window** — optional privacy lane for sensitive research (power users)
+
+</details>
+
+<details>
+<summary><b>Far — flagship hardware depth</b> (7 items)</summary>
+
+<br/>
+
+- [ ] **GPU-first local inference** — default GPU backend on Tensor / Adreno flagships with thermal guard
+- [ ] **Speculative decoding path** — adopt LiteRT-LM MTP when bundled models support it
+- [ ] **NPU experimental lane** — opt-in Google Tensor / Qualcomm paths when upstream stable
+- [ ] **RAM-adaptive window cap** — dynamically limit open WebViews vs KV cache for local LLM
+- [ ] **120 Hz canvas** — smooth drag/resize on high-refresh panels
+- [ ] **External display desk** — DeX / HDMI: chat on phone, four windows on monitor
+- [ ] **Pen + keyboard desktop mode** — laptop-class layout when docked
+
+</details>
+
+<details>
+<summary><b>Far — community & governance</b> (7 items)</summary>
+
+<br/>
+
+- [ ] **Contributor playbook kit** — templates + CI for site-specific skills via PR
+- [ ] **Public mission cookbook** — user-submitted prompt + desk recipes in `docs/missions/`
+- [ ] **Open regression suite** — recorded trajectories replayed in CI against mock WebViews
+- [ ] **Transparency log** — every agent run exportable as JSON for audit and research
+- [ ] **Plugin ABI (experimental)** — load vetted JAR modules that register tools/skills
+- [ ] **Localization** — UI + prompt packs for non-English agent missions
+- [ ] **Accessibility pass** — TalkBack on chrome; high-contrast window borders; keyboard nav
+
+</details>
+
+<details>
+<summary><b>Moonshot — where this could go</b> (10 items)</summary>
+
+<br/>
+
+- [ ] **Swarm mode** — dozens of micro-windows as a "sensor grid" over the entire web front page
+- [ ] **Generative desk layouts** — describe a research goal; AI designs the window topology for you
+- [ ] **Cross-device handoff** — start desk on tablet, continue on foldable with synced agent state
+- [ ] **Collaborative async desks** — share a read-only canvas replay; friend records voice commentary
+- [ ] **Time-travel browsing** — agent opens archive.org beside live site; diff narrative in synthesis panel
+- [ ] **On-device fine-tune lane** — LoRA skills from your trajectories, exportable, still no cloud
+- [ ] **Agent vs agent debates** — two local models argue across windows until synthesis resolves
+- [ ] **Spatial "mind map" canvas** — windows orbit topics; edges show citation strength
+- [ ] **Live web dashboard builder** — pin extracted metrics; auto-refresh windows on interval
+- [ ] **Additional LiteRT model families** — only when flagship hardware and upstream `.litertlm` bundles mature
+
+</details>
 
 ---
 
 ## Contributing
 
-Issues and pull requests are welcome. Please open an issue before large architectural changes.
+Issues and pull requests are welcome — especially for [roadmap](#-roadmap) items, site-specific skills, and mission templates. Please open an issue before large architectural changes.
 
 1. Fork the repository
 2. Create a feature branch
@@ -412,6 +625,6 @@ This project is provided as-is for personal and educational use. See repository 
 
 <br/>
 
-<sub>Mockups in <code>docs/mockups/</code> · Built with Kotlin & Jetpack Compose · CI builds on every push</sub>
+<sub>Mockups in <code>docs/mockups/</code> · <a href="#-roadmap">Roadmap</a> · Open source on GitHub · Built with Kotlin & Jetpack Compose</sub>
 
 </div>

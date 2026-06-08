@@ -70,3 +70,18 @@ Both APKs are attached directly to this release (not zipped). Checksums are in `
 - API tokens encrypted on device
 - No telemetry or analytics SDK
 - Local model weights remain on your phone
+
+### Roadmap
+
+**Open source forever** — GitHub releases only, no Play Store. Built for **flagship phones, foldables, and tablets** with enough RAM for multi-window browsing and optional on-device Gemma 4.
+
+Full living map (~90 items): [README → Roadmap](https://github.com/Pixelgamer4k/autobrowse-android#-roadmap)
+
+| Horizon | Direction |
+|---------|-----------|
+| **Near** | Snap grid, mission layouts (2-up / 3-up / 4-up), per-window agent scope, saved desks, parallel window agents, cross-window compare, trajectory replay, scheduled missions |
+| **Mid** | Canvas vision, research brief export, live synthesis panel, skill pack registry, strategy tournaments, shopping / literature / travel / job verticals, push-to-talk, gesture chords |
+| **Far** | Headless agent API, MCP bridge, workspace bundles, DeX / external display desks, GPU/NPU LiteRT paths, isolated cookie jars, contributor playbook CI |
+| **Moonshot** | Swarm windows, generative desk layouts, agent debates, time-travel browsing, spatial mind-map canvas |
+
+Contributions welcome — especially roadmap items, site-specific skills, and mission templates.
