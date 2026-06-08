@@ -4,6 +4,7 @@ import android.content.Context
 import android.net.Uri
 import com.autobrowse.android.domain.model.LocalLlmCatalog
 import com.autobrowse.android.domain.model.LocalLlmModel
+import com.autobrowse.android.domain.model.LlmBackend
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
@@ -18,9 +19,13 @@ class ModelFileManager(private val context: Context) {
         .writeTimeout(5, TimeUnit.MINUTES)
         .build()
 
-    suspend fun importModel(uri: Uri, model: LocalLlmModel): String = withContext(Dispatchers.IO) {
-        val info = LocalLlmCatalog.infoFor(model)
-        val destination = File(modelsDir(), info.modelFileName)
+    suspend fun importModel(
+        uri: Uri,
+        model: LocalLlmModel,
+        backend: LlmBackend = LlmBackend.GPU,
+    ): String = withContext(Dispatchers.IO) {
+        val artifact = LocalLlmCatalog.resolveArtifact(model, backend)
+        val destination = File(modelsDir(), artifact.fileName)
         context.contentResolver.openInputStream(uri)?.use { input ->
             destination.outputStream().use { output ->
                 input.copyTo(output)
@@ -31,10 +36,12 @@ class ModelFileManager(private val context: Context) {
 
     suspend fun downloadModel(
         model: LocalLlmModel,
+        backend: LlmBackend,
         onProgress: (ModelDownloadProgress) -> Unit,
     ): String = withContext(Dispatchers.IO) {
         val info = LocalLlmCatalog.infoFor(model)
-        val destination = File(pathFor(model))
+        val artifact = LocalLlmCatalog.resolveArtifact(model, backend)
+        val destination = File(pathFor(model, backend))
 
         if (destination.exists() && destination.length() > 0) {
             onProgress(
@@ -49,11 +56,11 @@ class ModelFileManager(private val context: Context) {
         }
 
         onProgress(
-            ModelDownloadProgress(message = "Downloading ${info.displayName}…"),
+            ModelDownloadProgress(message = "Downloading ${info.displayName} (${artifact.fileName})…"),
         )
 
         downloadFile(
-            url = info.modelDownloadUrl,
+            url = artifact.downloadUrl,
             destination = destination,
             label = info.displayName,
             onProgress = onProgress,
@@ -131,13 +138,15 @@ class ModelFileManager(private val context: Context) {
 
     fun modelFileExists(path: String): Boolean = path.isNotBlank() && File(path).isFile
 
-    fun pathFor(model: LocalLlmModel): String {
-        val info = LocalLlmCatalog.infoFor(model)
-        return File(modelsDir(), info.modelFileName).absolutePath
-    }
+    fun pathFor(model: LocalLlmModel, backend: LlmBackend): String? =
+        runCatching { LocalLlmCatalog.resolveArtifact(model, backend) }
+            .getOrNull()
+            ?.let { artifact -> File(modelsDir(), artifact.fileName).absolutePath }
 
-    fun isModelDownloaded(model: LocalLlmModel): Boolean =
-        modelFileExists(pathFor(model))
+    fun isModelDownloaded(model: LocalLlmModel, backend: LlmBackend): Boolean {
+        val path = pathFor(model, backend) ?: return false
+        return modelFileExists(path)
+    }
 
     private fun modelsDir(): File = File(context.filesDir, "models").apply { mkdirs() }
 

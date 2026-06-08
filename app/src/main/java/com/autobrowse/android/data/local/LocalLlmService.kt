@@ -8,6 +8,7 @@ import com.autobrowse.android.data.remote.LlmCompletion
 import com.autobrowse.android.data.remote.ToolCallDto
 import com.autobrowse.android.data.remote.ToolCallFunctionDto
 import com.autobrowse.android.domain.model.AttachmentPayload
+import com.autobrowse.android.domain.model.DeviceNpuSupport
 import com.autobrowse.android.domain.model.LocalLlmCatalog
 import com.autobrowse.android.domain.model.LlmBackend
 import com.autobrowse.android.domain.model.LlmConfig
@@ -251,6 +252,21 @@ class LocalLlmService(
         if (!modelFileManager.modelFileExists(config.localModelPath)) {
             throw IllegalStateException(
                 "LiteRT model not found. Download a .litertlm file on the setup screen.",
+            )
+        }
+        validateBackendModel(config)
+    }
+
+    private fun validateBackendModel(config: LlmConfig) {
+        if (!DeviceNpuSupport.modelMatchesBackend(config.localModelPath, config.backend)) {
+            val status = LocalLlmCatalog.npuSupportStatus(config.localModel)
+            throw IllegalStateException(
+                when (config.backend) {
+                    LlmBackend.NPU -> status.reason
+                        ?: "NPU requires a SoC-specific .litertlm bundle. Download again with NPU selected."
+                    LlmBackend.CPU, LlmBackend.GPU ->
+                        "Installed model is NPU-only. Download the standard CPU/GPU build or switch backend to NPU."
+                },
             )
         }
     }
