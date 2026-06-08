@@ -7,6 +7,9 @@ on:
     branches: [main, master]
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -43,11 +46,18 @@ jobs:
       - name: Build debug APK
         run: ./gradlew assembleDebug --no-daemon --stacktrace
 
+      - name: Prepare debug APK filename
+        run: |
+          mkdir -p artifacts
+          cp app/build/outputs/apk/debug/app-debug.apk artifacts/Multiwindow-Autobrowser-debug.apk
+          VERSION=$(grep versionName app/build.gradle.kts | head -1 | sed 's/.*"\(.*\)".*/\1/')
+          echo "Built Multiwindow Autobrowser debug APK v${VERSION}"
+
       - name: Upload debug APK
         uses: actions/upload-artifact@v4
         with:
-          name: autobrowse-debug-apk
-          path: app/build/outputs/apk/debug/app-debug.apk
+          name: Multiwindow-Autobrowser-debug
+          path: artifacts/Multiwindow-Autobrowser-debug.apk
           if-no-files-found: error
 
       - name: Upload build reports on failure

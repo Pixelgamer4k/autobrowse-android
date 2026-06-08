@@ -5,6 +5,11 @@ on:
     tags:
       - "v*"
   workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag (e.g. v1.1.11)"
+        required: true
+        default: "v1.1.10"
 
 permissions:
   contents: write
@@ -16,6 +21,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Resolve release tag
+        id: meta
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            TAG="${{ github.event.inputs.tag }}"
+          else
+            TAG="${GITHUB_REF_NAME}"
+          fi
+          VERSION="${TAG#v}"
+          echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
@@ -63,18 +82,66 @@ jobs:
       - name: Prepare release APK filenames
         run: |
           mkdir -p release
-          cp app/build/outputs/apk/debug/app-debug.apk "release/Multiwindow Autobrowser debug.apk"
-          cp app/build/outputs/apk/release/app-release.apk "release/Multiwindow Autobrowser.apk"
-          sha256sum "release/Multiwindow Autobrowser debug.apk" "release/Multiwindow Autobrowser.apk" > release/SHA256SUMS.txt
+          cp app/build/outputs/apk/debug/app-debug.apk release/Multiwindow-Autobrowser-debug.apk
+          cp app/build/outputs/apk/release/app-release.apk release/Multiwindow-Autobrowser.apk
+          sha256sum release/Multiwindow-Autobrowser-debug.apk release/Multiwindow-Autobrowser.apk > release/SHA256SUMS.txt
+
+      - name: Write release notes
+        run: |
+          VERSION="${{ steps.meta.outputs.version }}"
+          cat > release/RELEASE_NOTES.md <<EOF
+          ## Multiwindow Autobrowser ${VERSION}
+
+          Floating multi-window mobile browser with an integrated LLM automation agent.
+
+          ### Downloads
+
+          | APK | Use case |
+          |-----|----------|
+          | **Multiwindow-Autobrowser.apk** | Signed release build — recommended for daily use |
+          | **Multiwindow-Autobrowser-debug.apk** | Debug build — for development and testing |
+
+          Both APKs are attached directly to this release (not zipped). Checksums are in \`SHA256SUMS.txt\`.
+
+          ### Requirements
+
+          - Android 8.0+ (API 26+)
+          - Internet access for cloud LLM mode
+          - ~500 MB free storage if using local on-device models
+
+          ### Install
+
+          1. Download **Multiwindow-Autobrowser.apk** (signed release).
+          2. Allow install from unknown sources if prompted.
+          3. Complete **LLM Setup** on first launch — Cloud API is recommended.
+
+          ### Build info
+
+          | | |
+          |---|---|
+          | Version | ${VERSION} |
+          | Package | \`com.autobrowse.android\` |
+          | Min SDK | 26 |
+          | Target SDK | 35 |
+          | Built on | GitHub Actions (ubuntu-latest) |
+
+          ### Privacy
+
+          - API tokens encrypted on device
+          - No telemetry or analytics SDK
+          - Local model weights remain on your phone
+
+          > APKs are built in CI — no local Gradle build required on your device.
+          EOF
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ github.ref_name }}
-          name: Multiwindow Autobrowser ${{ github.ref_name }}
-          generate_release_notes: false
-          body_path: .github/RELEASE_v1.1.10.md
+          tag_name: ${{ steps.meta.outputs.tag }}
+          name: Multiwindow Autobrowser ${{ steps.meta.outputs.version }}
+          generate_release_notes: true
+          body_path: release/RELEASE_NOTES.md
           files: |
-            release/Multiwindow Autobrowser debug.apk
-            release/Multiwindow Autobrowser.apk
+            release/Multiwindow-Autobrowser.apk
+            release/Multiwindow-Autobrowser-debug.apk
             release/SHA256SUMS.txt

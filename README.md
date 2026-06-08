@@ -271,32 +271,47 @@ Works with any **OpenAI-compatible** endpoint — OpenRouter, OpenAI, local Lite
 
 ## Download
 
-Every push to `main` triggers a CI build. Download the latest debug APK:
+APKs are **built on GitHub Actions** — no local Gradle build required on your phone or low-power machine.
+
+### Latest release (recommended)
+
+Install the signed release APK from the [**Releases**](https://github.com/Pixelgamer4k/autobrowse-android/releases/latest) page:
+
+| File | Description |
+|------|-------------|
+| `Multiwindow-Autobrowser.apk` | Signed release — daily use |
+| `Multiwindow-Autobrowser-debug.apk` | Debug build — testing only |
+| `SHA256SUMS.txt` | Checksums |
+
+Current release: [**v1.1.10**](https://github.com/Pixelgamer4k/autobrowse-android/releases/tag/v1.1.10)
+
+### Latest CI debug build
+
+Every push to `main` also builds a debug APK:
 
 1. Go to [**Actions → Build APK**](https://github.com/Pixelgamer4k/autobrowse-android/actions/workflows/build-apk.yml)
 2. Open the latest successful run
-3. Download the **`autobrowse-debug-apk`** artifact
+3. Download the **`Multiwindow-Autobrowser-debug`** artifact
 4. Install on your Android device (API 26+)
+
+You can also trigger a manual build from the **Run workflow** button on that page.
+
+### Publish a new release
+
+Push a version tag (e.g. `v1.1.11`) or run [**Actions → Release APK**](https://github.com/Pixelgamer4k/autobrowse-android/actions/workflows/release.yml) manually. CI builds both APKs, signs the release build, and publishes them to the Releases tab.
 
 ---
 
-## Build from source
+## Build from source (optional)
 
-### Requirements
-
-- Android Studio Ladybug or newer
-- JDK 17+
-- Android SDK 36
-
-### Commands
+> **Note:** Local builds need a powerful x86_64 machine with Android SDK. If your device cannot run Gradle, use the GitHub Actions workflows above instead.
 
 ```bash
 git clone https://github.com/Pixelgamer4k/autobrowse-android.git
 cd autobrowse-android
-./gradlew assembleDebug
+./gradlew assembleDebug    # debug APK
+./gradlew assembleRelease  # signed release (requires keystore.properties)
 ```
-
-APK output: `app/build/outputs/apk/debug/app-debug.apk`
 
 ---
 
@@ -370,7 +385,7 @@ Issues and pull requests are welcome. Please open an issue before large architec
 
 1. Fork the repository
 2. Create a feature branch
-3. Run `./gradlew assembleDebug` locally
+3. Verify CI passes on GitHub Actions (or run `./gradlew assembleDebug` if you have a capable build machine)
 4. Submit a PR with screenshots for UI changes
 
 ---
