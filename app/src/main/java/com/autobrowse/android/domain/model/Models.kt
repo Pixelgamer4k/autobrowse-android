@@ -100,7 +100,6 @@ enum class LocalLlmModel {
 enum class LlmBackend {
     CPU,
     GPU,
-    NPU,
 }
 
 data class LlmConfig(

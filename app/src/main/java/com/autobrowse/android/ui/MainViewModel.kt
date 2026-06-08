@@ -27,7 +27,6 @@ import com.autobrowse.android.domain.model.withFrame
 import com.autobrowse.android.domain.model.ChatMessage
 import com.autobrowse.android.domain.model.LearnedStrategy
 import com.autobrowse.android.data.local.ModelDownloadProgress
-import com.autobrowse.android.domain.model.LlmBackend
 import com.autobrowse.android.domain.model.LlmConfig
 import com.autobrowse.android.domain.model.LlmProvider
 import com.autobrowse.android.domain.model.LocalLlmModel
@@ -811,7 +810,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun downloadLocalModel(model: LocalLlmModel, backend: LlmBackend) {
+    fun downloadLocalModel(model: LocalLlmModel) {
         modelDownloadJob?.cancel()
         modelDownloadJob = viewModelScope.launch {
             _uiState.update {
@@ -824,7 +823,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 )
             }
             try {
-                val modelPath = app.modelFileManager.downloadModel(model, backend) { progress ->
+                val modelPath = app.modelFileManager.downloadModel(model) { progress ->
                     _uiState.update { state ->
                         state.copy(
                             modelDownload = state.modelDownload.copy(
@@ -838,7 +837,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 val updatedConfig = _uiState.value.llmConfig.copy(
                     provider = LlmProvider.LOCAL,
                     localModel = model,
-                    backend = backend,
                     localModelPath = modelPath,
                     maxTokens = com.autobrowse.android.domain.model.LocalLlmCatalog.infoFor(model).contextTokens,
                 )
@@ -1001,16 +999,15 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun importLocalModel(uri: Uri, model: LocalLlmModel, backend: LlmBackend) {
+    fun importLocalModel(uri: Uri, model: LocalLlmModel) {
         viewModelScope.launch {
             try {
-                val modelPath = app.modelFileManager.importModel(uri, model, backend)
+                val modelPath = app.modelFileManager.importModel(uri, model)
                 _uiState.update {
                     it.copy(
                         llmConfig = it.llmConfig.copy(
                             provider = LlmProvider.LOCAL,
                             localModel = model,
-                            backend = backend,
                             localModelPath = modelPath,
                             maxTokens = com.autobrowse.android.domain.model.LocalLlmCatalog.infoFor(model).contextTokens,
                         ),

@@ -8,7 +8,6 @@ import com.autobrowse.android.data.remote.LlmCompletion
 import com.autobrowse.android.data.remote.ToolCallDto
 import com.autobrowse.android.data.remote.ToolCallFunctionDto
 import com.autobrowse.android.domain.model.AttachmentPayload
-import com.autobrowse.android.domain.model.DeviceNpuSupport
 import com.autobrowse.android.domain.model.LocalLlmCatalog
 import com.autobrowse.android.domain.model.LlmBackend
 import com.autobrowse.android.domain.model.LlmConfig
@@ -208,7 +207,7 @@ class LocalLlmService(
                         modelPath = config.localModelPath,
                         backend = backend,
                         visionBackend = visionBackend(config.backend),
-                        // Gemma .litertlm requires audio on CPU even when text runs on GPU/NPU.
+                        // Gemma .litertlm requires audio on CPU even when text runs on GPU.
                         audioBackend = Backend.CPU(),
                         maxNumTokens = contextTokens(config),
                         cacheDir = context.cacheDir.absolutePath,
@@ -244,7 +243,7 @@ class LocalLlmService(
         config.maxTokens.coerceIn(4096, LocalLlmCatalog.MAX_CONTEXT_TOKENS)
 
     private fun visionBackend(backend: LlmBackend): Backend? = when (backend) {
-        LlmBackend.GPU, LlmBackend.NPU -> Backend.GPU()
+        LlmBackend.GPU -> Backend.GPU()
         LlmBackend.CPU -> Backend.CPU()
     }
 
@@ -252,21 +251,6 @@ class LocalLlmService(
         if (!modelFileManager.modelFileExists(config.localModelPath)) {
             throw IllegalStateException(
                 "LiteRT model not found. Download a .litertlm file on the setup screen.",
-            )
-        }
-        validateBackendModel(config)
-    }
-
-    private fun validateBackendModel(config: LlmConfig) {
-        if (!DeviceNpuSupport.modelMatchesBackend(config.localModelPath, config.backend)) {
-            val status = LocalLlmCatalog.npuSupportStatus(config.localModel)
-            throw IllegalStateException(
-                when (config.backend) {
-                    LlmBackend.NPU -> status.reason
-                        ?: "NPU requires a SoC-specific .litertlm bundle. Download again with NPU selected."
-                    LlmBackend.CPU, LlmBackend.GPU ->
-                        "Installed model is NPU-only. Download the standard CPU/GPU build or switch backend to NPU."
-                },
             )
         }
     }
@@ -448,9 +432,6 @@ class LocalLlmService(
     private fun toBackend(backend: LlmBackend): Backend = when (backend) {
         LlmBackend.CPU -> Backend.CPU()
         LlmBackend.GPU -> Backend.GPU()
-        LlmBackend.NPU -> Backend.NPU(
-            nativeLibraryDir = context.applicationInfo.nativeLibraryDir,
-        )
     }
 
     private class SchemaOnlyOpenApiTool(

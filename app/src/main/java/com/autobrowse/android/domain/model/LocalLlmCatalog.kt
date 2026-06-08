@@ -46,21 +46,4 @@ object LocalLlmCatalog {
 
     fun infoFor(model: LocalLlmModel): LocalLlmModelInfo =
         models.first { it.model == model }
-
-    fun resolveArtifact(model: LocalLlmModel, backend: LlmBackend): LocalLlmModelArtifact {
-        val info = infoFor(model)
-        if (backend != LlmBackend.NPU) {
-            return LocalLlmModelArtifact(
-                fileName = info.modelFileName,
-                downloadUrl = info.modelDownloadUrl,
-                sizeLabel = info.sizeLabel,
-            )
-        }
-
-        return DeviceNpuSupport.resolveNpuArtifact(model)
-            ?: throw IllegalStateException(DeviceNpuSupport.status(model).reason)
-    }
-
-    fun npuSupportStatus(model: LocalLlmModel): NpuSupportStatus =
-        DeviceNpuSupport.status(model)
 }

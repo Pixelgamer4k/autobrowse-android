@@ -34,9 +34,7 @@ class SecureSettingsStore(context: Context) {
             localModel = migrateLocalModel(
                 prefs.getString(KEY_LOCAL_MODEL, LocalLlmModel.GEMMA_4_E2B.name),
             ),
-            backend = LlmBackend.valueOf(
-                prefs.getString(KEY_BACKEND, LlmBackend.GPU.name) ?: LlmBackend.GPU.name,
-            ),
+            backend = migrateBackend(prefs.getString(KEY_BACKEND, LlmBackend.GPU.name)),
             localModelPath = migrateLocalModelPath(
                 prefs.getString(KEY_LOCAL_MODEL_PATH, "") ?: "",
             ),
@@ -71,6 +69,12 @@ class SecureSettingsStore(context: Context) {
     private fun migrateLocalModel(raw: String?): LocalLlmModel =
         runCatching { LocalLlmModel.valueOf(raw ?: LocalLlmModel.GEMMA_4_E2B.name) }
             .getOrDefault(LocalLlmModel.GEMMA_4_E2B)
+
+    private fun migrateBackend(raw: String?): LlmBackend {
+        if (raw.equals("NPU", ignoreCase = true)) return LlmBackend.GPU
+        return runCatching { LlmBackend.valueOf(raw ?: LlmBackend.GPU.name) }
+            .getOrDefault(LlmBackend.GPU)
+    }
 
     private fun migrateLocalModelPath(path: String): String {
         if (path.isBlank()) return ""

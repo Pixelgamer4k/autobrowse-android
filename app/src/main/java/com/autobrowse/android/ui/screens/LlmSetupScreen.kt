@@ -76,8 +76,8 @@ fun LlmSetupScreen(
     connectionTest: LlmConnectionTestState,
     onTestConnection: (LlmConfig) -> Unit,
     onSave: (LlmConfig) -> Unit,
-    onImportModel: (Uri, LocalLlmModel, LlmBackend) -> Unit,
-    onDownloadModel: (LocalLlmModel, LlmBackend) -> Unit,
+    onImportModel: (Uri, LocalLlmModel) -> Unit,
+    onDownloadModel: (LocalLlmModel) -> Unit,
     onCancelModelDownload: () -> Unit,
     modelDownload: ModelDownloadState,
     onOpenUrl: (String) -> Unit,
@@ -101,7 +101,7 @@ fun LlmSetupScreen(
         contract = ActivityResultContracts.OpenDocument(),
     ) { uri ->
         if (uri != null) {
-            onImportModel(uri, localModel, backend)
+            onImportModel(uri, localModel)
         }
     }
 
@@ -205,7 +205,7 @@ fun LlmSetupScreen(
                     },
                     onBackendChange = { backend = it },
                     onImport = { importLauncher.launch(arrayOf("*/*")) },
-                    onDownload = { model -> onDownloadModel(model, backend) },
+                    onDownload = onDownloadModel,
                     onCancelDownload = onCancelModelDownload,
                     onOpenUrl = onOpenUrl,
                     onPathReady = { localModelPath = "" },
@@ -347,7 +347,7 @@ private fun LocalLlmSection(
     onLocalModelChange: (LocalLlmModel) -> Unit,
     onBackendChange: (LlmBackend) -> Unit,
     onImport: () -> Unit,
-    onDownload: (LocalLlmModel, LlmBackend) -> Unit,
+    onDownload: (LocalLlmModel) -> Unit,
     onCancelDownload: () -> Unit,
     onOpenUrl: (String) -> Unit,
     onPathReady: (String) -> Unit,
@@ -378,7 +378,7 @@ private fun LocalLlmSection(
         style = MaterialTheme.typography.titleMedium,
     )
     Text(
-        "Downloads a single .litertlm bundle. CPU/GPU use the standard file; NPU needs a SoC-specific build.",
+        "Downloads a single .litertlm bundle. No separate vision projector required.",
         style = MaterialTheme.typography.bodySmall,
         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
     )
@@ -408,77 +408,41 @@ private fun LocalLlmSection(
         }
     }
 
-    Text("Inference backend", style = MaterialTheme.typography.titleSmall)
-    FlowRow(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
-    ) {
-        val npuStatus = LocalLlmCatalog.npuSupportStatus(localModel)
-        LlmBackend.entries.forEach { option ->
-            val enabled = option != LlmBackend.NPU || npuStatus.supported
-            FilterChip(
-                selected = backend == option,
-                onClick = {
-                    if (enabled) onBackendChange(option)
-                },
-                label = { Text(option.name) },
-                enabled = enabled,
-            )
-        }
-    }
-    val npuStatus = LocalLlmCatalog.npuSupportStatus(localModel)
-    Text(
-        when (backend) {
-            LlmBackend.CPU -> "CPU: widest compatibility."
-            LlmBackend.GPU -> "GPU: fastest text inference (recommended). Audio stays on CPU."
-            LlmBackend.NPU -> {
-                val artifact = npuStatus.artifact
-                if (artifact != null) {
-                    "NPU: ${artifact.fileName} for SoC ${npuStatus.socModel}. Audio stays on CPU."
-                } else {
-                    npuStatus.reason.orEmpty()
-                }
-            }
-        },
-        style = MaterialTheme.typography.bodySmall,
-        color = when {
-            backend == LlmBackend.NPU && !npuStatus.supported ->
-                MaterialTheme.colorScheme.error.copy(alpha = 0.85f)
-            else -> MaterialTheme.colorScheme.onSurface.copy(alpha = 0.65f)
-        },
-    )
-    if (!npuStatus.supported) {
-        Text(
-            npuStatus.reason.orEmpty(),
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.65f),
-        )
-    }
-
-    val downloadArtifact = runCatching {
-        LocalLlmCatalog.resolveArtifact(localModel, backend)
-    }.getOrNull()
     LocalLlmCatalog.models.forEach { info ->
-        val artifact = if (info.model == localModel) {
-            downloadArtifact
-        } else {
-            runCatching { LocalLlmCatalog.resolveArtifact(info.model, backend) }.getOrNull()
-        }
         LocalModelCard(
             info = info,
             selected = localModel == info.model,
             isDownloading = modelDownload.isDownloading && modelDownload.model == info.model,
-            artifactFileName = artifact?.fileName ?: info.modelFileName,
-            artifactSizeLabel = artifact?.sizeLabel ?: info.sizeLabel,
-            downloadEnabled = backend != LlmBackend.NPU || LocalLlmCatalog.npuSupportStatus(info.model).supported,
             onSelect = { onLocalModelChange(info.model) },
             onDownload = {
-                onDownload(info.model, backend)
+                onDownload(info.model)
                 onPathReady("")
             },
             onOpenPage = { onOpenUrl(info.pageUrl) },
         )
     }
+
+    Text("Inference backend", style = MaterialTheme.typography.titleSmall)
+    FlowRow(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        LlmBackend.entries.forEach { option ->
+            FilterChip(
+                selected = backend == option,
+                onClick = { onBackendChange(option) },
+                label = { Text(option.name) },
+            )
+        }
+    }
+    Text(
+        when (backend) {
+            LlmBackend.CPU -> "CPU: widest compatibility."
+            LlmBackend.GPU -> "GPU: fastest text inference (recommended). Audio stays on CPU."
+        },
+        style = MaterialTheme.typography.bodySmall,
+        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.65f),
+    )
 
     OutlinedButton(
         onClick = onImport,
@@ -490,28 +454,11 @@ private fun LocalLlmSection(
 
     when {
         localModelPath.isNotBlank() -> {
-            val modelMatchesBackend = com.autobrowse.android.domain.model.DeviceNpuSupport
-                .modelMatchesBackend(localModelPath, backend)
             Text(
                 text = "Ready: ${localModelPath.substringAfterLast('/')}",
                 style = MaterialTheme.typography.bodySmall,
-                color = if (modelMatchesBackend) {
-                    MaterialTheme.colorScheme.primary
-                } else {
-                    MaterialTheme.colorScheme.error
-                },
+                color = MaterialTheme.colorScheme.primary,
             )
-            if (!modelMatchesBackend) {
-                Text(
-                    text = if (backend == LlmBackend.NPU) {
-                        "This file is not an NPU bundle. Download again with NPU selected."
-                    } else {
-                        "This file is NPU-only. Download the standard build or switch to NPU."
-                    },
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.error,
-                )
-            }
             Text(
                 text = "Context window: ${LocalLlmCatalog.infoFor(localModel).contextTokens / 1024}K tokens",
                 style = MaterialTheme.typography.bodySmall,
@@ -533,9 +480,6 @@ private fun LocalModelCard(
     info: com.autobrowse.android.domain.model.LocalLlmModelInfo,
     selected: Boolean,
     isDownloading: Boolean,
-    artifactFileName: String,
-    artifactSizeLabel: String,
-    downloadEnabled: Boolean,
     onSelect: () -> Unit,
     onDownload: () -> Unit,
     onOpenPage: () -> Unit,
@@ -571,15 +515,15 @@ private fun LocalModelCard(
             ) {
                 Text(info.displayName, style = MaterialTheme.typography.titleSmall)
                 Text(info.description, style = MaterialTheme.typography.bodySmall)
-                Text("Size: $artifactSizeLabel", style = MaterialTheme.typography.bodySmall)
+                Text("Size: ${info.sizeLabel}", style = MaterialTheme.typography.bodySmall)
                 Text(
-                    text = artifactFileName,
+                    text = info.modelFileName,
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
                 )
             }
             Column(horizontalAlignment = Alignment.End) {
-                TextButton(onClick = onDownload, enabled = downloadEnabled && !isDownloading) {
+                TextButton(onClick = onDownload, enabled = !isDownloading) {
                     Icon(Icons.Default.Download, contentDescription = null, modifier = Modifier.size(16.dp))
                     Text(
                         if (isDownloading) "Downloading…" else "Download to phone",
