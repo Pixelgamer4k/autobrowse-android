@@ -77,7 +77,7 @@ object LocalLlmCatalog {
         LocalLlmModelInfo(
             model = LocalLlmModel.GEMMA_4_E2B,
             displayName = "Gemma 4 E2B",
-            description = "Default on-device agent · fast · vision + audio + native tools",
+            description = "Default agent · fast · multimodal",
             sizeLabel = "~2.6 GB",
             pageUrl = GEMMA_E2B,
             modelFileName = "gemma-4-E2B-it.litertlm",
@@ -90,7 +90,7 @@ object LocalLlmCatalog {
         LocalLlmModelInfo(
             model = LocalLlmModel.GEMMA_4_E4B,
             displayName = "Gemma 4 E4B",
-            description = "Stronger reasoning · vision + audio + native tools",
+            description = "Stronger reasoning · multimodal",
             sizeLabel = "~3.7 GB",
             pageUrl = GEMMA_E4B,
             modelFileName = "gemma-4-E4B-it.litertlm",
@@ -103,7 +103,7 @@ object LocalLlmCatalog {
         LocalLlmModelInfo(
             model = LocalLlmModel.FUNCTIONGEMMA_270M,
             displayName = "FunctionGemma 270M",
-            description = "Smallest model · best function-calling accuracy · 1K context · no vision",
+            description = "Best tool accuracy · 1K context",
             sizeLabel = "~289 MB",
             pageUrl = FUNCTIONGEMMA,
             modelFileName = "mobile_actions_q8_ekv1024.litertlm",
@@ -116,7 +116,7 @@ object LocalLlmCatalog {
         LocalLlmModelInfo(
             model = LocalLlmModel.QWEN3_0_6B,
             displayName = "Qwen3 0.6B",
-            description = "Lightweight text model · fast · tool calling may have runtime issues",
+            description = "Lightweight · verify tools on-device",
             sizeLabel = "~475 MB",
             pageUrl = QWEN3_0_6B,
             modelFileName = "qwen3_0_6b_mixed_int4.litertlm",
@@ -129,7 +129,7 @@ object LocalLlmCatalog {
         LocalLlmModelInfo(
             model = LocalLlmModel.QWEN2_5_1_5B,
             displayName = "Qwen2.5 1.5B Instruct",
-            description = "Text-only middleweight backup · Qwen2.5 tool protocol",
+            description = "Text backup · Qwen2.5 protocol",
             sizeLabel = "~1.5 GB",
             pageUrl = QWEN2_5_1_5B,
             modelFileName = "Qwen2.5-1.5B-Instruct_multi-prefill-seq_q8_ekv4096.litertlm",
@@ -143,7 +143,7 @@ object LocalLlmCatalog {
         LocalLlmModelInfo(
             model = LocalLlmModel.AGENT_GEMMA,
             displayName = "Agent Gemma",
-            description = "Gemma 3n E2B fine-tuned for on-device function calling · vision + audio",
+            description = "Gemma 3n agent fine-tune · multimodal",
             sizeLabel = "~3.4 GB",
             pageUrl = AGENT_GEMMA,
             modelFileName = "gemma-3n-E2B-it-agent.litertlm",
@@ -157,7 +157,7 @@ object LocalLlmCatalog {
         LocalLlmModelInfo(
             model = LocalLlmModel.MINICPM5_1B,
             displayName = "MiniCPM5 1B SFT",
-            description = "Long-context text model · XML-style tools in Think variant — standard SFT bundled",
+            description = "Long-context text · verify tools",
             sizeLabel = "~1.0 GB",
             pageUrl = MINICPM5,
             modelFileName = "MiniCPM5-1B-SFT.litertlm",
@@ -171,7 +171,7 @@ object LocalLlmCatalog {
         LocalLlmModelInfo(
             model = LocalLlmModel.LOCOOPERATOR_4B,
             displayName = "LocoOperator 4B",
-            description = "Code exploration agent (Read/Grep/Bash) — not tuned for browser automation",
+            description = "Code agent · not for browsing",
             sizeLabel = "~3.8 GB",
             pageUrl = LOCOOPERATOR,
             modelFileName = "model.litertlm",
@@ -185,7 +185,7 @@ object LocalLlmCatalog {
         LocalLlmModelInfo(
             model = LocalLlmModel.GEMMA4_E2B_UNCENSORED,
             displayName = "Gemma 4 E2B Uncensored",
-            description = "Alternate Gemma 4 E2B tuning · native tools + vision · different safety profile",
+            description = "Alternate tuning · different safety",
             sizeLabel = "~2.4 GB",
             pageUrl = PEPPX_UNCENSORED,
             modelFileName = "gemma-4-E2B-it-Uncensored-MAX.litertlm",
@@ -199,7 +199,7 @@ object LocalLlmCatalog {
         LocalLlmModelInfo(
             model = LocalLlmModel.GEMMA4_VISION_CROP,
             displayName = "Gemma 4 Vision Crop",
-            description = "Vision-focused Gemma 4 derivative · likely native tools",
+            description = "Vision-focused derivative",
             sizeLabel = "~2.5 GB",
             pageUrl = VISION_CROP,
             modelFileName = "model.litertlm",
@@ -213,7 +213,7 @@ object LocalLlmCatalog {
         LocalLlmModelInfo(
             model = LocalLlmModel.GEMMA4_KOREAN_AUDIO,
             displayName = "Gemma 4 Korean + Audio",
-            description = "Korean locale LoRA on Gemma 4 E2B · vision + audio",
+            description = "Korean locale · multimodal",
             sizeLabel = "~2.4 GB",
             pageUrl = KOREAN_AUDIO,
             modelFileName = "gemma-4-E2B-it.litertlm",
