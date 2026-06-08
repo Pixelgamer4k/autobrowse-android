@@ -70,10 +70,17 @@ class PromptBuilder(
         - Search: browser_search (site + query)
         - Navigate: browser_navigate + browser_wait
         - Click/type: browser_snapshot first → browser_click(browser_type) with refs
+        - Multi-window: browser_tab_open (auto-arranges) → browser_window_arrange to refocus/resize
         - Extract: browser_get_links, browser_readability, browser_extract_*
         - Wait: browser_wait_for_text, browser_wait_for_url, browser_wait_for_element
         - Popups: browser_accept_cookies, browser_dismiss_overlays, browser_close_modal
         - Stuck: browser_vision (cloud) or browser_screenshot + browser_execute_js
+
+        ## Multi-Window Layout
+        - Opening 2+ tabs auto-arranges windows (focus tab larger, others smaller)
+        - Use browser_window_arrange(focus_tab_id) after parallel research or product comparison
+        - Use browser_window_focus to bring the important result forward
+        - Use browser_window_list to inspect positions before rearranging
 
         ## Available Tools (${toolNames.size} total)
         ${toolNames.sorted().joinToString(", ")}

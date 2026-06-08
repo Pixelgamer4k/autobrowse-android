@@ -12,6 +12,8 @@ import com.autobrowse.android.browser.AddressBarNavigation
 import com.autobrowse.android.browser.BrowserController
 import com.autobrowse.android.browser.FloatingWindowEngine
 import com.autobrowse.android.browser.TabInfo
+import com.autobrowse.android.browser.WindowArrangement
+import com.autobrowse.android.browser.WindowInfo
 import com.autobrowse.android.domain.model.AgentPhase
 import com.autobrowse.android.domain.model.AgentProgress
 import com.autobrowse.android.domain.model.AutoBrowseRequest
@@ -20,6 +22,7 @@ import com.autobrowse.android.domain.model.BrowserTab
 import com.autobrowse.android.domain.model.BrowserTabStatus
 import com.autobrowse.android.domain.model.BrowserWindowFrame
 import com.autobrowse.android.domain.model.BrowserWindowLayout
+
 import com.autobrowse.android.domain.model.withFrame
 import com.autobrowse.android.domain.model.ChatMessage
 import com.autobrowse.android.domain.model.LearnedStrategy
@@ -115,6 +118,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     init {
         wireTabManager()
+        wireWindowManager()
         viewModelScope.launch {
             val session = repository.createNewSession()
             val llmConfig = repository.getLlmConfig()
@@ -338,6 +342,56 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         commitWindowGeometry(tabId, layout)
     }
 
+    fun arrangeWindowsForAgent(
+        focusTabId: String,
+        tabIds: List<String>? = null,
+        persist: Boolean = true,
+    ): List<WindowInfo> {
+        val ids = (tabIds ?: _uiState.value.tabs.map { it.id })
+            .filter { id -> _uiState.value.tabs.any { it.id == id } }
+        if (ids.isEmpty()) return emptyList()
+
+        val layouts = WindowArrangement.arrange(ids, focusTabId)
+        selectTab(focusTabId)
+
+        _uiState.update { state ->
+            val maxZ = state.tabs.maxOfOrNull { it.zIndex } ?: 0
+            val tabs = state.tabs.map { tab ->
+                when (tab.id) {
+                    focusTabId -> tab.copy(zIndex = maxZ + 1)
+                    in ids -> tab.copy(zIndex = ids.indexOf(tab.id).coerceAtLeast(0))
+                    else -> tab
+                }
+            }
+            state.copy(tabs = tabs)
+        }
+
+        layouts.forEach { (tabId, layout) ->
+            commitWindowGeometry(tabId, layout, persist = false)
+        }
+        if (persist) {
+            ids.forEach { schedulePersist(it) }
+        }
+        return listWindowsForAgent()
+    }
+
+    fun resizeWindowForAgent(
+        tabId: String,
+        widthFraction: Float,
+        offsetX: Float? = null,
+        offsetY: Float? = null,
+    ): WindowInfo {
+        val current = _uiState.value.windowFrames[tabId]?.layout
+            ?: _uiState.value.tabs.find { it.id == tabId }?.layout
+        val layout = WindowArrangement.resize(widthFraction, offsetX, offsetY, current)
+        commitWindowGeometry(tabId, layout)
+        return windowInfoForTab(
+            _uiState.value.tabs.find { it.id == tabId }
+                ?: throw IllegalArgumentException("Tab not found: $tabId"),
+            isActive = _uiState.value.activeTabId == tabId,
+        )
+    }
+
     fun refreshTab(tabId: String) {
         val tab = _uiState.value.tabs.find { it.id == tabId } ?: return
         browserController.loadUrl(tab.url, tabId)
@@ -532,6 +586,28 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         app.tabManager.activeTabIdHandler = { _uiState.value.activeTabId }
     }
 
+    private fun wireWindowManager() {
+        app.windowManager.arrangeHandler = { focusTabId, tabIds ->
+            withContext(Dispatchers.Main) {
+                arrangeWindowsForAgent(focusTabId, tabIds)
+            }
+        }
+        app.windowManager.resizeHandler = { tabId, width, offsetX, offsetY ->
+            withContext(Dispatchers.Main) {
+                resizeWindowForAgent(tabId, width, offsetX, offsetY)
+            }
+        }
+        app.windowManager.focusHandler = { tabId ->
+            withContext(Dispatchers.Main) {
+                selectTab(tabId)
+                val tab = _uiState.value.tabs.find { it.id == tabId }
+                    ?: throw IllegalArgumentException("Tab not found: $tabId")
+                windowInfoForTab(tab, isActive = true)
+            }
+        }
+        app.windowManager.listHandler = { listWindowsForAgent() }
+    }
+
     private suspend fun openTabForAgent(url: String?): TabInfo = withContext(Dispatchers.Main) {
         val session = sessionId ?: throw IllegalStateException("No active session") // used for saveTab
         val index = _uiState.value.tabs.size
@@ -545,14 +621,24 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             layout = BrowserWindowLayout.defaultForIndex(index),
             desktopMode = true,
         )
+        val frame = BrowserWindowFrame.fromTab(tab)
         _uiState.update { state ->
             val frames = FloatingWindowEngine.addFrameForTab(state.windowFrames, tab)
-            state.copy(activeTabId = tab.id, windowFrames = frames)
+            val tabs = if (state.tabs.any { it.id == tab.id }) {
+                state.tabs
+            } else {
+                state.tabs + tab.withFrame(frame)
+            }
+            state.copy(activeTabId = tab.id, windowFrames = frames, tabs = tabs)
         }
         browserController.setActiveTab(tab.id)
         url?.let { browserController.loadUrl(it, tab.id) }
-        val frame = _uiState.value.windowFrames[tab.id] ?: BrowserWindowFrame.fromTab(tab)
-        repository.saveTab(tab.withFrame(frame), session)
+        val savedFrame = _uiState.value.windowFrames[tab.id] ?: frame
+        repository.saveTab(tab.withFrame(savedFrame), session)
+        val tabIds = _uiState.value.tabs.map { it.id }
+        if (tabIds.size >= 2) {
+            arrangeWindowsForAgent(focusTabId = tab.id, tabIds = tabIds)
+        }
         tabToInfo(tab, isActive = true)
     }
 
@@ -593,6 +679,26 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         title = tab.title,
         isActive = isActive,
     )
+
+    private fun listWindowsForAgent(): List<WindowInfo> {
+        val active = _uiState.value.activeTabId
+        return _uiState.value.tabs.map { tab ->
+            windowInfoForTab(tab, isActive = tab.id == active)
+        }
+    }
+
+    private fun windowInfoForTab(tab: BrowserTab, isActive: Boolean): WindowInfo {
+        val frame = _uiState.value.windowFrames[tab.id] ?: BrowserWindowFrame.fromTab(tab)
+        return WindowInfo(
+            tabId = tab.id,
+            title = tab.title,
+            url = tab.url,
+            isActive = isActive,
+            zIndex = tab.zIndex,
+            windowState = frame.windowState,
+            layout = frame.effectiveLayout(),
+        )
+    }
 
     fun sendMessage() {
         val prompt = _uiState.value.chatInput.trim()

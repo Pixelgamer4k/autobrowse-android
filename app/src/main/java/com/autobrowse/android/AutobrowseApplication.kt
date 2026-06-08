@@ -27,6 +27,10 @@ import com.autobrowse.android.agent.tools.BrowserTabCloseTool
 import com.autobrowse.android.agent.tools.BrowserTabListTool
 import com.autobrowse.android.agent.tools.BrowserTabOpenTool
 import com.autobrowse.android.agent.tools.BrowserTabSwitchTool
+import com.autobrowse.android.agent.tools.BrowserWindowArrangeTool
+import com.autobrowse.android.agent.tools.BrowserWindowFocusTool
+import com.autobrowse.android.agent.tools.BrowserWindowListTool
+import com.autobrowse.android.agent.tools.BrowserWindowResizeTool
 import com.autobrowse.android.agent.tools.BrowserTypeTool
 import com.autobrowse.android.agent.tools.BrowserVisionTool
 import com.autobrowse.android.agent.tools.ChartGenerateTool
@@ -55,6 +59,7 @@ import com.autobrowse.android.agent.trajectory.TrajectoryStore
 import com.autobrowse.android.attachments.AttachmentProcessor
 import com.autobrowse.android.attachments.AttachmentStore
 import com.autobrowse.android.browser.AndroidTabManager
+import com.autobrowse.android.browser.AndroidWindowManager
 import com.autobrowse.android.browser.BrowserController
 import com.autobrowse.android.data.local.AutobrowseDatabase
 import com.autobrowse.android.data.local.LocalLlmService
@@ -86,6 +91,9 @@ class AutobrowseApplication : Application(), Configuration.Provider {
         private set
 
     lateinit var tabManager: AndroidTabManager
+        private set
+
+    lateinit var windowManager: AndroidWindowManager
         private set
 
     lateinit var skillRegistry: SkillRegistry
@@ -137,6 +145,7 @@ class AutobrowseApplication : Application(), Configuration.Provider {
         skillRegistry = SkillRegistry(this, repository, llmApi)
         browserController = BrowserController()
         tabManager = AndroidTabManager()
+        windowManager = AndroidWindowManager()
         attachmentStore = AttachmentStore(this)
         attachmentProcessor = AttachmentProcessor(this)
         documentGenerator = DocumentGenerator(this)
@@ -188,6 +197,10 @@ class AutobrowseApplication : Application(), Configuration.Provider {
                 BrowserTabCloseTool(tabManager),
                 BrowserTabSwitchTool(tabManager),
                 BrowserTabListTool(tabManager),
+                BrowserWindowArrangeTool(windowManager),
+                BrowserWindowResizeTool(windowManager),
+                BrowserWindowFocusTool(windowManager),
+                BrowserWindowListTool(windowManager),
                 *BrowserAdvancedTools.createAll(browserController).toTypedArray(),
                 WebFetchTool(skillRegistry, repository),
                 ExtractDataTool(skillRegistry, repository),
@@ -225,6 +238,7 @@ class AutobrowseApplication : Application(), Configuration.Provider {
             selfImprovementEngine = selfImprovementEngine,
             postTaskSkillLearner = postTaskSkillLearner,
             tabManager = tabManager,
+            windowManager = windowManager,
         )
 
         taskOrchestrator = TaskOrchestrator(agentLoop, appScope)

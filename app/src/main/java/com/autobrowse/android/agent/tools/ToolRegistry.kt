@@ -14,6 +14,7 @@ class ToolRegistry(
             "browser_wait",
             "browser_snapshot",
             "browser_tab_list",
+            "browser_window_list",
             "browser_stop",
         )
     }

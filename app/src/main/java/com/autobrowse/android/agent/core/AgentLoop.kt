@@ -5,6 +5,7 @@ import com.autobrowse.android.agent.tools.ToolExecutionContext
 import com.autobrowse.android.agent.tools.ToolRegistry
 import com.autobrowse.android.agent.tools.parseToolArgs
 import com.autobrowse.android.browser.TabManager
+import com.autobrowse.android.browser.WindowManager
 import com.autobrowse.android.domain.model.AttachmentPayload
 import com.autobrowse.android.agent.training.PostTaskSkillLearner
 import com.autobrowse.android.agent.trajectory.SelfImprovementEngine
@@ -48,6 +49,7 @@ class AgentLoop(
     private val selfImprovementEngine: SelfImprovementEngine,
     private val postTaskSkillLearner: PostTaskSkillLearner? = null,
     private val tabManager: TabManager? = null,
+    private val windowManager: WindowManager? = null,
     private val maxIterations: Int = 20,
 ) {
     private val _progress = MutableStateFlow(AgentProgress(AgentPhase.IDLE, 0, maxIterations))
@@ -200,6 +202,7 @@ class AgentLoop(
                 pageText = browserContext.pageText,
                 activeTabId = tabManager?.activeTabId(),
                 tabManager = tabManager,
+                windowManager = windowManager,
             )
 
             var finalResponse: String? = null

@@ -33,11 +33,14 @@ object LocalToolSelector {
 
         val lower = userPrompt.lowercase()
         when {
-            lower.contains("tab") -> selected += setOf(
+            lower.contains("tab") || lower.contains("window") -> selected += setOf(
                 "browser_tab_open",
                 "browser_tab_close",
                 "browser_tab_switch",
                 "browser_tab_list",
+                "browser_window_arrange",
+                "browser_window_focus",
+                "browser_window_list",
             )
             lower.contains("form") || lower.contains("fill") || lower.contains("login") ->
                 selected += setOf("browser_fill", "browser_select_option", "browser_checkbox_toggle")
@@ -46,8 +49,14 @@ object LocalToolSelector {
             lower.contains("skill") -> selected += setOf("skills_list", "skill_view")
             lower.contains("extract") || lower.contains("scrape") -> selected += "extract_data"
             lower.contains("summar") -> selected += "summarize"
-            lower.contains("parallel") || lower.contains("research") ->
-                selected += setOf("run_parallel_tasks", "delegate_task")
+            lower.contains("parallel") || lower.contains("research") ||
+                lower.contains("compare") || lower.contains("side by side") ->
+                selected += setOf(
+                    "run_parallel_tasks",
+                    "delegate_task",
+                    "browser_window_arrange",
+                    "browser_window_list",
+                )
             lower.contains("screenshot") || lower.contains("image") || lower.contains("see") ->
                 selected += setOf("browser_screenshot", "browser_vision")
             lower.contains("wait") -> selected += setOf(

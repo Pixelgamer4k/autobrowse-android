@@ -9,7 +9,9 @@ class BrowserTabOpenTool(
     private val browserController: BrowserController,
 ) : AgentTool {
     override val name = "browser_tab_open"
-    override val description = "Open a new browser tab, optionally navigating to a URL."
+    override val description =
+        "Open a new browser tab, optionally navigating to a URL. " +
+            "When 2+ tabs are open, windows auto-arrange for visibility (focus tab larger)."
     override val parametersJson = """
         {"type":"object","properties":{"url":{"type":"string","description":"Optional URL to load"}}}
     """.trimIndent()
