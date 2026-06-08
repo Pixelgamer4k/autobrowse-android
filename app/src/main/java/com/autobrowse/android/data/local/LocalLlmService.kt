@@ -1,59 +1,58 @@
 package com.autobrowse.android.data.local
 
+import android.content.Context
 import android.util.Base64
+import com.autobrowse.android.agent.tools.parseToolArgs
 import com.autobrowse.android.data.remote.ChatMessageDto
 import com.autobrowse.android.data.remote.LlmCompletion
 import com.autobrowse.android.data.remote.ToolCallDto
 import com.autobrowse.android.data.remote.ToolCallFunctionDto
 import com.autobrowse.android.domain.model.AttachmentPayload
+import com.autobrowse.android.domain.model.LocalLlmCatalog
 import com.autobrowse.android.domain.model.LlmBackend
 import com.autobrowse.android.domain.model.LlmConfig
 import com.autobrowse.android.domain.model.ToolDefinition
-import com.llamatik.library.platform.GenStream
-import com.llamatik.library.platform.LlamaBridge
-import com.llamatik.library.platform.MultimodalBridge
+import com.google.ai.edge.litertlm.Backend
+import com.google.ai.edge.litertlm.Content
+import com.google.ai.edge.litertlm.ConversationConfig
+import com.google.ai.edge.litertlm.Contents
+import com.google.ai.edge.litertlm.Engine
+import com.google.ai.edge.litertlm.EngineConfig
+import com.google.ai.edge.litertlm.Message
+import com.google.ai.edge.litertlm.OpenApiTool
+import com.google.ai.edge.litertlm.SamplerConfig
+import com.google.ai.edge.litertlm.tool
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
-import org.json.JSONArray
 import org.json.JSONObject
 import java.util.concurrent.atomic.AtomicBoolean
 
 class LocalLlmService(
+    private val context: Context,
     private val modelFileManager: ModelFileManager,
 ) {
-    private companion object {
-        const val MAX_LOCAL_PROMPT_CHARS = 6_000
-        const val LOCAL_CONTEXT_LENGTH = 2048
-        const val LOCAL_MAX_OUTPUT_TOKENS = 512
-    }
-
     private val engineMutex = Mutex()
     private val inferenceMutex = Mutex()
+    private var cachedEngine: Engine? = null
     private var cachedConfigKey: String? = null
     private var primedConfigKey: String? = null
     private val generationCancelled = AtomicBoolean(false)
 
-    /**
-     * Abort in-flight native generation and reset KV state so the next prompt can run safely.
-     */
     fun cancelActiveGeneration() {
         generationCancelled.set(true)
-        runCatching { LlamaBridge.nativeCancelGenerate() }
-        runCatching { LlamaBridge.sessionReset() }
-        runCatching { MultimodalBridge.release() }
     }
 
     suspend fun warmUp(config: LlmConfig) = prepareEngine(config)
 
-    /** Load model weights and run a 1-token prime so the first user prompt is not paying cold-start cost. */
     suspend fun prepareEngine(config: LlmConfig) = withContext(Dispatchers.IO) {
-        if (!config.localModelPath.isNotBlank() || !config.localMmprojPath.isNotBlank()) return@withContext
+        if (config.localModelPath.isBlank()) return@withContext
         inferenceMutex.withLock {
             runCatching {
-                requireModelFiles(config)
+                requireModelFile(config)
                 ensureEngine(config)
                 primeEngine(config)
             }
@@ -61,18 +60,10 @@ class LocalLlmService(
     }
 
     suspend fun testConnection(config: LlmConfig): String = withContext(Dispatchers.IO) {
-        requireModelFiles(config)
-        runInference {
-            ensureEngine(config)
-            val response = generateFromMessages(
-                config = config,
-                systemPrompt = "You are a helpful assistant.",
-                messages = listOf(ChatMessageDto(role = "user", content = "Reply with OK.")),
-                tools = emptyList(),
-                attachmentPayload = AttachmentPayload(),
-                compactTools = true,
-            )
-            val text = response.content.orEmpty()
+        requireModelFile(config)
+        withConversation(config) { conversation ->
+            val response = conversation.sendMessage("Reply with OK.")
+            val text = messageText(response).orEmpty()
             if (text.isNotBlank()) {
                 "Connected on ${config.backend.name} — model replied: ${text.take(80)}"
             } else {
@@ -90,21 +81,33 @@ class LocalLlmService(
         onTokenDelta: ((String) -> Unit)? = null,
         compactTools: Boolean = false,
     ): LlmCompletion = withContext(Dispatchers.IO) {
-        requireModelFiles(config)
+        requireModelFile(config)
         if (messages.isEmpty()) {
             throw IllegalStateException("No messages to send.")
         }
+
+        val knownToolNames = tools.map { it.name }.toSet()
+        val (history, outgoing) = resolveConversationTurn(messages, attachmentPayload)
+
         runInference {
-            ensureEngine(config)
-            generateFromMessages(
-                config,
-                systemPrompt,
-                messages,
-                tools,
-                attachmentPayload,
-                onTokenDelta,
-                compactTools,
-            )
+            withConversation(
+                config = config,
+                systemPrompt = systemPrompt,
+                history = history,
+                tools = tools,
+            ) { conversation ->
+                if (onTokenDelta != null) {
+                    messageToCompletion(
+                        response = streamMessage(conversation, outgoing, onTokenDelta),
+                        knownToolNames = knownToolNames,
+                    )
+                } else {
+                    messageToCompletion(
+                        response = conversation.sendMessage(outgoing),
+                        knownToolNames = knownToolNames,
+                    )
+                }
+            }
         }
     }
 
@@ -124,8 +127,10 @@ class LocalLlmService(
 
     fun close() {
         cancelActiveGeneration()
-        LlamaBridge.shutdown()
+        cachedEngine?.close()
+        cachedEngine = null
         cachedConfigKey = null
+        primedConfigKey = null
     }
 
     private suspend fun <T> runInference(block: suspend () -> T): T = inferenceMutex.withLock {
@@ -135,313 +140,208 @@ class LocalLlmService(
         } catch (e: CancellationException) {
             cancelActiveGeneration()
             throw e
-        } finally {
-            runCatching { LlamaBridge.sessionReset() }
         }
     }
 
-    private suspend fun generateFromMessages(
-        config: LlmConfig,
-        systemPrompt: String,
-        messages: List<ChatMessageDto>,
-        tools: List<ToolDefinition>,
-        attachmentPayload: AttachmentPayload,
-        onTokenDelta: ((String) -> Unit)? = null,
-        compactTools: Boolean = false,
-    ): LlmCompletion {
-        runCatching { LlamaBridge.sessionReset() }
-
-        val enrichedSystem = augmentSystemPrompt(systemPrompt, tools, compactTools)
-        val visionContext = analyzeVisionContext(config, messages, attachmentPayload)
-        val promptMessages = buildPromptMessages(messages, visionContext)
-        val templated = LlamaBridge.applyChatTemplate(
-            messages = listOf("system" to enrichedSystem) + promptMessages,
-            addAssistantPrefix = true,
-        ) ?: fallbackPrompt(enrichedSystem, promptMessages)
-        val prompt = capPrompt(templated, compactTools)
-
-        val rawText = if (onTokenDelta != null) {
-            generateStream(prompt, onTokenDelta)
-        } else {
-            generateBlocking(prompt)
-        }
-        return parseCompletion(rawText, tools.map { it.name }.toSet())
-    }
-
-    private fun generateBlocking(prompt: String): String {
-        if (generationCancelled.get()) throw CancellationException("Generation cancelled")
-        return LlamaBridge.generate(prompt)
-    }
-
-    private fun generateStream(prompt: String, onTokenDelta: (String) -> Unit): String {
-        val builder = StringBuilder()
-        val latch = java.util.concurrent.CountDownLatch(1)
-        var error: String? = null
-
-        LlamaBridge.generateStream(
-            prompt,
-            object : GenStream {
-                override fun onDelta(text: String) {
-                    if (generationCancelled.get()) return
-                    builder.append(text)
-                    onTokenDelta(text)
-                }
-
-                override fun onComplete() {
-                    latch.countDown()
-                }
-
-                override fun onError(message: String) {
-                    error = message
-                    latch.countDown()
-                }
-            },
-        )
-
-        latch.await()
-        if (generationCancelled.get()) {
-            throw CancellationException("Generation cancelled")
-        }
-        error?.let { throw IllegalStateException("Local model stream failed: $it") }
-        return builder.toString()
-    }
-
-    private fun analyzeVisionContext(
-        config: LlmConfig,
-        messages: List<ChatMessageDto>,
-        attachmentPayload: AttachmentPayload,
-    ): String? {
-        val imageBytes = firstImageBytes(attachmentPayload) ?: return null
-        val userPrompt = messages.lastOrNull { it.role == "user" }?.content.orEmpty()
-        val analysisPrompt = buildString {
-            append("Describe this image briefly for a browser agent. ")
-            append("List UI elements, text, and links.")
-            if (userPrompt.isNotBlank()) {
-                append("\nTask: ")
-                append(userPrompt.take(200))
+    private suspend fun streamMessage(
+        conversation: com.google.ai.edge.litertlm.Conversation,
+        outgoing: Message,
+        onTokenDelta: (String) -> Unit,
+    ): Message {
+        var lastMessage: Message? = null
+        var previousText = ""
+        conversation.sendMessageAsync(outgoing)
+            .catch { error ->
+                if (!generationCancelled.get()) throw error
             }
-        }
-        return runBlockingVisionAnalysis(config, imageBytes, analysisPrompt)
+            .collect { chunk ->
+                if (generationCancelled.get()) {
+                    throw CancellationException("Generation cancelled")
+                }
+                lastMessage = chunk
+                val fullText = messageText(chunk).orEmpty()
+                if (fullText.length > previousText.length) {
+                    val delta = fullText.substring(previousText.length)
+                    if (delta.isNotEmpty()) onTokenDelta(delta)
+                    previousText = fullText
+                }
+            }
+        return lastMessage ?: throw IllegalStateException("Local model stream returned no message.")
     }
 
-    private fun runBlockingVisionAnalysis(
+    private suspend fun <T> withConversation(
         config: LlmConfig,
-        imageBytes: ByteArray,
-        prompt: String,
-    ): String? = try {
-        MultimodalBridge.release()
-        val visionReady = MultimodalBridge.initModel(config.localModelPath, config.localMmprojPath)
-        if (!visionReady) return null
-
-        val builder = StringBuilder()
-        val latch = java.util.concurrent.CountDownLatch(1)
-        var error: String? = null
-        MultimodalBridge.analyzeImageBytesStream(
-            imageBytes = imageBytes,
-            prompt = prompt,
-            callback = object : GenStream {
-                override fun onDelta(text: String) {
-                    if (generationCancelled.get()) return
-                    builder.append(text)
-                }
-
-                override fun onComplete() {
-                    latch.countDown()
-                }
-
-                override fun onError(message: String) {
-                    error = message
-                    latch.countDown()
-                }
-            },
-        )
-        latch.await()
-        MultimodalBridge.release()
-        if (generationCancelled.get()) return null
-        error?.let { return null }
-        builder.toString().trim().ifBlank { null }?.take(1500)
-    } catch (_: Exception) {
-        MultimodalBridge.release()
-        null
+        systemPrompt: String = "You are a helpful assistant.",
+        history: List<Message> = emptyList(),
+        tools: List<ToolDefinition> = emptyList(),
+        block: suspend (com.google.ai.edge.litertlm.Conversation) -> T,
+    ): T = withEngine(config) { engine ->
+        val toolProviders = tools.map { definition -> tool(SchemaOnlyOpenApiTool(definition)) }
+        engine.createConversation(
+            ConversationConfig(
+                systemInstruction = Contents.of(systemPrompt),
+                initialMessages = history,
+                tools = toolProviders,
+                automaticToolCalling = false,
+                samplerConfig = SamplerConfig(
+                    topK = 40,
+                    topP = 0.95,
+                    temperature = config.temperature.coerceIn(0.2f, 1.0f).toDouble(),
+                ),
+            ),
+        ).use { conversation ->
+            block(conversation)
+        }
     }
 
-    private suspend fun ensureEngine(config: LlmConfig) = engineMutex.withLock {
-        val key = engineCacheKey(config)
-        if (cachedConfigKey == key) return@withLock
-
-        LlamaBridge.shutdown()
-
-        val gpuLayers = when (config.backend) {
-            LlmBackend.CPU -> 0
-            LlmBackend.GPU -> -1
-            LlmBackend.NPU -> 0
+    private suspend fun <T> withEngine(config: LlmConfig, block: suspend (Engine) -> T): T =
+        engineMutex.withLock {
+            val key = engineCacheKey(config)
+            val engine = if (cachedConfigKey == key && cachedEngine != null) {
+                cachedEngine!!
+            } else {
+                cachedEngine?.close()
+                val backend = toBackend(config.backend)
+                val created = Engine(
+                    EngineConfig(
+                        modelPath = config.localModelPath,
+                        backend = backend,
+                        visionBackend = visionBackend(config.backend),
+                        audioBackend = backend,
+                        maxNumTokens = contextTokens(config),
+                        cacheDir = context.cacheDir.absolutePath,
+                    ),
+                )
+                created.initialize()
+                cachedEngine = created
+                cachedConfigKey = key
+                primedConfigKey = null
+                created
+            }
+            block(engine)
         }
-
-        // Params must be set before init — contextLength/batch/gpuLayers apply at load time.
-        LlamaBridge.updateGenerateParams(
-            temperature = config.temperature.coerceIn(0.4f, 0.9f),
-            maxTokens = config.maxTokens.coerceIn(128, LOCAL_MAX_OUTPUT_TOKENS),
-            topP = 0.8f,
-            topK = 20,
-            repeatPenalty = 1.05f,
-            contextLength = LOCAL_CONTEXT_LENGTH,
-            numThreads = Runtime.getRuntime().availableProcessors().coerceIn(2, 4),
-            useMmap = true,
-            flashAttention = false,
-            batchSize = 64,
-            gpuLayers = gpuLayers,
-        )
-
-        val modelReady = LlamaBridge.initGenerateModel(config.localModelPath)
-        if (!modelReady) {
-            throw IllegalStateException("Failed to load GGUF model at ${config.localModelPath}")
-        }
-
-        cachedConfigKey = key
-        primedConfigKey = null
-    }
 
     private fun primeEngine(config: LlmConfig) {
         val key = engineCacheKey(config)
         if (primedConfigKey == key) return
         runCatching {
-            LlamaBridge.sessionReset()
-            LlamaBridge.generate("OK")
-            LlamaBridge.sessionReset()
+            withEngine(config) { engine ->
+                engine.createConversation().use { conversation ->
+                    conversation.sendMessage("OK")
+                }
+            }
         }
         primedConfigKey = key
     }
 
-    private fun capPrompt(prompt: String, compact: Boolean): String {
-        if (!compact || prompt.length <= MAX_LOCAL_PROMPT_CHARS) return prompt
-        return prompt.take(MAX_LOCAL_PROMPT_CHARS)
+    private suspend fun ensureEngine(config: LlmConfig) {
+        withEngine(config) { }
     }
 
-    private fun requireModelFiles(config: LlmConfig) {
+    private fun contextTokens(config: LlmConfig): Int =
+        config.maxTokens.coerceIn(4096, LocalLlmCatalog.MAX_CONTEXT_TOKENS)
+
+    private fun visionBackend(backend: LlmBackend): Backend? = when (backend) {
+        LlmBackend.GPU, LlmBackend.NPU -> Backend.GPU()
+        LlmBackend.CPU -> Backend.CPU()
+    }
+
+    private fun requireModelFile(config: LlmConfig) {
         if (!modelFileManager.modelFileExists(config.localModelPath)) {
             throw IllegalStateException(
-                "GGUF model not found. Download a Q4 vision model on the setup screen.",
-            )
-        }
-        if (!modelFileManager.modelFileExists(config.localMmprojPath)) {
-            throw IllegalStateException(
-                "Vision projector (mmproj) not found. Download the full model bundle on the setup screen.",
+                "LiteRT model not found. Download a .litertlm file on the setup screen.",
             )
         }
     }
 
     private fun engineCacheKey(config: LlmConfig): String =
-        "${config.localModelPath}|${config.localMmprojPath}|${config.backend}"
+        "${config.localModelPath}|${config.backend}|${config.localModel}|${contextTokens(config)}"
 
-    private fun augmentSystemPrompt(
-        base: String,
-        tools: List<ToolDefinition>,
-        compact: Boolean,
-    ): String {
-        if (tools.isEmpty()) return base
-        return buildString {
-            append(base.trim())
-            append("\n\n# Tools\n")
-            append("Call tools using the model's native tool-call format.\n")
-            if (compact) {
-                append("Tools: ")
-                append(tools.joinToString(", ") { it.name })
-                append('\n')
-            } else {
-                val toolArray = JSONArray()
-                tools.forEach { tool ->
-                    toolArray.put(
-                        JSONObject()
-                            .put("type", "function")
-                            .put(
-                                "function",
-                                JSONObject()
-                                    .put("name", tool.name)
-                                    .put("description", tool.description)
-                                    .put("parameters", JSONObject(tool.parametersJson)),
-                            ),
+    private fun resolveConversationTurn(
+        messages: List<ChatMessageDto>,
+        attachmentPayload: AttachmentPayload,
+    ): Pair<List<Message>, Message> {
+        val historyDtos = messages.dropLast(1)
+        val last = messages.last()
+        val history = historyDtos.mapNotNull { dtoToLiteRtMessage(it) }
+
+        return when (last.role) {
+            "user" -> history to buildUserMessage(last.content.orEmpty(), attachmentPayload)
+            "tool" -> {
+                val trailingTools = messages.takeLastWhile { it.role == "tool" }
+                val beforeTools = messages.dropLast(trailingTools.size)
+                val rebuiltHistory = beforeTools.mapNotNull { dtoToLiteRtMessage(it) }
+                val toolResponses = trailingTools.map { dto ->
+                    Content.ToolResponse(
+                        name = dto.name ?: "unknown",
+                        response = dto.content.orEmpty(),
                     )
                 }
-                append(toolArray.toString(2))
+                rebuiltHistory to Message.tool(Contents.of(toolResponses))
             }
-            append(
-                "\nAfter tool results, continue or give the final answer. " +
-                    "Prefer browser_search for site searches.",
+            else -> throw IllegalStateException(
+                "Unsupported trailing message role for local completion: ${last.role}",
             )
         }
     }
 
-    private fun buildPromptMessages(
-        messages: List<ChatMessageDto>,
-        visionContext: String?,
-    ): List<Pair<String, String>> = buildList {
-        messages.forEachIndexed { index, dto ->
-            when (dto.role) {
-                "user" -> {
-                    val content = buildString {
-                        if (index == messages.lastIndex && !visionContext.isNullOrBlank()) {
-                            append("[Vision]\n")
-                            append(visionContext.trim())
-                            append("\n\n")
-                        }
-                        append(dto.content.orEmpty())
-                    }
-                    add("user" to content)
-                }
-                "assistant" -> add("assistant" to formatAssistantMessage(dto))
-                "tool" -> add("tool" to formatToolMessage(dto))
-                "system" -> Unit
-            }
-        }
-    }
-
-    private fun formatAssistantMessage(dto: ChatMessageDto): String = buildString {
-        if (!dto.content.isNullOrBlank()) {
-            append(dto.content.trim())
-        }
-        dto.toolCalls.orEmpty().forEach { call ->
-            if (isNotEmpty()) append('\n')
-            append("<tool_call>\n")
-            append(
-                JSONObject()
-                    .put("name", call.function.name)
-                    .put("arguments", JSONObject(call.function.arguments))
-                    .toString(),
+    private fun buildUserMessage(text: String, attachmentPayload: AttachmentPayload): Message {
+        val imageBytes = firstImageBytes(attachmentPayload)
+        return if (imageBytes != null) {
+            Message.user(
+                Contents.of(
+                    Content.ImageBytes(imageBytes),
+                    Content.Text(text),
+                ),
             )
-            append("\n</tool_call>")
+        } else {
+            Message.user(text)
         }
     }
 
-    private fun formatToolMessage(dto: ChatMessageDto): String = buildString {
-        append("tool: ")
-        append(dto.name ?: "unknown")
-        append("\n")
-        append(dto.content.orEmpty().take(2000))
-    }
-
-    private fun fallbackPrompt(
-        systemPrompt: String,
-        messages: List<Pair<String, String>>,
-    ): String = buildString {
-        append("System:\n")
-        append(systemPrompt.take(6000))
-        append("\n\n")
-        messages.forEach { (role, content) ->
-            append(role.replaceFirstChar { it.uppercase() })
-            append(":\n")
-            append(content.take(3000))
-            append("\n\n")
+    private fun dtoToLiteRtMessage(dto: ChatMessageDto): Message? = when (dto.role) {
+        "user" -> Message.user(dto.content.orEmpty())
+        "assistant" -> {
+            val toolCalls = dto.toolCalls.orEmpty().map { call ->
+                com.google.ai.edge.litertlm.ToolCall(
+                    name = call.function.name,
+                    arguments = parseToolArgs(call.function.arguments),
+                )
+            }
+            val contents = dto.content?.takeIf { it.isNotBlank() }?.let { Contents.of(it) } ?: Contents.empty()
+            Message.model(contents = contents, toolCalls = toolCalls)
         }
-        append("Assistant:\n")
+        "tool" -> Message.tool(
+            Contents.of(
+                Content.ToolResponse(
+                    name = dto.name ?: "unknown",
+                    response = dto.content.orEmpty(),
+                ),
+            ),
+        )
+        "system" -> null
+        else -> null
     }
 
-    private fun parseCompletion(rawText: String, knownToolNames: Set<String>): LlmCompletion {
-        val toolCalls = parseToolCalls(rawText, knownToolNames)
+    private fun messageToCompletion(response: Message, knownToolNames: Set<String>): LlmCompletion {
+        val nativeToolCalls = response.toolCalls.mapIndexed { index, toolCall ->
+            toToolCallDto(toolCall.name, toolCall.arguments, index)
+        }
+
+        val rawText = messageText(response)
+        val textToolCalls = if (nativeToolCalls.isEmpty() && !rawText.isNullOrBlank()) {
+            parseGemmaToolCallsFromText(rawText, knownToolNames)
+        } else {
+            emptyList()
+        }
+
+        val toolCalls = nativeToolCalls.ifEmpty { textToolCalls }
         val content = if (toolCalls.isNotEmpty()) {
             stripToolCallMarkup(rawText).ifBlank { null }
         } else {
-            rawText.trim().ifBlank { null }
+            rawText
         }
+
         return LlmCompletion(
             content = content,
             toolCalls = toolCalls,
@@ -449,20 +349,24 @@ class LocalLlmService(
         )
     }
 
-    private fun parseToolCalls(text: String, knownToolNames: Set<String>): List<ToolCallDto> {
-        val results = linkedMapOf<String, ToolCallDto>()
+    private fun toToolCallDto(name: String, arguments: Map<String, Any?>, index: Int): ToolCallDto =
+        ToolCallDto(
+            id = "call_${index}_$name",
+            function = ToolCallFunctionDto(
+                name = name,
+                arguments = JSONObject(arguments).toString(),
+            ),
+        )
 
-        val xmlPattern = Regex("""<tool_call>\s*(\{.*?\})\s*</tool_call>""", RegexOption.DOT_MATCHES_ALL)
-        xmlPattern.findAll(text).forEach { match ->
-            addParsedToolCall(results, match.groupValues[1], knownToolNames)
-        }
-
-        val gemmaPatterns = listOf(
+    private fun parseGemmaToolCallsFromText(text: String, knownToolNames: Set<String>): List<ToolCallDto> {
+        val patterns = listOf(
             Regex("""<\|tool_call>call:(\w+)\{(.*?)\}<tool_call\|>""", RegexOption.DOT_MATCHES_ALL),
             Regex("""call:(\w+)\{([^}]*)\}"""),
         )
         val argPattern = Regex("""(\w+):(?:<\|"\|>(.*?)<\|"\|>|"([^"]*)"|'([^']*)'|([^,}]*))""")
-        for (pattern in gemmaPatterns) {
+
+        val results = linkedMapOf<String, ToolCallDto>()
+        for (pattern in patterns) {
             for (match in pattern.findAll(text)) {
                 val name = match.groupValues[1]
                 if (knownToolNames.isNotEmpty() && name !in knownToolNames) continue
@@ -471,7 +375,7 @@ class LocalLlmService(
                 for (argMatch in argPattern.findAll(argsBlock)) {
                     val key = argMatch.groupValues[1]
                     val value = argMatch.groupValues.drop(2).firstOrNull { it.isNotEmpty() }?.trim().orEmpty()
-                    arguments[key] = castArgument(value)
+                    arguments[key] = castGemmaArgument(value)
                 }
                 val id = "text_${results.size}_$name"
                 results[id] = ToolCallDto(
@@ -483,33 +387,10 @@ class LocalLlmService(
                 )
             }
         }
-
         return results.values.toList()
     }
 
-    private fun addParsedToolCall(
-        results: LinkedHashMap<String, ToolCallDto>,
-        jsonBlock: String,
-        knownToolNames: Set<String>,
-    ) {
-        runCatching {
-            val json = JSONObject(jsonBlock.trim())
-            val name = json.optString("name")
-            if (name.isBlank()) return
-            if (knownToolNames.isNotEmpty() && name !in knownToolNames) return
-            val args = json.optJSONObject("arguments") ?: JSONObject()
-            val id = "json_${results.size}_$name"
-            results[id] = ToolCallDto(
-                id = id,
-                function = ToolCallFunctionDto(
-                    name = name,
-                    arguments = args.toString(),
-                ),
-            )
-        }
-    }
-
-    private fun castArgument(value: String): Any? {
+    private fun castGemmaArgument(value: String): Any? {
         if (value.equals("true", ignoreCase = true)) return true
         if (value.equals("false", ignoreCase = true)) return false
         value.toIntOrNull()?.let { return it }
@@ -517,12 +398,21 @@ class LocalLlmService(
         return value
     }
 
-    private fun stripToolCallMarkup(text: String): String =
-        text
-            .replace(Regex("""<tool_call>.*?</tool_call>""", RegexOption.DOT_MATCHES_ALL), "")
+    private fun stripToolCallMarkup(text: String?): String {
+        if (text.isNullOrBlank()) return ""
+        return text
             .replace(Regex("""<\|tool_call>.*?</tool_call\|>""", RegexOption.DOT_MATCHES_ALL), "")
             .replace(Regex("""call:\w+\{[^}]*\}"""), "")
             .trim()
+    }
+
+    private fun messageText(message: Message): String? {
+        val text = message.contents.contents
+            .filterIsInstance<Content.Text>()
+            .joinToString(separator = "") { it.text }
+            .trim()
+        return text.ifBlank { message.toString().trim().ifBlank { null } }
+    }
 
     private fun firstImageBytes(payload: AttachmentPayload): ByteArray? {
         payload.attachments.forEach { attachment ->
@@ -537,4 +427,25 @@ class LocalLlmService(
         val payload = dataUrl.substringAfter(",", dataUrl)
         Base64.decode(payload, Base64.DEFAULT)
     }.getOrNull()
+
+    private fun toBackend(backend: LlmBackend): Backend = when (backend) {
+        LlmBackend.CPU -> Backend.CPU()
+        LlmBackend.GPU -> Backend.GPU()
+        LlmBackend.NPU -> Backend.NPU(
+            nativeLibraryDir = context.applicationInfo.nativeLibraryDir,
+        )
+    }
+
+    private class SchemaOnlyOpenApiTool(
+        private val definition: ToolDefinition,
+    ) : OpenApiTool {
+        override fun getToolDescriptionJsonString(): String =
+            JSONObject()
+                .put("name", definition.name)
+                .put("description", definition.description)
+                .put("parameters", JSONObject(definition.parametersJson))
+                .toString()
+
+        override fun execute(paramsJsonString: String): String = "{}"
+    }
 }

@@ -16,8 +16,8 @@ android {
         applicationId = "com.autobrowse.android"
         minSdk = 26
         targetSdk = 35
-        versionCode = 1111
-        versionName = "1.1.11"
+        versionCode = 1112
+        versionName = "1.1.12"
     }
 
     val keystoreProperties = Properties().apply {
@@ -105,7 +105,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
 
-    implementation("com.llamatik:library:1.7.2")
+    implementation("com.google.ai.edge.litertlm:litertlm-android:0.13.1")
 
     val markwon = "4.6.2"
     implementation("io.noties.markwon:core:$markwon")

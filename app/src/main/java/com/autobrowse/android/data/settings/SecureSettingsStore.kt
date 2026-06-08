@@ -7,6 +7,7 @@ import androidx.security.crypto.MasterKey
 import com.autobrowse.android.domain.model.LlmBackend
 import com.autobrowse.android.domain.model.LlmConfig
 import com.autobrowse.android.domain.model.LlmProvider
+import com.autobrowse.android.domain.model.LocalLlmCatalog
 import com.autobrowse.android.domain.model.LocalLlmModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -30,19 +31,18 @@ class SecureSettingsStore(context: Context) {
             apiKey = prefs.getString(KEY_API_KEY, "") ?: "",
             apiUrl = prefs.getString(KEY_API_URL, DEFAULT_API_URL) ?: DEFAULT_API_URL,
             modelId = prefs.getString(KEY_MODEL_ID, DEFAULT_MODEL) ?: DEFAULT_MODEL,
-            localModel = runCatching {
-                LocalLlmModel.valueOf(
-                    prefs.getString(KEY_LOCAL_MODEL, LocalLlmModel.QWEN3_5_2B.name)
-                        ?: LocalLlmModel.QWEN3_5_2B.name,
-                )
-            }.getOrDefault(LocalLlmModel.QWEN3_5_2B),
+            localModel = migrateLocalModel(
+                prefs.getString(KEY_LOCAL_MODEL, LocalLlmModel.GEMMA_4_E2B.name),
+            ),
             backend = LlmBackend.valueOf(
-                prefs.getString(KEY_BACKEND, LlmBackend.CPU.name) ?: LlmBackend.CPU.name,
-            ).let { if (it == LlmBackend.NPU) LlmBackend.CPU else it },
-            localModelPath = prefs.getString(KEY_LOCAL_MODEL_PATH, "") ?: "",
-            localMmprojPath = prefs.getString(KEY_LOCAL_MMPROJ_PATH, "") ?: "",
+                prefs.getString(KEY_BACKEND, LlmBackend.GPU.name) ?: LlmBackend.GPU.name,
+            ),
+            localModelPath = migrateLocalModelPath(
+                prefs.getString(KEY_LOCAL_MODEL_PATH, "") ?: "",
+            ),
             temperature = prefs.getFloat(KEY_TEMPERATURE, 0.7f),
-            maxTokens = prefs.getInt(KEY_MAX_TOKENS, 4096),
+            maxTokens = prefs.getInt(KEY_MAX_TOKENS, LocalLlmCatalog.DEFAULT_CONTEXT_TOKENS)
+                .coerceIn(4096, LocalLlmCatalog.MAX_CONTEXT_TOKENS),
         )
     }
 
@@ -53,14 +53,10 @@ class SecureSettingsStore(context: Context) {
             .putString(KEY_API_URL, config.apiUrl)
             .putString(KEY_MODEL_ID, config.modelId)
             .putString(KEY_LOCAL_MODEL, config.localModel.name)
-            .putString(
-                KEY_BACKEND,
-                if (config.backend == LlmBackend.NPU) LlmBackend.CPU.name else config.backend.name,
-            )
+            .putString(KEY_BACKEND, config.backend.name)
             .putString(KEY_LOCAL_MODEL_PATH, config.localModelPath)
-            .putString(KEY_LOCAL_MMPROJ_PATH, config.localMmprojPath)
             .putFloat(KEY_TEMPERATURE, config.temperature)
-            .putInt(KEY_MAX_TOKENS, config.maxTokens)
+            .putInt(KEY_MAX_TOKENS, config.maxTokens.coerceIn(4096, LocalLlmCatalog.MAX_CONTEXT_TOKENS))
             .apply()
     }
 
@@ -72,6 +68,19 @@ class SecureSettingsStore(context: Context) {
         prefs.edit().putStringSet(KEY_ENABLED_SKILLS, skills).apply()
     }
 
+    private fun migrateLocalModel(raw: String?): LocalLlmModel =
+        runCatching { LocalLlmModel.valueOf(raw ?: LocalLlmModel.GEMMA_4_E2B.name) }
+            .getOrDefault(LocalLlmModel.GEMMA_4_E2B)
+
+    private fun migrateLocalModelPath(path: String): String {
+        if (path.isBlank()) return ""
+        val file = java.io.File(path)
+        return when {
+            file.isFile && path.endsWith(".litertlm", ignoreCase = true) -> path
+            else -> ""
+        }
+    }
+
     companion object {
         private const val KEY_PROVIDER = "llm_provider"
         private const val KEY_API_KEY = "llm_api_key"
@@ -80,7 +89,6 @@ class SecureSettingsStore(context: Context) {
         private const val KEY_LOCAL_MODEL = "llm_local_model"
         private const val KEY_BACKEND = "llm_backend"
         private const val KEY_LOCAL_MODEL_PATH = "llm_local_model_path"
-        private const val KEY_LOCAL_MMPROJ_PATH = "llm_local_mmproj_path"
         private const val KEY_TEMPERATURE = "llm_temperature"
         private const val KEY_MAX_TOKENS = "llm_max_tokens"
         private const val KEY_ENABLED_SKILLS = "enabled_skills"

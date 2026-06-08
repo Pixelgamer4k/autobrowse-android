@@ -823,7 +823,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 )
             }
             try {
-                val paths = app.modelFileManager.downloadModel(model) { progress ->
+                val modelPath = app.modelFileManager.downloadModel(model) { progress ->
                     _uiState.update { state ->
                         state.copy(
                             modelDownload = state.modelDownload.copy(
@@ -837,8 +837,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 val updatedConfig = _uiState.value.llmConfig.copy(
                     provider = LlmProvider.LOCAL,
                     localModel = model,
-                    localModelPath = paths.modelPath,
-                    localMmprojPath = paths.mmprojPath,
+                    localModelPath = modelPath,
+                    maxTokens = com.autobrowse.android.domain.model.LocalLlmCatalog.infoFor(model).contextTokens,
                 )
                 repository.saveLlmConfig(updatedConfig)
                 _uiState.update {
@@ -853,7 +853,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                             ),
                         ),
                         llmConnectionTest = LlmConnectionTestState(
-                            message = "Downloaded ${paths.modelPath.substringAfterLast('/')}",
+                            message = "Downloaded ${modelPath.substringAfterLast('/')}",
                             isSuccess = true,
                         ),
                         error = null,
@@ -1002,17 +1002,17 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     fun importLocalModel(uri: Uri, model: LocalLlmModel) {
         viewModelScope.launch {
             try {
-                val paths = app.modelFileManager.importModel(uri, model)
+                val modelPath = app.modelFileManager.importModel(uri, model)
                 _uiState.update {
                     it.copy(
                         llmConfig = it.llmConfig.copy(
                             provider = LlmProvider.LOCAL,
                             localModel = model,
-                            localModelPath = paths.modelPath,
-                            localMmprojPath = paths.mmprojPath,
+                            localModelPath = modelPath,
+                            maxTokens = com.autobrowse.android.domain.model.LocalLlmCatalog.infoFor(model).contextTokens,
                         ),
                         llmConnectionTest = LlmConnectionTestState(
-                            message = "Imported ${paths.modelPath.substringAfterLast('/')}",
+                            message = "Imported ${modelPath.substringAfterLast('/')}",
                             isSuccess = true,
                         ),
                     )
@@ -1041,7 +1041,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private fun setupBannerMessage(config: LlmConfig): String? = when {
         config.isConfigured() -> null
         config.provider == LlmProvider.LOCAL ->
-            "Local models are experimental — expect 6–10 min per response. Cloud API is recommended."
+            "Download a LiteRT Gemma model on the setup screen to use on-device inference."
         else -> "Add your cloud API token on the setup screen to use the agent (recommended)."
     }
 

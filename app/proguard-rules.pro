@@ -1,6 +1,6 @@
 -keepclassmembers class com.autobrowse.android.data.remote.** { *; }
 -keep class com.autobrowse.android.data.remote.** { *; }
--keep class com.llamatik.library.platform.** { *; }
+-keep class com.google.ai.edge.litertlm.** { *; }
 -keep class io.noties.markwon.** { *; }
 -keep class ru.noties.jlatexmath.** { *; }
 -dontwarn org.scilab.forge.jlatexmath.**

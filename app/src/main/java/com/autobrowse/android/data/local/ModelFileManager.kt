@@ -18,102 +18,56 @@ class ModelFileManager(private val context: Context) {
         .writeTimeout(5, TimeUnit.MINUTES)
         .build()
 
-    suspend fun importModel(uri: Uri, model: LocalLlmModel): ModelPaths = withContext(Dispatchers.IO) {
+    suspend fun importModel(uri: Uri, model: LocalLlmModel): String = withContext(Dispatchers.IO) {
         val info = LocalLlmCatalog.infoFor(model)
-        val modelsDir = modelsDir()
-        val destination = File(modelsDir, info.modelFileName)
+        val destination = File(modelsDir(), info.modelFileName)
         context.contentResolver.openInputStream(uri)?.use { input ->
             destination.outputStream().use { output ->
                 input.copyTo(output)
             }
         } ?: throw IllegalStateException("Could not read the selected model file.")
-        pathsFor(model).copy(modelPath = destination.absolutePath)
+        destination.absolutePath
     }
 
     suspend fun downloadModel(
         model: LocalLlmModel,
         onProgress: (ModelDownloadProgress) -> Unit,
-    ): ModelPaths = withContext(Dispatchers.IO) {
+    ): String = withContext(Dispatchers.IO) {
         val info = LocalLlmCatalog.infoFor(model)
-        val paths = pathsFor(model)
-        val modelFile = File(paths.modelPath)
-        val mmprojFile = File(paths.mmprojPath)
+        val destination = File(pathFor(model))
 
-        if (modelFile.exists() && modelFile.length() > 0 &&
-            mmprojFile.exists() && mmprojFile.length() > 0
-        ) {
+        if (destination.exists() && destination.length() > 0) {
             onProgress(
                 ModelDownloadProgress(
-                    bytesDownloaded = modelFile.length() + mmprojFile.length(),
-                    totalBytes = modelFile.length() + mmprojFile.length(),
+                    bytesDownloaded = destination.length(),
+                    totalBytes = destination.length(),
                     percent = 1f,
                     message = "Model already downloaded.",
                 ),
             )
-            return@withContext paths
-        }
-
-        val downloads = listOf(
-            DownloadTarget("Language model (Q4)", info.modelDownloadUrl, modelFile),
-            DownloadTarget("Vision projector", info.mmprojDownloadUrl, mmprojFile),
-        )
-
-        var totalDownloaded = 0L
-        var totalBytes = 0L
-
-        downloads.forEachIndexed { index, target ->
-            val label = target.label
-            val url = target.url
-            val destination = target.destination
-            if (destination.exists() && destination.length() > 0) {
-                totalDownloaded += destination.length()
-                totalBytes += destination.length()
-                onProgress(
-                    ModelDownloadProgress(
-                        bytesDownloaded = totalDownloaded,
-                        totalBytes = if (totalBytes > 0) totalBytes else null,
-                        percent = if (totalBytes > 0) (totalDownloaded.toFloat() / totalBytes).coerceIn(0f, 1f) else 0f,
-                        message = "${label}: already present",
-                    ),
-                )
-                return@forEachIndexed
-            }
-
-            onProgress(
-                ModelDownloadProgress(
-                    bytesDownloaded = totalDownloaded,
-                    message = "Downloading ${label.lowercase()} (${index + 1}/${downloads.size})…",
-                ),
-            )
-
-            val downloaded = downloadFile(
-                url = url,
-                destination = destination,
-                label = label,
-                onProgress = { fileProgress ->
-                    onProgress(
-                        ModelDownloadProgress(
-                            bytesDownloaded = totalDownloaded + fileProgress.bytesDownloaded,
-                            totalBytes = fileProgress.totalBytes?.let { totalDownloaded + it },
-                            percent = fileProgress.percent,
-                            message = "${label}: ${fileProgress.message}",
-                        ),
-                    )
-                },
-            )
-            totalDownloaded += downloaded
-            totalBytes += downloaded
+            return@withContext destination.absolutePath
         }
 
         onProgress(
+            ModelDownloadProgress(message = "Downloading ${info.displayName}…"),
+        )
+
+        downloadFile(
+            url = info.modelDownloadUrl,
+            destination = destination,
+            label = info.displayName,
+            onProgress = onProgress,
+        )
+
+        onProgress(
             ModelDownloadProgress(
-                bytesDownloaded = totalDownloaded,
-                totalBytes = totalDownloaded,
+                bytesDownloaded = destination.length(),
+                totalBytes = destination.length(),
                 percent = 1f,
                 message = "Download complete.",
             ),
         )
-        paths
+        destination.absolutePath
     }
 
     private fun downloadFile(
@@ -122,8 +76,7 @@ class ModelFileManager(private val context: Context) {
         label: String,
         onProgress: (ModelDownloadProgress) -> Unit,
     ): Long {
-        val modelsDir = modelsDir()
-        val partial = File(modelsDir, "${destination.name}.partial")
+        val partial = File(modelsDir(), "${destination.name}.partial")
         val resumeFrom = if (partial.exists()) partial.length() else 0L
 
         val requestBuilder = Request.Builder().url(url)
@@ -178,19 +131,13 @@ class ModelFileManager(private val context: Context) {
 
     fun modelFileExists(path: String): Boolean = path.isNotBlank() && File(path).isFile
 
-    fun pathsFor(model: LocalLlmModel): ModelPaths {
+    fun pathFor(model: LocalLlmModel): String {
         val info = LocalLlmCatalog.infoFor(model)
-        val dir = modelsDir()
-        return ModelPaths(
-            modelPath = File(dir, info.modelFileName).absolutePath,
-            mmprojPath = File(dir, info.mmprojFileName).absolutePath,
-        )
+        return File(modelsDir(), info.modelFileName).absolutePath
     }
 
-    fun isModelDownloaded(model: LocalLlmModel): Boolean {
-        val paths = pathsFor(model)
-        return modelFileExists(paths.modelPath) && modelFileExists(paths.mmprojPath)
-    }
+    fun isModelDownloaded(model: LocalLlmModel): Boolean =
+        modelFileExists(pathFor(model))
 
     private fun modelsDir(): File = File(context.filesDir, "models").apply { mkdirs() }
 
@@ -204,14 +151,3 @@ class ModelFileManager(private val context: Context) {
         }
     }
 }
-
-data class ModelPaths(
-    val modelPath: String,
-    val mmprojPath: String,
-)
-
-private data class DownloadTarget(
-    val label: String,
-    val url: String,
-    val destination: File,
-)

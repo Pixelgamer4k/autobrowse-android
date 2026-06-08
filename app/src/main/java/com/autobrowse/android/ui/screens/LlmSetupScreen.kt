@@ -88,18 +88,12 @@ fun LlmSetupScreen(
     var apiUrl by remember(llmConfig) { mutableStateOf(llmConfig.apiUrl) }
     var modelId by remember(llmConfig) { mutableStateOf(llmConfig.modelId) }
     var localModel by remember(llmConfig) { mutableStateOf(llmConfig.localModel) }
-    var backend by remember(llmConfig) {
-        mutableStateOf(if (llmConfig.backend == LlmBackend.NPU) LlmBackend.CPU else llmConfig.backend)
-    }
+    var backend by remember(llmConfig) { mutableStateOf(llmConfig.backend) }
     var localModelPath by remember(llmConfig) { mutableStateOf(llmConfig.localModelPath) }
-    var localMmprojPath by remember(llmConfig) { mutableStateOf(llmConfig.localMmprojPath) }
 
-    LaunchedEffect(llmConfig.localModelPath, llmConfig.localMmprojPath) {
+    LaunchedEffect(llmConfig.localModelPath) {
         if (llmConfig.localModelPath.isNotBlank()) {
             localModelPath = llmConfig.localModelPath
-        }
-        if (llmConfig.localMmprojPath.isNotBlank()) {
-            localMmprojPath = llmConfig.localMmprojPath
         }
     }
 
@@ -119,14 +113,14 @@ fun LlmSetupScreen(
         localModel = localModel,
         backend = backend,
         localModelPath = localModelPath,
-        localMmprojPath = localMmprojPath,
+        maxTokens = LocalLlmCatalog.infoFor(localModel).contextTokens,
     )
 
     val canSubmit = when (provider) {
         LlmProvider.REMOTE ->
             apiKey.isNotBlank() && apiUrl.isNotBlank() && modelId.isNotBlank()
         LlmProvider.LOCAL ->
-            localModelPath.isNotBlank() && localMmprojPath.isNotBlank()
+            localModelPath.isNotBlank()
     }
 
     Scaffold(
@@ -204,22 +198,17 @@ fun LlmSetupScreen(
                     localModel = localModel,
                     backend = backend,
                     localModelPath = localModelPath,
-                    localMmprojPath = localMmprojPath,
                     modelDownload = modelDownload,
                     onLocalModelChange = {
                         localModel = it
                         localModelPath = ""
-                        localMmprojPath = ""
                     },
                     onBackendChange = { backend = it },
                     onImport = { importLauncher.launch(arrayOf("*/*")) },
                     onDownload = onDownloadModel,
                     onCancelDownload = onCancelModelDownload,
                     onOpenUrl = onOpenUrl,
-                    onPathsReady = { modelPath, mmprojPath ->
-                        localModelPath = modelPath
-                        localMmprojPath = mmprojPath
-                    },
+                    onPathReady = { localModelPath = "" },
                 )
             }
 
@@ -354,7 +343,6 @@ private fun LocalLlmSection(
     localModel: LocalLlmModel,
     backend: LlmBackend,
     localModelPath: String,
-    localMmprojPath: String,
     modelDownload: ModelDownloadState,
     onLocalModelChange: (LocalLlmModel) -> Unit,
     onBackendChange: (LlmBackend) -> Unit,
@@ -362,23 +350,23 @@ private fun LocalLlmSection(
     onDownload: (LocalLlmModel) -> Unit,
     onCancelDownload: () -> Unit,
     onOpenUrl: (String) -> Unit,
-    onPathsReady: (String, String) -> Unit,
+    onPathReady: (String) -> Unit,
 ) {
     Card(
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.errorContainer.copy(alpha = 0.45f),
+            containerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.35f),
         ),
         modifier = Modifier.fillMaxWidth(),
     ) {
         Column(modifier = Modifier.padding(14.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
             Text(
-                "Experimental — very slow on phone",
+                "LiteRT on-device inference",
                 style = MaterialTheme.typography.titleSmall,
-                color = MaterialTheme.colorScheme.error,
+                color = MaterialTheme.colorScheme.primary,
             )
             Text(
-                "Local models are highly experimental. First response often takes 6–10 minutes on " +
-                    "flagship phones (e.g. Snapdragon 8 Gen 2). Cloud API is strongly recommended.",
+                "Gemma 4 runs via Google LiteRT-LM with native tool calling, vision, and up to 32K context. " +
+                    "GPU is recommended on supported devices.",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.85f),
             )
@@ -386,11 +374,11 @@ private fun LocalLlmSection(
     }
 
     Text(
-        "Local Q4 GGUF models (vision + tool calling)",
+        "LiteRT Gemma models",
         style = MaterialTheme.typography.titleMedium,
     )
     Text(
-        "Downloads the Q4 language model and vision projector (mmproj). Import is GGUF-only; download mmproj separately.",
+        "Downloads a single .litertlm bundle. No separate vision projector required.",
         style = MaterialTheme.typography.bodySmall,
         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
     )
@@ -428,7 +416,7 @@ private fun LocalLlmSection(
             onSelect = { onLocalModelChange(info.model) },
             onDownload = {
                 onDownload(info.model)
-                onPathsReady("", "")
+                onPathReady("")
             },
             onOpenPage = { onOpenUrl(info.pageUrl) },
         )
@@ -439,7 +427,7 @@ private fun LocalLlmSection(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
     ) {
-        LlmBackend.entries.filter { it != LlmBackend.NPU }.forEach { option ->
+        LlmBackend.entries.forEach { option ->
             FilterChip(
                 selected = backend == option,
                 onClick = { onBackendChange(option) },
@@ -449,9 +437,9 @@ private fun LocalLlmSection(
     }
     Text(
         when (backend) {
-            LlmBackend.CPU -> "CPU: widest compatibility, slowest."
-            LlmBackend.GPU -> "GPU: offloads layers via Vulkan/OpenCL when available."
-            LlmBackend.NPU -> "NPU is not supported — use CPU or GPU."
+            LlmBackend.CPU -> "CPU: widest compatibility."
+            LlmBackend.GPU -> "GPU: fastest path via OpenCL/Vulkan (recommended)."
+            LlmBackend.NPU -> "NPU: hardware accelerator on supported Snapdragon devices."
         },
         style = MaterialTheme.typography.bodySmall,
         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.65f),
@@ -462,27 +450,20 @@ private fun LocalLlmSection(
         modifier = Modifier.fillMaxWidth(),
     ) {
         Icon(Icons.Default.FolderOpen, contentDescription = null)
-        Text("Import .gguf file", modifier = Modifier.padding(start = 8.dp))
+        Text("Import .litertlm file", modifier = Modifier.padding(start = 8.dp))
     }
 
     when {
-        localModelPath.isNotBlank() && localMmprojPath.isNotBlank() -> {
+        localModelPath.isNotBlank() -> {
             Text(
                 text = "Ready: ${localModelPath.substringAfterLast('/')}",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.primary,
             )
             Text(
-                text = "Vision: ${localMmprojPath.substringAfterLast('/')}",
+                text = "Context window: ${LocalLlmCatalog.infoFor(localModel).contextTokens / 1024}K tokens",
                 style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.primary,
-            )
-        }
-        localModelPath.isNotBlank() -> {
-            Text(
-                text = "Model: ${localModelPath.substringAfterLast('/')} — download to fetch mmproj",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.error,
+                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
             )
         }
         else -> {
@@ -537,7 +518,7 @@ private fun LocalModelCard(
                 Text(info.description, style = MaterialTheme.typography.bodySmall)
                 Text("Size: ${info.sizeLabel}", style = MaterialTheme.typography.bodySmall)
                 Text(
-                    text = "${info.modelFileName} + ${info.mmprojFileName}",
+                    text = info.modelFileName,
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
                 )
