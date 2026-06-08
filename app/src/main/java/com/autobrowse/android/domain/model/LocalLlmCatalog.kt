@@ -17,6 +17,9 @@ enum class VisionLevel {
     NONE,
 }
 
+private const val DEFAULT_MIN_CONTEXT_TOKENS = 1_024
+private const val DEFAULT_MAX_CONTEXT_TOKENS = 131_072
+
 data class LocalLlmModelInfo(
     val model: LocalLlmModel,
     val displayName: String,
@@ -28,8 +31,8 @@ data class LocalLlmModelInfo(
     val source: LocalLlmSource,
     val toolCalling: ToolCallingLevel,
     val vision: VisionLevel,
-    val minContextTokens: Int = MIN_CONTEXT_TOKENS,
-    val maxContextTokens: Int = MAX_CONTEXT_TOKENS,
+    val minContextTokens: Int = DEFAULT_MIN_CONTEXT_TOKENS,
+    val maxContextTokens: Int = DEFAULT_MAX_CONTEXT_TOKENS,
     val communityNote: String? = null,
 ) {
     val defaultFileName: String get() = modelFileName
@@ -45,8 +48,8 @@ object LocalLlmCatalog {
     private const val QWEN3_5_0_8B = "https://huggingface.co/GabrieleConte/Qwen3.5-0.8B-LiteRT"
     private const val QWEN3_5_2B = "https://huggingface.co/paulsp94/Qwen3.5-2B-LiteRT-LM"
 
-    const val MIN_CONTEXT_TOKENS = 1_024
-    const val MAX_CONTEXT_TOKENS = 131_072
+    const val MIN_CONTEXT_TOKENS = DEFAULT_MIN_CONTEXT_TOKENS
+    const val MAX_CONTEXT_TOKENS = DEFAULT_MAX_CONTEXT_TOKENS
     const val CONTEXT_STEP_TOKENS = 1_024
 
     /** @deprecated Use [DeviceContextDefaults.defaultContextTokens] for RAM-aware defaults. */
