@@ -207,7 +207,8 @@ class LocalLlmService(
                         modelPath = config.localModelPath,
                         backend = backend,
                         visionBackend = visionBackend(config.backend),
-                        audioBackend = backend,
+                        // Gemma .litertlm requires audio on CPU even when text runs on GPU/NPU.
+                        audioBackend = Backend.CPU(),
                         maxNumTokens = contextTokens(config),
                         cacheDir = context.cacheDir.absolutePath,
                     ),

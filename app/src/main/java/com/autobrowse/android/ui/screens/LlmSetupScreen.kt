@@ -438,8 +438,8 @@ private fun LocalLlmSection(
     Text(
         when (backend) {
             LlmBackend.CPU -> "CPU: widest compatibility."
-            LlmBackend.GPU -> "GPU: fastest path via OpenCL/Vulkan (recommended)."
-            LlmBackend.NPU -> "NPU: hardware accelerator on supported Snapdragon devices."
+            LlmBackend.GPU -> "GPU: fastest text inference (recommended). Audio stays on CPU."
+            LlmBackend.NPU -> "NPU: Snapdragon accelerator. Audio stays on CPU."
         },
         style = MaterialTheme.typography.bodySmall,
         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.65f),
