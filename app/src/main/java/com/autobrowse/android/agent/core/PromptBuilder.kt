@@ -92,8 +92,12 @@ class PromptBuilder(
         - Use browser_window_focus to bring the important result forward
         - Use browser_window_list to inspect positions before rearranging
 
-        ## Available Tools (${toolNames.size} total)
-        ${toolNames.sorted().joinToString(", ")}
+        ## Tools
+        ${if (toolNames.size <= 12) {
+            "Available: ${toolNames.sorted().joinToString(", ")}"
+        } else {
+            "${toolNames.size} tools attached to this request. Prefer browser_search, browser_snapshot, browser_click, browser_tab_open."
+        }}
     """.trimIndent()
 
     private fun buildSearchPlaybook(): String = """
@@ -119,14 +123,20 @@ class PromptBuilder(
 
     private suspend fun buildFeedbackTier(userPrompt: String, compact: Boolean = false): String {
         val manager = feedbackManager ?: return ""
+        val isCoaching = FeedbackDetector.isLikelyFeedback(userPrompt)
         val matched = if (userPrompt.isNotBlank()) {
-            manager.searchRelevant(userPrompt, limit = if (compact) 4 else 6)
+            manager.searchRelevant(userPrompt, limit = if (compact) 3 else 4)
         } else {
             emptyList()
         }
-        val top = manager.getForPrompt(limit = if (compact) 6 else 12)
-        val combined = (matched + top).distinctBy { it.id }.take(if (compact) 8 else 15)
-        if (combined.isEmpty() && !FeedbackDetector.isLikelyFeedback(userPrompt)) return ""
+        val topLimit = when {
+            compact -> if (isCoaching) 6 else 3
+            isCoaching -> 8
+            else -> 4
+        }
+        val top = manager.getForPrompt(limit = topLimit)
+        val combined = (matched + top).distinctBy { it.id }.take(if (compact) 6 else if (isCoaching) 10 else 5)
+        if (combined.isEmpty() && !isCoaching) return ""
 
         return buildString {
             appendLine("## User Training Feedback (HIGHEST PRIORITY)")
@@ -153,18 +163,25 @@ class PromptBuilder(
         val store = skillStore ?: return ""
         val allSkills = store.listSkills()
         val matched = TaskPreprocessor.matchedSkillNames(userPrompt, allSkills)
+            .filter { it != "autobrowse" }
+        val fullBodySkills = matched.take(2)
+        val listedOnly = matched.drop(2)
         return buildString {
             if (matched.isNotEmpty()) {
                 appendLine("## Active Skills (matched to this task — FOLLOW THESE)")
-                for (name in matched) {
+                for (name in fullBodySkills) {
                     runCatching {
                         val body = store.readSkill(name)
                         val meta = allSkills.find { it.name == name }
                         val tag = meta?.category?.let { "[$it]" }.orEmpty()
                         appendLine("### Skill: $name $tag")
-                        appendLine(body.take(2800))
+                        appendLine(body.take(1800))
                         appendLine()
                     }
+                }
+                listedOnly.forEach { name ->
+                    val meta = allSkills.find { it.name == name }
+                    appendLine("- $name: ${meta?.description ?: "use skill_view to load"}")
                 }
             } else {
                 val learned = allSkills.filter { it.category == "learned" }.take(4)
@@ -180,7 +197,8 @@ class PromptBuilder(
 
     private suspend fun buildTrainingTier(userPrompt: String): String {
         val loader = trainingCorpus ?: return ""
-        val block = loader.buildTrainingContext(userPrompt)
+        if (TaskPreprocessor.isSimpleBrowsingTask(userPrompt)) return ""
+        val block = loader.buildTrainingContext(userPrompt, limitChars = 2800)
         if (block.isBlank()) return ""
         return "## Training Corpus (gold trajectories + anti-patterns)\n$block"
     }

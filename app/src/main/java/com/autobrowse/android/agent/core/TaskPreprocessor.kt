@@ -3,6 +3,17 @@ package com.autobrowse.android.agent.core
 object TaskPreprocessor {
     fun hintsForPrompt(prompt: String): List<String> = buildHints(prompt)
 
+    fun isSimpleBrowsingTask(prompt: String): Boolean {
+        val lower = prompt.lowercase()
+        val complex = lower.contains("research") || lower.contains("parallel") ||
+            (lower.contains("compare") && lower.contains("side")) ||
+            lower.contains("form marathon") || lower.contains("literature")
+        if (complex) return false
+        return containsSearchIntent(lower) ||
+            lower.contains("open") && lower.contains("window") ||
+            lower.contains("navigate") || lower.contains("go to")
+    }
+
     fun matchedBuiltinSkillNames(prompt: String): List<String> {
         val lower = prompt.lowercase()
         val skills = linkedSetOf<String>()
@@ -27,7 +38,6 @@ object TaskPreprocessor {
         if (lower.contains("scrape") || lower.contains("extract")) skills.add("data-extraction")
         if (lower.contains("pdf")) skills.add("pdf-generation")
         if (lower.contains("chart") || lower.contains("plot")) skills.add("matplotlib-charts")
-        skills.add("autobrowse")
         return skills.toList()
     }
 

@@ -59,8 +59,7 @@ object FeedbackDetector {
         val signalCount = signalPhrases.count { lower.contains(it) }
         return when {
             signalCount >= 2 -> true
-            trimmed.length >= 80 && signalCount >= 1 -> true
-            trimmed.length >= 200 -> true
+            trimmed.length >= 120 && signalCount >= 2 -> true
             else -> false
         }
     }

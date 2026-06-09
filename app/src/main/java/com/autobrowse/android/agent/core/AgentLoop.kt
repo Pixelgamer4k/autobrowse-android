@@ -175,16 +175,17 @@ class AgentLoop(
                     rawPrompt,
                     browserContext.pageUrl,
                 )
+                val firstTurnTools = CloudToolSelector.select(rawPrompt, allToolDefs, iteration = 1)
                 promptBuilder.build(
                     prefetchedMemory = prefetched,
                     strategies = strategies,
                     pageUrl = browserContext.pageUrl,
-                    enabledToolNames = allToolDefs.map { it.name },
+                    enabledToolNames = firstTurnTools.map { it.name },
                     userPrompt = rawPrompt,
                 )
             }
 
-            var history = repository.getRecentChatHistory(request.sessionId, if (isLocal) 8 else 30)
+            var history = repository.getRecentChatHistory(request.sessionId, if (isLocal) 8 else 16)
             if (!isLocal) {
                 val (compressedHistory, summary) = contextCompressor.maybeCompress(config, history)
                 history = compressedHistory
@@ -235,7 +236,7 @@ class AgentLoop(
                 val activeTools = if (isLocal) {
                     LocalToolSelector.select(rawPrompt, allToolDefs, iteration)
                 } else {
-                    allToolDefs
+                    CloudToolSelector.select(rawPrompt, allToolDefs, iteration)
                 }
 
                 val streamBuffer = StringBuilder()
