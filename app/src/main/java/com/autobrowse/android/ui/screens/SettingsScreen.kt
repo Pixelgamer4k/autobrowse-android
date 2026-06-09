@@ -81,6 +81,7 @@ fun SettingsScreen(
     feedbackExportFileName: String,
     appUiConfig: AppUiConfig = AppUiConfig(),
     onResolutionScaleChange: (Float) -> Unit = {},
+    onMaxAgentIterationsChange: (Float) -> Unit = {},
     onBack: () -> Unit,
 ) {
     val context = LocalContext.current
@@ -160,6 +161,31 @@ fun SettingsScreen(
                 onValueChange = onResolutionScaleChange,
                 valueRange = 0.75f..1.5f,
                 steps = 14,
+            )
+
+            Text("Agent", style = MaterialTheme.typography.titleMedium)
+            Text(
+                "Maximum reasoning turns per message. Higher values allow longer tasks but use more time and tokens.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+            )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text("Max turns", style = MaterialTheme.typography.bodyMedium)
+                Text(
+                    "${appUiConfig.coercedMaxIterations()}",
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.primary,
+                )
+            }
+            Slider(
+                value = appUiConfig.coercedMaxIterations().toFloat(),
+                onValueChange = onMaxAgentIterationsChange,
+                valueRange = 5f..50f,
+                steps = 44,
             )
 
             Text("API", style = MaterialTheme.typography.titleMedium)

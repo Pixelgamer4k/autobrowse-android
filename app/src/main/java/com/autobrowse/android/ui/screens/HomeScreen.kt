@@ -33,6 +33,7 @@ import com.autobrowse.android.ui.MainViewModel
 import com.autobrowse.android.ui.components.BrowserPanel
 import com.autobrowse.android.ui.components.ChatComposer
 import com.autobrowse.android.ui.components.ChatPanel
+import com.autobrowse.android.ui.components.DownloadsPanelOverlay
 import com.autobrowse.android.ui.components.SessionsLauncherButton
 import com.autobrowse.android.ui.components.SessionsPanelOverlay
 
@@ -95,6 +96,7 @@ fun HomeScreen(viewModel: MainViewModel) {
                 feedbackExportFileName = viewModel.feedbackExportFileName(),
                 appUiConfig = state.appUiConfig,
                 onResolutionScaleChange = viewModel::updateResolutionScale,
+                onMaxAgentIterationsChange = viewModel::updateMaxAgentIterations,
                 onBack = { viewModel.toggleSettings(false) },
             )
         }
@@ -209,7 +211,19 @@ private fun MainContent(
             onDeleteSession = viewModel::deleteSession,
             onSearchSessions = viewModel::searchSessions,
             onOpenSettings = { viewModel.toggleSettings(true) },
+            onOpenDownloads = viewModel::toggleDownloadsPanel,
             modifier = Modifier.zIndex(50f),
+        )
+
+        DownloadsPanelOverlay(
+            visible = state.showDownloadsPanel,
+            downloads = state.downloads,
+            onDismiss = viewModel::closeDownloadsPanel,
+            onRefresh = viewModel::refreshDownloads,
+            onOpen = viewModel::openDownload,
+            onCancel = viewModel::cancelDownload,
+            onDelete = viewModel::deleteDownload,
+            modifier = Modifier.zIndex(55f),
         )
     }
 }

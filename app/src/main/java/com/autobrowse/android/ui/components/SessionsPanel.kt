@@ -33,6 +33,7 @@ import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.PushPin
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Download
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.outlined.PushPin
 import androidx.compose.material3.DropdownMenu
@@ -120,6 +121,7 @@ fun SessionsPanelOverlay(
     onDeleteSession: (String) -> Unit,
     onSearchSessions: suspend (String) -> List<SessionListItem>,
     onOpenSettings: () -> Unit,
+    onOpenDownloads: () -> Unit = {},
     modifier: Modifier = Modifier,
 ) {
     AnimatedVisibility(
@@ -144,6 +146,7 @@ fun SessionsPanelOverlay(
             onDeleteSession = onDeleteSession,
             onSearchSessions = onSearchSessions,
             onOpenSettings = onOpenSettings,
+            onOpenDownloads = onOpenDownloads,
         )
     }
 }
@@ -159,6 +162,7 @@ private fun SessionsPanelContent(
     onDeleteSession: (String) -> Unit,
     onSearchSessions: suspend (String) -> List<SessionListItem>,
     onOpenSettings: () -> Unit,
+    onOpenDownloads: () -> Unit,
 ) {
     var searchQuery by remember { mutableStateOf("") }
     var listItems by remember { mutableStateOf<List<SessionListItem>>(emptyList()) }
@@ -204,6 +208,14 @@ private fun SessionsPanelContent(
                         },
                         style = MaterialTheme.typography.labelSmall,
                         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.55f),
+                    )
+                }
+                IconButton(onClick = onOpenDownloads, modifier = Modifier.size(40.dp)) {
+                    Icon(
+                        Icons.Default.Download,
+                        contentDescription = "Downloads",
+                        modifier = Modifier.size(22.dp),
+                        tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.8f),
                     )
                 }
                 IconButton(

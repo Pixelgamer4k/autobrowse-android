@@ -95,12 +95,16 @@ class SecureSettingsStore(private val appContext: Context) {
     }
 
     suspend fun getAppUiConfig(): AppUiConfig = withContext(Dispatchers.IO) {
-        AppUiConfig(resolutionScale = prefs.getFloat(KEY_RESOLUTION_SCALE, 1f))
+        AppUiConfig(
+            resolutionScale = prefs.getFloat(KEY_RESOLUTION_SCALE, 1f),
+            maxAgentIterations = prefs.getInt(KEY_MAX_AGENT_ITERATIONS, 20),
+        )
     }
 
     suspend fun saveAppUiConfig(config: AppUiConfig) = withContext(Dispatchers.IO) {
         prefs.edit()
             .putFloat(KEY_RESOLUTION_SCALE, config.coercedScale())
+            .putInt(KEY_MAX_AGENT_ITERATIONS, config.coercedMaxIterations())
             .apply()
     }
 
@@ -157,6 +161,7 @@ class SecureSettingsStore(private val appContext: Context) {
         private const val KEY_CAPTCHA_ANDROID_FP = "captcha_android_fingerprint"
         private const val KEY_CAPTCHA_PROXY_URL = "captcha_proxy_url"
         private const val KEY_RESOLUTION_SCALE = "resolution_scale"
+        private const val KEY_MAX_AGENT_ITERATIONS = "max_agent_iterations"
 
         private const val DEFAULT_API_URL = "https://api.openai.com/v1/"
         private const val DEFAULT_MODEL = "gpt-4o-mini"

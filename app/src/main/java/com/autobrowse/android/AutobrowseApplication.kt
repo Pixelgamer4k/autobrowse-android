@@ -67,6 +67,7 @@ import com.autobrowse.android.browser.AndroidTabManager
 import com.autobrowse.android.browser.AndroidWindowManager
 import com.autobrowse.android.browser.BrowserController
 import com.autobrowse.android.browser.VirtualDisplayConfig
+import com.autobrowse.android.downloads.DownloadsManager
 import com.autobrowse.android.data.local.AutobrowseDatabase
 import com.autobrowse.android.data.local.LocalLlmService
 import com.autobrowse.android.data.local.ModelFileManager
@@ -139,6 +140,9 @@ class AutobrowseApplication : Application(), Configuration.Provider {
     lateinit var feedbackManager: FeedbackManager
         private set
 
+    lateinit var downloadsManager: DownloadsManager
+        private set
+
     private val appScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 
     override fun onCreate() {
@@ -156,7 +160,10 @@ class AutobrowseApplication : Application(), Configuration.Provider {
         skillStore = SkillStore(this)
         trainingCorpusLoader = TrainingCorpusLoader(this)
         skillRegistry = SkillRegistry(this, repository, llmApi)
-        browserController = BrowserController()
+        downloadsManager = DownloadsManager(this, appScope)
+        browserController = BrowserController { tabId, url, userAgent, contentDisposition, mimeType, contentLength ->
+            downloadsManager.enqueue(tabId, url, userAgent, contentDisposition, mimeType, contentLength)
+        }
         tabManager = AndroidTabManager()
         windowManager = AndroidWindowManager()
         attachmentStore = AttachmentStore(this)

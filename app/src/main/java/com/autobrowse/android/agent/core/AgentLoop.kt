@@ -51,9 +51,8 @@ class AgentLoop(
     private val feedbackManager: FeedbackManager? = null,
     private val tabManager: TabManager? = null,
     private val windowManager: WindowManager? = null,
-    private val maxIterations: Int = 20,
 ) {
-    private val _progress = MutableStateFlow(AgentProgress(AgentPhase.IDLE, 0, maxIterations))
+    private val _progress = MutableStateFlow(AgentProgress(AgentPhase.IDLE, 0, 20))
     val progress: StateFlow<AgentProgress> = _progress.asStateFlow()
     private val cancelRequested = AtomicBoolean(false)
 
@@ -63,7 +62,7 @@ class AgentLoop(
         _progress.value = AgentProgress(
             phase = AgentPhase.IDLE,
             iteration = _progress.value.iteration,
-            maxIterations = maxIterations,
+            maxIterations = _progress.value.maxIterations,
             message = "Stopping…",
         )
     }
@@ -103,6 +102,7 @@ class AgentLoop(
         repository.saveChatMessage(userMessage)
 
         cancelRequested.set(false)
+        val maxIterations = repository.getAppUiConfig().coercedMaxIterations()
 
         return try {
             runConversationLoop(
@@ -111,11 +111,13 @@ class AgentLoop(
                 task = task,
                 taskId = taskId,
                 rawPrompt = rawPrompt,
+                maxIterations = maxIterations,
             )
         } catch (e: CancellationException) {
             llmApi.cancelLocalGeneration()
+            val progressMax = _progress.value.maxIterations.coerceAtLeast(1)
             repository.updateTask(
-                task.copy(status = TaskStatus.CANCELLED, progress = _progress.value.iteration.toFloat() / maxIterations),
+                task.copy(status = TaskStatus.CANCELLED, progress = _progress.value.iteration.toFloat() / progressMax),
                 request.sessionId,
             )
             repository.saveChatMessage(
@@ -126,7 +128,7 @@ class AgentLoop(
                     content = "Stopped.",
                 ),
             )
-            _progress.value = AgentProgress(AgentPhase.IDLE, 0, maxIterations)
+            _progress.value = AgentProgress(AgentPhase.IDLE, 0, progressMax)
             cancelRequested.set(false)
             AgentConversationResult(
                 success = false,
@@ -143,6 +145,7 @@ class AgentLoop(
         task: AutomationTask,
         taskId: String,
         rawPrompt: String,
+        maxIterations: Int,
     ): AgentConversationResult = runCatching {
             ensureNotCancelled()
 

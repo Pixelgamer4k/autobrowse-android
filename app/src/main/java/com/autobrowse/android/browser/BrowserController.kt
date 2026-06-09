@@ -14,12 +14,26 @@ import java.io.ByteArrayOutputStream
 import java.util.concurrent.ConcurrentHashMap
 import kotlin.coroutines.resume
 
-class BrowserController {
+class BrowserController(
+    private val onDownloadRequested: ((
+        tabId: String,
+        url: String,
+        userAgent: String,
+        contentDisposition: String?,
+        mimeType: String?,
+        contentLength: Long,
+    ) -> Unit)? = null,
+) {
     private val webViews = ConcurrentHashMap<String, WebView>()
     private var activeTabId: String? = null
 
     fun attach(tabId: String, webView: WebView) {
         webViews[tabId] = webView
+        onDownloadRequested?.let { handler ->
+            webView.setDownloadListener { url, userAgent, contentDisposition, mimeType, contentLength ->
+                handler(tabId, url, userAgent, contentDisposition, mimeType, contentLength)
+            }
+        }
         if (activeTabId == null) activeTabId = tabId
     }
 

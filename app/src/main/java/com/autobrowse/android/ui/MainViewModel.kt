@@ -11,6 +11,8 @@ import com.autobrowse.android.agent.core.SessionTitleGenerator
 import com.autobrowse.android.browser.AddressBarNavigation
 import com.autobrowse.android.browser.VirtualDisplayConfig
 import com.autobrowse.android.domain.model.AppUiConfig
+import com.autobrowse.android.downloads.DownloadItem
+import com.autobrowse.android.downloads.DownloadStatus
 import com.autobrowse.android.browser.BrowserController
 import com.autobrowse.android.browser.FloatingWindowEngine
 import com.autobrowse.android.browser.TabInfo
@@ -118,6 +120,8 @@ data class MainUiState(
     val feedbackTransfer: FeedbackTransferState = FeedbackTransferState(),
     val captchaConfig: CaptchaConfig = CaptchaConfig(),
     val appUiConfig: AppUiConfig = AppUiConfig(),
+    val showDownloadsPanel: Boolean = false,
+    val downloads: List<DownloadItem> = emptyList(),
     val error: String? = null,
 )
 
@@ -234,6 +238,12 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 }
             }
         }
+
+        viewModelScope.launch {
+            app.downloadsManager.items.collect { downloads ->
+                _uiState.update { it.copy(downloads = downloads) }
+            }
+        }
     }
 
     private fun resetSessionUi() {
@@ -254,7 +264,43 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun closeSessionsPanel() {
-        _uiState.update { it.copy(showSessionsPanel = false) }
+        _uiState.update { it.copy(showSessionsPanel = false, showDownloadsPanel = false) }
+    }
+
+    fun toggleDownloadsPanel() {
+        val opening = !_uiState.value.showDownloadsPanel
+        _uiState.update {
+            it.copy(
+                showDownloadsPanel = opening,
+                showSessionsPanel = if (opening) true else it.showSessionsPanel,
+            )
+        }
+        if (opening) refreshDownloads()
+    }
+
+    fun closeDownloadsPanel() {
+        _uiState.update { it.copy(showDownloadsPanel = false) }
+    }
+
+    fun refreshDownloads() {
+        viewModelScope.launch { app.downloadsManager.refresh() }
+    }
+
+    fun openDownload(item: DownloadItem) {
+        val path = item.path ?: return
+        if (item.status != DownloadStatus.COMPLETED) return
+        viewModelScope.launch {
+            runCatching { openLocalFile(path, item.mimeType) }
+                .onFailure { e -> _uiState.update { it.copy(error = e.message) } }
+        }
+    }
+
+    fun cancelDownload(item: DownloadItem) {
+        app.downloadsManager.cancel(item.id)
+    }
+
+    fun deleteDownload(item: DownloadItem) {
+        app.downloadsManager.delete(item)
     }
 
     suspend fun searchSessions(query: String): List<SessionListItem> =
@@ -453,6 +499,14 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    fun updateMaxAgentIterations(iterations: Float) {
+        viewModelScope.launch {
+            val updated = _uiState.value.appUiConfig.copy(maxAgentIterations = iterations.toInt())
+            repository.saveAppUiConfig(updated)
+            _uiState.update { it.copy(appUiConfig = updated) }
+        }
+    }
+
     fun captureTabScreenshot(tabId: String) {
         viewModelScope.launch {
             val b64 = browserController.captureScreenshotBase64(tabId) ?: run {
@@ -465,6 +519,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             val safe = tab?.title?.replace(Regex("""[^\w.-]"""), "_")?.take(24) ?: "window"
             val stamp = java.text.SimpleDateFormat("yyyyMMdd_HHmmss", java.util.Locale.US).format(java.util.Date())
             java.io.File(dir, "shot_${safe}_$stamp.jpg").writeBytes(bytes)
+            refreshDownloads()
         }
     }
 
@@ -803,7 +858,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                     agentProgress = AgentProgress(
                         phase = AgentPhase.THINKING,
                         iteration = 0,
-                        maxIterations = 20,
+                        maxIterations = _uiState.value.appUiConfig.coercedMaxIterations(),
                         message = if (llmConfig.provider == LlmProvider.LOCAL) {
                             "Local model (experimental — may take several minutes)…"
                         } else {
@@ -1291,6 +1346,18 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         }
         getApplication<Application>().startActivity(intent)
+    }
+
+    private fun openLocalFile(path: String, mimeType: String) {
+        val context = getApplication<Application>()
+        val file = java.io.File(path)
+        if (!file.exists()) error("File not found")
+        val uri = FileProvider.getUriForFile(context, "${context.packageName}.fileprovider", file)
+        val intent = Intent(Intent.ACTION_VIEW).apply {
+            setDataAndType(uri, mimeType)
+            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_ACTIVITY_NEW_TASK)
+        }
+        context.startActivity(Intent.createChooser(intent, "Open file"))
     }
 
     private fun setupBannerMessage(config: LlmConfig): String? = when {

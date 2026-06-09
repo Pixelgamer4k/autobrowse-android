@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <paths>
     <cache-path name="exports" path="exports/" />
+    <files-path name="downloads" path="downloads/" />
+    <files-path name="screenshots" path="screenshots/" />
+    <files-path name="generated" path="generated/" />
+    <files-path name="attachments" path="attachments/" />
 </paths>
