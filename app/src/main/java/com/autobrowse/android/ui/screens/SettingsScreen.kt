@@ -28,12 +28,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import com.autobrowse.android.domain.model.FeedbackEntry
 import com.autobrowse.android.domain.model.LearnedStrategy
 import com.autobrowse.android.domain.model.MemoryEntry
 import com.autobrowse.android.domain.model.SkillConfig
 import com.autobrowse.android.domain.model.SkillType
 import com.autobrowse.android.skills.SkillMetadata
+import com.autobrowse.android.ui.FeedbackTransferState
 import com.autobrowse.android.ui.SkillTransferState
+import androidx.compose.material3.TextButton
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -45,6 +48,8 @@ fun SettingsScreen(
     memory: List<MemoryEntry>,
     strategies: List<LearnedStrategy>,
     skillTransfer: SkillTransferState,
+    feedbackEntries: List<FeedbackEntry>,
+    feedbackTransfer: FeedbackTransferState,
     onOpenLlmSetup: () -> Unit,
     onToggleSkill: (SkillType, Boolean) -> Unit,
     onBuildLearnedSkillsExport: suspend () -> Pair<String, Int>,
@@ -54,7 +59,18 @@ fun SettingsScreen(
     onImportLearnedSkills: (android.net.Uri) -> Unit,
     onClearSkillTransferMessage: () -> Unit,
     onShowSkillTransfer: (String, Boolean) -> Unit,
+    onBuildFeedbackExport: suspend () -> Pair<String, Int>,
+    onCreateFeedbackShareUri: suspend (String) -> android.net.Uri,
+    onBuildFeedbackShareIntent: (android.net.Uri) -> Intent,
+    onSaveFeedbackExport: (android.net.Uri) -> Unit,
+    onImportFeedback: (android.net.Uri) -> Unit,
+    onClearFeedbackTransferMessage: () -> Unit,
+    onShowFeedbackTransfer: (String, Boolean) -> Unit,
+    onUpvoteFeedback: (String) -> Unit,
+    onDownvoteFeedback: (String) -> Unit,
+    onDeleteFeedback: (String) -> Unit,
     exportFileName: String,
+    feedbackExportFileName: String,
     onBack: () -> Unit,
 ) {
     val context = LocalContext.current
@@ -73,6 +89,22 @@ fun SettingsScreen(
     ) { uri ->
         if (uri != null) {
             onImportLearnedSkills(uri)
+        }
+    }
+
+    val saveFeedbackExportLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.CreateDocument("application/json"),
+    ) { uri ->
+        if (uri != null) {
+            onSaveFeedbackExport(uri)
+        }
+    }
+
+    val importFeedbackLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.OpenDocument(),
+    ) { uri ->
+        if (uri != null) {
+            onImportFeedback(uri)
         }
     }
     Scaffold(
@@ -206,6 +238,93 @@ fun SettingsScreen(
                 }
             }
 
+            Text("Training Feedback", style = MaterialTheme.typography.titleMedium)
+            Text(
+                "Coach the agent in chat — purpose, how to perform tasks, likes/dislikes, best sources, speed tips, and innovation. " +
+                    "Works with cloud and local LLM. Say \"feedback\" or just train naturally; entries are auto-captured and injected into every run.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+            )
+            Text(
+                "Export after 10–12 days of training and send the JSON with learned skills to level up the app.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+            )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+            ) {
+                OutlinedButton(
+                    onClick = {
+                        scope.launch {
+                            onClearFeedbackTransferMessage()
+                            val (json, count) = onBuildFeedbackExport()
+                            if (count == 0) {
+                                onShowFeedbackTransfer(
+                                    "No feedback to export yet. Coach the agent in chat first.",
+                                    false,
+                                )
+                                return@launch
+                            }
+                            val uri = onCreateFeedbackShareUri(json)
+                            val intent = onBuildFeedbackShareIntent(uri)
+                            context.startActivity(Intent.createChooser(intent, "Share training feedback"))
+                        }
+                    },
+                    modifier = Modifier.weight(1f),
+                ) {
+                    Text("Share export")
+                }
+                OutlinedButton(
+                    onClick = {
+                        onClearFeedbackTransferMessage()
+                        saveFeedbackExportLauncher.launch(feedbackExportFileName)
+                    },
+                    modifier = Modifier.weight(1f),
+                ) {
+                    Text("Save export")
+                }
+            }
+            OutlinedButton(
+                onClick = {
+                    onClearFeedbackTransferMessage()
+                    importFeedbackLauncher.launch(arrayOf("application/json", "text/plain", "*/*"))
+                },
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                Text("Import feedback")
+            }
+            feedbackTransfer.message?.let { message ->
+                Text(
+                    text = message,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = if (feedbackTransfer.isSuccess == true) {
+                        MaterialTheme.colorScheme.primary
+                    } else {
+                        MaterialTheme.colorScheme.error
+                    },
+                )
+            }
+            if (feedbackEntries.isEmpty()) {
+                Text(
+                    "No feedback yet. Example: \"Feedback: your purpose is multi-window research. Use browser_search on Amazon, open 4 windows, compare ratings faster.\"",
+                    style = MaterialTheme.typography.bodySmall,
+                )
+            } else {
+                Text(
+                    "Catalog (${feedbackEntries.size}) — sorted by priority",
+                    style = MaterialTheme.typography.labelLarge,
+                )
+                feedbackEntries.forEach { entry ->
+                    FeedbackRow(
+                        entry = entry,
+                        onUpvote = { onUpvoteFeedback(entry.id) },
+                        onDownvote = { onDownvoteFeedback(entry.id) },
+                        onDelete = { onDeleteFeedback(entry.id) },
+                    )
+                }
+            }
+
             Text("Long-term Memory", style = MaterialTheme.typography.titleMedium)
             Text(
                 "Hermes-style persistent memory with FTS search. Extracted automatically after each turn.",
@@ -247,6 +366,49 @@ fun SettingsScreen(
                     )
                 }
             }
+        }
+    }
+}
+
+@Composable
+private fun FeedbackRow(
+    entry: FeedbackEntry,
+    onUpvote: () -> Unit,
+    onDownvote: () -> Unit,
+    onDelete: () -> Unit,
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 6.dp),
+    ) {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Text(
+                "[${entry.category}] priority ${entry.priorityScore}",
+                style = MaterialTheme.typography.labelMedium,
+                color = MaterialTheme.colorScheme.primary,
+            )
+            Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                TextButton(onClick = onUpvote) { Text("▲ ${entry.upvotes}") }
+                TextButton(onClick = onDownvote) { Text("▼ ${entry.downvotes}") }
+                TextButton(onClick = onDelete) { Text("Delete") }
+            }
+        }
+        Text(
+            entry.content,
+            style = MaterialTheme.typography.bodySmall,
+            modifier = Modifier.padding(top = 2.dp),
+        )
+        if (entry.source.isNotBlank() || entry.tags.isNotBlank()) {
+            Text(
+                "${entry.source}${if (entry.tags.isNotBlank()) " · ${entry.tags}" else ""}",
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f),
+            )
         }
     }
 }

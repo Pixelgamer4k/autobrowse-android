@@ -87,6 +87,21 @@ data class MemoryEntry(
     val updatedAt: Long = System.currentTimeMillis(),
 )
 
+data class FeedbackEntry(
+    val id: String,
+    val content: String,
+    val category: String = "general",
+    val tags: String = "",
+    val priorityScore: Int = 0,
+    val upvotes: Int = 0,
+    val downvotes: Int = 0,
+    val sessionId: String? = null,
+    val source: String = "user",
+    val deleted: Boolean = false,
+    val createdAt: Long = System.currentTimeMillis(),
+    val updatedAt: Long = System.currentTimeMillis(),
+)
+
 enum class LlmProvider {
     REMOTE,
     LOCAL,

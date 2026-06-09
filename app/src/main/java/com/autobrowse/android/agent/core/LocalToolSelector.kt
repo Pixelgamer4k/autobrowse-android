@@ -1,6 +1,7 @@
 package com.autobrowse.android.agent.core
 
 import com.autobrowse.android.domain.model.ToolDefinition
+import com.autobrowse.android.feedback.FeedbackDetector
 
 /**
  * Keeps on-device prompts small enough for fast first-token latency on mobile.
@@ -47,6 +48,8 @@ object LocalToolSelector {
             lower.contains("pdf") -> selected += "pdf_generate"
             lower.contains("chart") || lower.contains("plot") -> selected += "chart_generate"
             lower.contains("skill") -> selected += setOf("skills_list", "skill_view")
+            lower.contains("feedback") || FeedbackDetector.isLikelyFeedback(userPrompt) ->
+                selected += setOf("feedback_submit", "feedback_list")
             lower.contains("extract") || lower.contains("scrape") -> selected += "extract_data"
             lower.contains("summar") -> selected += "summarize"
             lower.contains("parallel") || lower.contains("research") ||

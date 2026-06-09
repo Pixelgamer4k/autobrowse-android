@@ -6,6 +6,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import com.autobrowse.android.data.local.entity.AutomationTaskEntity
+import com.autobrowse.android.data.local.entity.FeedbackEntryEntity
 import com.autobrowse.android.data.local.entity.BrowserTabEntity
 import com.autobrowse.android.data.local.entity.ChatMessageEntity
 import com.autobrowse.android.data.local.entity.MemoryEntryEntity
@@ -127,6 +128,61 @@ interface StrategyDao {
 
     @Query("SELECT * FROM strategies WHERE heuristic = :heuristic LIMIT 1")
     suspend fun findByHeuristic(heuristic: String): StrategyEntity?
+}
+
+@Dao
+interface FeedbackDao {
+    @Query(
+        """
+        SELECT * FROM feedback_entries
+        WHERE deleted = 0
+        ORDER BY priorityScore DESC, updatedAt DESC
+        """,
+    )
+    fun observeActive(): Flow<List<FeedbackEntryEntity>>
+
+    @Query(
+        """
+        SELECT * FROM feedback_entries
+        WHERE deleted = 0
+        ORDER BY priorityScore DESC, updatedAt DESC
+        """,
+    )
+    suspend fun getActiveAll(): List<FeedbackEntryEntity>
+
+    @Query(
+        """
+        SELECT * FROM feedback_entries
+        WHERE deleted = 0
+        ORDER BY priorityScore DESC, updatedAt DESC
+        LIMIT :limit
+        """,
+    )
+    suspend fun getTopForPrompt(limit: Int): List<FeedbackEntryEntity>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun upsert(entry: FeedbackEntryEntity)
+
+    @Query("SELECT * FROM feedback_entries WHERE id = :id LIMIT 1")
+    suspend fun getById(id: String): FeedbackEntryEntity?
+
+    @Query(
+        """
+        UPDATE feedback_entries
+        SET deleted = 1, updatedAt = :now
+        WHERE id = :id
+        """,
+    )
+    suspend fun softDelete(id: String, now: Long)
+
+    @Query(
+        """
+        SELECT * FROM feedback_entries
+        WHERE deleted = 0
+        ORDER BY priorityScore DESC, updatedAt DESC
+        """,
+    )
+    suspend fun getForExport(): List<FeedbackEntryEntity>
 }
 
 @Dao

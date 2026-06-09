@@ -36,6 +36,8 @@ import com.autobrowse.android.agent.tools.BrowserTypeTool
 import com.autobrowse.android.agent.tools.BrowserVisionTool
 import com.autobrowse.android.agent.tools.ChartGenerateTool
 import com.autobrowse.android.agent.tools.ClarifyTool
+import com.autobrowse.android.agent.tools.FeedbackListTool
+import com.autobrowse.android.agent.tools.FeedbackSubmitTool
 import com.autobrowse.android.agent.tools.DelegateTaskTool
 import com.autobrowse.android.agent.tools.DocumentGenerator
 import com.autobrowse.android.agent.tools.ExecuteCodeTool
@@ -68,6 +70,7 @@ import com.autobrowse.android.data.local.ModelFileManager
 import com.autobrowse.android.data.remote.LlmApiService
 import com.autobrowse.android.data.repository.AutobrowseRepository
 import com.autobrowse.android.data.settings.SecureSettingsStore
+import com.autobrowse.android.feedback.FeedbackManager
 import com.autobrowse.android.skills.SkillRegistry
 import com.autobrowse.android.skills.SkillStore
 import kotlinx.coroutines.CoroutineScope
@@ -130,6 +133,9 @@ class AutobrowseApplication : Application(), Configuration.Provider {
     lateinit var trainingCorpusLoader: TrainingCorpusLoader
         private set
 
+    lateinit var feedbackManager: FeedbackManager
+        private set
+
     private val appScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 
     override fun onCreate() {
@@ -165,6 +171,8 @@ class AutobrowseApplication : Application(), Configuration.Provider {
             repository = repository,
             llmApi = llmApi,
         )
+
+        feedbackManager = FeedbackManager(database.feedbackDao())
 
         val selfImprovementEngine = SelfImprovementEngine(
             strategyDao = database.strategyDao(),
@@ -230,6 +238,8 @@ class AutobrowseApplication : Application(), Configuration.Provider {
                 SkillViewTool(skillStore),
                 SkillManageTool(skillStore),
                 SkillCreatorTool(skillStore, llmApi, repository),
+                FeedbackSubmitTool(feedbackManager),
+                FeedbackListTool(feedbackManager),
             ),
             browserController = browserController,
         )
@@ -239,13 +249,14 @@ class AutobrowseApplication : Application(), Configuration.Provider {
             llmApi = llmApi,
             toolRegistry = toolRegistry,
             promptBuilder = PromptBuilder(
-                repository, memoryManager, skillStore, trainingCorpusLoader, trajectoryStore,
+                repository, memoryManager, skillStore, feedbackManager, trainingCorpusLoader, trajectoryStore,
             ),
             memoryManager = memoryManager,
             contextCompressor = ContextCompressor(llmApi),
             trajectoryStore = trajectoryStore,
             selfImprovementEngine = selfImprovementEngine,
             postTaskLearning = postTaskLearning,
+            feedbackManager = feedbackManager,
             tabManager = tabManager,
             windowManager = windowManager,
         )

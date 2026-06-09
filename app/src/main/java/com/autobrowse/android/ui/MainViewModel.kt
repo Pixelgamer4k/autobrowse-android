@@ -32,6 +32,7 @@ import com.autobrowse.android.domain.model.LlmProvider
 import com.autobrowse.android.domain.model.DeviceContextDefaults
 import com.autobrowse.android.domain.model.LocalLlmCatalog
 import com.autobrowse.android.domain.model.LocalLlmModel
+import com.autobrowse.android.domain.model.FeedbackEntry
 import com.autobrowse.android.domain.model.MemoryEntry
 import com.autobrowse.android.domain.model.PendingAttachment
 import com.autobrowse.android.domain.model.Session
@@ -78,6 +79,11 @@ data class SkillTransferState(
     val isSuccess: Boolean? = null,
 )
 
+data class FeedbackTransferState(
+    val message: String? = null,
+    val isSuccess: Boolean? = null,
+)
+
 data class MainUiState(
     val session: Session? = null,
     val sessions: List<Session> = emptyList(),
@@ -104,6 +110,8 @@ data class MainUiState(
     val localModelBusy: LocalModelBusyState = LocalModelBusyState(),
     val downloadedLocalModels: Set<LocalLlmModel> = emptySet(),
     val skillTransfer: SkillTransferState = SkillTransferState(),
+    val feedbackEntries: List<FeedbackEntry> = emptyList(),
+    val feedbackTransfer: FeedbackTransferState = FeedbackTransferState(),
     val error: String? = null,
 )
 
@@ -200,6 +208,11 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         viewModelScope.launch {
             repository.observeStrategies().collect { strategies ->
                 _uiState.update { it.copy(strategies = strategies) }
+            }
+        }
+        viewModelScope.launch {
+            repository.observeFeedback().collect { feedback ->
+                _uiState.update { it.copy(feedbackEntries = feedback) }
             }
         }
         viewModelScope.launch {
@@ -975,6 +988,138 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                     it.copy(
                         skillTransfer = SkillTransferState(
                             message = e.message ?: "Export failed.",
+                            isSuccess = false,
+                        ),
+                    )
+                }
+            }
+        }
+    }
+
+    fun upvoteFeedback(id: String) {
+        viewModelScope.launch {
+            app.feedbackManager.upvote(id)
+        }
+    }
+
+    fun downvoteFeedback(id: String) {
+        viewModelScope.launch {
+            app.feedbackManager.downvote(id)
+        }
+    }
+
+    fun deleteFeedback(id: String) {
+        viewModelScope.launch {
+            app.feedbackManager.delete(id)
+        }
+    }
+
+    fun clearFeedbackTransferMessage() {
+        _uiState.update { it.copy(feedbackTransfer = FeedbackTransferState()) }
+    }
+
+    fun showFeedbackTransfer(message: String, isSuccess: Boolean) {
+        _uiState.update {
+            it.copy(feedbackTransfer = FeedbackTransferState(message = message, isSuccess = isSuccess))
+        }
+    }
+
+    suspend fun buildFeedbackExport(): Pair<String, Int> = withContext(Dispatchers.IO) {
+        val json = app.feedbackManager.exportJson()
+        val count = com.autobrowse.android.feedback.FeedbackSerializer.fromJson(json).entries.size
+        json to count
+    }
+
+    fun feedbackExportFileName(): String {
+        val stamp = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US)
+            .format(java.util.Date())
+        return "autobrowse-feedback-$stamp.json"
+    }
+
+    suspend fun createFeedbackShareUri(json: String): Uri = withContext(Dispatchers.IO) {
+        val context = getApplication<Application>()
+        val exportDir = java.io.File(context.cacheDir, "exports").also { it.mkdirs() }
+        val file = java.io.File(exportDir, feedbackExportFileName())
+        file.writeText(json)
+        FileProvider.getUriForFile(context, "${context.packageName}.fileprovider", file)
+    }
+
+    fun buildFeedbackShareIntent(uri: Uri): Intent =
+        Intent(Intent.ACTION_SEND).apply {
+            type = "application/json"
+            putExtra(Intent.EXTRA_STREAM, uri)
+            putExtra(Intent.EXTRA_SUBJECT, "Multiwindow Autobrowser training feedback")
+            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+        }
+
+    fun saveFeedbackExport(uri: Uri) {
+        viewModelScope.launch {
+            try {
+                val json = app.feedbackManager.exportJson()
+                val count = com.autobrowse.android.feedback.FeedbackSerializer.fromJson(json).entries.size
+                if (count == 0) {
+                    _uiState.update {
+                        it.copy(
+                            feedbackTransfer = FeedbackTransferState(
+                                message = "No feedback to export yet. Coach the agent in chat first.",
+                                isSuccess = false,
+                            ),
+                        )
+                    }
+                    return@launch
+                }
+                withContext(Dispatchers.IO) {
+                    getApplication<Application>().contentResolver.openOutputStream(uri)?.use { stream ->
+                        stream.write(json.toByteArray(Charsets.UTF_8))
+                    } ?: throw IllegalStateException("Could not write export file.")
+                }
+                _uiState.update {
+                    it.copy(
+                        feedbackTransfer = FeedbackTransferState(
+                            message = "Exported $count feedback entr${if (count == 1) "y" else "ies"} (priority order).",
+                            isSuccess = true,
+                        ),
+                    )
+                }
+            } catch (e: Exception) {
+                _uiState.update {
+                    it.copy(
+                        feedbackTransfer = FeedbackTransferState(
+                            message = e.message ?: "Export failed.",
+                            isSuccess = false,
+                        ),
+                    )
+                }
+            }
+        }
+    }
+
+    fun importFeedback(uri: Uri) {
+        viewModelScope.launch {
+            try {
+                val json = withContext(Dispatchers.IO) {
+                    getApplication<Application>().contentResolver.openInputStream(uri)?.use { stream ->
+                        stream.bufferedReader().readText()
+                    } ?: throw IllegalStateException("Could not read import file.")
+                }
+                val imported = app.feedbackManager.importJson(json, merge = true)
+                _uiState.update {
+                    it.copy(
+                        feedbackTransfer = FeedbackTransferState(
+                            message = if (imported == 0) {
+                                "No feedback entries imported."
+                            } else {
+                                "Imported $imported feedback entr${if (imported == 1) "y" else "ies"}."
+                            },
+                            isSuccess = imported > 0,
+                        ),
+                    )
+                }
+            } catch (e: Exception) {
+                _uiState.update {
+                    it.copy(
+                        feedbackTransfer = FeedbackTransferState(
+                            message = e.message ?: "Import failed.",
                             isSuccess = false,
                         ),
                     )

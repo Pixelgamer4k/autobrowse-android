@@ -16,6 +16,22 @@ data class StrategyEntity(
     val updatedAt: Long,
 )
 
+@Entity(tableName = "feedback_entries")
+data class FeedbackEntryEntity(
+    @PrimaryKey val id: String,
+    val content: String,
+    val category: String,
+    val tags: String = "",
+    val priorityScore: Int = 0,
+    val upvotes: Int = 0,
+    val downvotes: Int = 0,
+    val sessionId: String? = null,
+    val source: String = "user",
+    val deleted: Boolean = false,
+    val createdAt: Long,
+    val updatedAt: Long,
+)
+
 @Entity(tableName = "trajectories")
 data class TrajectoryEntity(
     @PrimaryKey val id: String,

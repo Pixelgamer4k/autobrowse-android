@@ -1,6 +1,7 @@
 package com.autobrowse.android.agent.core
 
 import com.autobrowse.android.agent.memory.MemoryManager
+import com.autobrowse.android.feedback.FeedbackManager
 import com.autobrowse.android.agent.tools.ToolExecutionContext
 import com.autobrowse.android.agent.tools.ToolRegistry
 import com.autobrowse.android.agent.tools.parseToolArgs
@@ -47,6 +48,7 @@ class AgentLoop(
     private val trajectoryStore: TrajectoryStore,
     private val selfImprovementEngine: SelfImprovementEngine,
     private val postTaskLearning: PostTaskLearning,
+    private val feedbackManager: FeedbackManager? = null,
     private val tabManager: TabManager? = null,
     private val windowManager: WindowManager? = null,
     private val maxIterations: Int = 20,
@@ -159,6 +161,8 @@ class AgentLoop(
             }
 
             _progress.value = AgentProgress(AgentPhase.THINKING, 0, maxIterations, message = "Planning…")
+
+            feedbackManager?.captureFromUserMessage(rawPrompt, request.sessionId)
 
             val systemPrompt = if (isLocal) {
                 promptBuilder.buildForLocal(

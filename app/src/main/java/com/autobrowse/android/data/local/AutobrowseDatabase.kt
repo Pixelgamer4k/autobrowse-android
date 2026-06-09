@@ -5,6 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.autobrowse.android.data.local.dao.AutomationTaskDao
+import com.autobrowse.android.data.local.dao.FeedbackDao
 import com.autobrowse.android.data.local.dao.BrowserTabDao
 import com.autobrowse.android.data.local.dao.ChatMessageDao
 import com.autobrowse.android.data.local.dao.MemoryDao
@@ -12,6 +13,7 @@ import com.autobrowse.android.data.local.dao.SessionDao
 import com.autobrowse.android.data.local.dao.StrategyDao
 import com.autobrowse.android.data.local.dao.TrajectoryDao
 import com.autobrowse.android.data.local.entity.AutomationTaskEntity
+import com.autobrowse.android.data.local.entity.FeedbackEntryEntity
 import com.autobrowse.android.data.local.entity.BrowserTabEntity
 import com.autobrowse.android.data.local.entity.ChatMessageEntity
 import com.autobrowse.android.data.local.entity.MemoryEntryEntity
@@ -30,8 +32,9 @@ import com.autobrowse.android.data.local.entity.TrajectoryEntity
         BrowserTabEntity::class,
         StrategyEntity::class,
         TrajectoryEntity::class,
+        FeedbackEntryEntity::class,
     ],
-    version = 5,
+    version = 6,
     exportSchema = false,
 )
 abstract class AutobrowseDatabase : RoomDatabase() {
@@ -42,6 +45,7 @@ abstract class AutobrowseDatabase : RoomDatabase() {
     abstract fun browserTabDao(): BrowserTabDao
     abstract fun strategyDao(): StrategyDao
     abstract fun trajectoryDao(): TrajectoryDao
+    abstract fun feedbackDao(): FeedbackDao
 
     companion object {
         @Volatile

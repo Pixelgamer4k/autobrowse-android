@@ -2,6 +2,7 @@ package com.autobrowse.android.data.repository
 
 import com.autobrowse.android.data.local.AutobrowseDatabase
 import com.autobrowse.android.data.local.entity.AutomationTaskEntity
+import com.autobrowse.android.data.local.entity.FeedbackEntryEntity
 import com.autobrowse.android.data.local.entity.BrowserTabEntity
 import com.autobrowse.android.data.local.entity.ChatMessageEntity
 import com.autobrowse.android.data.local.entity.MemoryEntryEntity
@@ -16,6 +17,7 @@ import com.autobrowse.android.domain.model.BrowserTabStatus
 import com.autobrowse.android.domain.model.BrowserWindowLayout
 import com.autobrowse.android.domain.model.BrowserWindowState
 import com.autobrowse.android.domain.model.ChatMessage
+import com.autobrowse.android.domain.model.FeedbackEntry
 import com.autobrowse.android.domain.model.LearnedStrategy
 import com.autobrowse.android.domain.model.LlmConfig
 import com.autobrowse.android.domain.model.MemoryEntry
@@ -38,6 +40,7 @@ class AutobrowseRepository(
     private val tabDao = database.browserTabDao()
     private val strategyDao = database.strategyDao()
     private val trajectoryDao = database.trajectoryDao()
+    private val feedbackDao = database.feedbackDao()
     fun observeSessions(): Flow<List<Session>> =
         sessionDao.observeAll().map { list -> list.map { it.toDomain() } }
 
@@ -55,6 +58,9 @@ class AutobrowseRepository(
 
     fun observeStrategies(): Flow<List<LearnedStrategy>> =
         strategyDao.observeAll().map { list -> list.map { it.toDomain() } }
+
+    fun observeFeedback(): Flow<List<FeedbackEntry>> =
+        feedbackDao.observeActive().map { list -> list.map { it.toDomain() } }
 
     suspend fun getOrCreateActiveSession(): Session {
         val existing = sessionDao.getActive()
@@ -382,6 +388,21 @@ private fun MemoryEntryEntity.toDomain() = MemoryEntry(
     importance = importance,
     tags = tags,
     source = source,
+    createdAt = createdAt,
+    updatedAt = updatedAt,
+)
+
+private fun FeedbackEntryEntity.toDomain() = FeedbackEntry(
+    id = id,
+    content = content,
+    category = category,
+    tags = tags,
+    priorityScore = priorityScore,
+    upvotes = upvotes,
+    downvotes = downvotes,
+    sessionId = sessionId,
+    source = source,
+    deleted = deleted,
     createdAt = createdAt,
     updatedAt = updatedAt,
 )

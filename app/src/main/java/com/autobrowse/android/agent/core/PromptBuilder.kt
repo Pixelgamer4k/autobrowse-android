@@ -5,6 +5,8 @@ import com.autobrowse.android.agent.training.TrainingCorpusLoader
 import com.autobrowse.android.agent.trajectory.TrajectoryStore
 import com.autobrowse.android.data.repository.AutobrowseRepository
 import com.autobrowse.android.domain.model.LearnedStrategy
+import com.autobrowse.android.feedback.FeedbackDetector
+import com.autobrowse.android.feedback.FeedbackManager
 import com.autobrowse.android.skills.SkillStore
 
 /**
@@ -15,6 +17,7 @@ class PromptBuilder(
     private val repository: AutobrowseRepository,
     private val memoryManager: MemoryManager,
     private val skillStore: SkillStore? = null,
+    private val feedbackManager: FeedbackManager? = null,
     private val trainingCorpus: TrainingCorpusLoader? = null,
     private val trajectoryStore: TrajectoryStore? = null,
 ) {
@@ -22,13 +25,18 @@ class PromptBuilder(
      * Minimal on-device prompt — skips training corpus, skill bodies, and long playbooks
      * so the first token is not blocked by multi-thousand-token prefill.
      */
-    fun buildForLocal(
+    suspend fun buildForLocal(
         userPrompt: String,
         pageUrl: String?,
     ): String = buildString {
         appendLine("You are Multiwindow Autobrowser, a browser automation agent on Android.")
         appendLine("Rules: browser_search for searches; browser_snapshot before click; finish in ≤5 tools for simple tasks.")
         appendLine("Call tools immediately. No long internal reasoning.")
+        val feedback = buildFeedbackTier(userPrompt, compact = true)
+        if (feedback.isNotBlank()) {
+            appendLine()
+            append(feedback)
+        }
         if (!pageUrl.isNullOrBlank()) {
             appendLine("Current page: $pageUrl")
         }
@@ -48,9 +56,10 @@ class PromptBuilder(
         val hints = buildInternalHintsTier(userPrompt)
         val training = buildTrainingTier(userPrompt)
         val context = buildContextTier(prefetchedMemory, strategies, userPrompt)
+        val feedback = buildFeedbackTier(userPrompt)
         val skills = buildSkillsTier(userPrompt)
         val volatile = buildVolatileTier(pageUrl)
-        return listOf(stable, searchPlaybook, hints, training, context, skills, volatile)
+        return listOf(stable, searchPlaybook, hints, training, context, feedback, skills, volatile)
             .filter { it.isNotBlank() }
             .joinToString("\n\n")
     }
@@ -65,6 +74,7 @@ class PromptBuilder(
         3. **VERIFY then STOP** — if snapshot shows results, summarize and finish. Do NOT loop 10+ times.
         4. **Simple search = 3-5 tool calls max**: browser_search → browser_wait → browser_snapshot → respond
         5. Snapshot BEFORE click — use @eN refs from browser_snapshot, not guessed CSS selectors
+        6. **FEEDBACK = training** — when the user coaches you (or says "feedback"), apply it immediately and call feedback_submit to persist takeaways
 
         ## Tool Priority
         - Search: browser_search (site + query)
@@ -104,6 +114,38 @@ class PromptBuilder(
         return buildString {
             appendLine("## Task Hints (internal — do not repeat to user)")
             hints.forEach { appendLine("- $it") }
+        }.trim()
+    }
+
+    private suspend fun buildFeedbackTier(userPrompt: String, compact: Boolean = false): String {
+        val manager = feedbackManager ?: return ""
+        val matched = if (userPrompt.isNotBlank()) {
+            manager.searchRelevant(userPrompt, limit = if (compact) 4 else 6)
+        } else {
+            emptyList()
+        }
+        val top = manager.getForPrompt(limit = if (compact) 6 else 12)
+        val combined = (matched + top).distinctBy { it.id }.take(if (compact) 8 else 15)
+        if (combined.isEmpty() && !FeedbackDetector.isLikelyFeedback(userPrompt)) return ""
+
+        return buildString {
+            appendLine("## User Training Feedback (HIGHEST PRIORITY)")
+            appendLine(
+                "The user is training this app over many sessions. Apply this to purpose, task execution, " +
+                    "preferred sources, speed, style, tricks, and innovation.",
+            )
+            combined.forEach { entry ->
+                appendLine(
+                    "- [${entry.category}|priority=${entry.priorityScore}] ${entry.content.take(if (compact) 280 else 500)}",
+                )
+            }
+            if (FeedbackDetector.isLikelyFeedback(userPrompt)) {
+                appendLine()
+                appendLine(
+                    "CURRENT MESSAGE IS FEEDBACK: acknowledge it, apply it immediately, and call feedback_submit " +
+                        "to save distilled takeaways the user can export later.",
+                )
+            }
         }.trim()
     }
 
