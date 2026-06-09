@@ -129,12 +129,20 @@ fun BrowserWebView(
         val viewportHeightPx = maxHeight.value * density.density
         val displayScale = VirtualDisplayConfig.scaleForViewport(viewportWidthPx, viewportHeightPx)
 
-        LaunchedEffect(tab.id, tab.url) {
-            if (tab.url.isBlank()) return@LaunchedEffect
-            if (!AddressBarNavigation.urlsMatch(webView.url, tab.url)) {
-                webView.loadUrl(tab.url)
-            }
+    LaunchedEffect(tab.id, tab.url) {
+        if (tab.url.isBlank()) return@LaunchedEffect
+        if (!AddressBarNavigation.urlsMatch(webView.url, tab.url)) {
+            webView.loadUrl(tab.url)
         }
+    }
+
+    LaunchedEffect(VirtualDisplayConfig.WIDTH, VirtualDisplayConfig.HEIGHT) {
+        webView.layoutParams = ViewGroup.LayoutParams(
+            VirtualDisplayConfig.WIDTH,
+            VirtualDisplayConfig.HEIGHT,
+        )
+        webView.requestLayout()
+    }
 
         AndroidView(
             modifier = Modifier

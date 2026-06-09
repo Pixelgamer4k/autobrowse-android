@@ -2,7 +2,11 @@ package com.autobrowse.android.browser
 
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.os.Handler
+import android.os.Looper
 import android.util.Base64
+import android.view.PixelCopy
+import android.view.View
 import android.webkit.WebView
 import com.autobrowse.android.domain.model.AgentAction
 import kotlinx.coroutines.Dispatchers
@@ -147,18 +151,64 @@ class BrowserController(
 
     suspend fun captureScreenshotBase64(tabId: String? = null): String? = withContext(Dispatchers.Main) {
         val webView = webViewFor(tabId) ?: return@withContext null
-        if (webView.width <= 0 || webView.height <= 0) return@withContext null
-        val bitmap = Bitmap.createBitmap(
-            webView.width.coerceAtMost(1200),
-            webView.height.coerceAtMost(2000),
-            Bitmap.Config.ARGB_8888,
-        )
-        val canvas = Canvas(bitmap)
-        webView.draw(canvas)
+        ensureWebViewLaidOut(webView)
+        awaitWebViewDrawn(webView)
+        val width = webView.width.coerceIn(1, 1200)
+        val height = webView.height.coerceIn(1, 2000)
+        val bitmap = captureWebViewBitmap(webView, width, height) ?: return@withContext null
         val stream = ByteArrayOutputStream()
         bitmap.compress(Bitmap.CompressFormat.JPEG, 85, stream)
         bitmap.recycle()
         Base64.encodeToString(stream.toByteArray(), Base64.NO_WRAP)
+    }
+
+    private fun ensureWebViewLaidOut(webView: WebView) {
+        if (webView.width > 0 && webView.height > 0) return
+        val w = VirtualDisplayConfig.WIDTH.coerceAtLeast(1)
+        val h = VirtualDisplayConfig.HEIGHT.coerceAtLeast(1)
+        webView.measure(
+            View.MeasureSpec.makeMeasureSpec(w, View.MeasureSpec.EXACTLY),
+            View.MeasureSpec.makeMeasureSpec(h, View.MeasureSpec.EXACTLY),
+        )
+        webView.layout(0, 0, w, h)
+    }
+
+    private suspend fun awaitWebViewDrawn(webView: WebView) = suspendCancellableCoroutine { cont ->
+        webView.post {
+            webView.post {
+                if (cont.isActive) cont.resume(Unit)
+            }
+        }
+    }
+
+    private suspend fun captureWebViewBitmap(webView: WebView, width: Int, height: Int): Bitmap? {
+        val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+        val pixelCopyOk = suspendCancellableCoroutine { cont ->
+            PixelCopy.request(
+                webView,
+                bitmap,
+                { result -> cont.resume(result == PixelCopy.SUCCESS) },
+                Handler(Looper.getMainLooper()),
+            )
+        }
+        if (pixelCopyOk) return bitmap
+        bitmap.recycle()
+        return drawWebViewSoftware(webView, width, height)
+    }
+
+    private fun drawWebViewSoftware(webView: WebView, width: Int, height: Int): Bitmap? {
+        val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+        val previousLayer = webView.layerType
+        try {
+            webView.setLayerType(View.LAYER_TYPE_SOFTWARE, null)
+            webView.draw(Canvas(bitmap))
+            return bitmap
+        } catch (_: Exception) {
+            bitmap.recycle()
+            return null
+        } finally {
+            webView.setLayerType(previousLayer, null)
+        }
     }
 
     suspend fun executeActions(actions: List<AgentAction>): List<String> {

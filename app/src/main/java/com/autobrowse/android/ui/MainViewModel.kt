@@ -509,8 +509,12 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     fun captureTabScreenshot(tabId: String) {
         viewModelScope.launch {
+            browserController.setActiveTab(tabId)
+            delay(100)
             val b64 = browserController.captureScreenshotBase64(tabId) ?: run {
-                _uiState.update { it.copy(error = "Screenshot failed") }
+                _uiState.update {
+                    it.copy(error = "Screenshot failed — wait for the page to finish loading, then try again")
+                }
                 return@launch
             }
             val bytes = android.util.Base64.decode(b64, android.util.Base64.DEFAULT)

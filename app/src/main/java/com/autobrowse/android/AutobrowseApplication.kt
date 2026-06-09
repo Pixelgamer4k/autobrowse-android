@@ -66,6 +66,7 @@ import com.autobrowse.android.attachments.AttachmentStore
 import com.autobrowse.android.browser.AndroidTabManager
 import com.autobrowse.android.browser.AndroidWindowManager
 import com.autobrowse.android.browser.BrowserController
+import android.webkit.WebView
 import com.autobrowse.android.browser.VirtualDisplayConfig
 import com.autobrowse.android.downloads.DownloadsManager
 import com.autobrowse.android.data.local.AutobrowseDatabase
@@ -147,6 +148,7 @@ class AutobrowseApplication : Application(), Configuration.Provider {
 
     override fun onCreate() {
         super.onCreate()
+        WebView.enableSlowWholeDocumentDraw()
         val database = AutobrowseDatabase.get(this)
         val settingsStore = SecureSettingsStore(this)
         appScope.launch {
