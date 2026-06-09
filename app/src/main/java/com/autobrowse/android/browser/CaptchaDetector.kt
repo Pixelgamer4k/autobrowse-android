@@ -8,7 +8,7 @@ import org.json.JSONObject
  * Does not attempt to solve challenges — only detects and surfaces them to the agent/user.
  */
 object CaptchaDetector {
-    const val DETECTION_SCRIPT = """
+    val DETECTION_SCRIPT = """
         (function() {
             var result = {
                 detected: false,
@@ -93,7 +93,7 @@ object CaptchaDetector {
         })();
     """.trimIndent()
 
-    const val ANTI_AUTOMATION_SCRIPT = """
+    val ANTI_AUTOMATION_SCRIPT = """
         (function() {
             try {
                 Object.defineProperty(navigator, 'webdriver', {
