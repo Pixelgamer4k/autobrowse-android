@@ -17,11 +17,11 @@ class BrowserDetectCaptchaTool(
 
     override suspend fun execute(args: Map<String, Any?>, context: ToolExecutionContext): ToolExecutionResult {
         val tabId = args["tab_id"]?.toString() ?: context.activeTabId
-        val status = detectStatus(browserController, tabId)
+        val status = CaptchaTools.detectStatus(browserController, tabId)
         if (status == null) {
             return ToolExecutionResult("no_webview", success = false)
         }
-        applyStatus(context, status)
+        CaptchaTools.applyStatus(context, status)
         return ToolExecutionResult(status.formatForAgent(), success = true)
     }
 }
@@ -55,16 +55,16 @@ class BrowserSolveCaptchaTool(
                 success = false,
             )
         }
-        val status = detectStatus(browserController, tabId)
+        val status = CaptchaTools.detectStatus(browserController, tabId)
             ?: return ToolExecutionResult("no_webview", success = false)
         if (!status.detected) {
             return ToolExecutionResult("no_captcha_detected", success = true)
         }
         val captchaType = args["captcha_type"]?.toString()
             ?: status.sitekeys.primaryType()
-            ?: status.types.firstOrNull { it in setOf("recaptcha", "hcaptcha", "turnstile") }
+            ?: status.types.firstOrNull { type -> type in setOf("recaptcha", "hcaptcha", "turnstile") }
             ?: "recaptcha"
-        val siteKey = when (captchaType) {
+        val siteKey: String? = when (captchaType) {
             "hcaptcha" -> status.sitekeys.hcaptcha
             "turnstile" -> status.sitekeys.turnstile
             else -> status.sitekeys.recaptcha
@@ -91,8 +91,8 @@ class BrowserSolveCaptchaTool(
         val injectResult = browserController.evaluateScript(injectScript, tabId) ?: "inject_failed"
         delay(1500)
         BrowserToolHelper.refreshPageContext(context, browserController)
-        val after = detectStatus(browserController, tabId)
-        if (after != null) applyStatus(context, after)
+        val after = CaptchaTools.detectStatus(browserController, tabId)
+        if (after != null) CaptchaTools.applyStatus(context, after)
         return ToolExecutionResult(
             "solved_via_${solved.provider}\ninject=$injectResult\nURL=${context.pageUrl.orEmpty()}\n" +
                 (after?.formatForAgent() ?: ""),
@@ -115,9 +115,9 @@ class BrowserWaitForCaptchaClearTool(
         val timeout = args["timeout_ms"]?.toString()?.toLongOrNull() ?: 120_000L
         val start = System.currentTimeMillis()
         while (System.currentTimeMillis() - start < timeout) {
-            val status = detectStatus(browserController, tabId)
+            val status = CaptchaTools.detectStatus(browserController, tabId)
             if (status == null || !status.blocking) {
-                if (status != null) applyStatus(context, status)
+                if (status != null) CaptchaTools.applyStatus(context, status)
                 BrowserToolHelper.refreshPageContext(context, browserController)
                 return ToolExecutionResult("captcha_cleared — URL: ${context.pageUrl.orEmpty()}", success = true)
             }
