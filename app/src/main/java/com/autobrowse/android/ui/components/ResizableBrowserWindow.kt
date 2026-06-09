@@ -93,6 +93,7 @@ fun ResizableBrowserWindow(
     onRefresh: () -> Unit,
     onToggleMaximize: () -> Unit,
     onClose: () -> Unit,
+    onScreenshot: () -> Unit = {},
     modifier: Modifier = Modifier,
 ) {
     val density = LocalDensity.current
@@ -336,6 +337,11 @@ fun ResizableBrowserWindow(
                         .align(Alignment.TopCenter)
                         .offset(y = 30.dp)
                         .zIndex(20f),
+                    onScreenshot = {
+                        menuExpanded = false
+                        onSelect()
+                        onScreenshot()
+                    },
                     onRefresh = {
                         menuExpanded = false
                         onSelect()
@@ -358,6 +364,11 @@ fun ResizableBrowserWindow(
                         .align(Alignment.TopCenter)
                         .offset(y = MenuPopupOffset)
                         .zIndex(20f),
+                    onScreenshot = {
+                        menuExpanded = false
+                        onSelect()
+                        onScreenshot()
+                    },
                     onRefresh = {
                         menuExpanded = false
                         onSelect()

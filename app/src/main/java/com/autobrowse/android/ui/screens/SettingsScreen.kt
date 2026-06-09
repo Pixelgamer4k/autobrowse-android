@@ -14,6 +14,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Slider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -29,6 +30,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import com.autobrowse.android.domain.model.AppUiConfig
 import com.autobrowse.android.domain.model.CaptchaConfig
 import com.autobrowse.android.domain.model.CaptchaSolverProvider
 import com.autobrowse.android.domain.model.FeedbackEntry
@@ -77,6 +79,8 @@ fun SettingsScreen(
     onSaveCaptchaConfig: () -> Unit,
     exportFileName: String,
     feedbackExportFileName: String,
+    appUiConfig: AppUiConfig = AppUiConfig(),
+    onResolutionScaleChange: (Float) -> Unit = {},
     onBack: () -> Unit,
 ) {
     val context = LocalContext.current
@@ -133,6 +137,31 @@ fun SettingsScreen(
                 .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
+            Text("Display", style = MaterialTheme.typography.titleMedium)
+            Text(
+                "Internal browser window resolution. Lower values use less memory; higher values look sharper. Open a new tab to apply.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+            )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text("Resolution scale", style = MaterialTheme.typography.bodyMedium)
+                Text(
+                    "${"%.0f".format(appUiConfig.coercedScale() * 100)}%",
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.primary,
+                )
+            }
+            Slider(
+                value = appUiConfig.coercedScale(),
+                onValueChange = onResolutionScaleChange,
+                valueRange = 0.75f..1.5f,
+                steps = 14,
+            )
+
             Text("API", style = MaterialTheme.typography.titleMedium)
             Text(
                 "Cloud API is recommended. Local on-device models are experimental and can take 6–10 minutes per response.",
@@ -310,15 +339,10 @@ fun SettingsScreen(
                 Text("Save CAPTCHA settings")
             }
 
-            Text("Training Feedback", style = MaterialTheme.typography.titleMedium)
+            Text("Training Feedback Mechanism", style = MaterialTheme.typography.titleMedium)
             Text(
                 "Coach the agent in chat — purpose, sources, preferences. Mandatory entries (sources/purpose) inject into EVERY session. " +
                     "Upvote important entries. Say \"feedback:\" or coach naturally; also synced to long-term memory.",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
-            )
-            Text(
-                "Export after 10–12 days of training and send the JSON with learned skills to level up the app.",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
             )

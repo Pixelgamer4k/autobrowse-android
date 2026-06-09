@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
+import com.autobrowse.android.domain.model.AppUiConfig
 import com.autobrowse.android.domain.model.LlmBackend
 import com.autobrowse.android.domain.model.CaptchaConfig
 import com.autobrowse.android.domain.model.CaptchaSolverProvider
@@ -93,6 +94,16 @@ class SecureSettingsStore(private val appContext: Context) {
         )
     }
 
+    suspend fun getAppUiConfig(): AppUiConfig = withContext(Dispatchers.IO) {
+        AppUiConfig(resolutionScale = prefs.getFloat(KEY_RESOLUTION_SCALE, 1f))
+    }
+
+    suspend fun saveAppUiConfig(config: AppUiConfig) = withContext(Dispatchers.IO) {
+        prefs.edit()
+            .putFloat(KEY_RESOLUTION_SCALE, config.coercedScale())
+            .apply()
+    }
+
     suspend fun saveCaptchaConfig(config: CaptchaConfig) = withContext(Dispatchers.IO) {
         prefs.edit()
             .putBoolean(KEY_CAPTCHA_ENABLED, config.enabled)
@@ -145,6 +156,7 @@ class SecureSettingsStore(private val appContext: Context) {
         private const val KEY_CAPTCHA_AUTHORIZED_DOMAINS = "captcha_authorized_domains"
         private const val KEY_CAPTCHA_ANDROID_FP = "captcha_android_fingerprint"
         private const val KEY_CAPTCHA_PROXY_URL = "captcha_proxy_url"
+        private const val KEY_RESOLUTION_SCALE = "resolution_scale"
 
         private const val DEFAULT_API_URL = "https://api.openai.com/v1/"
         private const val DEFAULT_MODEL = "gpt-4o-mini"

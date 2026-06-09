@@ -9,6 +9,8 @@ import androidx.lifecycle.viewModelScope
 import com.autobrowse.android.AutobrowseApplication
 import com.autobrowse.android.agent.core.SessionTitleGenerator
 import com.autobrowse.android.browser.AddressBarNavigation
+import com.autobrowse.android.browser.VirtualDisplayConfig
+import com.autobrowse.android.domain.model.AppUiConfig
 import com.autobrowse.android.browser.BrowserController
 import com.autobrowse.android.browser.FloatingWindowEngine
 import com.autobrowse.android.browser.TabInfo
@@ -115,6 +117,7 @@ data class MainUiState(
     val feedbackEntries: List<FeedbackEntry> = emptyList(),
     val feedbackTransfer: FeedbackTransferState = FeedbackTransferState(),
     val captchaConfig: CaptchaConfig = CaptchaConfig(),
+    val appUiConfig: AppUiConfig = AppUiConfig(),
     val error: String? = null,
 )
 
@@ -142,10 +145,13 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         viewModelScope.launch {
             val session = repository.createNewSession()
             val llmConfig = repository.getLlmConfig()
+            val appUiConfig = repository.getAppUiConfig()
+            VirtualDisplayConfig.resolutionScale = appUiConfig.coercedScale()
             _uiState.update {
                 it.copy(
                     session = session,
                     llmConfig = llmConfig,
+                    appUiConfig = appUiConfig,
                     skillConfigs = app.skillRegistry.allSkillConfigs(),
                     enabledSkills = repository.getEnabledSkills(),
                     showLlmSetup = !llmConfig.isConfigured(),
@@ -436,6 +442,30 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 ?: throw IllegalArgumentException("Tab not found: $tabId"),
             isActive = _uiState.value.activeTabId == tabId,
         )
+    }
+
+    fun updateResolutionScale(scale: Float) {
+        viewModelScope.launch {
+            val updated = _uiState.value.appUiConfig.copy(resolutionScale = scale)
+            repository.saveAppUiConfig(updated)
+            VirtualDisplayConfig.resolutionScale = updated.coercedScale()
+            _uiState.update { it.copy(appUiConfig = updated) }
+        }
+    }
+
+    fun captureTabScreenshot(tabId: String) {
+        viewModelScope.launch {
+            val b64 = browserController.captureScreenshotBase64(tabId) ?: run {
+                _uiState.update { it.copy(error = "Screenshot failed") }
+                return@launch
+            }
+            val bytes = android.util.Base64.decode(b64, android.util.Base64.DEFAULT)
+            val dir = java.io.File(getApplication<Application>().filesDir, "screenshots").apply { mkdirs() }
+            val tab = _uiState.value.tabs.find { it.id == tabId }
+            val safe = tab?.title?.replace(Regex("""[^\w.-]"""), "_")?.take(24) ?: "window"
+            val stamp = java.text.SimpleDateFormat("yyyyMMdd_HHmmss", java.util.Locale.US).format(java.util.Date())
+            java.io.File(dir, "shot_${safe}_$stamp.jpg").writeBytes(bytes)
+        }
     }
 
     fun refreshTab(tabId: String) {

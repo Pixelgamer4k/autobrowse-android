@@ -93,6 +93,8 @@ fun HomeScreen(viewModel: MainViewModel) {
                 onSaveCaptchaConfig = viewModel::saveCaptchaConfig,
                 exportFileName = viewModel.learnedSkillsExportFileName(),
                 feedbackExportFileName = viewModel.feedbackExportFileName(),
+                appUiConfig = state.appUiConfig,
+                onResolutionScaleChange = viewModel::updateResolutionScale,
                 onBack = { viewModel.toggleSettings(false) },
             )
         }
@@ -141,6 +143,7 @@ private fun MainContent(
                     onRefreshTab = viewModel::refreshTab,
                     onToggleMaximizeTab = viewModel::toggleMaximizeTab,
                     onCloseTab = viewModel::closeTab,
+                    onCaptureScreenshot = viewModel::captureTabScreenshot,
                     modifier = Modifier.fillMaxSize(),
                 )
 

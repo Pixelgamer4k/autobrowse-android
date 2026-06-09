@@ -11,6 +11,7 @@ import com.autobrowse.android.data.local.entity.StrategyEntity
 import com.autobrowse.android.attachments.AttachmentJson
 import com.autobrowse.android.data.settings.SecureSettingsStore
 import com.autobrowse.android.domain.model.AgentRole
+import com.autobrowse.android.domain.model.AppUiConfig
 import com.autobrowse.android.domain.model.AutomationTask
 import com.autobrowse.android.domain.model.BrowserTab
 import com.autobrowse.android.domain.model.BrowserTabStatus
@@ -260,6 +261,10 @@ class AutobrowseRepository(
     suspend fun getCaptchaConfig(): CaptchaConfig = settingsStore.getCaptchaConfig()
 
     suspend fun saveCaptchaConfig(config: CaptchaConfig) = settingsStore.saveCaptchaConfig(config)
+
+    suspend fun getAppUiConfig(): AppUiConfig = settingsStore.getAppUiConfig()
+
+    suspend fun saveAppUiConfig(config: AppUiConfig) = settingsStore.saveAppUiConfig(config)
 
     suspend fun getEnabledSkills(): Set<SkillType> =
         settingsStore.getEnabledSkills().mapNotNull { runCatching { SkillType.valueOf(it) }.getOrNull() }.toSet()
