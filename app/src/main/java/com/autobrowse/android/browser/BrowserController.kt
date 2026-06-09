@@ -1,12 +1,18 @@
 package com.autobrowse.android.browser
 
+import android.app.Activity
+import android.content.Context
+import android.content.ContextWrapper
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.graphics.Rect
+import android.os.Build
 import android.os.Handler
 import android.os.Looper
 import android.util.Base64
 import android.view.PixelCopy
 import android.view.View
+import android.view.Window
 import android.webkit.WebView
 import com.autobrowse.android.domain.model.AgentAction
 import kotlinx.coroutines.Dispatchers
@@ -182,18 +188,57 @@ class BrowserController(
     }
 
     private suspend fun captureWebViewBitmap(webView: WebView, width: Int, height: Int): Bitmap? {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            captureWithWindowPixelCopy(webView, width, height)?.let { return it }
+        }
+        return drawWebViewSoftware(webView, width, height)
+    }
+
+    private suspend fun captureWithWindowPixelCopy(
+        webView: WebView,
+        width: Int,
+        height: Int,
+    ): Bitmap? {
+        val window = findWindow(webView) ?: return null
+        if (webView.width <= 0 || webView.height <= 0) return null
         val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
-        val pixelCopyOk = suspendCancellableCoroutine { cont ->
+        val location = IntArray(2)
+        webView.getLocationInWindow(location)
+        val srcRect = Rect(
+            location[0],
+            location[1],
+            location[0] + webView.width,
+            location[1] + webView.height,
+        )
+        val ok = suspendCancellableCoroutine { cont: kotlinx.coroutines.CancellableContinuation<Boolean> ->
             PixelCopy.request(
-                webView,
+                window,
+                srcRect,
                 bitmap,
-                { result -> cont.resume(result == PixelCopy.SUCCESS) },
+                PixelCopy.OnPixelCopyFinishedListener { result ->
+                    cont.resume(result == PixelCopy.SUCCESS)
+                },
                 Handler(Looper.getMainLooper()),
             )
         }
-        if (pixelCopyOk) return bitmap
-        bitmap.recycle()
-        return drawWebViewSoftware(webView, width, height)
+        return if (ok) bitmap else {
+            bitmap.recycle()
+            null
+        }
+    }
+
+    private fun findWindow(webView: WebView): Window? {
+        findActivity(webView.rootView?.context ?: webView.context)?.let { return it.window }
+        return findActivity(webView.context)?.window
+    }
+
+    private fun findActivity(context: Context): Activity? {
+        var ctx = context
+        while (ctx is ContextWrapper) {
+            if (ctx is Activity) return ctx
+            ctx = ctx.baseContext
+        }
+        return null
     }
 
     private fun drawWebViewSoftware(webView: WebView, width: Int, height: Int): Bitmap? {
