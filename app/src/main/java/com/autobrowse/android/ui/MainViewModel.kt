@@ -32,6 +32,8 @@ import com.autobrowse.android.domain.model.LlmProvider
 import com.autobrowse.android.domain.model.DeviceContextDefaults
 import com.autobrowse.android.domain.model.LocalLlmCatalog
 import com.autobrowse.android.domain.model.LocalLlmModel
+import com.autobrowse.android.domain.model.CaptchaConfig
+import com.autobrowse.android.domain.model.CaptchaSolverProvider
 import com.autobrowse.android.domain.model.FeedbackEntry
 import com.autobrowse.android.domain.model.MemoryEntry
 import com.autobrowse.android.domain.model.PendingAttachment
@@ -112,6 +114,7 @@ data class MainUiState(
     val skillTransfer: SkillTransferState = SkillTransferState(),
     val feedbackEntries: List<FeedbackEntry> = emptyList(),
     val feedbackTransfer: FeedbackTransferState = FeedbackTransferState(),
+    val captchaConfig: CaptchaConfig = CaptchaConfig(),
     val error: String? = null,
 )
 
@@ -315,8 +318,28 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun toggleSettings(show: Boolean) {
-        if (show) refreshAgentSkills()
+        if (show) {
+            refreshAgentSkills()
+            refreshCaptchaConfig()
+        }
         _uiState.update { it.copy(showSettings = show) }
+    }
+
+    fun updateCaptchaConfig(config: CaptchaConfig) {
+        _uiState.update { it.copy(captchaConfig = config) }
+    }
+
+    fun saveCaptchaConfig() {
+        viewModelScope.launch {
+            repository.saveCaptchaConfig(_uiState.value.captchaConfig)
+        }
+    }
+
+    private fun refreshCaptchaConfig() {
+        viewModelScope.launch {
+            val config = repository.getCaptchaConfig()
+            _uiState.update { it.copy(captchaConfig = config) }
+        }
     }
 
     private fun refreshAgentSkills() {

@@ -5,6 +5,7 @@ import androidx.work.Configuration
 import com.autobrowse.android.agent.NavigationAgent
 import com.autobrowse.android.agent.core.AgentLoop
 import com.autobrowse.android.agent.core.ContextCompressor
+import com.autobrowse.android.agent.core.SmartExecutionAdvisor
 import com.autobrowse.android.agent.core.PostTaskLearning
 import com.autobrowse.android.agent.core.PromptBuilder
 import com.autobrowse.android.agent.memory.MemoryManager
@@ -173,7 +174,10 @@ class AutobrowseApplication : Application(), Configuration.Provider {
             llmApi = llmApi,
         )
 
-        feedbackManager = FeedbackManager(database.feedbackDao())
+        feedbackManager = FeedbackManager(
+            feedbackDao = database.feedbackDao(),
+            memoryManager = memoryManager,
+        )
 
         val selfImprovementEngine = SelfImprovementEngine(
             strategyDao = database.strategyDao(),
@@ -220,7 +224,7 @@ class AutobrowseApplication : Application(), Configuration.Provider {
                 BrowserWindowFocusTool(windowManager),
                 BrowserWindowListTool(windowManager),
                 *BrowserAdvancedTools.createAll(browserController).toTypedArray(),
-                *CaptchaTools.createAll(browserController).toTypedArray(),
+                *CaptchaTools.createAll(browserController, repository).toTypedArray(),
                 WebFetchTool(skillRegistry, repository),
                 ExtractDataTool(skillRegistry, repository),
                 SummarizeTool(skillRegistry, repository),
@@ -245,6 +249,8 @@ class AutobrowseApplication : Application(), Configuration.Provider {
             ),
             browserController = browserController,
         )
+
+        SmartExecutionAdvisor.feedbackManager = feedbackManager
 
         agentLoop = AgentLoop(
             repository = repository,

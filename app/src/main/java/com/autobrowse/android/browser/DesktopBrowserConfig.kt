@@ -8,16 +8,21 @@ object DesktopBrowserConfig {
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) " +
             "Chrome/131.0.0.0 Safari/537.36"
 
-    fun apply(webView: WebView) {
+    fun apply(webView: WebView, useAndroidFingerprint: Boolean = true) {
         android.webkit.CookieManager.getInstance().apply {
             setAcceptCookie(true)
             setAcceptThirdPartyCookies(webView, true)
         }
+        StealthBrowserConfig.apply(webView, useAndroidFingerprint)
         webView.settings.apply {
             javaScriptEnabled = true
             domStorageEnabled = true
             databaseEnabled = true
-            userAgentString = DESKTOP_USER_AGENT
+            userAgentString = if (useAndroidFingerprint) {
+                StealthBrowserConfig.buildAndroidUserAgent()
+            } else {
+                DESKTOP_USER_AGENT
+            }
             useWideViewPort = true
             loadWithOverviewMode = false
             builtInZoomControls = false

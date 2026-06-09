@@ -5,6 +5,8 @@ import android.content.SharedPreferences
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
 import com.autobrowse.android.domain.model.LlmBackend
+import com.autobrowse.android.domain.model.CaptchaConfig
+import com.autobrowse.android.domain.model.CaptchaSolverProvider
 import com.autobrowse.android.domain.model.LlmConfig
 import com.autobrowse.android.domain.model.LlmProvider
 import com.autobrowse.android.domain.model.DeviceContextDefaults
@@ -75,6 +77,33 @@ class SecureSettingsStore(private val appContext: Context) {
         prefs.edit().putStringSet(KEY_ENABLED_SKILLS, skills).apply()
     }
 
+    suspend fun getCaptchaConfig(): CaptchaConfig = withContext(Dispatchers.IO) {
+        CaptchaConfig(
+            enabled = prefs.getBoolean(KEY_CAPTCHA_ENABLED, false),
+            provider = runCatching {
+                CaptchaSolverProvider.valueOf(
+                    prefs.getString(KEY_CAPTCHA_PROVIDER, CaptchaSolverProvider.CAPSOLVER.name)
+                        ?: CaptchaSolverProvider.CAPSOLVER.name,
+                )
+            }.getOrDefault(CaptchaSolverProvider.CAPSOLVER),
+            apiKey = prefs.getString(KEY_CAPTCHA_API_KEY, "") ?: "",
+            authorizedDomains = prefs.getString(KEY_CAPTCHA_AUTHORIZED_DOMAINS, "") ?: "",
+            useAndroidFingerprint = prefs.getBoolean(KEY_CAPTCHA_ANDROID_FP, true),
+            proxyUrl = prefs.getString(KEY_CAPTCHA_PROXY_URL, "") ?: "",
+        )
+    }
+
+    suspend fun saveCaptchaConfig(config: CaptchaConfig) = withContext(Dispatchers.IO) {
+        prefs.edit()
+            .putBoolean(KEY_CAPTCHA_ENABLED, config.enabled)
+            .putString(KEY_CAPTCHA_PROVIDER, config.provider.name)
+            .putString(KEY_CAPTCHA_API_KEY, config.apiKey)
+            .putString(KEY_CAPTCHA_AUTHORIZED_DOMAINS, config.authorizedDomains)
+            .putBoolean(KEY_CAPTCHA_ANDROID_FP, config.useAndroidFingerprint)
+            .putString(KEY_CAPTCHA_PROXY_URL, config.proxyUrl)
+            .apply()
+    }
+
     private fun migrateLocalModel(raw: String?): LocalLlmModel {
         val parsed = runCatching { LocalLlmModel.valueOf(raw ?: "") }.getOrNull()
         return if (parsed != null && LocalLlmCatalog.models.any { it.model == parsed }) {
@@ -110,6 +139,12 @@ class SecureSettingsStore(private val appContext: Context) {
         private const val KEY_TEMPERATURE = "llm_temperature"
         private const val KEY_MAX_TOKENS = "llm_max_tokens"
         private const val KEY_ENABLED_SKILLS = "enabled_skills"
+        private const val KEY_CAPTCHA_ENABLED = "captcha_enabled"
+        private const val KEY_CAPTCHA_PROVIDER = "captcha_provider"
+        private const val KEY_CAPTCHA_API_KEY = "captcha_api_key"
+        private const val KEY_CAPTCHA_AUTHORIZED_DOMAINS = "captcha_authorized_domains"
+        private const val KEY_CAPTCHA_ANDROID_FP = "captcha_android_fingerprint"
+        private const val KEY_CAPTCHA_PROXY_URL = "captcha_proxy_url"
 
         private const val DEFAULT_API_URL = "https://api.openai.com/v1/"
         private const val DEFAULT_MODEL = "gpt-4o-mini"

@@ -18,8 +18,16 @@ object CaptchaDetector {
                 provider: null,
                 iframeUrls: [],
                 pageSignals: [],
-                confidence: 'none'
+                confidence: 'none',
+                sitekeys: { recaptcha: null, hcaptcha: null, turnstile: null }
             };
+            function firstSitekey(sel) {
+                var el = document.querySelector(sel);
+                return el ? (el.getAttribute('data-sitekey') || el.getAttribute('data-site-key') || null) : null;
+            }
+            result.sitekeys.recaptcha = firstSitekey('.g-recaptcha, [data-sitekey]');
+            result.sitekeys.hcaptcha = firstSitekey('.h-captcha, [data-hcaptcha-sitekey]');
+            result.sitekeys.turnstile = firstSitekey('.cf-turnstile, [data-sitekey]');
             function addType(t) {
                 if (result.types.indexOf(t) < 0) result.types.push(t);
                 result.detected = true;
@@ -93,19 +101,22 @@ object CaptchaDetector {
         })();
     """.trimIndent()
 
-    val ANTI_AUTOMATION_SCRIPT = """
-        (function() {
-            try {
-                Object.defineProperty(navigator, 'webdriver', {
-                    get: function() { return undefined; },
-                    configurable: true
-                });
-            } catch (e) {}
-            try {
-                if (!window.chrome) window.chrome = { runtime: {} };
-            } catch (e) {}
-        })();
-    """.trimIndent()
+    val ANTI_AUTOMATION_SCRIPT = StealthBrowserConfig.STEALTH_INJECTION
+
+    data class CaptchaSitekeys(
+        val recaptcha: String? = null,
+        val hcaptcha: String? = null,
+        val turnstile: String? = null,
+    ) {
+        fun primaryType(): String? = when {
+            !recaptcha.isNullOrBlank() -> "recaptcha"
+            !hcaptcha.isNullOrBlank() -> "hcaptcha"
+            !turnstile.isNullOrBlank() -> "turnstile"
+            else -> null
+        }
+
+        fun primaryKey(): String? = recaptcha ?: hcaptcha ?: turnstile
+    }
 
     data class CaptchaStatus(
         val detected: Boolean,
@@ -116,6 +127,7 @@ object CaptchaDetector {
         val confidence: String,
         val iframeUrls: List<String>,
         val pageSignals: List<String>,
+        val sitekeys: CaptchaSitekeys = CaptchaSitekeys(),
     ) {
         fun formatForAgent(): String = buildString {
             if (!detected) {
@@ -126,19 +138,17 @@ object CaptchaDetector {
             appendLine("Provider: ${provider ?: "unknown"}")
             appendLine("Confidence: $confidence")
             appendLine("Blocking: $blocking")
-            appendLine("User must solve in browser window: $userActionRequired")
             if (types.isNotEmpty()) appendLine("Types: ${types.joinToString(", ")}")
+            sitekeys.primaryKey()?.let { appendLine("Sitekey: $it") }
             if (iframeUrls.isNotEmpty()) appendLine("Iframes: ${iframeUrls.take(3).joinToString("; ")}")
-            if (userActionRequired) {
-                appendLine()
-                append("ACTION: Stop automating. Ask the user to complete the challenge in the browser window, ")
-                append("then call browser_wait_for_captcha_clear or browser_snapshot to verify.")
-            }
+            appendLine()
+            append("ACTION: On authorized sites call browser_solve_captcha. ")
+            append("If not authorized or solver disabled, use browser_wait_for_captcha_clear.")
         }
 
         fun userBannerMessage(): String? = when {
-            !userActionRequired -> null
-            else -> "CAPTCHA detected — complete the challenge in the browser window, then tell the agent to continue."
+            !blocking -> null
+            else -> "CAPTCHA detected — solving on authorized sites automatically."
         }
     }
 
@@ -155,6 +165,13 @@ object CaptchaDetector {
                 confidence = json.optString("confidence", "none"),
                 iframeUrls = json.optJSONArray("iframeUrls").toStringList(),
                 pageSignals = json.optJSONArray("pageSignals").toStringList(),
+                sitekeys = json.optJSONObject("sitekeys")?.let { keys ->
+                    CaptchaSitekeys(
+                        recaptcha = keys.optString("recaptcha").takeIf { it.isNotBlank() },
+                        hcaptcha = keys.optString("hcaptcha").takeIf { it.isNotBlank() },
+                        turnstile = keys.optString("turnstile").takeIf { it.isNotBlank() },
+                    )
+                } ?: CaptchaSitekeys(),
             )
         }.getOrNull()
     }

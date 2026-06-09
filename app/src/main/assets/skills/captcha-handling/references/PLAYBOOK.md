@@ -1,30 +1,34 @@
 # CAPTCHA Playbook
 
-## Fast path
+## Fast path (authorized site)
 
 ```
 browser_detect_captcha
-→ (if userActionRequired) tell user to solve in browser window
-→ browser_wait_for_captcha_clear
+→ browser_solve_captcha
 → browser_snapshot
-→ continue task
+→ continue
 ```
+
+## Settings checklist
+
+1. CAPTCHA Solver → **Enabled**
+2. Provider: CapSolver or 2Captcha
+3. API key set
+4. Authorized domains includes current site hostname
 
 ## Failure recovery
 
-### Agent keeps clicking
-- Run `browser_detect_captcha` first
-- Do **not** use `browser_dismiss_overlays` — it skips CAPTCHA zones but the agent should pause entirely
+### solver not configured
+Open Settings, add API key + allowlist, retry `browser_solve_captcha`.
 
-### CAPTCHA iframe blank / won't load
-- User may need to tap the browser window directly (WebView supports touch)
-- Third-party cookies are enabled for challenge iframes
-- Reload only if the user asks: `browser_reload` then hand off again
+### host not authorized
+Add domain to allowlist — automated solving is blocked by design.
 
-### Stuck after user says "done"
-- `browser_wait_for_captcha_clear` with `timeout_ms: 30000`
-- If still blocked, `browser_snapshot` and describe what you see to the user
+### sitekey missing
+`browser_wait(2000)` → `browser_detect_captcha` again. Widget may still be loading.
 
-### Google "unusual traffic"
-- Cannot bypass — user completes challenge or try again later
-- Summarize partial progress and stop looping
+### token injected but page stuck
+`browser_snapshot` → check if form submit needed → `browser_click` on submit button (not CAPTCHA widget).
+
+### Repeated triggers
+Enable residential proxy in Settings; reduce automation speed with `browser_wait` between actions.

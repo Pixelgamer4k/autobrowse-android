@@ -42,6 +42,12 @@ class PromptBuilder(
         pageUrl: String?,
     ): PromptBundle = hermes.assembleLocal(userPrompt, pageUrl)
 
+    suspend fun rebuildVolatile(
+        userPrompt: String,
+        strategies: List<LearnedStrategy>,
+        pageUrl: String?,
+    ): String = hermes.rebuildVolatile(userPrompt, strategies, pageUrl)
+
     /** @deprecated Use [buildBundle] for split prefix-cache messages. */
     suspend fun build(
         prefetchedMemory: String,

@@ -19,6 +19,7 @@ import com.autobrowse.android.domain.model.BrowserWindowState
 import com.autobrowse.android.domain.model.ChatMessage
 import com.autobrowse.android.domain.model.FeedbackEntry
 import com.autobrowse.android.domain.model.LearnedStrategy
+import com.autobrowse.android.domain.model.CaptchaConfig
 import com.autobrowse.android.domain.model.LlmConfig
 import com.autobrowse.android.domain.model.MemoryEntry
 import com.autobrowse.android.domain.model.Session
@@ -255,6 +256,10 @@ class AutobrowseRepository(
     suspend fun getLlmConfig(): LlmConfig = settingsStore.getLlmConfig()
 
     suspend fun saveLlmConfig(config: LlmConfig) = settingsStore.saveLlmConfig(config)
+
+    suspend fun getCaptchaConfig(): CaptchaConfig = settingsStore.getCaptchaConfig()
+
+    suspend fun saveCaptchaConfig(config: CaptchaConfig) = settingsStore.saveCaptchaConfig(config)
 
     suspend fun getEnabledSkills(): Set<SkillType> =
         settingsStore.getEnabledSkills().mapNotNull { runCatching { SkillType.valueOf(it) }.getOrNull() }.toSet()

@@ -3,8 +3,10 @@ package com.autobrowse.android.agent.core
 import com.autobrowse.android.agent.tools.ToolExecutionContext
 import com.autobrowse.android.domain.model.ToolCall
 import com.autobrowse.android.domain.model.ToolResult
+import com.autobrowse.android.feedback.FeedbackManager
 
 object SmartExecutionAdvisor {
+    var feedbackManager: FeedbackManager? = null
     private val CAPTCHA_HARMFUL_TOOLS = setOf(
         "browser_click",
         "browser_type",
@@ -13,7 +15,7 @@ object SmartExecutionAdvisor {
         "browser_double_click",
         "browser_press_and_hold",
     )
-    fun augmentToolOutput(
+    suspend fun augmentToolOutput(
         call: ToolCall,
         result: ToolResult,
         context: ToolExecutionContext,
@@ -48,12 +50,12 @@ object SmartExecutionAdvisor {
         }
 
         if (context.captchaUserActionRequired) {
-            hints += "🛑 CAPTCHA ACTIVE: Do NOT click/type/dismiss overlays. Tell user to solve in browser window, then browser_wait_for_captcha_clear."
+            hints += "🛑 CAPTCHA ACTIVE: call browser_solve_captcha on authorized sites (CapSolver/2Captcha). Fallback: browser_wait_for_captcha_clear."
             if (call.name in CAPTCHA_HARMFUL_TOOLS) {
-                hints += "⚠ Tool ${call.name} cannot solve CAPTCHAs — pause automation."
+                hints += "⚠ Avoid blind ${call.name} on CAPTCHA widgets — solve first."
             }
         } else if (context.captchaDetected) {
-            hints += "⚠ Possible bot challenge on page — run browser_detect_captcha before more clicks."
+            hints += "⚠ Bot challenge detected — browser_detect_captcha then browser_solve_captcha if authorized."
         }
 
         if (iteration >= 6 && priorToolNames.count { it == "browser_type" } >= 2) {
@@ -64,13 +66,27 @@ object SmartExecutionAdvisor {
             hints += "⚠ STUCK: Try web_fetch, browser_vision, or skill_view for a different approach."
         }
 
-        if (hints.isEmpty()) return output
+        val feedbackHints = buildFeedbackHints(userPrompt)
+        if (hints.isEmpty() && feedbackHints.isEmpty()) return output
         return buildString {
             appendLine(output)
             appendLine()
             appendLine("[Execution advisor]")
+            feedbackHints.forEach { appendLine(it) }
             hints.forEach { appendLine(it) }
         }
+    }
+
+    private suspend fun buildFeedbackHints(userPrompt: String): List<String> {
+        val manager = feedbackManager ?: return emptyList()
+        val block = manager.buildPromptBlock(userPrompt, maxContextual = 4)
+        if (block.mandatory.isEmpty()) return emptyList()
+        val sources = block.mandatory.filter { it.category == "sources" }
+        if (sources.isEmpty()) return emptyList()
+        return listOf(
+            "📌 MANDATORY SOURCES from training (apply now): " +
+                sources.joinToString(" | ") { it.content.take(180) },
+        )
     }
 
     fun shouldSerializeBrowserTools(toolCalls: List<ToolCall>): Boolean =

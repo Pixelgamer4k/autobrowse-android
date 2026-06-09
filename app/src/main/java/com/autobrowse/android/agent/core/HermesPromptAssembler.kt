@@ -17,7 +17,7 @@ class HermesPromptAssembler(
     companion object {
         private const val BOUNDED_MEMORY_CHARS = 900
         private const val MAX_SKILL_LINES = 14
-        private const val MAX_FEEDBACK_LINES = 2
+        private const val MAX_CONTEXTUAL_FEEDBACK = 6
         private const val MAX_STRATEGY_LINES = 2
     }
 
@@ -27,31 +27,58 @@ class HermesPromptAssembler(
         pageUrl: String?,
         toolCount: Int,
     ): PromptBundle {
-        val stable = buildStablePrefix(toolCount)
-        val volatile = buildVolatileContext(userPrompt, strategies, pageUrl)
+        val feedbackBlock = feedbackManager?.buildPromptBlock(userPrompt, MAX_CONTEXTUAL_FEEDBACK)
+        val stable = buildStablePrefix(toolCount, feedbackBlock?.formatMandatory().orEmpty())
+        val volatile = buildVolatileContext(userPrompt, strategies, pageUrl, feedbackBlock?.formatContextual().orEmpty())
         return PromptBundle(stablePrefix = stable, volatileContext = volatile)
     }
 
     suspend fun assembleLocal(userPrompt: String, pageUrl: String?): PromptBundle {
-        val stable = buildLocalStablePrefix()
+        val feedbackBlock = feedbackManager?.buildPromptBlock(userPrompt, maxContextual = 4)
+        val stable = buildString {
+            append(buildLocalStablePrefix())
+            val mandatory = feedbackBlock?.formatMandatory(maxCharsPerEntry = 300).orEmpty()
+            if (mandatory.isNotBlank()) {
+                appendLine()
+                append(mandatory)
+            }
+        }.trim()
         val volatile = buildString {
             val memory = memoryManager.getBoundedCuratedBlock(maxChars = 500)
             if (memory.isNotBlank()) {
                 appendLine(memory)
                 appendLine()
             }
-            val feedback = buildFeedbackVolatile(userPrompt, compact = true)
-            if (feedback.isNotBlank()) {
-                appendLine(feedback)
+            val contextual = feedbackBlock?.formatContextual(maxCharsPerEntry = 200).orEmpty()
+            if (contextual.isNotBlank()) {
+                appendLine(contextual)
+                appendLine()
+            }
+            if (FeedbackDetector.isLikelyFeedback(userPrompt)) {
+                appendLine("Current message is coaching — apply immediately and call feedback_submit.")
                 appendLine()
             }
             if (!pageUrl.isNullOrBlank()) appendLine("Page: $pageUrl")
-            TaskPreprocessor.hintsForPrompt(userPrompt).take(2).forEach { appendLine("Hint: $it") }
+            TaskPreprocessor.hintsForPrompt(userPrompt).take(3).forEach { appendLine("Hint: $it") }
         }.trim()
         return PromptBundle(stablePrefix = stable, volatileContext = volatile)
     }
 
-    private suspend fun buildStablePrefix(toolCount: Int): String = buildString {
+    suspend fun rebuildVolatile(
+        userPrompt: String,
+        strategies: List<LearnedStrategy>,
+        pageUrl: String?,
+    ): String {
+        val feedbackBlock = feedbackManager?.buildPromptBlock(userPrompt, MAX_CONTEXTUAL_FEEDBACK)
+        return buildVolatileContext(
+            userPrompt = userPrompt,
+            strategies = strategies,
+            pageUrl = pageUrl,
+            contextualFeedback = feedbackBlock?.formatContextual().orEmpty(),
+        )
+    }
+
+    private suspend fun buildStablePrefix(toolCount: Int, mandatoryFeedback: String): String = buildString {
         appendLine("# Multiwindow Autobrowser")
         appendLine("Browser automation agent on Android. MINIMAL steps. Tools via API.")
         appendLine()
@@ -61,9 +88,14 @@ class HermesPromptAssembler(
         appendLine("3. Simple search = 3-5 tools then STOP")
         appendLine("4. Use @eN refs from snapshot for clicks")
         appendLine("5. Skills: metadata below only — call skill_view(name) for full playbook")
-        appendLine("6. Feedback coaching → apply + feedback_submit")
-        appendLine("7. CAPTCHA → stop automating; user solves in browser; browser_wait_for_captcha_clear")
+        appendLine("6. Feedback coaching → ALWAYS apply mandatory training + feedback_submit")
+        appendLine("7. CAPTCHA on authorized sites → browser_solve_captcha (CapSolver/2Captcha); else browser_detect_captcha")
+        appendLine("8. Mandatory training below overrides defaults — follow even in new sessions")
         appendLine()
+        if (mandatoryFeedback.isNotBlank()) {
+            appendLine(mandatoryFeedback)
+            appendLine()
+        }
         appendLine("## Skills (progressive disclosure)")
         append(skillMetadataBlock())
         appendLine()
@@ -76,15 +108,17 @@ class HermesPromptAssembler(
     private fun buildLocalStablePrefix(): String = """
         # Multiwindow Autobrowser (local)
         browser_search for searches; browser_snapshot before click; ≤5 tools for simple tasks.
-        skill_view(name) loads full playbooks. feedback_submit saves coaching.
+        skill_view(name) loads full playbooks. Mandatory training feedback ALWAYS applies across sessions.
+        feedback_submit saves coaching. browser_solve_captcha on authorized sites when CAPTCHA appears.
     """.trimIndent()
 
     private suspend fun buildVolatileContext(
         userPrompt: String,
         strategies: List<LearnedStrategy>,
         pageUrl: String?,
+        contextualFeedback: String,
     ): String = buildString {
-        val hints = TaskPreprocessor.hintsForPrompt(userPrompt).take(3)
+        val hints = TaskPreprocessor.hintsForPrompt(userPrompt).take(4)
         if (hints.isNotEmpty()) {
             appendLine("## Task hints")
             hints.forEach { appendLine("- $it") }
@@ -96,9 +130,13 @@ class HermesPromptAssembler(
             matched.take(4).forEach { appendLine("- $it") }
             appendLine()
         }
-        val feedback = buildFeedbackVolatile(userPrompt)
-        if (feedback.isNotBlank()) {
-            appendLine(feedback)
+        if (contextualFeedback.isNotBlank()) {
+            appendLine(contextualFeedback)
+            appendLine()
+        }
+        if (FeedbackDetector.isLikelyFeedback(userPrompt)) {
+            appendLine("## Coaching now")
+            appendLine("- User is training you — apply mandatory feedback + this message immediately.")
             appendLine()
         }
         strategies.take(MAX_STRATEGY_LINES).forEach {
@@ -118,27 +156,6 @@ class HermesPromptAssembler(
             (learned + bundled).take(MAX_SKILL_LINES).forEach { meta ->
                 appendLine("- ${meta.name}: ${meta.description.take(72)}")
             }
-        }.trim()
-    }
-
-    private suspend fun buildFeedbackVolatile(userPrompt: String, compact: Boolean = false): String {
-        val manager = feedbackManager ?: return ""
-        val isCoaching = FeedbackDetector.isLikelyFeedback(userPrompt)
-        val limit = if (compact) 2 else MAX_FEEDBACK_LINES
-        val relevant = if (userPrompt.isNotBlank()) {
-            manager.searchRelevant(userPrompt, limit = limit)
-        } else {
-            emptyList()
-        }
-        val top = manager.getForPrompt(limit = limit)
-        val lines = (relevant + top).distinctBy { it.id }.take(limit)
-        if (lines.isEmpty() && !isCoaching) return ""
-        return buildString {
-            appendLine("## Training feedback")
-            lines.forEach { e ->
-                appendLine("- [${e.category}|p${e.priorityScore}] ${e.content.take(if (compact) 160 else 220)}")
-            }
-            if (isCoaching) appendLine("- Current message is coaching — apply now.")
         }.trim()
     }
 }

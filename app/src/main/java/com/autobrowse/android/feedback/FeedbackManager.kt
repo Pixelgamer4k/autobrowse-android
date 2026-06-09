@@ -1,5 +1,6 @@
 package com.autobrowse.android.feedback
 
+import com.autobrowse.android.agent.memory.MemoryManager
 import com.autobrowse.android.data.local.dao.FeedbackDao
 import com.autobrowse.android.data.local.entity.FeedbackEntryEntity
 import com.autobrowse.android.domain.model.FeedbackEntry
@@ -7,7 +8,17 @@ import java.util.UUID
 
 class FeedbackManager(
     private val feedbackDao: FeedbackDao,
+    private val memoryManager: MemoryManager? = null,
 ) {
+    companion object {
+        private val MANDATORY_CATEGORIES = setOf("sources", "purpose", "preference", "performance")
+        private val TASK_INTENTS = mapOf(
+            "shopping" to listOf("buy", "shop", "amazon", "price", "cart", "product", "ebay", "deal"),
+            "research" to listOf("research", "compare", "find", "search", "look", "source", "article"),
+            "login" to listOf("login", "sign", "auth", "password", "account"),
+        )
+    }
+
     suspend fun captureFromUserMessage(prompt: String, sessionId: String?): Boolean {
         if (!FeedbackDetector.isLikelyFeedback(prompt)) return false
         submit(
@@ -16,7 +27,7 @@ class FeedbackManager(
             tags = FeedbackDetector.extractTags(prompt),
             sessionId = sessionId,
             source = if (FeedbackDetector.isExplicitFeedback(prompt)) "user-explicit" else "auto-detect",
-            initialPriority = if (FeedbackDetector.isExplicitFeedback(prompt)) 2 else 1,
+            initialPriority = priorityForCategory(FeedbackDetector.detectCategory(prompt), explicit = true),
         )
         return true
     }
@@ -30,12 +41,14 @@ class FeedbackManager(
         initialPriority: Int = 0,
     ): FeedbackEntry {
         val now = System.currentTimeMillis()
+        val boosted = initialPriority.takeIf { it > 0 }
+            ?: priorityForCategory(category, explicit = source.contains("explicit"))
         val entry = FeedbackEntryEntity(
             id = UUID.randomUUID().toString(),
             content = content.trim(),
             category = category.ifBlank { "general" },
-            tags = tags,
-            priorityScore = initialPriority,
+            tags = tags.ifBlank { FeedbackDetector.extractTags(content) },
+            priorityScore = boosted,
             upvotes = 0,
             downvotes = 0,
             sessionId = sessionId,
@@ -45,6 +58,7 @@ class FeedbackManager(
             updatedAt = now,
         )
         feedbackDao.upsert(entry)
+        syncToMemory(entry.toDomain())
         return entry.toDomain()
     }
 
@@ -53,10 +67,11 @@ class FeedbackManager(
         if (entry.deleted) return null
         val updated = entry.copy(
             upvotes = entry.upvotes + 1,
-            priorityScore = entry.priorityScore + 1,
+            priorityScore = entry.priorityScore + 2,
             updatedAt = System.currentTimeMillis(),
         )
         feedbackDao.upsert(updated)
+        syncToMemory(updated.toDomain())
         return updated.toDomain()
     }
 
@@ -82,20 +97,47 @@ class FeedbackManager(
     suspend fun getForPrompt(limit: Int = 15): List<FeedbackEntry> =
         feedbackDao.getTopForPrompt(limit).map { it.toDomain() }
 
-    suspend fun searchRelevant(query: String, limit: Int = 6): List<FeedbackEntry> {
+    suspend fun buildPromptBlock(userPrompt: String, maxContextual: Int = 6): FeedbackPromptBlock {
+        val all = feedbackDao.getActiveAll().map { it.toDomain() }
+        val mandatory = all.filter { isMandatory(it) }
+            .sortedWith(compareByDescending<FeedbackEntry> { it.priorityScore }.thenByDescending { it.updatedAt })
+
+        val contextual = linkedSetOf<FeedbackEntry>()
+        searchRelevant(userPrompt, limit = maxContextual).forEach { contextual.add(it) }
+        getForPrompt(maxContextual).forEach { contextual.add(it) }
+        mandatory.forEach { contextual.remove(it) }
+
+        return FeedbackPromptBlock(
+            mandatory = mandatory,
+            contextual = contextual.take(maxContextual),
+        )
+    }
+
+    suspend fun searchRelevant(query: String, limit: Int = 8): List<FeedbackEntry> {
         if (query.isBlank()) return emptyList()
-        val terms = query.lowercase()
-            .split(Regex("""\W+"""))
-            .filter { it.length >= 4 }
+        val lower = query.lowercase()
+        val terms = lower.split(Regex("""\W+"""))
+            .filter { it.length >= 3 }
             .distinct()
-            .take(8)
-        if (terms.isEmpty()) return emptyList()
+            .take(12)
+        val intents = TASK_INTENTS.filter { (_, words) -> words.any { lower.contains(it) } }.keys
+
         return feedbackDao.getActiveAll()
             .asSequence()
             .map { it.toDomain() }
             .map { entry ->
                 val haystack = "${entry.content} ${entry.category} ${entry.tags}".lowercase()
-                val score = terms.count { haystack.contains(it) }
+                var score = 0
+                terms.forEach { term -> if (haystack.contains(term)) score += 2 }
+                entry.tags.split(",").filter { it.isNotBlank() }.forEach { tag ->
+                    if (lower.contains(tag.trim().lowercase())) score += 4
+                }
+                FeedbackDetector.extractDomains(entry.content).forEach { domain ->
+                    if (lower.contains(domain)) score += 5
+                }
+                if (entry.category in MANDATORY_CATEGORIES && intents.isNotEmpty()) score += 3
+                if (entry.category == "sources" && intents.contains("shopping")) score += 4
+                if (entry.category == "sources" && intents.contains("research")) score += 3
                 entry to score
             }
             .filter { (_, score) -> score > 0 }
@@ -140,25 +182,54 @@ class FeedbackManager(
         var imported = 0
         for (exported in bundle.entries) {
             val now = System.currentTimeMillis()
-            feedbackDao.upsert(
-                FeedbackEntryEntity(
-                    id = exported.id.ifBlank { UUID.randomUUID().toString() },
-                    content = exported.content,
-                    category = exported.category,
-                    tags = exported.tags,
-                    priorityScore = exported.priorityScore,
-                    upvotes = exported.upvotes,
-                    downvotes = exported.downvotes,
-                    sessionId = exported.sessionId,
-                    source = exported.source,
-                    deleted = false,
-                    createdAt = exported.createdAt.takeIf { it > 0 } ?: now,
-                    updatedAt = exported.updatedAt.takeIf { it > 0 } ?: now,
-                ),
+            val entity = FeedbackEntryEntity(
+                id = exported.id.ifBlank { UUID.randomUUID().toString() },
+                content = exported.content,
+                category = exported.category,
+                tags = exported.tags,
+                priorityScore = exported.priorityScore,
+                upvotes = exported.upvotes,
+                downvotes = exported.downvotes,
+                sessionId = exported.sessionId,
+                source = exported.source,
+                deleted = false,
+                createdAt = exported.createdAt.takeIf { it > 0 } ?: now,
+                updatedAt = exported.updatedAt.takeIf { it > 0 } ?: now,
             )
+            feedbackDao.upsert(entity)
+            syncToMemory(entity.toDomain())
             imported++
         }
         return imported
+    }
+
+    private fun isMandatory(entry: FeedbackEntry): Boolean =
+        entry.category in MANDATORY_CATEGORIES ||
+            entry.priorityScore >= 4 ||
+            entry.source == "user-explicit" ||
+            FeedbackDetector.isExplicitFeedback(entry.content)
+
+    private fun priorityForCategory(category: String, explicit: Boolean): Int = when {
+        explicit -> 6
+        category == "sources" -> 5
+        category == "purpose" -> 5
+        category == "preference" -> 4
+        category == "performance" -> 4
+        category == "speed" -> 3
+        else -> 2
+    }
+
+    private suspend fun syncToMemory(entry: FeedbackEntry) {
+        val memory = memoryManager ?: return
+        if (!isMandatory(entry) && entry.priorityScore < 3) return
+        memory.remember(
+            key = "feedback:${entry.category}:${entry.id.take(8)}",
+            value = entry.content,
+            category = "FEEDBACK",
+            importance = entry.priorityScore.coerceIn(7, 10),
+            tags = entry.tags,
+            source = "feedback-sync",
+        )
     }
 
     private fun FeedbackEntryEntity.toDomain() = FeedbackEntry(

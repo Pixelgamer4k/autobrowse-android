@@ -18,6 +18,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
@@ -28,6 +29,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import com.autobrowse.android.domain.model.CaptchaConfig
+import com.autobrowse.android.domain.model.CaptchaSolverProvider
 import com.autobrowse.android.domain.model.FeedbackEntry
 import com.autobrowse.android.domain.model.LearnedStrategy
 import com.autobrowse.android.domain.model.MemoryEntry
@@ -69,6 +72,9 @@ fun SettingsScreen(
     onUpvoteFeedback: (String) -> Unit,
     onDownvoteFeedback: (String) -> Unit,
     onDeleteFeedback: (String) -> Unit,
+    captchaConfig: CaptchaConfig,
+    onCaptchaConfigChange: (CaptchaConfig) -> Unit,
+    onSaveCaptchaConfig: () -> Unit,
     exportFileName: String,
     feedbackExportFileName: String,
     onBack: () -> Unit,
@@ -238,10 +244,76 @@ fun SettingsScreen(
                 }
             }
 
+            Text("CAPTCHA Solver (authorized sites)", style = MaterialTheme.typography.titleMedium)
+            Text(
+                "Auto-solve on domains you authorize. Uses CapSolver or 2Captcha. Android fingerprint stealth is enabled by default. " +
+                    "Only add sites you own or have explicit permission to automate.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+            )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text("Enable solver")
+                Switch(
+                    checked = captchaConfig.enabled,
+                    onCheckedChange = { onCaptchaConfigChange(captchaConfig.copy(enabled = it)) },
+                )
+            }
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text("Android fingerprint")
+                Switch(
+                    checked = captchaConfig.useAndroidFingerprint,
+                    onCheckedChange = { onCaptchaConfigChange(captchaConfig.copy(useAndroidFingerprint = it)) },
+                )
+            }
+            OutlinedTextField(
+                value = captchaConfig.apiKey,
+                onValueChange = { onCaptchaConfigChange(captchaConfig.copy(apiKey = it)) },
+                label = { Text("API key (CapSolver / 2Captcha)") },
+                modifier = Modifier.fillMaxWidth(),
+                singleLine = true,
+            )
+            OutlinedTextField(
+                value = captchaConfig.authorizedDomains,
+                onValueChange = { onCaptchaConfigChange(captchaConfig.copy(authorizedDomains = it)) },
+                label = { Text("Authorized domains (comma-separated)") },
+                placeholder = { Text("staging.myapp.com, amazon.com") },
+                modifier = Modifier.fillMaxWidth(),
+            )
+            OutlinedTextField(
+                value = captchaConfig.proxyUrl,
+                onValueChange = { onCaptchaConfigChange(captchaConfig.copy(proxyUrl = it)) },
+                label = { Text("Residential proxy URL (optional)") },
+                modifier = Modifier.fillMaxWidth(),
+                singleLine = true,
+            )
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                TextButton(onClick = {
+                    onCaptchaConfigChange(captchaConfig.copy(provider = CaptchaSolverProvider.CAPSOLVER))
+                }) {
+                    Text(if (captchaConfig.provider == CaptchaSolverProvider.CAPSOLVER) "✓ CapSolver" else "CapSolver")
+                }
+                TextButton(onClick = {
+                    onCaptchaConfigChange(captchaConfig.copy(provider = CaptchaSolverProvider.TWOCAPTCHA))
+                }) {
+                    Text(if (captchaConfig.provider == CaptchaSolverProvider.TWOCAPTCHA) "✓ 2Captcha" else "2Captcha")
+                }
+            }
+            OutlinedButton(onClick = onSaveCaptchaConfig, modifier = Modifier.fillMaxWidth()) {
+                Text("Save CAPTCHA settings")
+            }
+
             Text("Training Feedback", style = MaterialTheme.typography.titleMedium)
             Text(
-                "Coach the agent in chat — purpose, how to perform tasks, likes/dislikes, best sources, speed tips, and innovation. " +
-                    "Works with cloud and local LLM. Say \"feedback\" or just train naturally; entries are auto-captured and injected into every run.",
+                "Coach the agent in chat — purpose, sources, preferences. Mandatory entries (sources/purpose) inject into EVERY session. " +
+                    "Upvote important entries. Say \"feedback:\" or coach naturally; also synced to long-term memory.",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
             )

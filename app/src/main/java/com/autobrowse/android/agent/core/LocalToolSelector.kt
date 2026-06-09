@@ -70,7 +70,7 @@ object LocalToolSelector {
             lower.contains("cookie") || lower.contains("popup") || lower.contains("modal") ->
                 selected += setOf("browser_close_modal", "browser_get_cookies_notice")
             lower.contains("captcha") || lower.contains("recaptcha") || lower.contains("login") ->
-                selected += setOf("browser_detect_captcha", "browser_wait_for_captcha_clear")
+                selected += setOf("browser_detect_captcha", "browser_solve_captcha")
             lower.contains("price") -> selected += "browser_extract_prices"
             lower.contains("email") -> selected += "browser_extract_emails"
         }

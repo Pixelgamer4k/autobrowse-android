@@ -23,6 +23,12 @@ object FeedbackDetector {
         "better way",
         "best source",
         "best website",
+        "certain website",
+        "use this site",
+        "use these sites",
+        "always use",
+        "only use",
+        "never use",
         "trick",
         "tip",
         "prefer",
@@ -57,11 +63,30 @@ object FeedbackDetector {
         if (isExplicitFeedback(trimmed)) return true
         val lower = trimmed.lowercase()
         val signalCount = signalPhrases.count { lower.contains(it) }
+        val hasDomain = extractDomains(trimmed).isNotEmpty()
         return when {
+            hasDomain && signalCount >= 1 -> true
             signalCount >= 2 -> true
-            trimmed.length >= 120 && signalCount >= 2 -> true
+            lower.contains("website") && (lower.contains("use") || lower.contains("prefer")) -> true
             else -> false
         }
+    }
+
+    fun extractDomains(text: String): List<String> {
+        val found = mutableListOf<String>()
+        Regex("""(?:https?://)?(?:www\.)?([a-z0-9][-a-z0-9]*\.(?:com|org|net|io|co|edu|gov|dev))""", RegexOption.IGNORE_CASE)
+            .findAll(text)
+            .forEach { match ->
+                val domain = match.groupValues[1].lowercase()
+                if (domain !in found) found += domain
+            }
+        listOf("amazon", "ebay", "youtube", "google", "reddit", "wikipedia", "github", "bestbuy", "walmart")
+            .forEach { site ->
+                if (text.contains(site, ignoreCase = true) && "$site.com" !in found) {
+                    found += "$site.com"
+                }
+            }
+        return found
     }
 
     fun detectCategory(text: String): String {

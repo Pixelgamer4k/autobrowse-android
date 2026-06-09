@@ -29,7 +29,7 @@ class FeedbackSubmitTool(
             tags = tags,
             sessionId = context.sessionId,
             source = "agent",
-            initialPriority = 1,
+            initialPriority = 3,
         )
         return ToolExecutionResult(
             "Saved feedback [${entry.category}] priority=${entry.priorityScore} id=${entry.id.take(8)}",

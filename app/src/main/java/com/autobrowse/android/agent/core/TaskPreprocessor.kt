@@ -98,12 +98,12 @@ object TaskPreprocessor {
         if (lower.contains("captcha") || lower.contains("recaptcha") || lower.contains("hcaptcha") ||
             lower.contains("turnstile") || lower.contains("cloudflare") || lower.contains("verify you")
         ) {
-            hints += "CAPTCHA pages require manual user action in the browser window — never click the checkbox or image grid."
-            hints += "Flow: browser_detect_captcha → tell user to solve → browser_wait_for_captcha_clear → continue task."
+            hints += "CAPTCHA flow: browser_detect_captcha → browser_solve_captcha (authorized sites + CapSolver/2Captcha in Settings)."
+            hints += "Prevention: Android fingerprint stealth is on by default; use residential proxy in Settings if needed."
         }
 
         if (lower.contains("login") || lower.contains("sign in")) {
-            hints += "If login hits CAPTCHA/bot check, pause automation and hand off to user (browser_wait_for_captcha_clear)."
+            hints += "Login CAPTCHA: browser_solve_captcha on allowlisted domains; verify with browser_snapshot."
         }
 
         if (lower.contains("research") || lower.contains("summar") || lower.contains("compare")) {

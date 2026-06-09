@@ -73,6 +73,7 @@ object CloudToolSelector {
                 (lower.contains("login") && lower.contains("human")) ->
                 selected += setOf(
                     "browser_detect_captcha",
+                    "browser_solve_captcha",
                     "browser_wait_for_captcha_clear",
                 )
             lower.contains("price") -> selected += "browser_extract_prices"
@@ -88,6 +89,7 @@ object CloudToolSelector {
                 "browser_wait_for_url",
                 "browser_execute_js",
                 "browser_detect_captcha",
+                "browser_solve_captcha",
                 "browser_wait_for_captcha_clear",
                 "reflect",
                 "todo_write",

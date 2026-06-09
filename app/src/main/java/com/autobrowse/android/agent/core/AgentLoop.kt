@@ -169,18 +169,18 @@ class AgentLoop(
             } else {
                 CloudToolSelector.select(rawPrompt, allToolDefs, iteration = 1)
             }
-            val promptBundle = if (isLocal) {
+            val initialStrategies = selfImprovementEngine.getRelevantStrategies(
+                rawPrompt,
+                browserContext.pageUrl,
+            ).take(2)
+            var promptBundle = if (isLocal) {
                 promptBuilder.buildForLocal(
                     userPrompt = rawPrompt,
                     pageUrl = browserContext.pageUrl,
                 )
             } else {
-                val strategies = selfImprovementEngine.getRelevantStrategies(
-                    rawPrompt,
-                    browserContext.pageUrl,
-                ).take(2)
                 promptBuilder.buildBundle(
-                    strategies = strategies,
+                    strategies = initialStrategies,
                     pageUrl = browserContext.pageUrl,
                     toolCount = firstTurnTools.size,
                     userPrompt = rawPrompt,
@@ -219,6 +219,14 @@ class AgentLoop(
             while (budget.consume()) {
                 ensureNotCancelled()
                 val iteration = budget.used()
+                if (iteration > 1) {
+                    val freshVolatile = promptBuilder.rebuildVolatile(
+                        userPrompt = rawPrompt,
+                        strategies = initialStrategies,
+                        pageUrl = toolContext.pageUrl ?: browserContext.pageUrl,
+                    )
+                    promptBundle = promptBundle.copy(volatileContext = freshVolatile)
+                }
                 _progress.value = AgentProgress(
                     phase = AgentPhase.THINKING,
                     iteration = iteration,
