@@ -31,6 +31,7 @@ import androidx.compose.ui.zIndex
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.autobrowse.android.ui.MainViewModel
 import com.autobrowse.android.ui.components.BrowserPanel
+import com.autobrowse.android.ui.components.OverlayBackHandlers
 import com.autobrowse.android.ui.components.ChatComposer
 import com.autobrowse.android.ui.components.ChatPanel
 import com.autobrowse.android.ui.components.DownloadsPanelOverlay
@@ -115,6 +116,15 @@ private fun MainContent(
     var composerHeightPx by remember { mutableIntStateOf(0) }
     val density = LocalDensity.current
     val composerBottomPadding = with(density) { composerHeightPx.toDp() + 4.dp }
+
+    OverlayBackHandlers(
+        enabled = state.showSessionsPanel,
+        onBack = viewModel::closeSessionsPanel,
+    )
+    OverlayBackHandlers(
+        enabled = state.showDownloadsPanel,
+        onBack = viewModel::closeDownloadsPanel,
+    )
 
     Box(
         modifier = Modifier

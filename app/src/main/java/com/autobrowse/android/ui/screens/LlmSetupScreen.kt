@@ -3,6 +3,7 @@ package com.autobrowse.android.ui.screens
 import android.net.Uri
 import androidx.compose.ui.platform.LocalContext
 import androidx.activity.compose.rememberLauncherForActivityResult
+import com.autobrowse.android.ui.components.OverlayBackHandlers
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -151,6 +152,10 @@ fun LlmSetupScreen(
     val isLocalBusy = localModelBusy.isBusy ||
         modelDownload.isDownloading ||
         (connectionTest.isTesting && provider == LlmProvider.LOCAL)
+
+    onBack?.let { back ->
+        OverlayBackHandlers(enabled = true, onBack = back)
+    }
 
     Scaffold(
         topBar = {

@@ -122,6 +122,27 @@ class DownloadsManager(
         scope.launch { refreshDiskIndex() }
     }
 
+    fun registerScreenshot(path: String, tabId: String? = null) {
+        val file = File(path)
+        if (!file.isFile) return
+        val item = DownloadItem(
+            id = file.absolutePath,
+            name = file.name,
+            path = file.absolutePath,
+            url = null,
+            mimeType = guessMime(file),
+            sizeBytes = file.length(),
+            modifiedAt = file.lastModified(),
+            category = "Screenshots",
+            status = DownloadStatus.COMPLETED,
+            tabId = tabId,
+        )
+        _items.update { list ->
+            (listOf(item) + list.filter { it.id != item.id })
+                .sortedByDescending { it.modifiedAt }
+        }
+    }
+
     suspend fun refresh() {
         refreshDiskIndex()
     }

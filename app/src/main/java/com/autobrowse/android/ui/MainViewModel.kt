@@ -518,8 +518,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             val tab = _uiState.value.tabs.find { it.id == tabId }
             val safe = tab?.title?.replace(Regex("""[^\w.-]"""), "_")?.take(24) ?: "window"
             val stamp = java.text.SimpleDateFormat("yyyyMMdd_HHmmss", java.util.Locale.US).format(java.util.Date())
-            java.io.File(dir, "shot_${safe}_$stamp.jpg").writeBytes(bytes)
-            refreshDownloads()
+            val file = java.io.File(dir, "shot_${safe}_$stamp.jpg")
+            file.writeBytes(bytes)
+            app.downloadsManager.registerScreenshot(file.absolutePath, tabId)
         }
     }
 

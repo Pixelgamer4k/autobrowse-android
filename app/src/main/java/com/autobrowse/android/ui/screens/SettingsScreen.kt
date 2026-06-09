@@ -2,6 +2,7 @@ package com.autobrowse.android.ui.screens
 
 import android.content.Intent
 import androidx.activity.compose.rememberLauncherForActivityResult
+import com.autobrowse.android.ui.components.OverlayBackHandlers
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -118,6 +119,9 @@ fun SettingsScreen(
             onImportFeedback(uri)
         }
     }
+
+    OverlayBackHandlers(enabled = true, onBack = onBack)
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -159,8 +163,8 @@ fun SettingsScreen(
             Slider(
                 value = appUiConfig.coercedScale(),
                 onValueChange = onResolutionScaleChange,
-                valueRange = 0.75f..1.5f,
-                steps = 14,
+                valueRange = 0.25f..1.5f,
+                steps = 24,
             )
 
             Text("Agent", style = MaterialTheme.typography.titleMedium)
