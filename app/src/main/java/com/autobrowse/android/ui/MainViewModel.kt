@@ -507,25 +507,14 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun captureTabScreenshot(tabId: String) {
-        viewModelScope.launch {
-            browserController.setActiveTab(tabId)
-            delay(100)
-            val b64 = browserController.captureScreenshotBase64(tabId) ?: run {
-                _uiState.update {
-                    it.copy(error = "Screenshot failed — wait for the page to finish loading, then try again")
-                }
-                return@launch
-            }
-            val bytes = android.util.Base64.decode(b64, android.util.Base64.DEFAULT)
-            val dir = java.io.File(getApplication<Application>().filesDir, "screenshots").apply { mkdirs() }
-            val tab = _uiState.value.tabs.find { it.id == tabId }
-            val safe = tab?.title?.replace(Regex("""[^\w.-]"""), "_")?.take(24) ?: "window"
-            val stamp = java.text.SimpleDateFormat("yyyyMMdd_HHmmss", java.util.Locale.US).format(java.util.Date())
-            val file = java.io.File(dir, "shot_${safe}_$stamp.jpg")
-            file.writeBytes(bytes)
-            app.downloadsManager.registerScreenshot(file.absolutePath, tabId)
-        }
+    fun goBackTab(tabId: String) {
+        browserController.goBack(tabId)
+        bringTabToFront(tabId)
+    }
+
+    fun goForwardTab(tabId: String) {
+        browserController.goForward(tabId)
+        bringTabToFront(tabId)
     }
 
     fun refreshTab(tabId: String) {

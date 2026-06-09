@@ -155,7 +155,8 @@ private fun MainContent(
                     onRefreshTab = viewModel::refreshTab,
                     onToggleMaximizeTab = viewModel::toggleMaximizeTab,
                     onCloseTab = viewModel::closeTab,
-                    onCaptureScreenshot = viewModel::captureTabScreenshot,
+                    onGoBackTab = viewModel::goBackTab,
+                    onGoForwardTab = viewModel::goForwardTab,
                     modifier = Modifier.fillMaxSize(),
                 )
 

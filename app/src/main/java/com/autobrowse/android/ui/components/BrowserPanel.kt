@@ -74,7 +74,8 @@ fun BrowserPanel(
     onRefreshTab: (String) -> Unit,
     onToggleMaximizeTab: (String) -> Unit,
     onCloseTab: (String) -> Unit,
-    onCaptureScreenshot: (String) -> Unit = {},
+    onGoBackTab: (String) -> Unit = {},
+    onGoForwardTab: (String) -> Unit = {},
     modifier: Modifier = Modifier,
 ) {
     val activeTab = tabs.find { it.id == activeTabId } ?: tabs.firstOrNull()
@@ -134,7 +135,8 @@ fun BrowserPanel(
                         onRefresh = { onRefreshTab(tab.id) },
                         onToggleMaximize = { onToggleMaximizeTab(tab.id) },
                         onClose = { onCloseTab(tab.id) },
-                        onScreenshot = { onCaptureScreenshot(tab.id) },
+                        onGoBack = { onGoBackTab(tab.id) },
+                        onGoForward = { onGoForwardTab(tab.id) },
                         modifier = Modifier,
                     )
                 }

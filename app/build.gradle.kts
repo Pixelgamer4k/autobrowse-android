@@ -16,8 +16,8 @@ android {
         applicationId = "com.autobrowse.android"
         minSdk = 26
         targetSdk = 35
-        versionCode = 1124
-        versionName = "1.1.24"
+        versionCode = 1125
+        versionName = "1.1.25"
     }
 
     val keystoreProperties = Properties().apply {

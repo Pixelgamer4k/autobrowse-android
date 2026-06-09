@@ -27,10 +27,11 @@ import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Fullscreen
 import androidx.compose.material.icons.filled.FullscreenExit
-import androidx.compose.material.icons.filled.PhotoCamera
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.UnfoldMore
 import androidx.compose.material3.Icon
@@ -156,7 +157,8 @@ fun WindowCompactControls(
     onRefresh: () -> Unit,
     onToggleMaximize: () -> Unit,
     onClose: () -> Unit,
-    onScreenshot: () -> Unit = {},
+    onGoBack: () -> Unit = {},
+    onGoForward: () -> Unit = {},
     modifier: Modifier = Modifier,
 ) {
     val maxMinIcon = when (windowState) {
@@ -180,7 +182,8 @@ fun WindowCompactControls(
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            WindowCompactIconButton(Icons.Default.PhotoCamera, "Screenshot", Color(0xFFE8A838), onScreenshot)
+            WindowCompactIconButton(Icons.AutoMirrored.Filled.ArrowBack, "Back", Color(0xFF90A4AE), onGoBack)
+            WindowCompactIconButton(Icons.AutoMirrored.Filled.ArrowForward, "Forward", Color(0xFF90A4AE), onGoForward)
             WindowCompactIconButton(Icons.Default.Refresh, "Refresh", Color(0xFF4A90D9), onRefresh)
             WindowCompactIconButton(maxMinIcon, "Resize", Color(0xFF34A853), onToggleMaximize)
             WindowCompactIconButton(Icons.Default.Close, "Close", Color(0xFFE8453C), onClose)
@@ -211,7 +214,8 @@ fun WindowOptionsPopup(
     onRefresh: () -> Unit,
     onToggleMaximize: () -> Unit,
     onClose: () -> Unit,
-    onScreenshot: () -> Unit = {},
+    onGoBack: () -> Unit = {},
+    onGoForward: () -> Unit = {},
     modifier: Modifier = Modifier,
 ) {
     val maxMinLabel = when (windowState) {
@@ -247,7 +251,8 @@ fun WindowOptionsPopup(
             modifier = Modifier.width(176.dp),
         ) {
             Column(modifier = Modifier.padding(vertical = 6.dp)) {
-                WindowMenuItem("Screenshot", Icons.Default.PhotoCamera, Color(0xFFE8A838), onScreenshot)
+                WindowMenuItem("Back", Icons.AutoMirrored.Filled.ArrowBack, Color(0xFF90A4AE), onGoBack)
+                WindowMenuItem("Forward", Icons.AutoMirrored.Filled.ArrowForward, Color(0xFF90A4AE), onGoForward)
                 WindowMenuItem("Refresh", Icons.Default.Refresh, Color(0xFF4A90D9), onRefresh)
                 WindowMenuItem(maxMinLabel, maxMinIcon, Color(0xFF34A853), onToggleMaximize)
                 WindowMenuItem("Close", Icons.Default.Close, Color(0xFFE8453C), onClose)
