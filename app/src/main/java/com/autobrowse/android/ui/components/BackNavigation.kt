@@ -1,9 +1,11 @@
 package com.autobrowse.android.ui.components
 
+import androidx.activity.BackEventCompat
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.PredictiveBackHandler
 import androidx.compose.runtime.Composable
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.flow.Flow
 
 @Composable
 fun OverlayBackHandlers(
@@ -11,12 +13,12 @@ fun OverlayBackHandlers(
     onBack: () -> Unit,
 ) {
     BackHandler(enabled = enabled, onBack = onBack)
-    PredictiveBackHandler(enabled = enabled) {
+    PredictiveBackHandler(enabled = enabled) { progress: Flow<BackEventCompat> ->
         try {
-            awaitGestureCompletion()
+            progress.collect { }
+            onBack()
         } catch (_: CancellationException) {
-            return@PredictiveBackHandler
+            // Gesture cancelled
         }
-        onBack()
     }
 }
