@@ -1,5 +1,6 @@
 package com.autobrowse.android.data.remote
 
+import com.autobrowse.android.agent.core.PromptBundle
 import com.autobrowse.android.data.local.LocalLlmService
 import com.autobrowse.android.domain.model.AttachmentPayload
 import com.autobrowse.android.domain.model.LlmConfig
@@ -135,11 +136,29 @@ class LlmApiService(
         attachmentPayload: AttachmentPayload = AttachmentPayload(),
         onTokenDelta: ((String) -> Unit)? = null,
         compactTools: Boolean = false,
+    ): LlmCompletion = complete(
+        config = config,
+        promptBundle = PromptBundle(stablePrefix = systemPrompt, volatileContext = ""),
+        messages = messages,
+        tools = tools,
+        attachmentPayload = attachmentPayload,
+        onTokenDelta = onTokenDelta,
+        compactTools = compactTools,
+    )
+
+    suspend fun complete(
+        config: LlmConfig,
+        promptBundle: PromptBundle,
+        messages: List<ChatMessageDto>,
+        tools: List<ToolDefinition> = emptyList(),
+        attachmentPayload: AttachmentPayload = AttachmentPayload(),
+        onTokenDelta: ((String) -> Unit)? = null,
+        compactTools: Boolean = false,
     ): LlmCompletion = withContext(Dispatchers.IO) {
         if (config.provider == LlmProvider.LOCAL) {
             return@withContext localLlmService?.complete(
                 config = config,
-                systemPrompt = systemPrompt,
+                systemPrompt = promptBundle.fullSystem,
                 messages = messages,
                 tools = tools,
                 attachmentPayload = attachmentPayload,
@@ -150,7 +169,10 @@ class LlmApiService(
         require(config.apiKey.isNotBlank()) { "API token is required. Configure it on the setup screen." }
 
         val apiMessages = buildList {
-            add(ChatMessageDto(role = "system", content = systemPrompt))
+            add(ChatMessageDto(role = "system", content = promptBundle.stablePrefix))
+            if (promptBundle.volatileContext.isNotBlank()) {
+                add(ChatMessageDto(role = "system", content = promptBundle.volatileContext))
+            }
             addAll(messages)
         }
 
@@ -232,10 +254,15 @@ class LlmApiService(
             val choice = parsed.choices.firstOrNull()
                 ?: throw IllegalStateException("No completion returned from LLM")
 
+            val usage = parsed.usage
             LlmCompletion(
                 content = choice.message.content,
                 toolCalls = choice.message.toolCalls.orEmpty(),
                 finishReason = choice.finishReason,
+                promptTokens = usage?.promptTokens ?: 0,
+                completionTokens = usage?.completionTokens ?: 0,
+                totalTokens = usage?.totalTokens ?: 0,
+                usageFromApi = usage != null,
             )
         }
     }

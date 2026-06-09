@@ -43,12 +43,15 @@ internal class CloudStreamAccumulator(
     private val toolAccumulator = ToolCallStreamAccumulator()
     var finishReason: String? = null
         private set
+    var usage: UsageDto? = null
+        private set
 
     fun processLine(line: String) {
         if (!line.startsWith("data:")) return
         val payload = line.removePrefix("data:").trim()
         if (payload.isBlank() || payload == "[DONE]") return
         val chunk = chunkAdapter.fromJson(payload) ?: return
+        chunk.usage?.let { usage = it }
         val choice = chunk.choices.firstOrNull() ?: return
         choice.finishReason?.let { finishReason = it }
         choice.delta?.content?.let { delta ->
@@ -60,10 +63,15 @@ internal class CloudStreamAccumulator(
 
     fun toCompletion(): LlmCompletion {
         val toolCalls = toolAccumulator.build()
+        val u = usage
         return LlmCompletion(
             content = content.toString().ifBlank { null },
             toolCalls = toolCalls,
             finishReason = finishReason ?: if (toolCalls.isNotEmpty()) "tool_calls" else "stop",
+            promptTokens = u?.promptTokens ?: 0,
+            completionTokens = u?.completionTokens ?: 0,
+            totalTokens = u?.totalTokens ?: 0,
+            usageFromApi = u != null,
         )
     }
 }

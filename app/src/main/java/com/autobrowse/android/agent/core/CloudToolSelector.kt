@@ -8,8 +8,8 @@ import com.autobrowse.android.feedback.FeedbackDetector
  * Full catalog is still available from turn 2 onward when the agent may need niche tools.
  */
 object CloudToolSelector {
-    private const val MAX_TOOLS_FIRST_TURN = 18
-    private const val MAX_TOOLS_LATER = 28
+    private const val MAX_TOOLS_FIRST_TURN = 14
+    private const val MAX_TOOLS_LATER = 22
 
     private val CORE_TOOLS = setOf(
         "browser_search",

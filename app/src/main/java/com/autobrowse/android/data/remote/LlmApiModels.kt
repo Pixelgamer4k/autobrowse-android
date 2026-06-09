@@ -72,11 +72,16 @@ data class LlmCompletion(
     val content: String?,
     val toolCalls: List<ToolCallDto>,
     val finishReason: String?,
+    val promptTokens: Int = 0,
+    val completionTokens: Int = 0,
+    val totalTokens: Int = 0,
+    val usageFromApi: Boolean = false,
 )
 
 @JsonClass(generateAdapter = true)
 data class StreamChunkResponse(
     val choices: List<StreamChoiceDto> = emptyList(),
+    val usage: UsageDto? = null,
 )
 
 @JsonClass(generateAdapter = true)

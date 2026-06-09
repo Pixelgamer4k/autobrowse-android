@@ -164,28 +164,30 @@ class AgentLoop(
 
             feedbackManager?.captureFromUserMessage(rawPrompt, request.sessionId)
 
-            val systemPrompt = if (isLocal) {
+            val firstTurnTools = if (isLocal) {
+                LocalToolSelector.select(rawPrompt, allToolDefs, iteration = 1)
+            } else {
+                CloudToolSelector.select(rawPrompt, allToolDefs, iteration = 1)
+            }
+            val promptBundle = if (isLocal) {
                 promptBuilder.buildForLocal(
                     userPrompt = rawPrompt,
                     pageUrl = browserContext.pageUrl,
                 )
             } else {
-                val prefetched = memoryManager.prefetch(rawPrompt)
                 val strategies = selfImprovementEngine.getRelevantStrategies(
                     rawPrompt,
                     browserContext.pageUrl,
-                )
-                val firstTurnTools = CloudToolSelector.select(rawPrompt, allToolDefs, iteration = 1)
-                promptBuilder.build(
-                    prefetchedMemory = prefetched,
+                ).take(2)
+                promptBuilder.buildBundle(
                     strategies = strategies,
                     pageUrl = browserContext.pageUrl,
-                    enabledToolNames = firstTurnTools.map { it.name },
+                    toolCount = firstTurnTools.size,
                     userPrompt = rawPrompt,
                 )
             }
 
-            var history = repository.getRecentChatHistory(request.sessionId, if (isLocal) 8 else 16)
+            var history = repository.getRecentChatHistory(request.sessionId, if (isLocal) 8 else 12)
             if (!isLocal) {
                 val (compressedHistory, summary) = contextCompressor.maybeCompress(config, history)
                 history = compressedHistory
@@ -210,6 +212,9 @@ class AgentLoop(
             )
 
             var finalResponse: String? = null
+            var peakPromptTokens = 0
+            var totalCompletionTokens = 0
+            var usageFromApi = false
 
             while (budget.consume()) {
                 ensureNotCancelled()
@@ -243,7 +248,7 @@ class AgentLoop(
                 var lastStreamUiUpdate = 0L
                 val completion = llmApi.complete(
                     config = config,
-                    systemPrompt = systemPrompt,
+                    promptBundle = promptBundle,
                     messages = loopMessages,
                     tools = activeTools,
                     attachmentPayload = attachmentPayload,
@@ -259,6 +264,24 @@ class AgentLoop(
                         }
                     },
                 )
+                if (completion.usageFromApi) {
+                    usageFromApi = true
+                    peakPromptTokens = maxOf(peakPromptTokens, completion.promptTokens)
+                    totalCompletionTokens += completion.completionTokens
+                } else {
+                    peakPromptTokens = maxOf(
+                        peakPromptTokens,
+                        ContextTokenEstimator.estimateRequestTokens(
+                            promptBundle.stablePrefix,
+                            promptBundle.volatileContext,
+                            loopMessages,
+                            activeTools,
+                        ),
+                    )
+                    totalCompletionTokens += ContextTokenEstimator.estimateTextTokens(
+                        completion.content.orEmpty(),
+                    )
+                }
                 if (streamBuffer.isNotEmpty()) {
                     _progress.value = _progress.value.copy(
                         streamPreview = formatThinkingPreview(streamBuffer.toString()),
@@ -360,6 +383,15 @@ class AgentLoop(
             finalResponse = finalResponse?.ifBlank {
                 "Task completed using ${turns.sumOf { it.toolCalls.size }} tool calls."
             } ?: "No response generated."
+
+            val contextStats = ContextUsageStats(
+                promptTokens = peakPromptTokens,
+                completionTokens = totalCompletionTokens,
+                contextWindowTokens = ContextTokenEstimator.resolveContextWindow(config),
+                estimated = !usageFromApi,
+                agentTurns = budget.used(),
+            )
+            finalResponse += contextStats.formatFooter()
 
             val agentMessage = ChatMessage(
                 id = UUID.randomUUID().toString(),

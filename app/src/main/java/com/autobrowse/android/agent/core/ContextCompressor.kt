@@ -8,7 +8,7 @@ import com.autobrowse.android.domain.model.LlmConfig
 class ContextCompressor(
     private val llmApi: LlmApiService,
     private val protectLastN: Int = 12,
-    private val triggerThreshold: Int = 24,
+    private val triggerThreshold: Int = 40,
 ) {
     suspend fun maybeCompress(
         config: LlmConfig,

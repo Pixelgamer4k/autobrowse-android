@@ -91,6 +91,32 @@ class MemoryManager(
         }.trim()
     }
 
+    /**
+     * Hermes-style bounded curated memory — fixed slots, char cap, always injected in stable prefix.
+     */
+    suspend fun getBoundedCuratedBlock(maxChars: Int = 900): String = withContext(Dispatchers.IO) {
+        val lines = mutableListOf<String>()
+        memoryDao.getByCategory("USER").take(2).forEach {
+            lines += "USER ${it.key}: ${it.value.take(80)}"
+        }
+        memoryDao.getByCategory("PREFERENCE").take(3).forEach {
+            lines += "PREF ${it.key}: ${it.value.take(72)}"
+        }
+        memoryDao.getTop(5).forEach {
+            if (it.category !in setOf("USER", "PREFERENCE", "SESSION")) {
+                lines += "MEM ${it.key}: ${it.value.take(72)}"
+            }
+        }
+        if (lines.isEmpty()) return@withContext ""
+        val body = lines.distinct().take(8).joinToString("\n") { "- $it" }
+        truncateToBudget("## Curated memory\n$body", maxChars)
+    }
+
+    private fun truncateToBudget(text: String, maxChars: Int): String {
+        if (text.length <= maxChars) return text
+        return text.take(maxChars - 3) + "..."
+    }
+
     suspend fun syncTurnFast(
         userMessage: String,
         assistantMessage: String,

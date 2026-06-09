@@ -17,7 +17,8 @@ class SkillsListTool(private val skillStore: SkillStore) : AgentTool {
 
 class SkillViewTool(private val skillStore: SkillStore) : AgentTool {
     override val name = "skill_view"
-    override val description = "Load a skill's SKILL.md or bundled reference/script file."
+    override val description =
+        "Load full skill playbook on demand (progressive disclosure). Call when a matched skill is needed."
     override val parametersJson = """
         {"type":"object","properties":{"name":{"type":"string"},"file_path":{"type":"string"}},"required":["name"]}
     """.trimIndent()
