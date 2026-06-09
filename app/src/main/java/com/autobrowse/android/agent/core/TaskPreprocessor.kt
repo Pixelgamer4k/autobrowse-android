@@ -28,6 +28,11 @@ object TaskPreprocessor {
         if (lower.contains("stackoverflow") || lower.contains("stack overflow")) skills.add("stackoverflow-qa")
         if (lower.contains("amazon") || lower.contains("shop") || lower.contains("buy")) skills.add("amazon-shopping")
         if (lower.contains("cookie") || lower.contains("consent")) skills.add("cookie-consent")
+        if (lower.contains("captcha") || lower.contains("recaptcha") || lower.contains("hcaptcha") ||
+            lower.contains("turnstile") || lower.contains("cloudflare") || lower.contains("verify")
+        ) {
+            skills.add("captcha-handling")
+        }
         if (lower.contains("job") || lower.contains("career")) skills.add("job-search")
         if (lower.contains("price") || lower.contains("compare")) skills.add("price-compare")
         if (lower.contains("weather")) skills.add("weather-check")
@@ -88,6 +93,17 @@ object TaskPreprocessor {
 
         if (lower.contains("youtube")) {
             hints += "YouTube uses contenteditable search — typing often fails. Always use browser_search(site=\"youtube\", query=...)."
+        }
+
+        if (lower.contains("captcha") || lower.contains("recaptcha") || lower.contains("hcaptcha") ||
+            lower.contains("turnstile") || lower.contains("cloudflare") || lower.contains("verify you")
+        ) {
+            hints += "CAPTCHA pages require manual user action in the browser window — never click the checkbox or image grid."
+            hints += "Flow: browser_detect_captcha → tell user to solve → browser_wait_for_captcha_clear → continue task."
+        }
+
+        if (lower.contains("login") || lower.contains("sign in")) {
+            hints += "If login hits CAPTCHA/bot check, pause automation and hand off to user (browser_wait_for_captcha_clear)."
         }
 
         if (lower.contains("research") || lower.contains("summar") || lower.contains("compare")) {

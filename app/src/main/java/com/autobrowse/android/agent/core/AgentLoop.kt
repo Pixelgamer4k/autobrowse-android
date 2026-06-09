@@ -351,6 +351,7 @@ class AgentLoop(
                             toolCallId = c.id,
                             name = c.name,
                         )
+                        updateCaptchaProgress(toolContext)
                     }
                 } else {
                     coroutineScope {
@@ -366,6 +367,7 @@ class AgentLoop(
                             )
                         }
                     }
+                    updateCaptchaProgress(toolContext)
                 }
 
                 turns += AgentTurn(
@@ -452,6 +454,21 @@ class AgentLoop(
                 error = error.message,
             )
         }
+
+    private fun updateCaptchaProgress(toolContext: ToolExecutionContext) {
+        if (toolContext.captchaUserActionRequired) {
+            _progress.value = _progress.value.copy(
+                captchaPending = true,
+                captchaBannerMessage = toolContext.captchaBannerMessage,
+                message = "Waiting for you to complete CAPTCHA in the browser window…",
+            )
+        } else if (_progress.value.captchaPending) {
+            _progress.value = _progress.value.copy(
+                captchaPending = false,
+                captchaBannerMessage = null,
+            )
+        }
+    }
 
     private fun formatThinkingPreview(raw: String): String {
         val thinkOpen = "<think>"

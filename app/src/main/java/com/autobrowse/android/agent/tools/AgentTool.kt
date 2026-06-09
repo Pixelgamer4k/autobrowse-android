@@ -16,6 +16,10 @@ data class ToolExecutionContext(
     val extractedData: MutableMap<String, String> = mutableMapOf(),
     val pendingVisionImages: MutableList<String> = mutableListOf(),
     val parallelTaskResults: MutableMap<String, String> = mutableMapOf(),
+    var captchaDetected: Boolean = false,
+    var captchaUserActionRequired: Boolean = false,
+    var captchaInfo: String? = null,
+    var captchaBannerMessage: String? = null,
 )
 
 data class ToolExecutionResult(

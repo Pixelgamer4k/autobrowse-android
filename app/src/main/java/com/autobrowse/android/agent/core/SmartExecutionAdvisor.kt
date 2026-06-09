@@ -5,6 +5,14 @@ import com.autobrowse.android.domain.model.ToolCall
 import com.autobrowse.android.domain.model.ToolResult
 
 object SmartExecutionAdvisor {
+    private val CAPTCHA_HARMFUL_TOOLS = setOf(
+        "browser_click",
+        "browser_type",
+        "browser_dismiss_overlays",
+        "browser_click_xy",
+        "browser_double_click",
+        "browser_press_and_hold",
+    )
     fun augmentToolOutput(
         call: ToolCall,
         result: ToolResult,
@@ -37,6 +45,15 @@ object SmartExecutionAdvisor {
             if (pageText.length < 80) {
                 hints += "⚠ Snapshot nearly empty — browser_wait(2000) then snapshot again."
             }
+        }
+
+        if (context.captchaUserActionRequired) {
+            hints += "🛑 CAPTCHA ACTIVE: Do NOT click/type/dismiss overlays. Tell user to solve in browser window, then browser_wait_for_captcha_clear."
+            if (call.name in CAPTCHA_HARMFUL_TOOLS) {
+                hints += "⚠ Tool ${call.name} cannot solve CAPTCHAs — pause automation."
+            }
+        } else if (context.captchaDetected) {
+            hints += "⚠ Possible bot challenge on page — run browser_detect_captcha before more clicks."
         }
 
         if (iteration >= 6 && priorToolNames.count { it == "browser_type" } >= 2) {

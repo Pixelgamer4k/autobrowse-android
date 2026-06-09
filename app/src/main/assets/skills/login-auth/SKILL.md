@@ -8,3 +8,5 @@ version: 1.0.0
 
 Never store passwords in memory. Use browser_type on refs, browser_press Enter.
 Verify login via snapshot URL/title change.
+
+If a CAPTCHA or bot check appears, load `captcha-handling` via skill_view and hand off to the user.

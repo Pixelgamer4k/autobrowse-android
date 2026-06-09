@@ -10,6 +10,7 @@ import com.autobrowse.android.agent.core.PromptBuilder
 import com.autobrowse.android.agent.memory.MemoryManager
 import com.autobrowse.android.agent.orchestration.TaskOrchestrator
 import com.autobrowse.android.agent.tools.BrowserAdvancedTools
+import com.autobrowse.android.agent.tools.CaptchaTools
 import com.autobrowse.android.agent.tools.BrowserBackTool
 import com.autobrowse.android.agent.tools.BrowserSearchTool
 import com.autobrowse.android.agent.tools.BrowserWaitTool
@@ -219,6 +220,7 @@ class AutobrowseApplication : Application(), Configuration.Provider {
                 BrowserWindowFocusTool(windowManager),
                 BrowserWindowListTool(windowManager),
                 *BrowserAdvancedTools.createAll(browserController).toTypedArray(),
+                *CaptchaTools.createAll(browserController).toTypedArray(),
                 WebFetchTool(skillRegistry, repository),
                 ExtractDataTool(skillRegistry, repository),
                 SummarizeTool(skillRegistry, repository),

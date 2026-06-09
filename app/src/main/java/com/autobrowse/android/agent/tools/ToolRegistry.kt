@@ -16,6 +16,8 @@ class ToolRegistry(
             "browser_tab_list",
             "browser_window_list",
             "browser_stop",
+            "browser_detect_captcha",
+            "browser_wait_for_captcha_clear",
         )
     }
 

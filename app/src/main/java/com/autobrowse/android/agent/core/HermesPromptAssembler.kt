@@ -62,6 +62,7 @@ class HermesPromptAssembler(
         appendLine("4. Use @eN refs from snapshot for clicks")
         appendLine("5. Skills: metadata below only — call skill_view(name) for full playbook")
         appendLine("6. Feedback coaching → apply + feedback_submit")
+        appendLine("7. CAPTCHA → stop automating; user solves in browser; browser_wait_for_captcha_clear")
         appendLine()
         appendLine("## Skills (progressive disclosure)")
         append(skillMetadataBlock())

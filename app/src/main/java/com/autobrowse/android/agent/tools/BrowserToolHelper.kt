@@ -10,6 +10,7 @@ object BrowserToolHelper {
         context.pageUrl = browserController.getCurrentUrl(tabId)
         context.pageHtml = browserController.getPageHtml(tabId)
         context.pageText = browserController.getPageText(tabId)
+        CaptchaTools.refreshCaptchaState(context, browserController)
     }
 
     suspend fun afterBrowserAction(

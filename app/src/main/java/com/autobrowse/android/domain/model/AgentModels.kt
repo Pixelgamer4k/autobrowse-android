@@ -92,4 +92,6 @@ data class AgentProgress(
     val message: String = "",
     /** Live model output during THINKING; cleared when the turn finishes. */
     val streamPreview: String = "",
+    val captchaPending: Boolean = false,
+    val captchaBannerMessage: String? = null,
 )

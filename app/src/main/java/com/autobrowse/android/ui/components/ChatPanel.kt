@@ -59,7 +59,14 @@ fun ChatPanel(
             .background(MaterialTheme.colorScheme.background),
     ) {
         bannerMessage?.let { message ->
-            ChatBanner(message = message)
+            ChatBanner(message = message, isError = true)
+        }
+        if (agentProgress?.captchaPending == true) {
+            ChatBanner(
+                message = agentProgress.captchaBannerMessage
+                    ?: "CAPTCHA detected — complete the challenge in the browser window.",
+                isError = false,
+            )
         }
 
         ChatConversation(
@@ -76,11 +83,11 @@ fun ChatPanel(
 }
 
 @Composable
-private fun ChatBanner(message: String) {
+private fun ChatBanner(message: String, isError: Boolean = true) {
     Column(modifier = Modifier.fillMaxWidth()) {
         Text(
             text = message,
-            color = MaterialTheme.colorScheme.error,
+            color = if (isError) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.primary,
             style = MaterialTheme.typography.bodySmall,
             textAlign = TextAlign.Start,
             modifier = Modifier

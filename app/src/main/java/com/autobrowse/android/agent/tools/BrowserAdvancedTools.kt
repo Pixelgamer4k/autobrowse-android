@@ -397,14 +397,27 @@ object BrowserAdvancedTools {
         // 27–32: overlays, modals, cookies
         js(
             "browser_dismiss_overlays",
-            "Click common close/dismiss buttons (X, Close, No thanks, Skip).",
+            "Click common close/dismiss buttons (X, Close, No thanks, Skip). Skips CAPTCHA widgets.",
             readOnly = false,
             script = """
             (function(){
+              var skip=/captcha|recaptcha|hcaptcha|turnstile|robot|verify|challenge|human/i;
+              function inCaptchaZone(el){
+                var n=el;
+                for(var d=0;n&&d<6;d++){
+                  var cls=(n.className||'').toString().toLowerCase();
+                  var id=(n.id||'').toLowerCase();
+                  if(skip.test(cls)||skip.test(id))return true;
+                  n=n.parentElement;
+                }
+                return false;
+              }
               var words=['close','dismiss','no thanks','skip','not now','×','✕'];
               var clicked=[];
               document.querySelectorAll('button,[role=button],a,.close,[aria-label]').forEach(function(el){
+                if(inCaptchaZone(el))return;
                 var t=((el.innerText||'')+(el.getAttribute('aria-label')||'')).toLowerCase();
+                if(skip.test(t))return;
                 for(var i=0;i<words.length;i++){
                   if(t.indexOf(words[i])>=0&&clicked.length<3){try{el.click();clicked.push(t.slice(0,40));}catch(e){}}
                 }

@@ -6,9 +6,13 @@ import android.webkit.WebView
 object DesktopBrowserConfig {
     const val DESKTOP_USER_AGENT =
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) " +
-            "Chrome/122.0.0.0 Safari/537.36"
+            "Chrome/131.0.0.0 Safari/537.36"
 
     fun apply(webView: WebView) {
+        android.webkit.CookieManager.getInstance().apply {
+            setAcceptCookie(true)
+            setAcceptThirdPartyCookies(webView, true)
+        }
         webView.settings.apply {
             javaScriptEnabled = true
             domStorageEnabled = true

@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.viewinterop.AndroidView
 import com.autobrowse.android.browser.AddressBarNavigation
 import com.autobrowse.android.browser.BrowserController
+import com.autobrowse.android.browser.CaptchaDetector
 import com.autobrowse.android.browser.ContentColorSampler
 import com.autobrowse.android.browser.DesktopBrowserConfig
 import com.autobrowse.android.browser.VirtualDisplayConfig
@@ -83,6 +84,7 @@ fun BrowserWebView(
             override fun onPageFinished(view: WebView?, url: String?) {
                 view?.post {
                     DesktopBrowserConfig.applyVirtualViewport(view)
+                    view.evaluateJavascript(CaptchaDetector.ANTI_AUTOMATION_SCRIPT, null)
                     reportContentColor()
                 }
                 onTabUpdate(

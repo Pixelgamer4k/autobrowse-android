@@ -36,9 +36,13 @@ class BrowserInteractiveSnapshotTool(
                     }
                 }
                 val ready = snapshot.optString("readyState", "")
+                CaptchaTools.refreshCaptchaState(context, browserController)
+                val captchaBlock = context.captchaInfo?.let { info ->
+                    if (context.captchaDetected) "\n\n[CAPTCHA]\n$info" else ""
+                }.orEmpty()
                 return ToolExecutionResult(
                     "URL: $url\nTitle: ${snapshot.optString("title")}\nReady: $ready\n\n" +
-                        "Interactive refs:\n$refLines\n\nVisible text:\n${text.take(5000)}",
+                        "Interactive refs:\n$refLines\n\nVisible text:\n${text.take(5000)}$captchaBlock",
                 )
             }
         }

@@ -68,6 +68,13 @@ object CloudToolSelector {
                     "browser_dismiss_overlays",
                     "browser_accept_cookies",
                 )
+            lower.contains("captcha") || lower.contains("recaptcha") || lower.contains("hcaptcha") ||
+                lower.contains("turnstile") || lower.contains("cloudflare") || lower.contains("verify") ||
+                (lower.contains("login") && lower.contains("human")) ->
+                selected += setOf(
+                    "browser_detect_captcha",
+                    "browser_wait_for_captcha_clear",
+                )
             lower.contains("price") -> selected += "browser_extract_prices"
             lower.contains("feedback") || FeedbackDetector.isLikelyFeedback(userPrompt) ->
                 selected += setOf("feedback_submit", "feedback_list")
@@ -80,6 +87,8 @@ object CloudToolSelector {
                 "browser_wait_for_text",
                 "browser_wait_for_url",
                 "browser_execute_js",
+                "browser_detect_captcha",
+                "browser_wait_for_captcha_clear",
                 "reflect",
                 "todo_write",
             )
