@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Virtual PC</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: #111; overflow: hidden; }
+    iframe { border: 0; width: 100%; height: 100%; }
+    #status {
+      position: fixed; left: 12px; bottom: 12px; color: #aaa; font: 12px sans-serif;
+      background: rgba(0,0,0,0.55); padding: 6px 10px; border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <iframe id="desktop" src="../demo-desktop.html?live=1"></iframe>
+  <div id="status">Connecting to ws://127.0.0.1:6080…</div>
+  <script>
+    const wsUrl = "ws://127.0.0.1:6080";
+    const status = document.getElementById("status");
+    const socket = new WebSocket(wsUrl);
+    socket.onopen = () => { status.textContent = "VNC websocket connected"; };
+    socket.onerror = () => { status.textContent = "VNC offline — showing demo desktop"; };
+    socket.onclose = () => { status.textContent = "VNC offline — showing demo desktop"; };
+  </script>
+</body>
+</html>

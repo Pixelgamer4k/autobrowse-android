@@ -1,0 +1,7 @@
+{
+  "version": "1",
+  "download_url": "https://github.com/Pixelgamer4k/autobrowse-android/releases/download/rootfs-v1/rootfs-v1-arm64.tar.zst",
+  "sha256": "",
+  "size_bytes": 220000000,
+  "min_app_version": "1.2.0"
+}

@@ -309,7 +309,7 @@ Install the signed release APK from the [**Releases**](https://github.com/Pixelg
 | `Multiwindow-Autobrowser-debug.apk` | Debug build — testing only |
 | `SHA256SUMS.txt` | Checksums |
 
-Current release: [**v1.1.25**](https://github.com/Pixelgamer4k/autobrowse-android/releases/tag/v1.1.25)
+Current release: [**v1.2.0**](https://github.com/Pixelgamer4k/autobrowse-android/releases/tag/v1.2.0)
 
 ### Latest CI debug build
 

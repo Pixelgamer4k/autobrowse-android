@@ -78,6 +78,9 @@ import com.autobrowse.android.data.settings.SecureSettingsStore
 import com.autobrowse.android.feedback.FeedbackManager
 import com.autobrowse.android.skills.SkillRegistry
 import com.autobrowse.android.skills.SkillStore
+import com.autobrowse.android.vpc.core.VirtualPCManager
+import com.autobrowse.android.vpc.provision.RootfsProvisioner
+import com.autobrowse.android.vpc.tools.createVpcTools
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -144,6 +147,12 @@ class AutobrowseApplication : Application(), Configuration.Provider {
     lateinit var downloadsManager: DownloadsManager
         private set
 
+    lateinit var rootfsProvisioner: RootfsProvisioner
+        private set
+
+    lateinit var virtualPcManager: VirtualPCManager
+        private set
+
     private val appScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 
     override fun onCreate() {
@@ -163,6 +172,8 @@ class AutobrowseApplication : Application(), Configuration.Provider {
         trainingCorpusLoader = TrainingCorpusLoader(this)
         skillRegistry = SkillRegistry(this, repository, llmApi)
         downloadsManager = DownloadsManager(this, appScope)
+        rootfsProvisioner = RootfsProvisioner(this)
+        virtualPcManager = VirtualPCManager(this, rootfsProvisioner, appScope)
         browserController = BrowserController { tabId, url, userAgent, contentDisposition, mimeType, contentLength ->
             downloadsManager.enqueue(tabId, url, userAgent, contentDisposition, mimeType, contentLength)
         }
@@ -259,6 +270,7 @@ class AutobrowseApplication : Application(), Configuration.Provider {
                 SkillCreatorTool(skillStore, llmApi, repository),
                 FeedbackSubmitTool(feedbackManager),
                 FeedbackListTool(feedbackManager),
+                *createVpcTools(virtualPcManager).toTypedArray(),
             ),
             browserController = browserController,
         )

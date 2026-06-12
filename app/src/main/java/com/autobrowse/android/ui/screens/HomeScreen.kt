@@ -1,8 +1,13 @@
 package com.autobrowse.android.ui.screens
 
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.WindowInsetsSides
 import androidx.compose.foundation.layout.fillMaxSize
@@ -29,6 +34,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.autobrowse.android.domain.model.AppMode
 import com.autobrowse.android.ui.MainViewModel
 import com.autobrowse.android.ui.components.BrowserPanel
 import com.autobrowse.android.ui.components.OverlayBackHandlers
@@ -37,6 +43,8 @@ import com.autobrowse.android.ui.components.ChatPanel
 import com.autobrowse.android.ui.components.DownloadsPanelOverlay
 import com.autobrowse.android.ui.components.SessionsLauncherButton
 import com.autobrowse.android.ui.components.SessionsPanelOverlay
+import com.autobrowse.android.ui.vpc.ModeSwitcher
+import com.autobrowse.android.ui.vpc.VirtualPcScreen
 
 
 @Composable
@@ -136,29 +144,62 @@ private fun MainContent(
                 .fillMaxSize()
                 .statusBarsPadding(),
         ) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 52.dp, end = 10.dp, top = 6.dp, bottom = 2.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                ModeSwitcher(
+                    mode = state.appMode,
+                    onModeChange = viewModel::setAppMode,
+                )
+            }
+
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
                     .weight(0.46f)
                     .background(MaterialTheme.colorScheme.surfaceVariant),
             ) {
-                BrowserPanel(
-                    tabs = state.tabs,
-                    windowFrames = state.windowFrames,
-                    activeTabId = state.activeTabId,
-                    controller = viewModel.browserController,
-                    onSelectTab = viewModel::selectTab,
-                    onAddTab = { viewModel.addTab() },
-                    onTabMetadataUpdate = viewModel::updateTabMetadata,
-                    onCommitGeometry = viewModel::commitWindowGeometry,
-                    onNavigate = viewModel::navigateActiveTab,
-                    onRefreshTab = viewModel::refreshTab,
-                    onToggleMaximizeTab = viewModel::toggleMaximizeTab,
-                    onCloseTab = viewModel::closeTab,
-                    onGoBackTab = viewModel::goBackTab,
-                    onGoForwardTab = viewModel::goForwardTab,
+                AnimatedContent(
+                    targetState = state.appMode,
+                    transitionSpec = { fadeIn() togetherWith fadeOut() },
+                    label = "workspaceMode",
                     modifier = Modifier.fillMaxSize(),
-                )
+                ) { mode ->
+                    when (mode) {
+                        AppMode.Browser -> {
+                            BrowserPanel(
+                                tabs = state.tabs,
+                                windowFrames = state.windowFrames,
+                                activeTabId = state.activeTabId,
+                                controller = viewModel.browserController,
+                                onSelectTab = viewModel::selectTab,
+                                onAddTab = { viewModel.addTab() },
+                                onTabMetadataUpdate = viewModel::updateTabMetadata,
+                                onCommitGeometry = viewModel::commitWindowGeometry,
+                                onNavigate = viewModel::navigateActiveTab,
+                                onRefreshTab = viewModel::refreshTab,
+                                onToggleMaximizeTab = viewModel::toggleMaximizeTab,
+                                onCloseTab = viewModel::closeTab,
+                                onGoBackTab = viewModel::goBackTab,
+                                onGoForwardTab = viewModel::goForwardTab,
+                                modifier = Modifier.fillMaxSize(),
+                            )
+                        }
+                        AppMode.VirtualPC -> {
+                            VirtualPcScreen(
+                                state = state.vpcState,
+                                onProvision = viewModel::provisionVirtualPc,
+                                onStart = viewModel::startVirtualPc,
+                                onStop = viewModel::stopVirtualPc,
+                                onStartDemo = viewModel::startVirtualPcDemo,
+                                modifier = Modifier.fillMaxSize(),
+                            )
+                        }
+                    }
+                }
 
                 SessionsLauncherButton(
                     onClick = viewModel::toggleSessionsPanel,

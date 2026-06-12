@@ -10,7 +10,9 @@ import com.autobrowse.android.AutobrowseApplication
 import com.autobrowse.android.agent.core.SessionTitleGenerator
 import com.autobrowse.android.browser.AddressBarNavigation
 import com.autobrowse.android.browser.VirtualDisplayConfig
+import com.autobrowse.android.domain.model.AppMode
 import com.autobrowse.android.domain.model.AppUiConfig
+import com.autobrowse.android.vpc.core.VpcState
 import com.autobrowse.android.downloads.DownloadItem
 import com.autobrowse.android.downloads.DownloadStatus
 import com.autobrowse.android.browser.BrowserController
@@ -122,6 +124,8 @@ data class MainUiState(
     val appUiConfig: AppUiConfig = AppUiConfig(),
     val showDownloadsPanel: Boolean = false,
     val downloads: List<DownloadItem> = emptyList(),
+    val appMode: AppMode = AppMode.Browser,
+    val vpcState: VpcState = VpcState.Unknown,
     val error: String? = null,
 )
 
@@ -244,6 +248,31 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 _uiState.update { it.copy(downloads = downloads) }
             }
         }
+        viewModelScope.launch {
+            app.virtualPcManager.state.collect { vpcState ->
+                _uiState.update { it.copy(vpcState = vpcState) }
+            }
+        }
+    }
+
+    fun setAppMode(mode: AppMode) {
+        _uiState.update { it.copy(appMode = mode) }
+    }
+
+    fun provisionVirtualPc() {
+        app.virtualPcManager.startProvisioning()
+    }
+
+    fun startVirtualPc() {
+        viewModelScope.launch { app.virtualPcManager.start(desktop = true) }
+    }
+
+    fun startVirtualPcDemo() {
+        viewModelScope.launch { app.virtualPcManager.startDemo() }
+    }
+
+    fun stopVirtualPc() {
+        viewModelScope.launch { app.virtualPcManager.stop() }
     }
 
     private fun resetSessionUi() {

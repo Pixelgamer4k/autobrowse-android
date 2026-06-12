@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Ubuntu Virtual PC</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { width: 100%; height: 100%; overflow: hidden; background: #111; font-family: Ubuntu, Cantarell, sans-serif; }
+    .desktop {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #77216f 0%, #5e2750 35%, #2c001e 70%, #300a24 100%);
+      position: relative;
+    }
+    .topbar {
+      height: 28px; background: rgba(0,0,0,0.45); color: #eee;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; letter-spacing: 0.02em;
+    }
+    .activities { position: absolute; top: 6px; left: 10px; font-size: 11px; color: #ddd; opacity: 0.9; }
+    .dock {
+      position: absolute; left: 0; top: 28px; bottom: 0; width: 52px;
+      background: rgba(0,0,0,0.55); display: flex; flex-direction: column;
+      align-items: center; padding: 10px 0; gap: 14px;
+    }
+    .dock img, .dock .icon {
+      width: 34px; height: 34px; border-radius: 8px;
+      background: rgba(255,255,255,0.08); display: grid; place-items: center;
+      font-size: 18px;
+    }
+    .logo {
+      position: absolute; right: 8%; top: 38%; width: 180px; opacity: 0.35;
+      filter: drop-shadow(0 8px 24px rgba(0,0,0,0.4));
+    }
+    .terminal {
+      position: absolute; left: 50%; top: 52%; transform: translate(-50%, -50%);
+      width: min(92%, 520px); height: 220px; background: #300a24;
+      border: 1px solid rgba(255,255,255,0.12); border-radius: 8px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.45);
+      overflow: hidden;
+    }
+    .terminal .title {
+      height: 32px; background: #3b1030; color: #eee; font-size: 12px;
+      display: flex; align-items: center; padding: 0 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .terminal .body {
+      padding: 14px; color: #f2f2f2; font-family: "Ubuntu Mono", monospace;
+      font-size: 13px; line-height: 1.5;
+    }
+    .prompt-user { color: #4caf50; }
+    .cursor { display: inline-block; width: 8px; height: 14px; background: #eee; animation: blink 1s step-end infinite; vertical-align: text-bottom; }
+    @keyframes blink { 50% { opacity: 0; } }
+    .badge {
+      position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.55);
+      color: #ccc; font-size: 10px; padding: 6px 10px; border-radius: 999px;
+    }
+  </style>
+</head>
+<body>
+  <div class="desktop">
+    <div class="activities">Activities</div>
+    <div class="topbar" id="clock">Wed 12:00 PM</div>
+    <div class="dock">
+      <div class="icon">🦊</div>
+      <div class="icon">📁</div>
+      <div class="icon">⚙️</div>
+      <div class="icon">▦</div>
+    </div>
+    <svg class="logo" viewBox="0 0 200 200" aria-hidden="true">
+      <circle cx="100" cy="100" r="88" fill="none" stroke="#e95420" stroke-width="10"/>
+      <circle cx="100" cy="100" r="34" fill="#e95420"/>
+    </svg>
+    <div class="terminal">
+      <div class="title">Terminal</div>
+      <div class="body">
+        <span class="prompt-user">user@ubuntu</span>:~$ <span class="cursor"></span>
+      </div>
+    </div>
+    <div class="badge" id="mode">Demo desktop — connect rootfs for live Ubuntu</div>
+  </div>
+  <script>
+    function updateClock() {
+      const d = new Date();
+      const days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+      const h = d.getHours(); const m = String(d.getMinutes()).padStart(2, "0");
+      const ampm = h >= 12 ? "PM" : "AM"; const hr = ((h + 11) % 12) + 1;
+      document.getElementById("clock").textContent = days[d.getDay()] + " " + hr + ":" + m + " " + ampm;
+    }
+    updateClock(); setInterval(updateClock, 30000);
+    if (location.search.includes("live=1")) {
+      document.getElementById("mode").textContent = "Connected to noVNC";
+    }
+  </script>
+</body>
+</html>
