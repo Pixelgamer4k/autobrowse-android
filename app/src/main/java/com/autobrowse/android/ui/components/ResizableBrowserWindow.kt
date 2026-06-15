@@ -93,6 +93,7 @@ fun ResizableBrowserWindow(
     onRefresh: () -> Unit,
     onToggleMaximize: () -> Unit,
     onClose: () -> Unit,
+    onMinimize: () -> Unit = {},
     onGoBack: () -> Unit = {},
     onGoForward: () -> Unit = {},
     modifier: Modifier = Modifier,
@@ -214,7 +215,7 @@ fun ResizableBrowserWindow(
     val webInteractionEnabled = !gestureActive && !menuExpanded
 
     val elevation by animateFloatAsState(
-        targetValue = if (isActive) 14f else 5f,
+        targetValue = if (isActive) 16f else 6f,
         animationSpec = Motion.springSmooth,
         label = "windowElevation",
     )
@@ -222,10 +223,15 @@ fun ResizableBrowserWindow(
         targetValue = when {
             gestureActive -> 1.02f
             isActive -> 1f
-            else -> 0.985f
+            else -> 0.98f
         },
         animationSpec = Motion.springSnappy,
         label = "windowScale",
+    )
+    val inactiveAlpha by animateFloatAsState(
+        targetValue = if (isActive) 1f else 0.78f,
+        animationSpec = Motion.springSmooth,
+        label = "windowInactiveAlpha",
     )
 
     fun beginMoveGesture() {
@@ -283,6 +289,7 @@ fun ResizableBrowserWindow(
                 translationY = displayY
                 scaleX = resizeScale * windowScale
                 scaleY = resizeScale * windowScale
+                alpha = inactiveAlpha
                 transformOrigin = TransformOrigin(0f, 0f)
             }
             .width(with(density) { layoutW.toDp() })
@@ -362,6 +369,10 @@ fun ResizableBrowserWindow(
                         menuExpanded = false
                         onClose()
                     },
+                    onMinimize = {
+                        menuExpanded = false
+                        onMinimize()
+                    },
                 )
             } else {
                 WindowOptionsPopup(
@@ -393,6 +404,10 @@ fun ResizableBrowserWindow(
                     onClose = {
                         menuExpanded = false
                         onClose()
+                    },
+                    onMinimize = {
+                        menuExpanded = false
+                        onMinimize()
                     },
                 )
             }

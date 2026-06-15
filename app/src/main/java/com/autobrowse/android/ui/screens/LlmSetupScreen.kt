@@ -394,7 +394,7 @@ private fun RemoteLlmSection(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
     ) {
-        listOf("gpt-4o-mini", "gpt-4o", "claude-sonnet-4").forEach { preset ->
+        listOf("gpt-4o-mini", "gpt-4o", "claude-3-5-sonnet-latest").forEach { preset ->
             FilterChip(
                 selected = modelId == preset,
                 onClick = { onModelIdChange(preset) },

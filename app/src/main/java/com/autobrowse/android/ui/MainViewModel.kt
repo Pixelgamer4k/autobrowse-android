@@ -11,6 +11,7 @@ import com.autobrowse.android.agent.core.SessionTitleGenerator
 import com.autobrowse.android.browser.AddressBarNavigation
 import com.autobrowse.android.browser.VirtualDisplayConfig
 import com.autobrowse.android.domain.model.AppUiConfig
+import com.autobrowse.android.domain.model.ThemeMode
 import com.autobrowse.android.downloads.DownloadItem
 import com.autobrowse.android.downloads.DownloadStatus
 import com.autobrowse.android.browser.BrowserController
@@ -502,6 +503,14 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     fun updateMaxAgentIterations(iterations: Float) {
         viewModelScope.launch {
             val updated = _uiState.value.appUiConfig.copy(maxAgentIterations = iterations.toInt())
+            repository.saveAppUiConfig(updated)
+            _uiState.update { it.copy(appUiConfig = updated) }
+        }
+    }
+
+    fun updateThemeMode(mode: ThemeMode) {
+        viewModelScope.launch {
+            val updated = _uiState.value.appUiConfig.copy(themeMode = mode)
             repository.saveAppUiConfig(updated)
             _uiState.update { it.copy(appUiConfig = updated) }
         }

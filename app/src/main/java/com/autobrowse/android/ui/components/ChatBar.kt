@@ -74,10 +74,6 @@ import com.autobrowse.android.domain.model.PendingAttachment
 import com.autobrowse.android.ui.theme.Motion
 import java.util.UUID
 
-private val ComposerInputBg = Color(0xFF1C1C1E)
-private val ComposerButtonBg = Color(0xFF2C2C2E)
-private val ComposerBorder = Color(0xFF3A3A3C)
-
 @Composable
 fun ChatBar(
     value: String,
@@ -182,6 +178,10 @@ fun ChatComposer(
         label = "sendScale",
     )
 
+    val composerInputBg = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.92f)
+    val composerButtonBg = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.65f)
+    val composerBorder = MaterialTheme.colorScheme.outline.copy(alpha = 0.45f)
+
     Column(
         modifier = modifier
             .fillMaxWidth()
@@ -232,13 +232,13 @@ fun ChatComposer(
                 .fillMaxWidth()
                 .heightIn(min = 42.dp)
                 .clip(RoundedCornerShape(22.dp))
-                .background(ComposerInputBg)
+                .background(composerInputBg)
                 .border(
                     width = 1.dp,
                     color = when {
                         isSending -> MaterialTheme.colorScheme.error.copy(alpha = 0.25f)
-                        isFocused -> MaterialTheme.colorScheme.onSurface.copy(alpha = 0.22f)
-                        else -> ComposerBorder.copy(alpha = 0.55f)
+                        isFocused -> MaterialTheme.colorScheme.primary.copy(alpha = 0.45f)
+                        else -> composerBorder
                     },
                     shape = RoundedCornerShape(22.dp),
                 )
@@ -323,7 +323,7 @@ fun ChatComposer(
                             color = if (canSend) {
                                 MaterialTheme.colorScheme.primary
                             } else {
-                                ComposerButtonBg
+                                composerButtonBg
                             },
                             modifier = Modifier
                                 .size(32.dp)
@@ -375,9 +375,10 @@ private fun AttachmentChip(
     onRemove: () -> Unit,
 ) {
     val context = LocalContext.current
+    val chipBg = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.72f)
     Surface(
         shape = RoundedCornerShape(14.dp),
-        color = ComposerButtonBg,
+        color = chipBg,
         tonalElevation = 0.dp,
     ) {
         Row(

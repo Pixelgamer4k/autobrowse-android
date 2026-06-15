@@ -21,7 +21,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.CircleShape
@@ -32,6 +31,7 @@ import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Fullscreen
 import androidx.compose.material.icons.filled.FullscreenExit
+import androidx.compose.material.icons.filled.Minimize
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.UnfoldMore
 import androidx.compose.material3.Icon
@@ -159,6 +159,7 @@ fun WindowCompactControls(
     onClose: () -> Unit,
     onGoBack: () -> Unit = {},
     onGoForward: () -> Unit = {},
+    onMinimize: (() -> Unit)? = null,
     modifier: Modifier = Modifier,
 ) {
     val maxMinIcon = when (windowState) {
@@ -169,7 +170,7 @@ fun WindowCompactControls(
 
     Surface(
         shape = RoundedCornerShape(10.dp),
-        color = Color(0xFF1B1B1F),
+        color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.98f),
         shadowElevation = 8.dp,
         modifier = modifier
             .fillMaxWidth()
@@ -182,11 +183,14 @@ fun WindowCompactControls(
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            WindowCompactIconButton(Icons.AutoMirrored.Filled.ArrowBack, "Back", Color(0xFF90A4AE), onGoBack)
-            WindowCompactIconButton(Icons.AutoMirrored.Filled.ArrowForward, "Forward", Color(0xFF90A4AE), onGoForward)
-            WindowCompactIconButton(Icons.Default.Refresh, "Refresh", Color(0xFF4A90D9), onRefresh)
-            WindowCompactIconButton(maxMinIcon, "Resize", Color(0xFF34A853), onToggleMaximize)
-            WindowCompactIconButton(Icons.Default.Close, "Close", Color(0xFFE8453C), onClose)
+            WindowCompactIconButton(Icons.AutoMirrored.Filled.ArrowBack, "Back", MaterialTheme.colorScheme.onSurface.copy(alpha = 0.75f), onGoBack)
+            WindowCompactIconButton(Icons.AutoMirrored.Filled.ArrowForward, "Forward", MaterialTheme.colorScheme.onSurface.copy(alpha = 0.75f), onGoForward)
+            WindowCompactIconButton(Icons.Default.Refresh, "Refresh", MaterialTheme.colorScheme.primary, onRefresh)
+            if (onMinimize != null && windowState != BrowserWindowState.MINIMIZED) {
+                WindowCompactIconButton(Icons.Default.Minimize, "Minimize", MaterialTheme.colorScheme.onSurface.copy(alpha = 0.75f), onMinimize)
+            }
+            WindowCompactIconButton(maxMinIcon, "Resize", MaterialTheme.colorScheme.secondary, onToggleMaximize)
+            WindowCompactIconButton(Icons.Default.Close, "Close", MaterialTheme.colorScheme.error, onClose)
         }
     }
 }
@@ -216,6 +220,7 @@ fun WindowOptionsPopup(
     onClose: () -> Unit,
     onGoBack: () -> Unit = {},
     onGoForward: () -> Unit = {},
+    onMinimize: (() -> Unit)? = null,
     modifier: Modifier = Modifier,
 ) {
     val maxMinLabel = when (windowState) {
@@ -245,17 +250,20 @@ fun WindowOptionsPopup(
     ) {
         Surface(
             shape = RoundedCornerShape(14.dp),
-            color = Color(0xFF1B1B1F),
+            color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.98f),
             shadowElevation = 12.dp,
             tonalElevation = 6.dp,
             modifier = Modifier.width(176.dp),
         ) {
             Column(modifier = Modifier.padding(vertical = 6.dp)) {
-                WindowMenuItem("Back", Icons.AutoMirrored.Filled.ArrowBack, Color(0xFF90A4AE), onGoBack)
-                WindowMenuItem("Forward", Icons.AutoMirrored.Filled.ArrowForward, Color(0xFF90A4AE), onGoForward)
-                WindowMenuItem("Refresh", Icons.Default.Refresh, Color(0xFF4A90D9), onRefresh)
-                WindowMenuItem(maxMinLabel, maxMinIcon, Color(0xFF34A853), onToggleMaximize)
-                WindowMenuItem("Close", Icons.Default.Close, Color(0xFFE8453C), onClose)
+                WindowMenuItem("Back", Icons.AutoMirrored.Filled.ArrowBack, MaterialTheme.colorScheme.onSurface.copy(alpha = 0.75f), onGoBack)
+                WindowMenuItem("Forward", Icons.AutoMirrored.Filled.ArrowForward, MaterialTheme.colorScheme.onSurface.copy(alpha = 0.75f), onGoForward)
+                WindowMenuItem("Refresh", Icons.Default.Refresh, MaterialTheme.colorScheme.primary, onRefresh)
+                if (onMinimize != null && windowState != BrowserWindowState.MINIMIZED) {
+                    WindowMenuItem("Minimize", Icons.Default.Minimize, MaterialTheme.colorScheme.onSurface.copy(alpha = 0.75f), onMinimize)
+                }
+                WindowMenuItem(maxMinLabel, maxMinIcon, MaterialTheme.colorScheme.secondary, onToggleMaximize)
+                WindowMenuItem("Close", Icons.Default.Close, MaterialTheme.colorScheme.error, onClose)
             }
         }
     }
@@ -315,7 +323,7 @@ private fun WindowMenuItem(
         Text(
             text = label,
             style = MaterialTheme.typography.bodyMedium,
-            color = Color.White.copy(alpha = 0.94f),
+            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.94f),
         )
     }
 }

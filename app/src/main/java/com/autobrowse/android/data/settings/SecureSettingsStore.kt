@@ -13,6 +13,7 @@ import com.autobrowse.android.domain.model.LlmProvider
 import com.autobrowse.android.domain.model.DeviceContextDefaults
 import com.autobrowse.android.domain.model.LocalLlmCatalog
 import com.autobrowse.android.domain.model.LocalLlmModel
+import com.autobrowse.android.domain.model.ThemeMode
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -95,9 +96,11 @@ class SecureSettingsStore(private val appContext: Context) {
     }
 
     suspend fun getAppUiConfig(): AppUiConfig = withContext(Dispatchers.IO) {
+        val themeName = prefs.getString(KEY_THEME_MODE, ThemeMode.SYSTEM.name) ?: ThemeMode.SYSTEM.name
         AppUiConfig(
             resolutionScale = prefs.getFloat(KEY_RESOLUTION_SCALE, 1f),
             maxAgentIterations = prefs.getInt(KEY_MAX_AGENT_ITERATIONS, 20),
+            themeMode = runCatching { ThemeMode.valueOf(themeName) }.getOrDefault(ThemeMode.SYSTEM),
         )
     }
 
@@ -105,6 +108,7 @@ class SecureSettingsStore(private val appContext: Context) {
         prefs.edit()
             .putFloat(KEY_RESOLUTION_SCALE, config.coercedScale())
             .putInt(KEY_MAX_AGENT_ITERATIONS, config.coercedMaxIterations())
+            .putString(KEY_THEME_MODE, config.themeMode.name)
             .apply()
     }
 
@@ -162,6 +166,7 @@ class SecureSettingsStore(private val appContext: Context) {
         private const val KEY_CAPTCHA_PROXY_URL = "captcha_proxy_url"
         private const val KEY_RESOLUTION_SCALE = "resolution_scale"
         private const val KEY_MAX_AGENT_ITERATIONS = "max_agent_iterations"
+        private const val KEY_THEME_MODE = "theme_mode"
 
         private const val DEFAULT_API_URL = "https://api.openai.com/v1/"
         private const val DEFAULT_MODEL = "gpt-4o-mini"

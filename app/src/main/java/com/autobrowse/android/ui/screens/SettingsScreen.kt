@@ -7,14 +7,17 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Slider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -22,6 +25,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -39,6 +43,7 @@ import com.autobrowse.android.domain.model.LearnedStrategy
 import com.autobrowse.android.domain.model.MemoryEntry
 import com.autobrowse.android.domain.model.SkillConfig
 import com.autobrowse.android.domain.model.SkillType
+import com.autobrowse.android.domain.model.ThemeMode
 import com.autobrowse.android.skills.SkillMetadata
 import com.autobrowse.android.ui.FeedbackTransferState
 import com.autobrowse.android.ui.SkillTransferState
@@ -83,6 +88,7 @@ fun SettingsScreen(
     appUiConfig: AppUiConfig = AppUiConfig(),
     onResolutionScaleChange: (Float) -> Unit = {},
     onMaxAgentIterationsChange: (Float) -> Unit = {},
+    onThemeModeChange: (ThemeMode) -> Unit = {},
     onBack: () -> Unit,
 ) {
     val context = LocalContext.current
@@ -138,360 +144,412 @@ fun SettingsScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(padding)
-                .padding(16.dp)
+                .padding(horizontal = 16.dp, vertical = 8.dp)
                 .verticalScroll(rememberScrollState()),
-            verticalArrangement = Arrangement.spacedBy(16.dp),
+            verticalArrangement = Arrangement.spacedBy(14.dp),
         ) {
-            Text("Display", style = MaterialTheme.typography.titleMedium)
-            Text(
-                "Internal browser window resolution. Lower values use less memory; higher values look sharper. Open a new tab to apply.",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
-            )
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Text("Resolution scale", style = MaterialTheme.typography.bodyMedium)
+            SettingsSection(title = "Appearance") {
                 Text(
-                    "${"%.0f".format(appUiConfig.coercedScale() * 100)}%",
-                    style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.primary,
+                    "Theme mode",
+                    style = MaterialTheme.typography.bodyMedium,
                 )
-            }
-            Slider(
-                value = appUiConfig.coercedScale(),
-                onValueChange = onResolutionScaleChange,
-                valueRange = 0.25f..1.5f,
-                steps = 24,
-            )
-
-            Text("Agent", style = MaterialTheme.typography.titleMedium)
-            Text(
-                "Maximum reasoning turns per message. Higher values allow longer tasks but use more time and tokens.",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
-            )
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Text("Max turns", style = MaterialTheme.typography.bodyMedium)
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    ThemeMode.entries.forEach { mode ->
+                        FilterChip(
+                            selected = appUiConfig.themeMode == mode,
+                            onClick = { onThemeModeChange(mode) },
+                            label = { Text(mode.name.lowercase().replaceFirstChar { it.uppercase() }) },
+                        )
+                    }
+                }
+                Spacer(modifier = Modifier.height(4.dp))
                 Text(
-                    "${appUiConfig.coercedMaxIterations()}",
-                    style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.primary,
+                    "Internal browser window resolution. Lower values use less memory; higher values look sharper. Open a new tab to apply.",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
                 )
-            }
-            Slider(
-                value = appUiConfig.coercedMaxIterations().toFloat(),
-                onValueChange = onMaxAgentIterationsChange,
-                valueRange = 5f..50f,
-                steps = 44,
-            )
-
-            Text("API", style = MaterialTheme.typography.titleMedium)
-            Text(
-                "Cloud API is recommended. Local on-device models are experimental and can take 6–10 minutes per response.",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
-            )
-            OutlinedButton(
-                onClick = onOpenLlmSetup,
-                modifier = Modifier.fillMaxWidth(),
-            ) {
-                Text("Change API Configuration")
-            }
-
-            Text("Tool Skills", style = MaterialTheme.typography.titleMedium)
-            Text(
-                "Built-in agent capabilities (summarize, extract, web fetch, etc.).",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
-            )
-            skillConfigs.forEach { skill ->
-                SkillToggleRow(
-                    skill = skill,
-                    enabled = skill.type in enabledSkills,
-                    onToggle = { onToggleSkill(skill.type, it) },
-                )
-            }
-
-            Text("Agent Skills", style = MaterialTheme.typography.titleMedium)
-            Text(
-                "Bundled playbooks plus skills auto-created after each automation run. Matched tasks load these into the agent prompt.",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
-            )
-            Text(
-                "Train skills by running tasks, then export and share the JSON file to bundle them into a future app release.",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
-            )
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-            ) {
-                OutlinedButton(
-                    onClick = {
-                        scope.launch {
-                            onClearSkillTransferMessage()
-                            val (json, count) = onBuildLearnedSkillsExport()
-                            if (count == 0) {
-                                onShowSkillTransfer(
-                                    "No learned skills to export yet. Run browsing tasks first.",
-                                    false,
-                                )
-                                return@launch
-                            }
-                            val uri = onCreateLearnedSkillsShareUri(json)
-                            val intent = onBuildLearnedSkillsShareIntent(uri)
-                            context.startActivity(Intent.createChooser(intent, "Share learned skills"))
-                        }
-                    },
-                    modifier = Modifier.weight(1f),
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically,
                 ) {
-                    Text("Share export")
+                    Text("Resolution scale", style = MaterialTheme.typography.bodyMedium)
+                    Text(
+                        "${"%.0f".format(appUiConfig.coercedScale() * 100)}%",
+                        style = MaterialTheme.typography.labelMedium,
+                        color = MaterialTheme.colorScheme.primary,
+                    )
+                }
+                Slider(
+                    value = appUiConfig.coercedScale(),
+                    onValueChange = onResolutionScaleChange,
+                    valueRange = 0.25f..1.5f,
+                    steps = 24,
+                )
+            }
+
+            SettingsSection(title = "Agent") {
+                Text(
+                    "Maximum reasoning turns per message. Higher values allow longer tasks but use more time and tokens.",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+                )
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Text("Max turns", style = MaterialTheme.typography.bodyMedium)
+                    Text(
+                        "${appUiConfig.coercedMaxIterations()}",
+                        style = MaterialTheme.typography.labelMedium,
+                        color = MaterialTheme.colorScheme.primary,
+                    )
+                }
+                Slider(
+                    value = appUiConfig.coercedMaxIterations().toFloat(),
+                    onValueChange = onMaxAgentIterationsChange,
+                    valueRange = 5f..50f,
+                    steps = 44,
+                )
+            }
+
+            SettingsSection(title = "API") {
+                Text(
+                    "Cloud API is recommended. Local on-device models are experimental and can take 6–10 minutes per response.",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+                )
+                OutlinedButton(
+                    onClick = onOpenLlmSetup,
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    Text("Change API Configuration")
+                }
+            }
+
+            SettingsSection(title = "Tool Skills") {
+                Text(
+                    "Built-in agent capabilities (summarize, extract, web fetch, etc.).",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+                )
+                skillConfigs.forEach { skill ->
+                    SkillToggleRow(
+                        skill = skill,
+                        enabled = skill.type in enabledSkills,
+                        onToggle = { onToggleSkill(skill.type, it) },
+                    )
+                }
+            }
+
+            SettingsSection(title = "Agent Skills") {
+                Text(
+                    "Bundled playbooks plus skills auto-created after each automation run. Matched tasks load these into the agent prompt.",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+                )
+                Text(
+                    "Train skills by running tasks, then export and share the JSON file to bundle them into a future app release.",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+                )
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                ) {
+                    OutlinedButton(
+                        onClick = {
+                            scope.launch {
+                                onClearSkillTransferMessage()
+                                val (json, count) = onBuildLearnedSkillsExport()
+                                if (count == 0) {
+                                    onShowSkillTransfer(
+                                        "No learned skills to export yet. Run browsing tasks first.",
+                                        false,
+                                    )
+                                    return@launch
+                                }
+                                val uri = onCreateLearnedSkillsShareUri(json)
+                                val intent = onBuildLearnedSkillsShareIntent(uri)
+                                context.startActivity(Intent.createChooser(intent, "Share learned skills"))
+                            }
+                        },
+                        modifier = Modifier.weight(1f),
+                    ) {
+                        Text("Share export")
+                    }
+                    OutlinedButton(
+                        onClick = {
+                            onClearSkillTransferMessage()
+                            saveExportLauncher.launch(exportFileName)
+                        },
+                        modifier = Modifier.weight(1f),
+                    ) {
+                        Text("Save export")
+                    }
                 }
                 OutlinedButton(
                     onClick = {
                         onClearSkillTransferMessage()
-                        saveExportLauncher.launch(exportFileName)
+                        importLauncher.launch(arrayOf("application/json", "text/plain", "*/*"))
                     },
-                    modifier = Modifier.weight(1f),
+                    modifier = Modifier.fillMaxWidth(),
                 ) {
-                    Text("Save export")
+                    Text("Import learned skills")
                 }
-            }
-            OutlinedButton(
-                onClick = {
-                    onClearSkillTransferMessage()
-                    importLauncher.launch(arrayOf("application/json", "text/plain", "*/*"))
-                },
-                modifier = Modifier.fillMaxWidth(),
-            ) {
-                Text("Import learned skills")
-            }
-            skillTransfer.message?.let { message ->
-                Text(
-                    text = message,
-                    style = MaterialTheme.typography.bodySmall,
-                    color = if (skillTransfer.isSuccess == true) {
-                        MaterialTheme.colorScheme.primary
-                    } else {
-                        MaterialTheme.colorScheme.error
-                    },
-                )
-            }
-            if (agentSkills.isEmpty()) {
-                Text(
-                    "No skills loaded yet. Run a browsing task to seed bundled skills and start learning.",
-                    style = MaterialTheme.typography.bodySmall,
-                )
-            } else {
-                val learned = agentSkills.filter { it.category == "learned" }
-                val bundled = agentSkills.filter { it.category != "learned" }
-                if (learned.isNotEmpty()) {
-                    Text("Learned (${learned.size})", style = MaterialTheme.typography.labelLarge)
-                    learned.forEach { skill -> AgentSkillRow(skill) }
+                skillTransfer.message?.let { message ->
+                    Text(
+                        text = message,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = if (skillTransfer.isSuccess == true) {
+                            MaterialTheme.colorScheme.primary
+                        } else {
+                            MaterialTheme.colorScheme.error
+                        },
+                    )
                 }
-                if (bundled.isNotEmpty()) {
-                    Text("Bundled (${bundled.size})", style = MaterialTheme.typography.labelLarge)
-                    bundled.forEach { skill -> AgentSkillRow(skill) }
+                if (agentSkills.isEmpty()) {
+                    Text(
+                        "No skills loaded yet. Run a browsing task to seed bundled skills and start learning.",
+                        style = MaterialTheme.typography.bodySmall,
+                    )
+                } else {
+                    val learned = agentSkills.filter { it.category == "learned" }
+                    val bundled = agentSkills.filter { it.category != "learned" }
+                    if (learned.isNotEmpty()) {
+                        Text("Learned (${learned.size})", style = MaterialTheme.typography.labelLarge)
+                        learned.forEach { skill -> AgentSkillRow(skill) }
+                    }
+                    if (bundled.isNotEmpty()) {
+                        Text("Bundled (${bundled.size})", style = MaterialTheme.typography.labelLarge)
+                        bundled.forEach { skill -> AgentSkillRow(skill) }
+                    }
                 }
             }
 
-            Text("CAPTCHA Solver (authorized sites)", style = MaterialTheme.typography.titleMedium)
-            Text(
-                "Auto-solve on domains you authorize. Uses CapSolver or 2Captcha. Android fingerprint stealth is enabled by default. " +
-                    "Only add sites you own or have explicit permission to automate.",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
-            )
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Text("Enable solver")
-                Switch(
-                    checked = captchaConfig.enabled,
-                    onCheckedChange = { onCaptchaConfigChange(captchaConfig.copy(enabled = it)) },
+            SettingsSection(title = "CAPTCHA Solver (authorized sites)") {
+                Text(
+                    "Auto-solve on domains you authorize. Uses CapSolver or 2Captcha. Android fingerprint stealth is enabled by default. " +
+                        "Only add sites you own or have explicit permission to automate.",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
                 )
-            }
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Text("Android fingerprint")
-                Switch(
-                    checked = captchaConfig.useAndroidFingerprint,
-                    onCheckedChange = { onCaptchaConfigChange(captchaConfig.copy(useAndroidFingerprint = it)) },
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Text("Enable solver")
+                    Switch(
+                        checked = captchaConfig.enabled,
+                        onCheckedChange = { onCaptchaConfigChange(captchaConfig.copy(enabled = it)) },
+                    )
+                }
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Text("Android fingerprint")
+                    Switch(
+                        checked = captchaConfig.useAndroidFingerprint,
+                        onCheckedChange = { onCaptchaConfigChange(captchaConfig.copy(useAndroidFingerprint = it)) },
+                    )
+                }
+                OutlinedTextField(
+                    value = captchaConfig.apiKey,
+                    onValueChange = { onCaptchaConfigChange(captchaConfig.copy(apiKey = it)) },
+                    label = { Text("API key (CapSolver / 2Captcha)") },
+                    modifier = Modifier.fillMaxWidth(),
+                    singleLine = true,
                 )
-            }
-            OutlinedTextField(
-                value = captchaConfig.apiKey,
-                onValueChange = { onCaptchaConfigChange(captchaConfig.copy(apiKey = it)) },
-                label = { Text("API key (CapSolver / 2Captcha)") },
-                modifier = Modifier.fillMaxWidth(),
-                singleLine = true,
-            )
-            OutlinedTextField(
-                value = captchaConfig.authorizedDomains,
-                onValueChange = { onCaptchaConfigChange(captchaConfig.copy(authorizedDomains = it)) },
-                label = { Text("Authorized domains (comma-separated)") },
-                placeholder = { Text("staging.myapp.com, amazon.com") },
-                modifier = Modifier.fillMaxWidth(),
-            )
-            OutlinedTextField(
-                value = captchaConfig.proxyUrl,
-                onValueChange = { onCaptchaConfigChange(captchaConfig.copy(proxyUrl = it)) },
-                label = { Text("Residential proxy URL (optional)") },
-                modifier = Modifier.fillMaxWidth(),
-                singleLine = true,
-            )
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                TextButton(onClick = {
-                    onCaptchaConfigChange(captchaConfig.copy(provider = CaptchaSolverProvider.CAPSOLVER))
-                }) {
-                    Text(if (captchaConfig.provider == CaptchaSolverProvider.CAPSOLVER) "✓ CapSolver" else "CapSolver")
+                OutlinedTextField(
+                    value = captchaConfig.authorizedDomains,
+                    onValueChange = { onCaptchaConfigChange(captchaConfig.copy(authorizedDomains = it)) },
+                    label = { Text("Authorized domains (comma-separated)") },
+                    placeholder = { Text("staging.myapp.com, amazon.com") },
+                    modifier = Modifier.fillMaxWidth(),
+                )
+                OutlinedTextField(
+                    value = captchaConfig.proxyUrl,
+                    onValueChange = { onCaptchaConfigChange(captchaConfig.copy(proxyUrl = it)) },
+                    label = { Text("Residential proxy URL (optional)") },
+                    modifier = Modifier.fillMaxWidth(),
+                    singleLine = true,
+                )
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    FilterChip(
+                        selected = captchaConfig.provider == CaptchaSolverProvider.CAPSOLVER,
+                        onClick = { onCaptchaConfigChange(captchaConfig.copy(provider = CaptchaSolverProvider.CAPSOLVER)) },
+                        label = { Text("CapSolver") },
+                    )
+                    FilterChip(
+                        selected = captchaConfig.provider == CaptchaSolverProvider.TWOCAPTCHA,
+                        onClick = { onCaptchaConfigChange(captchaConfig.copy(provider = CaptchaSolverProvider.TWOCAPTCHA)) },
+                        label = { Text("2Captcha") },
+                    )
                 }
-                TextButton(onClick = {
-                    onCaptchaConfigChange(captchaConfig.copy(provider = CaptchaSolverProvider.TWOCAPTCHA))
-                }) {
-                    Text(if (captchaConfig.provider == CaptchaSolverProvider.TWOCAPTCHA) "✓ 2Captcha" else "2Captcha")
+                OutlinedButton(onClick = onSaveCaptchaConfig, modifier = Modifier.fillMaxWidth()) {
+                    Text("Save CAPTCHA settings")
                 }
-            }
-            OutlinedButton(onClick = onSaveCaptchaConfig, modifier = Modifier.fillMaxWidth()) {
-                Text("Save CAPTCHA settings")
             }
 
-            Text("Training Feedback Mechanism", style = MaterialTheme.typography.titleMedium)
-            Text(
-                "Coach the agent in chat — purpose, sources, preferences. Mandatory entries (sources/purpose) inject into EVERY session. " +
-                    "Upvote important entries. Say \"feedback:\" or coach naturally; also synced to long-term memory.",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
-            )
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-            ) {
-                OutlinedButton(
-                    onClick = {
-                        scope.launch {
-                            onClearFeedbackTransferMessage()
-                            val (json, count) = onBuildFeedbackExport()
-                            if (count == 0) {
-                                onShowFeedbackTransfer(
-                                    "No feedback to export yet. Coach the agent in chat first.",
-                                    false,
-                                )
-                                return@launch
+            SettingsSection(title = "Training Feedback Mechanism") {
+                Text(
+                    "Coach the agent in chat — purpose, sources, preferences. Mandatory entries (sources/purpose) inject into EVERY session. " +
+                        "Upvote important entries. Say \"feedback:\" or coach naturally; also synced to long-term memory.",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+                )
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                ) {
+                    OutlinedButton(
+                        onClick = {
+                            scope.launch {
+                                onClearFeedbackTransferMessage()
+                                val (json, count) = onBuildFeedbackExport()
+                                if (count == 0) {
+                                    onShowFeedbackTransfer(
+                                        "No feedback to export yet. Coach the agent in chat first.",
+                                        false,
+                                    )
+                                    return@launch
+                                }
+                                val uri = onCreateFeedbackShareUri(json)
+                                val intent = onBuildFeedbackShareIntent(uri)
+                                context.startActivity(Intent.createChooser(intent, "Share training feedback"))
                             }
-                            val uri = onCreateFeedbackShareUri(json)
-                            val intent = onBuildFeedbackShareIntent(uri)
-                            context.startActivity(Intent.createChooser(intent, "Share training feedback"))
-                        }
-                    },
-                    modifier = Modifier.weight(1f),
-                ) {
-                    Text("Share export")
+                        },
+                        modifier = Modifier.weight(1f),
+                    ) {
+                        Text("Share export")
+                    }
+                    OutlinedButton(
+                        onClick = {
+                            onClearFeedbackTransferMessage()
+                            saveFeedbackExportLauncher.launch(feedbackExportFileName)
+                        },
+                        modifier = Modifier.weight(1f),
+                    ) {
+                        Text("Save export")
+                    }
                 }
                 OutlinedButton(
                     onClick = {
                         onClearFeedbackTransferMessage()
-                        saveFeedbackExportLauncher.launch(feedbackExportFileName)
+                        importFeedbackLauncher.launch(arrayOf("application/json", "text/plain", "*/*"))
                     },
-                    modifier = Modifier.weight(1f),
+                    modifier = Modifier.fillMaxWidth(),
                 ) {
-                    Text("Save export")
+                    Text("Import feedback")
                 }
-            }
-            OutlinedButton(
-                onClick = {
-                    onClearFeedbackTransferMessage()
-                    importFeedbackLauncher.launch(arrayOf("application/json", "text/plain", "*/*"))
-                },
-                modifier = Modifier.fillMaxWidth(),
-            ) {
-                Text("Import feedback")
-            }
-            feedbackTransfer.message?.let { message ->
-                Text(
-                    text = message,
-                    style = MaterialTheme.typography.bodySmall,
-                    color = if (feedbackTransfer.isSuccess == true) {
-                        MaterialTheme.colorScheme.primary
-                    } else {
-                        MaterialTheme.colorScheme.error
-                    },
-                )
-            }
-            if (feedbackEntries.isEmpty()) {
-                Text(
-                    "No feedback yet. Example: \"Feedback: your purpose is multi-window research. Use browser_search on Amazon, open 4 windows, compare ratings faster.\"",
-                    style = MaterialTheme.typography.bodySmall,
-                )
-            } else {
-                Text(
-                    "Catalog (${feedbackEntries.size}) — sorted by priority",
-                    style = MaterialTheme.typography.labelLarge,
-                )
-                feedbackEntries.forEach { entry ->
-                    FeedbackRow(
-                        entry = entry,
-                        onUpvote = { onUpvoteFeedback(entry.id) },
-                        onDownvote = { onDownvoteFeedback(entry.id) },
-                        onDelete = { onDeleteFeedback(entry.id) },
+                feedbackTransfer.message?.let { message ->
+                    Text(
+                        text = message,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = if (feedbackTransfer.isSuccess == true) {
+                            MaterialTheme.colorScheme.primary
+                        } else {
+                            MaterialTheme.colorScheme.error
+                        },
                     )
+                }
+                if (feedbackEntries.isEmpty()) {
+                    Text(
+                        "No feedback yet. Example: \"Feedback: your purpose is multi-window research. Use browser_search on Amazon, open 4 windows, compare ratings faster.\"",
+                        style = MaterialTheme.typography.bodySmall,
+                    )
+                } else {
+                    Text(
+                        "Catalog (${feedbackEntries.size}) — sorted by priority",
+                        style = MaterialTheme.typography.labelLarge,
+                    )
+                    feedbackEntries.forEach { entry ->
+                        FeedbackRow(
+                            entry = entry,
+                            onUpvote = { onUpvoteFeedback(entry.id) },
+                            onDownvote = { onDownvoteFeedback(entry.id) },
+                            onDelete = { onDeleteFeedback(entry.id) },
+                        )
+                    }
                 }
             }
 
-            Text("Long-term Memory", style = MaterialTheme.typography.titleMedium)
-            Text(
-                "Hermes-style persistent memory with FTS search. Extracted automatically after each turn.",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
-            )
-            if (memory.isEmpty()) {
+            SettingsSection(title = "Long-term Memory") {
                 Text(
-                    "No memories yet. Say \"remember that I prefer concise summaries\" or let the agent learn from tasks.",
+                    "Hermes-style persistent memory with FTS search. Extracted automatically after each turn.",
                     style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
                 )
-            } else {
-                memory.take(12).forEach { entry ->
+                if (memory.isEmpty()) {
                     Text(
-                        "[${entry.category}] ${entry.key}: ${entry.value.take(80)}",
+                        "No memories yet. Say \"remember that I prefer concise summaries\" or let the agent learn from tasks.",
                         style = MaterialTheme.typography.bodySmall,
-                        modifier = Modifier.padding(vertical = 2.dp),
                     )
+                } else {
+                    memory.take(12).forEach { entry ->
+                        Text(
+                            "[${entry.category}] ${entry.key}: ${entry.value.take(80)}",
+                            style = MaterialTheme.typography.bodySmall,
+                            modifier = Modifier.padding(vertical = 2.dp),
+                        )
+                    }
                 }
             }
 
-            Text("Self-Improved Strategies", style = MaterialTheme.typography.titleMedium)
-            Text(
-                "Heuristics learned from past trajectories. Injected into the agent prompt automatically.",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
-            )
-            if (strategies.isEmpty()) {
+            SettingsSection(title = "Self-Improved Strategies") {
                 Text(
-                    "No strategies yet. Complete browsing tasks and the agent will reflect and improve.",
+                    "Heuristics learned from past trajectories. Injected into the agent prompt automatically.",
                     style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
                 )
-            } else {
-                strategies.take(8).forEach { strategy ->
+                if (strategies.isEmpty()) {
                     Text(
-                        "[${strategy.domain}] ${strategy.heuristic} (${(strategy.confidence * 100).toInt()}% confidence)",
+                        "No strategies yet. Complete browsing tasks and the agent will reflect and improve.",
                         style = MaterialTheme.typography.bodySmall,
-                        modifier = Modifier.padding(vertical = 2.dp),
                     )
+                } else {
+                    strategies.take(8).forEach { strategy ->
+                        Text(
+                            "[${strategy.domain}] ${strategy.heuristic} (${(strategy.confidence * 100).toInt()}% confidence)",
+                            style = MaterialTheme.typography.bodySmall,
+                            modifier = Modifier.padding(vertical = 2.dp),
+                        )
+                    }
                 }
             }
+            Spacer(modifier = Modifier.height(8.dp))
+        }
+    }
+}
+
+@Composable
+private fun SettingsSection(
+    title: String,
+    modifier: Modifier = Modifier,
+    content: @Composable () -> Unit,
+) {
+    Surface(
+        modifier = modifier.fillMaxWidth(),
+        shape = MaterialTheme.shapes.medium,
+        color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.45f),
+        tonalElevation = 0.dp,
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(10.dp),
+        ) {
+            Text(
+                text = title,
+                style = MaterialTheme.typography.titleMedium,
+                color = MaterialTheme.colorScheme.onSurface,
+            )
+            content()
         }
     }
 }

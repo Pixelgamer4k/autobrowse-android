@@ -1,5 +1,12 @@
 package com.autobrowse.android.ui.screens
 
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -43,66 +50,86 @@ import com.autobrowse.android.ui.components.SessionsPanelOverlay
 fun HomeScreen(viewModel: MainViewModel) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
 
-    when {
-        state.showLlmSetup -> {
-            LlmSetupScreen(
-                llmConfig = state.llmConfig,
-                connectionTest = state.llmConnectionTest,
-                onTestConnection = viewModel::testLlmConnection,
-                onSave = viewModel::saveLlmConfig,
-                onImportModel = viewModel::importLocalModel,
-                onDownloadModel = viewModel::downloadLocalModel,
-                onDeleteModel = viewModel::deleteLocalModel,
-                onCancelModelDownload = viewModel::cancelModelDownload,
-                modelDownload = state.modelDownload,
-                localModelBusy = state.localModelBusy,
-                downloadedModels = state.downloadedLocalModels,
-                onOpenUrl = viewModel::openUrl,
-                onBack = if (state.llmSetupFromSettings) viewModel::closeLlmSetup else null,
-            )
-        }
-        state.showSettings -> {
-            SettingsScreen(
-                skillConfigs = state.skillConfigs,
-                enabledSkills = state.enabledSkills,
-                agentSkills = state.agentSkills,
-                memory = state.memory,
-                strategies = state.strategies,
-                skillTransfer = state.skillTransfer,
-                feedbackEntries = state.feedbackEntries,
-                feedbackTransfer = state.feedbackTransfer,
-                onOpenLlmSetup = { viewModel.openLlmSetup(fromSettings = true) },
-                onToggleSkill = viewModel::toggleSkill,
-                onBuildLearnedSkillsExport = viewModel::buildLearnedSkillsExport,
-                onCreateLearnedSkillsShareUri = viewModel::createLearnedSkillsShareUri,
-                onBuildLearnedSkillsShareIntent = viewModel::buildLearnedSkillsShareIntent,
-                onSaveLearnedSkillsExport = viewModel::saveLearnedSkillsExport,
-                onImportLearnedSkills = viewModel::importLearnedSkills,
-                onClearSkillTransferMessage = viewModel::clearSkillTransferMessage,
-                onShowSkillTransfer = viewModel::showSkillTransfer,
-                onBuildFeedbackExport = viewModel::buildFeedbackExport,
-                onCreateFeedbackShareUri = viewModel::createFeedbackShareUri,
-                onBuildFeedbackShareIntent = viewModel::buildFeedbackShareIntent,
-                onSaveFeedbackExport = viewModel::saveFeedbackExport,
-                onImportFeedback = viewModel::importFeedback,
-                onClearFeedbackTransferMessage = viewModel::clearFeedbackTransferMessage,
-                onShowFeedbackTransfer = viewModel::showFeedbackTransfer,
-                onUpvoteFeedback = viewModel::upvoteFeedback,
-                onDownvoteFeedback = viewModel::downvoteFeedback,
-                onDeleteFeedback = viewModel::deleteFeedback,
-                captchaConfig = state.captchaConfig,
-                onCaptchaConfigChange = viewModel::updateCaptchaConfig,
-                onSaveCaptchaConfig = viewModel::saveCaptchaConfig,
-                exportFileName = viewModel.learnedSkillsExportFileName(),
-                feedbackExportFileName = viewModel.feedbackExportFileName(),
-                appUiConfig = state.appUiConfig,
-                onResolutionScaleChange = viewModel::updateResolutionScale,
-                onMaxAgentIterationsChange = viewModel::updateMaxAgentIterations,
-                onBack = { viewModel.toggleSettings(false) },
-            )
-        }
-        else -> {
-            MainContent(viewModel = viewModel, state = state)
+    val screenKey = when {
+        state.showLlmSetup -> "llm_setup"
+        state.showSettings -> "settings"
+        else -> "main"
+    }
+    AnimatedContent(
+        targetState = screenKey,
+        transitionSpec = {
+            val direction = when (targetState) {
+                "main" -> -1
+                "settings" -> if (initialState == "main") 1 else -1
+                else -> 1
+            }
+            (slideInHorizontally(animationSpec = tween(320)) { it * direction / 5 } + fadeIn(tween(240))) togetherWith
+                (slideOutHorizontally(animationSpec = tween(260)) { it * direction / 5 } + fadeOut(tween(200)))
+        },
+        label = "homeScreen",
+    ) { key ->
+        when (key) {
+            "llm_setup" -> {
+                LlmSetupScreen(
+                    llmConfig = state.llmConfig,
+                    connectionTest = state.llmConnectionTest,
+                    onTestConnection = viewModel::testLlmConnection,
+                    onSave = viewModel::saveLlmConfig,
+                    onImportModel = viewModel::importLocalModel,
+                    onDownloadModel = viewModel::downloadLocalModel,
+                    onDeleteModel = viewModel::deleteLocalModel,
+                    onCancelModelDownload = viewModel::cancelModelDownload,
+                    modelDownload = state.modelDownload,
+                    localModelBusy = state.localModelBusy,
+                    downloadedModels = state.downloadedLocalModels,
+                    onOpenUrl = viewModel::openUrl,
+                    onBack = if (state.llmSetupFromSettings) viewModel::closeLlmSetup else null,
+                )
+            }
+            "settings" -> {
+                SettingsScreen(
+                    skillConfigs = state.skillConfigs,
+                    enabledSkills = state.enabledSkills,
+                    agentSkills = state.agentSkills,
+                    memory = state.memory,
+                    strategies = state.strategies,
+                    skillTransfer = state.skillTransfer,
+                    feedbackEntries = state.feedbackEntries,
+                    feedbackTransfer = state.feedbackTransfer,
+                    onOpenLlmSetup = { viewModel.openLlmSetup(fromSettings = true) },
+                    onToggleSkill = viewModel::toggleSkill,
+                    onBuildLearnedSkillsExport = viewModel::buildLearnedSkillsExport,
+                    onCreateLearnedSkillsShareUri = viewModel::createLearnedSkillsShareUri,
+                    onBuildLearnedSkillsShareIntent = viewModel::buildLearnedSkillsShareIntent,
+                    onSaveLearnedSkillsExport = viewModel::saveLearnedSkillsExport,
+                    onImportLearnedSkills = viewModel::importLearnedSkills,
+                    onClearSkillTransferMessage = viewModel::clearSkillTransferMessage,
+                    onShowSkillTransfer = viewModel::showSkillTransfer,
+                    onBuildFeedbackExport = viewModel::buildFeedbackExport,
+                    onCreateFeedbackShareUri = viewModel::createFeedbackShareUri,
+                    onBuildFeedbackShareIntent = viewModel::buildFeedbackShareIntent,
+                    onSaveFeedbackExport = viewModel::saveFeedbackExport,
+                    onImportFeedback = viewModel::importFeedback,
+                    onClearFeedbackTransferMessage = viewModel::clearFeedbackTransferMessage,
+                    onShowFeedbackTransfer = viewModel::showFeedbackTransfer,
+                    onUpvoteFeedback = viewModel::upvoteFeedback,
+                    onDownvoteFeedback = viewModel::downvoteFeedback,
+                    onDeleteFeedback = viewModel::deleteFeedback,
+                    captchaConfig = state.captchaConfig,
+                    onCaptchaConfigChange = viewModel::updateCaptchaConfig,
+                    onSaveCaptchaConfig = viewModel::saveCaptchaConfig,
+                    exportFileName = viewModel.learnedSkillsExportFileName(),
+                    feedbackExportFileName = viewModel.feedbackExportFileName(),
+                    appUiConfig = state.appUiConfig,
+                    onResolutionScaleChange = viewModel::updateResolutionScale,
+                    onMaxAgentIterationsChange = viewModel::updateMaxAgentIterations,
+                    onThemeModeChange = viewModel::updateThemeMode,
+                    onBack = { viewModel.toggleSettings(false) },
+                )
+            }
+            else -> {
+                MainContent(viewModel = viewModel, state = state)
+            }
         }
     }
 }
@@ -155,6 +182,7 @@ private fun MainContent(
                     onRefreshTab = viewModel::refreshTab,
                     onToggleMaximizeTab = viewModel::toggleMaximizeTab,
                     onCloseTab = viewModel::closeTab,
+                    onMinimizeTab = viewModel::minimizeTab,
                     onGoBackTab = viewModel::goBackTab,
                     onGoForwardTab = viewModel::goForwardTab,
                     modifier = Modifier.fillMaxSize(),
@@ -176,6 +204,10 @@ private fun MainContent(
                 scrollOnInput = chatInputFocused,
                 composerBottomPadding = composerBottomPadding,
                 bannerMessage = state.error,
+                onQuickAction = { prompt ->
+                    viewModel.updateChatInput(prompt)
+                    viewModel.sendMessage()
+                },
                 modifier = Modifier
                     .fillMaxWidth()
                     .weight(0.54f)

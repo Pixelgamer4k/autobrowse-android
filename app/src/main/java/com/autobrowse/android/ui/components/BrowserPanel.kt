@@ -74,6 +74,7 @@ fun BrowserPanel(
     onRefreshTab: (String) -> Unit,
     onToggleMaximizeTab: (String) -> Unit,
     onCloseTab: (String) -> Unit,
+    onMinimizeTab: (String) -> Unit = {},
     onGoBackTab: (String) -> Unit = {},
     onGoForwardTab: (String) -> Unit = {},
     modifier: Modifier = Modifier,
@@ -135,6 +136,7 @@ fun BrowserPanel(
                         onRefresh = { onRefreshTab(tab.id) },
                         onToggleMaximize = { onToggleMaximizeTab(tab.id) },
                         onClose = { onCloseTab(tab.id) },
+                        onMinimize = { onMinimizeTab(tab.id) },
                         onGoBack = { onGoBackTab(tab.id) },
                         onGoForward = { onGoForwardTab(tab.id) },
                         modifier = Modifier,
@@ -253,7 +255,7 @@ private fun TabStrip(
                     Icons.Default.Add,
                     contentDescription = "New tab",
                     modifier = Modifier.size(20.dp),
-                    tint = Color.White,
+                    tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.92f),
                 )
             }
         }
@@ -328,7 +330,7 @@ private fun BrowserToolbar(
                     Icons.Default.Add,
                     contentDescription = "New tab",
                     modifier = Modifier.size(18.dp),
-                    tint = Color.White,
+                    tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.92f),
                 )
             }
         }

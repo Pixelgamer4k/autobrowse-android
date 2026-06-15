@@ -6,7 +6,9 @@ import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutHorizontally
+import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -334,15 +336,20 @@ private fun SessionsPanelContent(
                     verticalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
                     items(listItems, key = { it.session.id }) { item ->
-                        SessionRow(
-                            item = item,
-                            searchQuery = searchQuery,
-                            selected = item.session.id == activeSessionId,
-                            canDelete = sessions.size > 1,
-                            onClick = { onSelectSession(item.session.id) },
-                            onPin = { onPinSession(item.session.id, !item.session.isPinned) },
-                            onDelete = { onDeleteSession(item.session.id) },
-                        )
+                        AnimatedVisibility(
+                            visible = true,
+                            enter = fadeIn(Motion.tweenQuick) + slideInVertically(Motion.springSmoothOffset) { it / 4 },
+                        ) {
+                            SessionRow(
+                                item = item,
+                                searchQuery = searchQuery,
+                                selected = item.session.id == activeSessionId,
+                                canDelete = sessions.size > 1,
+                                onClick = { onSelectSession(item.session.id) },
+                                onPin = { onPinSession(item.session.id, !item.session.isPinned) },
+                                onDelete = { onDeleteSession(item.session.id) },
+                            )
+                        }
                     }
                 }
             }
